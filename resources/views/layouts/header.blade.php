@@ -39,26 +39,19 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="{{route('liste')}}">
+            <a class="nav-link" href="{{route('profileadmin')}}">
               <i class="material-icons" >person</i>
               <p>User Profile</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="{{route('liste')}}">
-              <i class="material-icons" >person</i>
+              <i class="material-icons" >content_paste</i>
               <p>Liste des user</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link"href="{{route('liste')}}">
-              <i class="material-icons">content_paste</i>
-              <p>Table List</p>
-            </a>
-          </li>
-         
-          <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
+            <a class="nav-link" href="{{route('listelivre')}}">
               <i class="material-icons">library_books</i>
               <p>Liste des Livre</p>
             </a>

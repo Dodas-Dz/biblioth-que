@@ -29,5 +29,12 @@ class HomeController extends Controller
     {
         return view('/admin/statistic');
     }
-
+    public function profileadmin()
+    {
+        return view('/admin/profileadmin');
+    }
+    public function listelivre()
+    {
+        return view('/admin/listelivre');
+    }
 }
