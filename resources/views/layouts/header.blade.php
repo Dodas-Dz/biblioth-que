@@ -58,7 +58,7 @@
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./icons.html">
-              <i class="material-icons">Categorie</i>
+              <i class="material-icons">category</i>
               <p>Categorie</p>
             </a>
           </li>
