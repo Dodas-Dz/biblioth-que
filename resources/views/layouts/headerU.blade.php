@@ -10,7 +10,7 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title>little squirrel | Landing, Responsive &amp; Business Templatee</title>
+    <title></title>
 
 
     <!-- ===============================================-->
@@ -23,6 +23,14 @@
     <link rel="manifest" href="assetsU/img/favicons/manifest.json">
     <meta name="msapplication-TileImage" content="assetsU/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
 
 
     <!-- ===============================================-->
@@ -48,7 +56,7 @@
         <div class="container">
           <div class="row align-items-center">
           
-            <div class="col-auto ms-md-auto order-md-2 d-none d-sm-block">
+            <div class="col-auto ms-md-auto order-md-2 d-none d-sm-block ">
               <ul class="list-unstyled list-inline my-2">
                 <li class="list-inline-item"><a class="text-decoration-none" href="#!"><i class="fab fa-facebook-f text-900"></i></a></li>
                 <li class="list-inline-item"><a class="text-decoration-none" href="#!"><i class="fab fa-pinterest text-900"></i></a></li>
@@ -57,7 +65,7 @@
               </ul>
             </div>
             <div class="col-auto">
-              <p class="my-2 fs--1"><i class="fas fa-envelope me-3"></i><a class="text-900" href="mailto:vctung@outlook.com">vctung@outlook.com </a></p>
+              
             </div>
           </div>
         </div>
@@ -69,28 +77,35 @@
 
 
       <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
-        <div class="container"><a class="navbar-brand" href="index.html"><img src="assetsU/img/gallery/logo-n.png" height="45" alt="logo" /></a>
+        <div class="container"><a class="navbar-brand" href="index.html"><img src="../assets/img/apple-icon.png" height="45" alt="logo" /></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
           <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
               <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="{{Route('homee')}}">Home</a></li>
      
               <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{Route('recherche')}}">Livre</a></li>
-              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{Route('statistic')}}">admin</a></li>
-
+              @can('isAdmin')
+       
+              
+              @guest
+              @if (Route::has('login') or Route::has('register'))
+                <li class="nav-item px-2"> <a  href="{{ route('login') }}">{{ __('Log/Reg') }}</a></li>
+              @endif<!----> 
+              @else
+                <li  class="nav-item px-2" > <a class="nav-link" aria-current="page"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> {{ Auth::user()->name }} </a></li>
+                <li  class="nav-item px-2"  > <a class="btn nav-link" aria-current="page"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a> </li>
+                <li   class="nav-item px-2"> <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
+                <li class="nav-item ">
+            <a class="nav-link" href="{{route('statistic')}}">
+              <i class="material-icons" >person</i>
+            </a>
+          </li>
+            
+          @endguest
+          @endcan
             </ul>
-            <form class="d-flex my-3 d-block d-lg-none">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button class="btn btn-outline-primary" type="submit">Search</button>
-            </form>
-            <div class="dropdown d-none d-lg-block">
-              <button class="btn btn-outline-light ms-2" id="dropdownMenuButton1" type="submit" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-search text-800"></i></button>
-              <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton1" style="top:55px">
-                <form>
-                  <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
-                </form>
-              </ul>
-            </div>
+            
+            
           </div>
         </div>
       </nav>

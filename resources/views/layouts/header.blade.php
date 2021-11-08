@@ -31,8 +31,9 @@
         <ul class="nav">
           <li class="nav-item active  ">
             <a class="nav-link" href="{{Route('statistic')}}">
-              <i class="material-icons">statistical</i>
-              <p>Stat</p>
+              <i class="material-icons">S</i>
+              <p>
+statistical</p>
             </a>
           </li>
           <li class="nav-item ">

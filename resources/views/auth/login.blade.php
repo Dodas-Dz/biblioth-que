@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link href= "{{asset('css/style.css')}}" rel="stylesheet"/>
-<title>ZYRAH -</title>
+<title>admin Connecte</title>
 </head>
 <body>
 @if($errors->any())
