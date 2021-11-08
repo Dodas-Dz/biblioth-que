@@ -76,6 +76,7 @@
               <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="{{Route('homee')}}">Home</a></li>
      
               <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{Route('recherche')}}">Livre</a></li>
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{Route('statistic')}}">admin</a></li>
 
             </ul>
             <form class="d-flex my-3 d-block d-lg-none">

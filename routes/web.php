@@ -2,12 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'statistic'])->name('statistic');
+Route::get('/statistique', [App\Http\Controllers\HomeController::class, 'statistic'])->name('statistic');
 Route::get('/liste', [App\Http\Controllers\HomeController::class, 'liste'])->name('liste');
 Route::get('/ProfileAdmin', [App\Http\Controllers\HomeController::class, 'profileadmin'])->name('profileadmin');
 Route::get('/ListeAdmin', [App\Http\Controllers\HomeController::class, 'listelivre'])->name('listelivre');
 Auth::routes();
-Route::get('/hommee', function () {
+Route::get('/', function () {
     return view('user/index');
 })->name('homee');
 Route::get('/recherche', function () {
