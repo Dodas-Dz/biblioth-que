@@ -22,11 +22,6 @@
 <body class="dark-edition">
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="black" >
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
     <div class="logo ">
         <a class="simple-text logo-normal">
           <img src="../assets/img/faces/marc.jpg" class="rounded-circle w-25 h-25 " alt="Cinque Terre">

@@ -7,6 +7,12 @@ Route::get('/liste', [App\Http\Controllers\HomeController::class, 'liste'])->nam
 Route::get('/ProfileAdmin', [App\Http\Controllers\HomeController::class, 'profileadmin'])->name('profileadmin');
 Route::get('/ListeAdmin', [App\Http\Controllers\HomeController::class, 'listelivre'])->name('listelivre');
 Auth::routes();
+Route::get('/hommee', function () {
+    return view('user/index');
+})->name('homee');
+Route::get('/recherche', function () {
+    return view('user/recherche');
+})->name('recherche');
 /*route::post('/home', [App\Http\Controllers\CommandesController::class, 'message'])->name('message');
 
 Route::get('/service-web', [App\Http\Controllers\ServiceController::class, 'index_web'])->name('serviceweb');
