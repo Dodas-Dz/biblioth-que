@@ -16,10 +16,9 @@
     <!-- ===============================================-->
     <!--    Favicons-->
     <!-- ===============================================-->
-    <link rel="apple-touch-icon" sizes="180x180" href="assetsU/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assetsU/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assetsU/img/favicons/favicon-16x16.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assetsU/img/favicons/favicon.ico">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <link rel="manifest" href="assetsU/img/favicons/manifest.json">
     <meta name="msapplication-TileImage" content="assetsU/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
@@ -84,7 +83,7 @@
               <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="{{Route('homee')}}">Home</a></li>
      
               <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{Route('recherche')}}">Livre</a></li>
-              @can('isAdmin')
+              @canany(['isAdmin' , 'isGestion'])
        
               
               @guest

@@ -34,5 +34,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('isGestion', function($user) {
             return $user->role == 'gestion';
         });
+        Gate::define('isBoth', function($user) {
+            if($user->role == 'gestion' || $user->role == 'admin')
+            return true;
+        });
     }
 }

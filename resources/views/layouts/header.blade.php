@@ -26,6 +26,7 @@
         <a class="simple-text logo-normal">
           <img src="../assets/img/faces/marc.jpg" class="rounded-circle w-25 h-25 " alt="Cinque Terre">
         </a>
+        @canany(['isAdmin' , 'isGestion'])
     </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -76,3 +77,4 @@ statistical</p>
         </ul>
       </div>
     </div>
+@endcan

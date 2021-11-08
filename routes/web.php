@@ -2,17 +2,26 @@
 
 use Illuminate\Support\Facades\Route;
 Auth::routes();
+
 Route::middleware(['auth'])->group(function () {
-Route::get('/statistique', [App\Http\Controllers\HomeController::class, 'statistic'])->name('statistic');
-Route::get('/liste', [App\Http\Controllers\HomeController::class, 'liste'])->name('liste');
-Route::get('/ProfileAdmin', [App\Http\Controllers\HomeController::class, 'profileadmin'])->name('profileadmin');
-Route::get('/ListeAdmin', [App\Http\Controllers\HomeController::class, 'listelivre'])->name('listelivre');
+Route::get('/statistique', [App\Http\Controllers\HomeController::class, 'statistic'])->middleware('can:isBoth')->name('statistic');
+Route::get('/liste', [App\Http\Controllers\HomeController::class, 'liste'])->middleware('can:isBoth')->name('liste');
+Route::get('/ProfileAdmin', [App\Http\Controllers\HomeController::class, 'profileadmin'])->middleware('can:isBoth')->name('profileadmin');
+Route::get('/ListeAdmin', [App\Http\Controllers\HomeController::class, 'listelivre'])->middleware('can:isBoth')->name('listelivre');
 });
 
-Route::get('/admineLogin', function () {
-    return view('auth/login');
-});
-Route::get('/home', function () {
+Route::get('/recherche', [App\Http\Controllers\HomeController::class, 'Recherche'])->name('recherche');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'Home'])->name('homee');
+
+
+
+
+
+
+
+
+
+Route::get('/', function () {
     return view('user/index');
 })->name('homee');
 Route::get('/recherche', function () {
