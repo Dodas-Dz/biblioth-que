@@ -37,4 +37,8 @@ class HomeController extends Controller
     {
         return view('/admin/listelivre');
     }
+    public function AjouterMot(){
+        return view('/admin/AjouterMot');
+
+    }
 }

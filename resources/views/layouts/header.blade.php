@@ -61,6 +61,12 @@ statistical</p>
               <p>Categorie</p>
             </a>
           </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{{route('AjouterMot')}}">
+              <i class="material-icons">+</i>
+              <p>ajouter un mot cle</p>
+            </a>
+          </li>
        
           <li class="nav-item ">
             <a class="nav-link" href="./notifications.html">

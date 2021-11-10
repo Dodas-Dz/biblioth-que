@@ -8,7 +8,9 @@ Route::get('/statistique', [App\Http\Controllers\HomeController::class, 'statist
 Route::get('/liste', [App\Http\Controllers\HomeController::class, 'liste'])->middleware('can:isBoth')->name('liste');
 Route::get('/ProfileAdmin', [App\Http\Controllers\HomeController::class, 'profileadmin'])->middleware('can:isBoth')->name('profileadmin');
 Route::get('/ListeAdmin', [App\Http\Controllers\HomeController::class, 'listelivre'])->middleware('can:isBoth')->name('listelivre');
+Route::get('/AjouterMot', [App\Http\Controllers\HomeController::class, 'AjouterMot'])->middleware('can:isBoth')->name('AjouterMot');
 });
+
 
 Route::get('/recherche', [App\Http\Controllers\GuestServer::class, 'Recherche'])->name('recherche');
 Route::get('/home', [App\Http\Controllers\GuestServer::class, 'Home'])->name('homee');
