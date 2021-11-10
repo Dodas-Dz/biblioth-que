@@ -77,28 +77,21 @@
             <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="{{Route('Emprente')}}">Emprente</a></li>
             <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{Route('recherche')}}">Livre</a></li>
             <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{Route('Apropos')}}">Apropos</a></li>
-            @canany(['isAdmin' , 'isGestion'])
+   @canany(['isAdmin' , 'isGestion'])
        
               
        @guest
-       @if (Route::has('login') or Route::has('register'))
-         <li class="nav-item px-2"> <a  href="{{ route('login') }}">{{ __('Log/Reg') }}</a></li>
-       @endif<!----> 
-       @else
-         <li  class="nav-item px-2" > <a class="nav-link" aria-current="page"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> {{ Auth::user()->name }} </a></li>
-         <li  class="nav-item px-2"  > <a class="btn nav-link" aria-current="page"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a> </li>
-         <li   class="nav-item px-2"> <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
-         <li class="nav-item ">
-     <a class="nav-link" href="{{route('statistic')}}">
-       <i class="material-icons" >person</i>
-     </a>
-   </li>
-     
+          @if (Route::has('login') or Route::has('register'))
+            <li class="nav-item px-2"> <a  href="{{ route('login') }}">{{ __('Log/Reg') }}</a></li>
+          @endif<!----> 
+          @else
+            <li  class="nav-item px-2" > <a class="nav-link" aria-current="page"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> {{ Auth::user()->name }} </a></li>
+            <li class="nav-item "><a class="nav-link" href="{{route('statistic')}}"> <i class="material-icons" >person</i></a></li>
+            <li  class="nav-item px-2"  > <a class="btn btn-primary order-1 order-lg-0" aria-current="page"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a> </li>
+            <li   class="nav-item px-2"> <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
        @endguest
    @endcan
-
           </ul>
-
         </div>
       </div>
     </nav>
