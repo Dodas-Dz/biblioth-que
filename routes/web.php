@@ -10,23 +10,10 @@ Route::get('/ProfileAdmin', [App\Http\Controllers\HomeController::class, 'profil
 Route::get('/ListeAdmin', [App\Http\Controllers\HomeController::class, 'listelivre'])->middleware('can:isBoth')->name('listelivre');
 });
 
-Route::get('/recherche', [App\Http\Controllers\HomeController::class, 'Recherche'])->name('recherche');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'Home'])->name('homee');
+Route::get('/recherche', [App\Http\Controllers\GuestServer::class, 'Recherche'])->name('recherche');
+Route::get('/home', [App\Http\Controllers\GuestServer::class, 'Home'])->name('homee');
+Route::get('/', [App\Http\Controllers\GuestServer::class, 'Home']);
 
-
-
-
-
-
-
-
-
-Route::get('/', function () {
-    return view('user/index');
-})->name('homee');
-Route::get('/recherche', function () {
-    return view('user/recherche');
-})->name('recherche');
 /*route::post('/home', [App\Http\Controllers\CommandesController::class, 'message'])->name('message');
 
 Route::get('/service-web', [App\Http\Controllers\ServiceController::class, 'index_web'])->name('serviceweb');
