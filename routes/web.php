@@ -13,7 +13,8 @@ Route::get('/ListeAdmin', [App\Http\Controllers\HomeController::class, 'listeliv
 Route::get('/recherche', [App\Http\Controllers\GuestServer::class, 'Recherche'])->name('recherche');
 Route::get('/home', [App\Http\Controllers\GuestServer::class, 'Home'])->name('homee');
 Route::get('/', [App\Http\Controllers\GuestServer::class, 'Home']);
-
+Route::get('/Enprente', [App\Http\Controllers\GuestServer::class, 'Emprente'])->name('Emprente');
+Route::get('/Apropos', [App\Http\Controllers\GuestServer::class, 'Apropos'])->name('Apropos');
 /*route::post('/home', [App\Http\Controllers\CommandesController::class, 'message'])->name('message');
 
 Route::get('/service-web', [App\Http\Controllers\ServiceController::class, 'index_web'])->name('serviceweb');

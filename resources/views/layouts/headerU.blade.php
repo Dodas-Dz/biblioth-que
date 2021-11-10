@@ -74,8 +74,9 @@
         <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
             <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="{{Route('homee')}}">Home</a></li>
-
+            <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="{{Route('Emprente')}}">Emprente</a></li>
             <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{Route('recherche')}}">Livre</a></li>
+            <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{Route('Apropos')}}">Apropos</a></li>
             @canany(['isAdmin' , 'isGestion'])
        
               
@@ -93,7 +94,7 @@
      </a>
    </li>
      
-   @endguest
+       @endguest
    @endcan
 
           </ul>

@@ -14,4 +14,13 @@ class GuestServer extends Controller
     {
         return view('user/recherche');
     }
+    public function Emprente()
+    {
+        return view('user/Emprente');
+    }
+    public function Apropos()
+    {
+        return view ('user/Apropos');
+    }
+
 }
