@@ -10,7 +10,7 @@
   <!-- ===============================================-->
   <!--    Document Title-->
   <!-- ===============================================-->
-  <title>Knowledge park</title>
+  <title>Maktaba</title>
 
 
   <!-- ===============================================-->
@@ -44,58 +44,47 @@
   <main class="main" id="top">
 
 
-    <!-- ============================================-->
-    <!-- <section> begin ============================-->
-    <section class="bg-primary py-2 d-none d-sm-block">
+    
 
-      <div class="container">
-        <div class="row align-items-center">
-
-          <div class="col-auto ms-md-auto order-md-2 d-none d-sm-block">
-            <ul class="list-unstyled list-inline my-2">
-              <li class="list-inline-item"><a class="text-decoration-none" href="#!"><i class="fab fa-facebook-f text-900"></i></a></li>
-              <li class="list-inline-item"><a class="text-decoration-none" href="#!"><i class="fab fa-pinterest text-900"></i></a></li>
-              <li class="list-inline-item"><a class="text-decoration-none" href="#!"><i class="fab fa-twitter text-900"></i></a></li>
-              <li class="list-inline-item"><a class="text-decoration-none" href="#!"><i class="fab fa-instagram text-900"> </i></a></li>
-            </ul>
-          </div>
-          <div class="col-auto">
-            <p class="my-2 fs--1"><i class="fas fa-envelope me-3"></i><a class="text-900" href="mailto:vctung@outlook.com">vctung@outlook.com </a></p>
-          </div>
-        </div>
-      </div>
-      <!-- end of .container-->
-
-    </section>
+   
     <!-- <section> close ============================-->
     <!-- ============================================-->
 
 
     <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
-      <div class="container"><a class="navbar-brand" href="{{Route('homee')}}"><img src="assets/img/favicon.png" height="45" alt="logo" /></a>
+      <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/favicon.png" height="55" alt="logo" /></a>
+      <h5 class="fw-light font-monospace fs-3 mt-3 ms-2 ">Maktaba</h5>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
         <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
-            <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="{{Route('homee')}}">Home</a></li>
-            <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="{{Route('Emprente')}}">Emprente</a></li>
-            <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{Route('recherche')}}">Livre</a></li>
-            <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{Route('Apropos')}}">Apropos</a></li>
+          <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base" >
+         
+
+              <li class="nav-item px-3"><a class="fw-bold fs-1  nav-link active"aria-current="page" href="{{Route('homee')}}">Accueil</a></li>
+             <li class="nav-item px-3"><a class="fw-bold fs-1 nav-link" aria-current="page" href="{{Route('recherche')}}">Livre</a></li>
+              <li class="nav-item px-3"><a class="fw-bold fs-1 nav-link" aria-current="page" href="{{Route('Apropos')}}">A propos</a></li>
+             
+              <li class="nav-item px-2 ms-4 me-n8 ">  <a class="btn btn-primary btn-lg fw-bold fs-1" 
+              aria-current="page"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+              v-pre href="{{Route('Emprente')}}">
+              <i class="fw-bold fs-3 fas fa-book me-2 mt-0"> </i> Mes livres</a></li>
+              
+             
+</ul>
+           
             @canany(['isAdmin' , 'isGestion'])
-
-
-            @guest
-            @if (Route::has('login') or Route::has('register'))
-            <li class="nav-item px-2"> <a href="{{ route('login') }}">{{ __('Log/Reg') }}</a></li>
-            @endif
-            <!---->
-            @else
-            <li class="nav-item px-2"> <a class="nav-link" aria-current="page" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> {{ Auth::user()->name }} </a></li>
-            <li class="nav-item pe-sm-3 "><a class="nav-link" href="{{route('statistic')}}"> <i class="material-icons">person</i></a></li>
-            <li class="nav-item px-2"> <a class="btn btn-primary order-1 order-lg-0" aria-current="page" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a> </li>
-            <li class="nav-item px-2">
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
-              @endguest
-              @endcan
+       
+              
+       @guest
+          @if (Route::has('login') or Route::has('register'))
+            <li class="nav-item px-2"> <a  href="{{ route('login') }}">{{ __('Log/Reg') }}</a></li>
+          @endif<!----> 
+          @else
+            <li  class="nav-item px-2" > <a class="nav-link" aria-current="page"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> {{ Auth::user()->name }} </a></li>
+            <li class="nav-item "><a class="nav-link" href="{{route('statistic')}}"> <i class="material-icons" >person</i></a></li>
+            <li  class="nav-item px-2"  > <a class="btn btn-primary order-1 order-lg-0" aria-current="page"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a> </li>
+            <li   class="nav-item px-2"> <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
+       @endguest
+   @endcan
           </ul>
         </div>
       </div>
