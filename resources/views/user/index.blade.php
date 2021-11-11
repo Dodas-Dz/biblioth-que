@@ -6,8 +6,8 @@
       <div class="col-md-7 col-lg-6 text-md-start text-center py-6">
         <h4 class="fw-bold font-sans-serif">Devenir bibliophile</h4>
         <h1 class="fs-6 fs-xl-7 mb-5">Nouveaux livres Nouveux mots Nouvelle vie</h1>
-        <a class="btn btn-primary btn-lg me-2 fw-bold fs-1" href="#!" role="button">Emprunter livre</a>
-        <a class="btn btn-outline-secondary btn-lg fw-bold fs-1" href="#!" role="button">Contactez nous</a>
+        <a class="btn btn-primary btn-lg me-2 fw-bold fs-1" href="{{Route('recherche')}}" role="button">Emprunter livre</a>
+        <a class="btn btn-outline-secondary btn-lg fw-bold fs-1" href="{{Route('Apropos')}}" role="button">Contactez nous</a>
       </div>
     </div>
   </div>
@@ -192,7 +192,7 @@
         <!--<img class="w-100" src="assetsU/img/gallery/student-feedback.png" alt="..." />-->
           <div class="card-body px-xl-5 px-md-3 pt-0">
 
-            <div class="d-flex flex-column align-items-center bg-200  mt-5" style="margin-top:-2.4rem;">
+            <div class="d-flex flex-column align-items-center bg-200  px-5 mt-5" style="margin-top:-2.4rem;">
               <h3 class="mt-3 mb-0 ">Etudiant 1 </h3>
               <span class="text-primary mt-0 mb-4 "> Master en Chimie </span>
               <p class="text-muted">
@@ -210,7 +210,7 @@
       <div class="card card-span text-white h-100">
       <div class="card-body px-xl-5 px-md-3 pt-0">
 
-       <div class="d-flex flex-column align-items-center bg-200  mt-5" style="margin-top:-2.4rem;">
+       <div class="d-flex flex-column align-items-center bg-200 px-5 mt-5" style="margin-top:-2.4rem;">
   <h3 class="mt-3 mb-0">Etudiant 2</h3>
   <span class="text-primary mt-0 mb-4 "> Master en Mathématique </span>
   <p class="text-muted">Moi autant qu'étudiant en mathématique les livres de cette bibliothèque ont eu avec moi mon master c'était obligé pour moi 
