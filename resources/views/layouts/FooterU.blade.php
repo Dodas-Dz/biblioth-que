@@ -2,10 +2,10 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0"><a class="text-decoration-none" href="#"><img src="assetsU/img/gallery/footer-logo.png" height="51" alt="" /></a>
-                <p class="text-light my-4"> <i class="fas fa-map-marker-alt me-3"></i><span class="text-light">1500 Treat Ave, Suite 200 &nbsp;</span><a class="text-light" href="tel:+604-680-9785">+604-680-9785</a><br />San Francisco, CA 94110</p>
-                <p class="text-light"> <i class="fas fa-envelope me-3"> </i><a class="text-light" href="mailto:vctung@outlook.com">Knowledgepark13@gmail.com </a></p>
-                <p class="text-light"> <i class="fas fa-phone-alt me-3"></i><a class="text-light" href="tel:1-800-800-2299">+213 777 22 5736 (Support)</a></p>
+            <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0"><a class="text-decoration-none mr-150" href="#"><img src="assets/img/favicon.png" height="120"  alt="" /></a>
+                <p class="text-light my-4"> <i class="fas fa-map-marker-alt me-3"></i><span class="text-light">1500 Treat Ave, Suite 200 &nbsp;</span><a class="text-light" href="tel:+604-680-9785">+2123-336-333-55</a><br />Oudjlida Tlemcen,13 000</p>
+                <p class="text-light"> <i class="fas fa-envelope me-3"> </i><a class="text-light" >Knowledgepark13@gmail.com </a></p>
+                <p class="text-light"> <i class="fas fa-phone-alt me-3"></i><a class="text-light">+213 777 22 5736 / +213 673 87 03 23 (Support)</a></p>
             </div>
             <div class="col-6 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
                 <h5 class="lh-lg fw-bold mb-4 text-light font-sans-serif">Community </h5>
