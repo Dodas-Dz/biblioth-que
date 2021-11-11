@@ -373,19 +373,6 @@ var scrollToTop = function scrollToTop() {
     });
   });
 }; // /* -------------------------------------------------------------------------- */
-// /*                            Theme Initialization                            */
-// /* -------------------------------------------------------------------------- */
-function searchbycategorie() {
-  
-  //var Curentcat = document.getElementById("inputCategories").value;
-  
- 
-    var x =document.getElementsById("novel");
-   
-      x.style.display="none";
-  }
-
-
 docReady(navbarInit);
 docReady(detectorInit);
 docReady(scrollToTop);

@@ -13,8 +13,8 @@
           <div class="row ">
             <div class="col-sm-6 col-md-3">
               <label class="form-label" for="inputCategories">Categories</label>
-              <select class="form-select " id="inputCategories">
-
+              <select class="form-select " id="inputCategories" onchange="searching()">
+                <option selected disabled>Choose one</option>
                 <option value="islamic">islamic</option>
                 <option value="kids">kids</option>
                 <option value="manga">manga</option>
@@ -30,7 +30,7 @@
 
               <div class="input-group col-sm-5">
                 <input type="text" class="form-control rounded" id="search" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button" class="btn btn-outline-primary" onclick="searchbycategorie()">search</button>
+                <button type="button" class="btn btn-outline-primary" onclick="searching()">search</button>
               </div>
 
 
@@ -93,14 +93,14 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 mb-4 " id="islamic">
+      <div class="col-md-3 mb-4 categorie" id="islamic1">
         <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/iternalchallengebook.png" alt="courses" />
           <div class="card-body">
             <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">The Eternal Challenge</h5><a class="text-muted fs--1 stretched-link text-decoration-none " href="#!">islamic</a>
           </div>
         </div>
       </div>
-      <div class="col-md-3 mb-4 " id="islamic">
+      <div class="col-md-3 mb-4 " id="islamic2">
         <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/thechoicebook.png" alt="courses" />
           <div class="card-body">
             <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">The choice</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">islamic</a>
@@ -330,6 +330,7 @@
 <script src="assetsU/js/theme.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Rubik:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script src="assetsU/js/searching.js"></script>
 </body>
 
 </html>

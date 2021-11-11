@@ -1,1 +1,1 @@
-@include('leyouts.headerU')
+@include('layouts.headerU')
