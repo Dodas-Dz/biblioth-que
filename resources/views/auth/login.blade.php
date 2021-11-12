@@ -57,7 +57,7 @@
     <div class="panel left-panel">
       <div class="content">
         <h3>Nouveau ici ?</h3>
-        <p> Cree votre compte Zyrah en cliquant sur sing up</p>
+        <p> faire une demande pour etre un gestionnaire</p>
         <button class="btn transparent" id="sign-up-btn"> Sign up </button>
       </div>
       <!-- <img src="img/log.svg" class="image" alt="" />--> 
