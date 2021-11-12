@@ -2,7 +2,9 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0"><a class="text-decoration-none mr-150" href="#"><img src="assets/img/favicon.png" height="120"  alt="" /></a>
+            <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0">
+                <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/favicon.png" height="100" alt="logo" /></a><a class="text-decoration-none mr-150" href="#">
+</div>
                 <br class="text-light my-4"> <i class="fas fa-map-marker-alt me-3" style="color:white"></i><span class="text-light">Nouveuau pôle la rocade  &nbsp;</br></br> &nbsp; Tlemcen, 13 000</span>
                 <p class="text-light"> </br></br><i class="fas fa-envelope me-3"> </i><a class="text-light" >maktaba@gmail.com </a></p>
                 <p class="text-light"> <i class="fas fa-phone-alt me-3"></i><a class="text-light">Fix: 043 41 11 95 </br></br>&nbsp; &nbsp;Fax: 043 41 11 91</br></br>  &nbsp;&nbsp;Télex: 1871-18034</a></p>
@@ -50,15 +52,19 @@
             </div>
 
         </div>
-        <div class="my-4 col row">
-            <div class="col-md-10">
-                <p class="text-white fs-0 my-2 fw-bold ">All rights Reserved &copy; univ-Tlemcen, 2021</p>
-            </div>
-            <div class=" col-md-2 ">
-                <img class="img-responsive " src="assetsU\img\favicons\Logo-Univ_Tlemcen.png" height="80" alt="logo" />
-            </div>
+
+
+        
+        <div >
+
+
+        <br class="text-light my-4"> 
+        <div class="container"><a class="navbar-brand" href="index.html">
+            <img src="assetsU\img\favicons\Logo-Univ_Tlemcen.png" height="55" alt="logo" /></a>
+        <span class="text-light">All rights Reserved &copy; univ-Tlemcen, 2021</span>
+
         </div>
-    </div>
+         
     <!-- end of .container-->
 
 </section>
