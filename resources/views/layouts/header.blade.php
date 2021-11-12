@@ -19,9 +19,9 @@
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
-<body class="dark-edition">
+<body class="light-edition">
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="black" >
+    <div class="sidebar" data-color="orange" data-background-color="orange" >
     <div class="logo ">
         <a class="simple-text logo-normal">
           <img src="../assets/img/faces/marc.jpg" class="rounded-circle w-25 h-25 " alt="Cinque Terre">
