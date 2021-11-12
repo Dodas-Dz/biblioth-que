@@ -8,29 +8,33 @@
     <div class="row">
       <form class="row ">
         <div class="col-12 justify-content-center">
-          <h6 class="font-sans-serif text-primary fw-bold">Course category</h6>
-          <h1 class="mb-6">Trouver Votre Livres</h1>
+          <h6 class="font-sans-serif text-primary fw-bold">Catégories des livres </h6>
+          <h1 class="mb-6">Trouvez Votre Livre</h1>
           <div class="row ">
             <div class="col-sm-6 col-md-3">
               <label class="form-label" for="inputCategories">Categories</label>
               <select class="form-select " id="inputCategories" onchange="searching()">
-                <option selected disabled>Choose one</option>
-                <option value="islamic">islamic</option>
-                <option value="kids">kids</option>
-                <option value="manga">manga</option>
-                <option value="novels">novels</option>
-                <option value="kids novel">kids novel</option>
+                <option selected disabled>Choisir une </option>
+                <option value="islamique">Islamique</option>
+                <option value="enfant">Enfant</option>
+                <option value="manga">Manga</option>
+                <option value="roman">Roman</option>
+                <option value="science">Science</option>
+                <option value="informatique">Informatique</option>
+                <option value="histoire">Histoire</option>
+                <option value="Litérature">Litérature</option>
+                <option value="Dictionnaire">Dictionnaire</option>
               </select>
             </div>
             <div class="col-sm-6 col-md-9">
 
-              <label class="form-label" for="search">search</label>
+              <label class="form-label" for="search">Rechercher</label>
 
 
 
               <div class="input-group col-sm-5">
-                <input type="text" class="form-control rounded" id="search" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button" class="btn btn-outline-primary" onclick="searching()">search</button>
+                <input type="text" class="form-control rounded" id="search" placeholder="Tapez un mot clé" aria-label="Search" aria-describedby="search-addon" />
+                <button type="button" class="btn btn-outline-primary ms-5" onclick="searching()">Rechercher</button>
               </div>
 
 
@@ -76,6 +80,8 @@
 </section>
 <!-- <section> close ============================-->
 <!-- ============================================-->
+
+
 
 
 
@@ -323,36 +329,6 @@
 
 
 <!-- ============================================-->
-<!-- <section> begin ============================-->
-<section>
-
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-6 col-lg-4 mb-5"><img src="assetsU/img/gallery/cta.png" width="280" alt="cta" /></div>
-      <div class="col-md-6 col-lg-5">
-        <h5 class="text-primary font-sans-serif fw-bold">Subscrible now</h5>
-        <h1 class="mb-5">Get every single<br />update you will get</h1>
-        <form class="row g-0 align-items-center">
-          <div class="col">
-            <div class="input-group-icon">
-              <input class="form-control form-little-squirrel-control" type="email" placeholder="Enter email " aria-label="email" /><i class="fas fa-envelope input-box-icon"></i>
-            </div>
-          </div>
-          <div class="col-auto">
-            <button class="btn btn-primary rounded-0" type="submit">Subscribe now</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <!-- end of .container-->
-
-</section>
-<!-- <section> close ============================-->
-<!-- ============================================-->
-
-
-
 
 <!-- ============================================-->
 <!-- <section> begin ============================-->
