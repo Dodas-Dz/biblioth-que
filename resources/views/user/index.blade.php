@@ -8,6 +8,8 @@
         <h1 class="fs-6 fs-xl-7 mb-5">Nouveaux livres Nouveux mots Nouvelle vie</h1>
         <a class="btn btn-primary btn-lg me-2 fw-bold fs-1" href="{{Route('recherche')}}" role="button">Emprunter livre</a>
         <a class="btn btn-outline-secondary btn-lg fw-bold fs-1" href="{{Route('Apropos')}}" role="button">Contactez nous</a>
+          
+        
       </div>
     </div>
   </div>
