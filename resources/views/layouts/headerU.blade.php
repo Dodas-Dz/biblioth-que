@@ -56,12 +56,16 @@
       <h5 class="fw-light font-monospace fs-3 mt-3 ms-2 ">Maktaba</h5>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
         <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base" >
+         
+        <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base" >
          
 
               <li class="nav-item px-2"><a class="fw-bold fs-1  nav-link active"aria-current="page" href="{{Route('homee')}}">Accueil</a></li>
              <li class="nav-item px-2"><a class="fw-bold fs-1 nav-link" aria-current="page" href="{{Route('recherche')}}">Livre</a></li>
               <li class="nav-item px-2"><a class="fw-bold fs-1 nav-link" aria-current="page" href="{{Route('Apropos')}}">A propos</a></li>
+             
+             
+             
              
               <li class="nav-item px-2 ms-4 me-n8 ">  <a class="btn btn-primary btn-lg fw-bold fs-1" 
               aria-current="page"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
@@ -71,18 +75,26 @@
              
 </ul>
            
+
+              <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base" >
             @canany(['isAdmin' , 'isGestion'])
        
               
        @guest
           @if (Route::has('login') or Route::has('register'))
+        
             <li class="nav-item px-2"> <a  href="{{ route('login') }}">{{ __('Log/Reg') }}</a></li>
           @endif<!----> 
           @else
-            <li  class="nav-item px-2" > <a class="nav-link" aria-current="page"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> {{ Auth::user()->name }} </a></li>
-            <li class="nav-item "><a class="nav-link" href="{{route('statistic')}}"> <i class="material-icons" >person</i></a></li>
-            <li  class="nav-item px-2"  > <a class="btn btn-primary order-1 order-lg-0" aria-current="page"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a> </li>
-            <li   class="nav-item px-2"> <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
+            <li class="nav-item px-2" > <a class="nav-link" aria-current="page"  href="#" role="button" data-toggle="dropdown" 
+            aria-haspopup="true" aria-expanded="false" v-pre> {{ Auth::user()->name }} </a>
+           
+              <a class="nav-link" href="{{route('statistic')}}"> 
+                <i class="fas fa-user-cog" ></i></a></li>
+            <li  class="nav-item px-2"  >
+               <a class="btn btn-primary order-1 order-lg-0" aria-current="page"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a> </li>
+            <li   class="nav-item px-2"> 
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
        @endguest
    @endcan
           </ul>
