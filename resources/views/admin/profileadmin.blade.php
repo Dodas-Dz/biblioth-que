@@ -23,10 +23,7 @@
                   <h2 class="card-title text-center ">Liste Abonnés</h2>
                   <h5 class="card-category text-center"> 3 nouveaux, aujourd'hui</h5>
                 </div>
-              </div>
-            </div>
-        </div>
-
+           
         
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
@@ -76,6 +73,10 @@
                   </table>
                
               </div>
+            </div>
+          </div>
+      </div>
+
                   <div>
               <button type="submit"  class="btn btn-primary pull-right" >
                       <a class=" fw-bold fs-1"
