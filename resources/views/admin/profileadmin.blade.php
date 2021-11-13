@@ -34,7 +34,7 @@
                       <tr class="  text-dark"> 
                        <div>
                        <div> <td class="font-weight-bold">Nom</td></div>
-                       <div> <td>TABET</td></div>
+                       <div> <td>{{ Auth::user()->name }}</td></div>
                       </div>
                     
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
@@ -42,15 +42,15 @@
                       <tr class="  text-dark"> 
                        <div>
                        <div> <td class="font-weight-bold">Prénom</td></div>
-                       <div> <td>Hadjer</td></div>
+                       <div> <td>{{ Auth::user()->prenom }}</td></div>
                       </div>
                     
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
                       <tr class="  text-dark"> 
                        <div>
-                       <div> <td class="font-weight-bold">Date de naissance</td></div>
-                       <div> <td>27/12/2000</td></div>
+                       <div> <td class="font-weight-bold">Email</td></div>
+                       <div> <td>{{ Auth::user()->email }}</td></div>
                       </div>
                     
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
@@ -58,7 +58,7 @@
                       <tr class="  text-dark"> 
                        <div>
                        <div> <td class="font-weight-bold">Poste</td></div>
-                       <div> <td>Admin</td></div>
+                       <div> <td>{{ Auth::user()->role }}</td></div>
                       </div>
                     
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>

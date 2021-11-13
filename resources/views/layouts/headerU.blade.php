@@ -78,7 +78,7 @@
               <li class="nav-item px-2"><a class="fw-bold fs-1 nav-link" aria-current="page" href="{{Route('recherche')}}">Livre</a></li>
             <li class="nav-item px-2"> <a class="fw-bold fs-1 nav-link" aria-current="page" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> {{ Auth::user()->name }} </a></li>
             <li class="nav-item px-2 "><a class="nav-link" href="{{route('statistic')}}"> <i class="material-icons">person</i></a></li>
-            <li class="nav-item px-2"> <a class="btn btn-primary order-1 order-lg-0" aria-current="page" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a> </li>
+            <li class="nav-item px-2"> <a class="btn btn-primary btn-lg fw-bold fs-1" aria-current="page" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a> </li>
             <li class="nav-item px-2">
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
          
