@@ -6,7 +6,7 @@
                 <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/favicon.png" height="100" alt="logo" /></a><a class="text-decoration-none mr-150" href="#">
                 </div>
                 <br class="text-light my-4"> <i class="fas fa-map-marker-alt me-3" style="color:white"></i><span class="text-light">Nouveuau pôle la rocade &nbsp;</br></br> &nbsp; Tlemcen, 13 000</span>
-                <p class="text-light"> </br></br><i class="fas fa-envelope me-3"> </i><a class="text-light">maktaba@gmail.com </a></p>
+                <p class="text-light"> <i class="fas fa-envelope me-3"> </i><a class="text-light">maktaba@gmail.com </a></p>
                 <p class="text-light"> <i class="fas fa-phone-alt me-3"></i><a class="text-light">Fix: 043 41 11 95 </br></br>&nbsp; &nbsp;Fax: 043 41 11 91</br></br> &nbsp;&nbsp;Télex: 1871-18034</a></p>
             </div>
             <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
@@ -42,7 +42,7 @@
                         <i class="fw-bold fs-5 fab fa-instagram" style="color:white"></i><a class="text-200" href="#!"></a>&nbsp; &nbsp;
                         <i class="fw-bold fs-5 fab fa-twitter" style="color:white"></i><a class="text-200" href="#!"></a>&nbsp; &nbsp;
                     </li>
-                    </br>
+                  
                     <li class="lh-lg"><i class="fw-bold fs-5 fab fa-whatsapp" style="color:white"></i><a class="text-200" href="#!"></a>&nbsp; &nbsp;
                         <i class="fw-bold fs-5 fab fa-youtube" style="color:white"></i><a class="text-200" href="#!"></a>&nbsp; &nbsp;
                         <i class="fw-bold fs-5 fab fa-linkedin" style="color:white"></i><a class="text-200" href="#!"></a>&nbsp; &nbsp;
