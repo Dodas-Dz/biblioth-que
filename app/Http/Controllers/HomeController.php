@@ -41,4 +41,8 @@ class HomeController extends Controller
         return view('/admin/AjouterMot');
 
     }
+    public function categorie(){
+        return view('/admin/categorie');
+
+    }
 }

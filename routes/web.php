@@ -9,6 +9,7 @@ Route::get('/liste', [App\Http\Controllers\HomeController::class, 'liste'])->mid
 Route::get('/ProfileAdmin', [App\Http\Controllers\HomeController::class, 'profileadmin'])->middleware('can:isBoth')->name('profileadmin');
 Route::get('/ListeAdmin', [App\Http\Controllers\HomeController::class, 'listelivre'])->middleware('can:isBoth')->name('listelivre');
 Route::get('/AjouterMot', [App\Http\Controllers\HomeController::class, 'AjouterMot'])->middleware('can:isBoth')->name('AjouterMot');
+Route::get('/categorie', [App\Http\Controllers\HomeController::class, 'categorie'])->middleware('can:isBoth')->name('categorie');
 });
 
 

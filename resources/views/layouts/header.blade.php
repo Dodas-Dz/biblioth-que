@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Admin - bibiothéque
+    Employé - bibiothéque
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -24,7 +24,7 @@
     <div class="sidebar" data-color="orange" data-background-color="orange" >
     <div class="logo ">
         <a class="simple-text logo-normal">
-          <img src="../assets/img/faces/marc.jpg" class="rounded-circle w-25 h-25 " alt="Cinque Terre">
+          <img src="assets/img/user.png" class="rounded-circle w-25 h-25 " alt="Cinque Terre">
         </a>
         @canany(['isAdmin' , 'isGestion'])
     </div>
@@ -34,29 +34,29 @@
             <a class="nav-link" href="{{Route('statistic')}}">
               <i class="material-icons">S</i>
               <p>
-statistical</p>
+                    Statistique</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="{{route('profileadmin')}}">
               <i class="material-icons" >person</i>
-              <p>User Profile</p>
+              <p>Profil Employé</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="{{route('liste')}}">
               <i class="material-icons" >content_paste</i>
-              <p>Liste des user</p>
+              <p>Liste des abonnés</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="{{route('listelivre')}}">
               <i class="material-icons">library_books</i>
-              <p>Liste des Livre</p>
+              <p>Liste des Livres</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
+            <a class="nav-link" href="{{route('categorie')}}">
               <i class="material-icons">category</i>
               <p>Categorie</p>
             </a>
