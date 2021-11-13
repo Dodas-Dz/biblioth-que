@@ -4,7 +4,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">User Profile</a>
+            <a class="navbar-brand" href="javascript:void(0)">Liste des abonnés</a>
           </div>
         </div>
       </nav>
@@ -12,96 +12,84 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="text-center">Edit Profile</h4>
-                  <p class="text-center">Complete your profile</p>
-                </div>
-                <div class="card-body">
-                  <form>
-                    <div class="row">
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Company (disabled)</label>
-                          <input type="text" class="form-control" disabled>
-                        </div>
-                      </div>
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Username</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Email address</label>
-                          <input type="email" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Fist Name</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Last Name</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Adress</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">City</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Country</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Postal Code</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label>About Me</label>
-                          <div class="form-group">
-                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                            <textarea class="form-control" rows="5"></textarea>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
-                    <div class="clearfix"></div>
-                  </form>
+
+
+        
+   
+        <div class="row">
+            <div class="col-lg-12 col-md-12 ">
+              <div class="card ">
+                <div class="card-header card-header-warning " >
+                  <h2 class="card-title text-center ">Liste Abonnés</h2>
+                  <h5 class="card-category text-center"> 3 nouveaux, aujourd'hui</h5>
                 </div>
               </div>
             </div>
+        </div>
+
+        
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>ID</th>
+                      <th>Nom</th>
+                      <th>Prénom</th>
+                      <th>Date de naissance</th>
+                      <th>Supprimer</th>
+                      <th>Modifier</th>
+                      
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>TABET</td>
+                        <td>Hadjer</td>
+                        <td>27/12/2000</td>
+                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
+                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>BELLOUFA</td>
+                        <td>Zakaria</td>
+                        <td>08/01/1999</td>
+                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
+                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>ZENNAKI</td>
+                        <td>Younes</td>
+                        <td>08/01/1999</td>
+                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
+                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>MOUSSAOUI</td>
+                        <td>Abdelhak</td>
+                        <td>08/01/1999</td>
+                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
+                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+               
+              </div>
+                  <div>
+              <button type="submit"  class="btn btn-primary pull-right" >
+                      <a class=" fw-bold fs-1"
+                         href="#"> 
+                        <i class="fw-bold fs-2 fa fa-plus text-white ms- n2"> </i> </a>Ajouter un abonné</button>
+                   
+                      </div>
+            
            
-          </div>
+      
+                    
+                  
+                
+         
         </div>
       </div>
 
