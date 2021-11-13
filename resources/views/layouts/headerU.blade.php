@@ -21,6 +21,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/apple-icon.png">
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/apple-icon.png">
   <link rel="manifest" href="assetsU/img/favicons/manifest.json">
+
+
+
+
   <meta name="msapplication-TileImage" content="assetsU/img/favicons/mstile-150x150.png">
   <meta name="theme-color" content="#ffffff">
 

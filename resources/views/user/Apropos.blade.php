@@ -52,7 +52,82 @@ adresse :<a rel="nofollow" href="https://www.google.com/search?q=nouveau%20p%C3%
 
 
 
+<section>
 
+
+
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-lg-4 mb-5 me-10"><img src="assetsU/img/gallery/undraw_Wall_post_re_y78d.png" width="500" alt="cta" /></div>
+     
+      <div class="col-md-6 col-lg-5">
+        <h5 class="text-primary font-sans-serif fw-bold">Contactez nous</h5>
+        <h1 class="mb-5">Pour plus d'informations </h1>
+        <form class="row g-0 align-items-center">
+          <div class="col">
+            <div class="mb-5 input-group-icon">
+              <input class="form-control form-little-squirrel-control" type="email" placeholder="Entrer email "  aria-label="email" required/><i class="fas fa-envelope input-box-icon"></i>
+            </div>
+          </div>
+          <div class="input-group-icon lg">
+              <input class="form-control form-little-squirrel-control " type="textarea" placeholder="Votre message ... " aria-label="message" /><i class="fas fa-envelope input-box-icon"></i>
+            </div>
+          
+
+          <div class="mt-5 text-center">
+          <!-- Button trigger modal -->
+         
+<input class="btn btn-primary btn-lg fw-bold fs-1 text-dark fs--1 stretched-link text-decoration-none " 
+data-bs-toggle="modal" data-bs-target="#wnd" aria-haspopup="true" aria-expanded="false" type="submit" value="Envoyer" v-pre>
+           </input>
+
+</div>
+
+
+<div class="modal" id="wnd">
+              <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                  
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <div class="row align-items-center mb-3">
+                      <div class="col-md-6">
+                         
+                      </div>
+                      
+                    </div>
+                   <div class="row"> 
+                   <i class="material-icons large text-success text-center ">assignment_turned_in  </i>
+                       <h3 class="text-center  text-success"> Message envoyé avec succés </h3> 
+                    
+                    </div> 
+                      
+            
+                  </div>
+            
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fermer</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- end of .container-->
+
+</section>
 
 
 

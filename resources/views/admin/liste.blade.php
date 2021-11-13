@@ -4,8 +4,9 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Liste des Abonnés</a>
+            <a class="navbar-brand font-weight-bold" href="javascript:void(0)">Liste des Abonnés</a>
           </div>
+
           @include('layouts.bar') 
       </nav>
       <!-- End Navbar -->

@@ -10,6 +10,8 @@
     Employé - bibiothéque
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
@@ -30,22 +32,30 @@
     </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="{{Route('statistic')}}">
-              <i class="material-icons">S</i>
-              <p>
-                    Statistique</p>
-            </a>
-          </li>
-          <li class="nav-item ">
+
+        <li class="nav-item ">
             <a class="nav-link" href="{{route('profileadmin')}}">
               <i class="material-icons" >person</i>
               <p>Profil Employé</p>
             </a>
           </li>
+          <li class="nav-item active  ">
+            <a class="nav-link" href="{{Route('statistic')}}">
+              <i class="material-icons">assessment</i>
+              <p>
+                    Statistique</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{{route('notification')}}">
+              <i class="material-icons">notifications</i>
+              <p>Notifications</p>
+            </a>
+          </li>
+         
           <li class="nav-item ">
             <a class="nav-link" href="{{route('liste')}}">
-              <i class="material-icons" >content_paste</i>
+              <i class="material-icons" >grouper</i> <!--content_paste-->
               <p>Liste des abonnés</p>
             </a>
           </li>
@@ -58,20 +68,21 @@
           <li class="nav-item ">
             <a class="nav-link" href="{{route('categorie')}}">
               <i class="material-icons">category</i>
-              <p>Categorie</p>
+              <p>Liste des Catégorie</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="{{route('AjouterMot')}}">
-              <i class="material-icons">+</i>
-              <p>ajouter un mot cle</p>
+              <i class="material-icons">tag</i>
+              <p>Liste des Mot Clé</p>
             </a>
           </li>
        
+         
           <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
+            <a class="nav-link" href="{{route('message')}}">
+              <i class="material-icons">message</i>
+              <p>Message</p>
             </a>
           </li>
           <!-- <li class="nav-item active-pro ">

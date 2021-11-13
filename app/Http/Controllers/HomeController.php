@@ -45,4 +45,12 @@ class HomeController extends Controller
         return view('/admin/categorie');
 
     }
+    public function notification(){
+        return view('/admin/notification');
+
+    }
+    public function message(){
+        return view('/admin/message');
+
+    }
 }

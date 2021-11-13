@@ -84,6 +84,12 @@
 <!-- ===============================================-->
 <!--    JavaScripts-->
 <!-- ===============================================-->
+
+<!-- required includes -->
+
+
+
+
 <script src="assetsU/vendors/@popperjs/popper.min.js"></script>
 <script src="assetsU/vendors/bootstrap/bootstrap.min.js"></script>
 <script src="assetsU/vendors/is/is.min.js"></script>
