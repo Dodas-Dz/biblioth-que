@@ -4,104 +4,91 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">User Profile</a>
+            <a class="navbar-brand" href="javascript:void(0)">Profil Employé</a>
           </div>
         </div>
+       <!-- @include('layouts.bar')--> 
       </nav>
 
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="text-center">Edit Profile</h4>
-                  <p class="text-center">Complete your profile</p>
+
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 ">
+              <div class="card ">
+                <div class="card-header card-header-warning " >
+                  <h2 class="card-title text-center ">Mes Informations</h2>
+                
                 </div>
-                <div class="card-body">
-                  <form>
-                    <div class="row">
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Company (disabled)</label>
-                          <input type="text" class="form-control" disabled>
-                        </div>
+       
+
+        
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                 
+                     
+                  
+                    <tbody>
+                      <tr class="  text-dark"> 
+                       <div>
+                       <div> <td class="font-weight-bold">Nom</td></div>
+                       <div> <td>TABET</td></div>
                       </div>
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Username</label>
-                          <input type="text" class="form-control">
-                        </div>
+                    
+                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                      </tr>
+                      <tr class="  text-dark"> 
+                       <div>
+                       <div> <td class="font-weight-bold">Prénom</td></div>
+                       <div> <td>Hadjer</td></div>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Email address</label>
-                          <input type="email" class="form-control">
-                        </div>
+                    
+                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                      </tr>
+                      <tr class="  text-dark"> 
+                       <div>
+                       <div> <td class="font-weight-bold">Date de naissance</td></div>
+                       <div> <td>27/12/2000</td></div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Fist Name</label>
-                          <input type="text" class="form-control">
-                        </div>
+                    
+                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                      </tr>
+                      <tr class="  text-dark"> 
+                       <div>
+                       <div> <td class="font-weight-bold">Poste</td></div>
+                       <div> <td>Admin</td></div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Last Name</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Adress</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">City</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Country</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Postal Code</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label>About Me</label>
-                          <div class="form-group">
-                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                            <textarea class="form-control" rows="5"></textarea>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
-                    <div class="clearfix"></div>
-                  </form>
-                </div>
-              </div>
+                    
+                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
             </div>
+        </div>
+               
+              </div>
+                  <div>
+              <button type="submit"  class="btn btn-primary pull-right" >
+                      <a class=" fw-bold fs-1"
+                         href="#"> 
+                        <i class="fw-bold fs-2 fa fa-plus text-white ms- n2"> </i> </a>Enregistrer</button>
+                   
+                      </div>
+            
            
-          </div>
+      
+                    
+   
+            
+           
+      
+                    
+                  
+                
+         
         </div>
       </div>
 

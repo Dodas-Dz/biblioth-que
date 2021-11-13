@@ -59,7 +59,7 @@
 
 
             <br class="text-light my-4">
-            <div class="container"><a class="navbar-brand" href="index.html">
+            <div class="container"><a class="navbar-brand" href="https://www.univ-tlemcen.dz/fr" target="_blank">
                     <img src="assetsU\img\favicons\Logo-Univ_Tlemcen.png" height="55" alt="logo" /></a>
                 <span class="text-light">All rights Reserved &copy; univ-Tlemcen, 2021</span>
 
