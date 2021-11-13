@@ -39,6 +39,9 @@
         <div class="input-field"> <i class="fas fa-user"></i>
            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
         </div>
+        <div class="input-field"> <i class="fas fa-user"></i>
+           <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" placeholder="Prenom" name="prenom" value="{{ old('prenom') }}" required autocomplete="prenom" autofocus>
+        </div>
         
         <div class="input-field"> <i class="fas fa-envelope"></i>
          <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email">
