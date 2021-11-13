@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0">
-                <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/favicon.png" height="100" alt="logo" /></a><a class="text-decoration-none mr-150" href="#">
+                <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/1favicon.png" height="100" alt="logo" /></a><a class="text-decoration-none mr-150" href="#">
                 </div>
                 <br class="text-light my-4"> <i class="fas fa-map-marker-alt me-3" style="color:white"></i><span class="text-light">Nouveuau pôle la rocade &nbsp;</br></br> &nbsp; Tlemcen, 13 000</span>
                 <p class="text-light"> <i class="fas fa-envelope me-3"> </i><a class="text-light">maktaba@gmail.com </a></p>
@@ -42,7 +42,7 @@
                         <i class="fw-bold fs-5 fab fa-instagram" style="color:white"></i><a class="text-200" href="#!"></a>&nbsp; &nbsp;
                         <i class="fw-bold fs-5 fab fa-twitter" style="color:white"></i><a class="text-200" href="#!"></a>&nbsp; &nbsp;
                     </li>
-                    
+                  
                     <li class="lh-lg"><i class="fw-bold fs-5 fab fa-whatsapp" style="color:white"></i><a class="text-200" href="#!"></a>&nbsp; &nbsp;
                         <i class="fw-bold fs-5 fab fa-youtube" style="color:white"></i><a class="text-200" href="#!"></a>&nbsp; &nbsp;
                         <i class="fw-bold fs-5 fab fa-linkedin" style="color:white"></i><a class="text-200" href="#!"></a>&nbsp; &nbsp;

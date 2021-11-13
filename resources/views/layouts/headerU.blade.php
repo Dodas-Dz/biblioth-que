@@ -16,10 +16,10 @@
   <!-- ===============================================-->
   <!--    Favicons-->
   <!-- ===============================================-->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon.png">
-  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/apple-icon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/apple-icon.png">
   <link rel="manifest" href="assetsU/img/favicons/manifest.json">
   <meta name="msapplication-TileImage" content="assetsU/img/favicons/mstile-150x150.png">
   <meta name="theme-color" content="#ffffff">
@@ -53,8 +53,8 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
-      <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/favicon.png" height="55" alt="logo" /></a>
-        <h5 class="fw-light font-monospace fs-3 mt-3 ms-2 ">Maktaba</h5>
+      <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/favicon.png" height="60" width="150" alt="logo" /></a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
         <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
 
