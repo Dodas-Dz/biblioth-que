@@ -7,7 +7,7 @@
             <a class="navbar-brand" href="javascript:void(0)">Liste des catégories</a>
           </div>
         </div>
-        @include('layouts.bar') 
+    
       </nav>
 
       <!-- End Navbar -->
