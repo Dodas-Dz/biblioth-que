@@ -108,9 +108,9 @@
                   </div>
                   <!-- Modal body -->
                   <div class="modal-body">
-                    <div class="row align-items-center mb-4">
-                      <div class=" col-md-4 "> <img class="img-fluid rounded float-start h-75" src="assetsU/img/gallery/wonderbookcover.png" alt="wonder.png"></div>
-                      <div class="col-md-8">
+                    <div class="row align-items-center mb-3">
+                      <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75" src="assetsU/img/gallery/wonderbookcover.png" alt="wonder.png"></div>
+                      <div class="col-md-6">
                           <h5>
                             Auteur: </h5><a href="https://www.goodreads.com/author/show/4859212.R_J_Palacio">Raquel J. Palacio</a>
                           
@@ -144,7 +144,7 @@
             
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
                   </div>
                 </div>
               </div>
@@ -172,24 +172,24 @@
                   </div>
                   <!-- Modal body -->
                   <div class="modal-body">
-                    <div class="row align-items-center mb-4">
-                      <div class=" col-md-4 "> <img class="img-fluid rounded float-start h-75" src="assetsU/img/gallery/iternalchallengebook.png" alt="wonder.png"></div>
-                      <div class="col-md-4">
+                    <div class="row align-items-center mb-3">
+                      <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75" src="assetsU/img/gallery/iternalchallengebook.png" alt="wonder.png"></div>
+                      <div class="col-md-6">
                           <h5>
-                            Auteur: <p></p>
-                          </h5>
+                            Auteur:</h5> <a href="https://www.goodreads.com/author/show/4710728.Abu_Zakariya" class="text-dark">Abu Zakariya</a>
+                          
                           <h5>
-                            ISBN: <p></p>
-                          </h5>
+                            ISBN:</h5> <p>9781910952009</p>
+                          
                           <h5>
-                            Année: <p></p>
-                          </h5>
+                            Année: </h5> <p>27/12/2015</p>
+                         
                           <h5>
-                            Langues: <p></p>
-                          </h5>
+                            Langues: </h5> <p>English</p>
+                         
                             <h5 >
-                          categorie: <p></p>
-                        </h5>
+                          categorie: </h5><p>islamique</p>
+                        
 
                       </div>
                       
@@ -206,7 +206,7 @@
                 </div>              
                    <!-- Modal footer -->
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
                   </div>
                 </div>
               </div>
@@ -237,21 +237,24 @@
             
                   <!-- Modal body -->
                   <div class="modal-body">
-                    <div class="row align-items-center mb-4">
-                      <div class=" col-md-4 "> <img class="img-fluid rounded float-start h-75" src="assetsU/img/gallery/thechoicebook.png" alt="wonder.png"></div>
-                      <div class="col-md-8">
+                    <div class="row align-items-center mb-3">
+                      <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75" src="assetsU/img/gallery/thechoicebook.png" alt="wonder.png"></div>
+                      <div class="col-md-6">
                           <h5>
-                            Auteur: <p></p>
-                          </h5>
+                            Auteur:</h5> <p>Ahmed Deedat</p>
+                          
                           <h5>
-                            ISBN: <p></p>
-                          </h5>
+                            ISBN:</h5> <p>9789839384291</p>
+                          
                           <h5>
-                            Année: <p></p>
-                          </h5>
+                            Année:</h5> <p>16/07/1993</p>
+                          
                           <h5>
-                            Langues: <p></p>
-                          </h5>
+                            Langues:</h5> <p>English</p>
+                          
+                          <h5 >
+                            categorie:</h5> <p>islamique</p>
+                          
                       </div>
                       
                     </div>
@@ -269,7 +272,7 @@
             
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
                   </div>
             
                 </div>
@@ -279,9 +282,9 @@
         </div>
       </div>
       <div class="col-md-3 mb-4 " id="manga">
-        <div class="card h-80 align-items-center"><img class="card-img-top w-100" src="assetsU/img/gallery/deamonslayermanga.png" alt="Responsive image" />
+        <div class="card h-80 align-items-center"><img class="card-img-top w-100" src="assetsU/img/gallery/attackontitan.png" alt="Responsive image" />
           <div class="card-body align-items-center">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1 ">Demon Slayer</h5>
+            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1 ">Attack On Titan</h5>
             <a href="#!" class="text-muted fs--1 stretched-link text-decoration-none " data-bs-toggle="modal" data-bs-target="#ds">
 
             </a>
@@ -291,39 +294,43 @@
             
                   <!-- Modal Header -->
                   <div class="modal-header">
-                    <h4 class="modal-title">Deamon Slayer Chapter 1</h4>
+                    <h4 class="modal-title">Attack On Titan</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                   </div>
             
                   <!-- Modal body -->
                   <div class="modal-body">
-                    <div class="row align-items-center mb-4">
-                      <div class=" col-md-4 "> <img class="img-fluid rounded float-start h-75" src="assetsU/img/gallery/deamonslayermanga.png" alt="wonder.png"></div>
-                      <div class="col-md-8">
+                    <div class="row align-items-center mb-3">
+                      <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75" src="assetsU/img/gallery/attackontitan.png" alt="wonder.png"></div>
+                      <div class="col-md-6">
                           <h5>
-                            Auteur: <p></p>
-                          </h5>
+                            Auteur:</h5> <p><a href="https://www.babelio.com/auteur/Hajime-Isayama/272165" class="text-dark">Hajime Isayama</a>
+                          </p>
                           <h5>
-                            ISBN: <p></p>
-                          </h5>
+                            ISBN:</h5> <p>9781612620244</p>
+                          
                           <h5>
-                            Année: <p></p>
-                          </h5>
+                            Année:</h5> <p>09/07/2013</p>
+                          
                           <h5>
-                            Langues: <p></p>
-                          </h5>
+                            Langues:</h5> <p>Japanese</p>
+                          <h5>categorie:</h5> <p>Manga</p>
                       </div>
                       
                     </div>
                    <div class="row"><h3 class="text-center">Description</h3>
-                    <p>Dans le Japon de l'ère Taisho, Tanjiro Kamado est un garçon au grand cœur qui gagne sa vie en vendant du charbon de bois. Mais sa vie paisible est bouleversée lorsqu'un démon massacre toute sa famille. Sa petite sœur Nezuko est la seule survivante, mais elle a elle-même été transformée en démon ! Tanjiro se lance dans un dangereux voyage pour trouver un moyen de ramener sa sœur à la normale et détruire le démon qui a ruiné sa vie.
+                    <p >Environ un siècle avant le début de la série, une mystérieuse race d'humanoïdes géants et mangeurs d'hommes, connus sous le nom de "Titans", est soudainement apparue et a presque exterminé l'humanité. Afin de se protéger de cette menace, les quelques survivants ont construit trois murs concentriques, appelés Maria, Rose et Sheena, et se sont enfermés dans ce territoire limité, oubliant tout du monde extérieur et de l'histoire avant la construction des murs.
+
+                      Dans le présent, un garçon du nom d'Eren Yeager, sa sœur adoptive Mikasa Ackerman et leur ami Armin Arlert rêvent de voir un jour le monde à l'extérieur des murs, mais leur tranquillité est brusquement interrompue lorsqu'un Titan Colossus de 60 mètres de haut et un Titan blindé font une brèche dans le mur le plus éloigné, et Eren voit sa mère mourir dans la dévastation qui en résulte. Eren jure de se venger des Titans et s'engage plus tard dans la branche militaire Survey Corps, accompagné de Mikasa et Armin.
+                      
+                      Au fur et à mesure que l'histoire progresse, les mystères entourant la véritable origine et la nature des Titans, ainsi que l'histoire perdue du monde sont abordés, et le lecteur découvre peu à peu que les Titans ne sont peut-être pas les véritables ennemis. Eren et le Survey Corps se retrouvent comme le seul espoir restant pour leur civilisation, alors qu'ils se battent pour découvrir les secrets du passé et arrêter les forces qui veulent provoquer la destruction de l'humanité dans le présent et le futur.
                     </p>
                    
                   </div>
               </div>
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
                   </div>
             
                 </div>
@@ -351,21 +358,24 @@
             
                   <!-- Modal body -->
                   <div class="modal-body">
-                    <div class="row align-items-center mb-4">
-                      <div class=" col-md-4 "> <img class="img-fluid rounded float-start h-75" src="assetsU/img/gallery/harrypotterbook.png" alt="wonder.png"></div>
-                      <div class="col-md-8">
+                    <div class="row align-items-center mb-3">
+                      <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75" src="assetsU/img/gallery/harrypotterbook.png" alt="wonder.png"></div>
+                      <div class="col-md-6">
                           <h5>
-                            Auteur: <p></p>
-                          </h5>
+                            Auteur:</h5> <p><a href="https://www.britannica.com/biography/J-K-Rowling" class="text-dark">Joanne Kathleen Rowling</a></p>
+                          
                           <h5>
-                            ISBN: <p></p>
-                          </h5>
+                            ISBN:</h5> <p>9780050666319</p>
+                          
                           <h5>
-                            Année: <p></p>
-                          </h5>
+                            Année:</h5> <p>2017</p>
+                          
                           <h5>
-                            Langues: <p></p>
-                          </h5>
+                            Langues:</h5> <p>english</p>
+                          
+                          <h5>
+                            categorie: </h5> <p>Science Fiction</p>
+                          
                       </div>
                       
                     </div>
@@ -375,7 +385,7 @@
                   </div>
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
                   </div>
             
                 </div>
@@ -385,7 +395,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 mb-4" id="kids">
+      <div class="col-md-3 mb-3" id="kids">
         <div class="card h-80 align-items-center"><img class="card-img-top w-100" src="assetsU/img/gallery/dragonlovetacos.png" alt="Responsive image" />
           <div class="card-body">
             <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Dragons Love Tacos</h5>
@@ -404,21 +414,23 @@
             
                   <!-- Modal body -->
                   <div class="modal-body">
-                    <div class="row align-items-center mb-4">
-                      <div class=" col-md-4 "> <img class="img-fluid rounded float-start h-75" src="assetsU/img/gallery/dragonlovetacos.png" alt="wonder.png"></div>
-                      <div class="col-md-8">
+                    <div class="row align-items-center mb-3">
+                      <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75" src="assetsU/img/gallery/dragonlovetacos.png" alt="wonder.png"></div>
+                      <div class="col-md-6">
                           <h5>
-                            Auteur: <p></p>
-                          </h5>
+                            Auteur:  </h5><p><a href="https://www.goodreads.com/author/list/132184.Adam_Rubin" class="text-dark">
+                            Adam Rubin</a></p>
+                         
                           <h5>
-                            ISBN: <p></p>
-                          </h5>
+                            ISBN:</h5> <p>9780399539305</p>
+                          
                           <h5>
-                            Année: <p></p>
-                          </h5>
+                            Année:</h5> <p>14/06/2012</p>
+                          
                           <h5>
-                            Langues: <p></p>
-                          </h5>
+                            Langues: </h5><p>English</p>
+                          
+                          <h5>categorie:</h5> <p>Enfant</p>
                       </div>
                       
                     </div>
@@ -430,7 +442,7 @@
                   </div>
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
                   </div>
             
                 </div>
