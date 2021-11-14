@@ -15,6 +15,7 @@
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assetsU/css/fontawesome.css">
   <!-- CSS Files -->
   <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
@@ -95,3 +96,22 @@
       </div>
     </div>
 @endcan
+
+
+
+<script src="assetsU/vendors/@popperjs/popper.min.js"></script>
+<script src="assetsU/vendors/bootstrap/bootstrap.min.js"></script>
+<script src="assetsU/vendors/is/is.min.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+<script src="assetsU/vendors/fontawesome/all.min.js"></script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="assetsU/js/theme.js"></script>
+<script src="assetsU/js/owl-carousel.js"></script>
+<script src="assetsU/js/animation.js"></script>
+<script src="assetsU/js/imagesloaded.js"></script>
+<script src="assetsU/js/custom.js"></script>
+
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Rubik:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">

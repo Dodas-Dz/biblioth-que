@@ -77,14 +77,79 @@
                
               </div>
                   <div>
-              <button type="submit"  class="btn btn-primary pull-right" >
-                      <a class=" fw-bold fs-1"
-                         href="#"> 
-                        <i class="fw-bold fs-2 fa fa-plus text-white ms- n2"> </i> </a>Ajouter un abonné</button>
+                  <a class="btn btn-primary btn-lg font-weight-bold text-light fs--1 stretched-link text-decoration-none " 
+                    data-bs-toggle="modal" data-bs-target="#wnd" aria-haspopup="true" aria-expanded="false" role="button"  v-pre>
+                     Ajouter Abonné
+           </a>
                    
                       </div>
             
            
+
+    <div class="modal" id="wnd">
+              <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                 
+                    <button class="pull-right text-right" type="button"  data-bs-dismiss="modal">
+                     <i class="material-icons large text-secondary  ">close  </i></button>
+
+                     <h3 class="text-center font-weight-bold text-dark mx-auto"> Remplir les informations </h3> 
+                  </div>
+                  <!-- Modal body -->
+                  <div class="modal-body mx-auto">
+                    <div class="row align-items-center mb-3">
+                    
+                      
+                     <form class="needs-validation" novalidate>
+                          <div class="form-row">
+
+                           <div class="col-md-7 mb-3">
+     
+                              <input type="text" class="form-control" id="nom" placeholder="Nom"  required>
+                               
+                           </div>
+    
+                           <div class="col-md-7 mb-3">
+     
+                              <input type="text" class="form-control" id="prenom" placeholder="Prénom"  required>
+                                 
+                          </div>
+
+
+                    </div>
+  
+                        <div class="form-row">
+                           <div class="col-md-7 mb-3">
+                           <label class="form-label" for="satenaissance">Date de naissance</label>
+                                 <input type="date" class="form-control" id="datenaissance" placeholder="Date de Naissance" required>
+                              
+</div>
+                     </div>
+ 
+     
+                            <div class="invalid-feedback">
+                              You must agree before submitting.
+                            </div>
+
+                      <button class="btn btn-primary" type="submit">Ajouter</button>
+
+</form>
+</div>
+  </div>
+
+                 
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fermer</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
       
                     
                   
