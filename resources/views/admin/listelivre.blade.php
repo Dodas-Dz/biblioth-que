@@ -192,7 +192,7 @@
                           <div class="col-md-12 mb-3">
 
                           <label class="form-label" for="description">Description</label>
-    <textarea class="form-control rounded-0" type="textarea" class="form-control" id="description" rows="10" placeholder="Description" required> </textarea>
+    <textarea class="form-control rounded-0" type="textarea" class="form-control" id="description" rows="7" placeholder="Description" required> </textarea>
    
 </div>
 
@@ -201,25 +201,25 @@
      
                            
 
-                      <button class="btn btn-primary" type="submit">Ajouter</button>
+                      <button class="btn btn-primary text-center" type="submit">Ajouter</button>
 
 </form>
 </div>
-  </div>
+  
 
                  
 
                   <!-- Modal footer -->
-                  <div class="modal-footer">
+                  <div class="modal-footer ">
                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fermer</button>
                   </div>
-
+                </div>
                 </div>
               </div>
             </div>
 
           </div>
-        </div>
+     
       
             
            
