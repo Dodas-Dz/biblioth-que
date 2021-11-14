@@ -106,7 +106,7 @@
 
 
     <div class="modal" id="wnd">
-              <div class="modal-dialog modal-dialog-scrollable modal-lg">
+              <div class="modal-dialog modal-dialog-scrollable modal-md">
                 <div class="modal-content">
 
                   <!-- Modal Header -->
@@ -123,21 +123,21 @@
                     
                       
                      <form class="needs-validation" novalidate>
-                          <div class="form-row">
+                          
 
-                           <div class="col-md-7 mb-3">
+                           <div class="col-md-12 mb-3">
      
                               <input type="text" class="form-control" id="titre" placeholder="Titre"  required>
                                 
                            </div>
     
-                           <div class="col-md-7 mb-3">
+                           <div class="col-md-12 mb-3">
      
                               <input type="text" class="form-control" id="isbn" placeholder="ISBN"  required>
                                
                           </div>
 
-                           <div class="col-md-7 mb-3">
+                           <div class="col-md-12 mb-3">
      
                               <div class="input-group">
                                 <div class="input-group-prepend">
@@ -149,19 +149,20 @@
                              </div>
                            </div>
 
-                    </div>
+                    
   
-                        <div class="form-row">
-                           <div class="col-md-7 mb-3">
+                        
+                           <div class="col-md-12 mb-3">
                            <label class="form-label" for="inputdate">Date de Production</label>
                                  <input type="date" class="form-control" id="date" placeholder="Date Production" required>
                               
                             </div>
 
-                            <div class="col-md-8 mb-3">
+                            <div class="col-md-12 mb-3">
    
                             <label class="form-label" for="inputCategories">Categories</label>
-
+                            </div>
+                            <div class="col-md-12 mb-3">
               <select class="form-select " id="categorie" onchange="searching()">
                 <option selected disabled>Choisir une </option>
                 <option value="islamique">Islamique</option>
@@ -174,12 +175,12 @@
                 <option value="Litérature">Litérature</option>
                 <option value="Dictionnaire">Dictionnaire</option>
               </select>
-                                 
+                            
                             </div>
 
                          
 
-                           <div class="col-md-7 mb-3">
+                           <div class="col-md-12 mb-3">
 
 
                            <input type="file" class="form-control" id="image" placeholder="ajouter image" required>
@@ -188,7 +189,7 @@
                                
                           </div>
 
-                          <div class="col-md-7 mb-3">
+                          <div class="col-md-12 mb-3">
 
                           <label class="form-label" for="description">Description</label>
     <textarea class="form-control rounded-0" type="textarea" class="form-control" id="description" rows="10" placeholder="Description" required> </textarea>

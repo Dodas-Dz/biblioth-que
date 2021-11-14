@@ -87,7 +87,7 @@
            
 
     <div class="modal" id="wnd">
-              <div class="modal-dialog modal-dialog-scrollable modal-lg">
+              <div class="modal-dialog modal-dialog-scrollable modal-md">
                 <div class="modal-content">
 
                   <!-- Modal Header -->
@@ -106,13 +106,13 @@
                      <form class="needs-validation" novalidate>
                           <div class="form-row">
 
-                           <div class="col-md-7 mb-3">
+                           <div class="col-md-12 mb-3">
      
                               <input type="text" class="form-control" id="nom" placeholder="Nom"  required>
                                
                            </div>
     
-                           <div class="col-md-7 mb-3">
+                           <div class="col-md-12 mb-3">
      
                               <input type="text" class="form-control" id="prenom" placeholder="Prénom"  required>
                                  
@@ -122,7 +122,7 @@
                     </div>
   
                         <div class="form-row">
-                           <div class="col-md-7 mb-3">
+                           <div class="col-md-12 mb-3">
                            <label class="form-label" for="satenaissance">Date de naissance</label>
                                  <input type="date" class="form-control" id="datenaissance" placeholder="Date de Naissance" required>
                               

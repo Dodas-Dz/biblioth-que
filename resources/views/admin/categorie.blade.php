@@ -87,7 +87,7 @@
 
 
     <div class="modal" id="wnd">
-              <div class="modal-dialog modal-dialog-scrollable modal-lg">
+              <div class="modal-dialog modal-dialog-scrollable modal-md">
                 <div class="modal-content">
 
                   <!-- Modal Header -->
@@ -106,7 +106,7 @@
                      <form class="needs-validation" novalidate>
                           <div class="form-row">
 
-                           <div class="col-md-10 mb-10">
+                           <div class="col-md-12 mb-10">
 
 
                               <input type="text" class="form-control" id="categorie" placeholder="Entrer la catégorie"  required>

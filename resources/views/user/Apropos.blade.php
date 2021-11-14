@@ -70,7 +70,7 @@ adresse :<a rel="nofollow" href="https://www.google.com/search?q=nouveau%20p%C3%
             </div>
           </div>
           <div class="input-group-icon lg">
-              <input class="form-control form-little-squirrel-control " type="textarea" placeholder="Votre message ... " aria-label="message" /><i class="fas fa-envelope input-box-icon"></i>
+              <textarea class="form-control rounded-0" rows="10" id="textarea" placeholder=" Votre message ... " aria-label="message" ></textarea>
             </div>
           
 
@@ -78,8 +78,8 @@ adresse :<a rel="nofollow" href="https://www.google.com/search?q=nouveau%20p%C3%
           <!-- Button trigger modal -->
          
 <input class="btn btn-primary btn-lg fw-bold fs-1 text-dark fs--1 stretched-link text-decoration-none " 
-data-bs-toggle="modal" data-bs-target="#wnd" aria-haspopup="true" aria-expanded="false" type="submit" value="Envoyer" v-pre>
-           </input>
+data-bs-toggle="modal" data-bs-target="#wnd" aria-haspopup="true" aria-expanded="false" type="submit" value="Envoyer" v-pre/>
+           
 
 </div>
 
