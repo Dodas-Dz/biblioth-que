@@ -53,4 +53,9 @@ class HomeController extends Controller
         return view('/admin/message');
 
     }
+    public function AjouterG(){
+        return view('/admin/AjouterE');
+
+    }
+    
 }

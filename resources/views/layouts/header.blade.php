@@ -29,11 +29,11 @@
         <a class="simple-text logo-normal">
           <img src="assets/img/user.png" class="rounded-circle w-25 h-25 " alt="Cinque Terre">
         </a>
-        @canany(['isAdmin' , 'isGestion'])
+        
     </div>
       <div class="sidebar-wrapper">
+      @canany(['isAdmin' , 'isGestion'])
         <ul class="nav">
-
         <li class="nav-item ">
             <a class="nav-link" href="{{route('profileadmin')}}">
               <i class="material-icons" >person</i>
@@ -86,6 +86,15 @@
               <p>Message</p>
             </a>
           </li>
+          @endcan
+          @can('isAdmin')
+          <li class="nav-item ">
+            <a class="nav-link" href="{{route('AjouterG')}}">
+              <i class="material-icons">add user</i>
+              <p>Ajouter Gestionnaire</p>
+            </a>
+          </li>
+          @endcan
           <!-- <li class="nav-item active-pro ">
                 <a class="nav-link" href="./upgrade.html">
                     <i class="material-icons">unarchive</i>
@@ -95,7 +104,7 @@
         </ul>
       </div>
     </div>
-@endcan
+
 
 
 

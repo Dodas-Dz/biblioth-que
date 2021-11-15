@@ -10,6 +10,7 @@
               <div class="col-md-6 mx-auto">
                 <input type="text" class="form-control" id="name" placeholder="Nom">
               </div>
+              
             </div>
             <div class="form-group my-2">
             <label for="idnum" class="col-lg-5 control-label">N° De Carte Biblio :</label>
