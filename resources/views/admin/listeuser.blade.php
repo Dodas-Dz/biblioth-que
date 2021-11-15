@@ -31,6 +31,7 @@
                       <th>Nom</th>
                       <th>Prénom</th>
                       <th>role</th>
+                        <th>email</th>
                       <th>Supprimer</th>
                       <th>Modifier</th>
                       
@@ -38,10 +39,11 @@
                     <tbody>
                     @foreach($users as $user)
                       <tr>
+                        <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->name}}</td>
+                        <td>{{$user->prenom}}</td>
+                        <td>{{$user->role}}</td>
+                        <td>{{$user->email}}</td>
                         <td><a href="#"><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>

@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Hash;
+
 
 class CreateUsersTable extends Migration
 {
@@ -24,6 +26,15 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->enum('role',  ['gestion','admin']);
         });
+        DB::table('users')->insert(
+            array(
+                'name' => 'zennaki',
+                'prenom' => 'younes',
+                'email' => 'zennaki.younes@outlook.fr',
+                'password' => Hash::make('zennaki31'),
+                'role' =>'admin'
+            )
+        );
     }
 
     /**
