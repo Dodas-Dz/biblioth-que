@@ -13,6 +13,9 @@ Route::get('/categorie', [App\Http\Controllers\HomeController::class, 'categorie
 Route::get('/notification', [App\Http\Controllers\HomeController::class, 'notification'])->middleware('can:isBoth')->name('notification');
 Route::get('/message', [App\Http\Controllers\HomeController::class, 'message'])->middleware('can:isBoth')->name('message');
 Route::get('/AjouterGestionnaire', [App\Http\Controllers\HomeController::class, 'AjouterG'])->middleware('can:isAdmin')->name('AjouterG');
+Route::get('/ListeUser', [App\Http\Controllers\Auth\registere::class, 'getUser'])->middleware('can:isAdmin')->name('listeuser');
+
+route::post('/AjouterGestionnaire', [App\Http\Controllers\Auth\registere::class, 'create'])->middleware('can:isAdmin')->name('create');
 });
 
 
@@ -21,7 +24,7 @@ Route::get('/home', [App\Http\Controllers\GuestServer::class, 'Home'])->name('ho
 Route::get('/', [App\Http\Controllers\GuestServer::class, 'Home']);
 Route::get('/Enprente', [App\Http\Controllers\GuestServer::class, 'Emprente'])->name('Emprente');
 Route::get('/Apropos', [App\Http\Controllers\GuestServer::class, 'Apropos'])->name('Apropos');
-Route::get('/reset', [App\Http\Controllers\GuestServer::class, 'pasword']);
+
 
 /*route::post('/home', [App\Http\Controllers\CommandesController::class, 'message'])->name('message');
 

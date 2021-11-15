@@ -94,6 +94,12 @@
               <p>Ajouter Gestionnaire</p>
             </a>
           </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{{route('listeuser')}}">
+              <i class="material-icons">list </i>
+              <p>Liste emploié</p>
+            </a>
+          </li>
           @endcan
           <!-- <li class="nav-item active-pro ">
                 <a class="nav-link" href="./upgrade.html">

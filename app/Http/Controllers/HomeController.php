@@ -54,7 +54,11 @@ class HomeController extends Controller
 
     }
     public function AjouterG(){
-        return view('/admin/AjouterE');
+        return view('/auth/register');
+
+    }
+    public function ListeUser(){
+        return view('/admin/listeuser');
 
     }
     

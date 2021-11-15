@@ -9,7 +9,7 @@
 <div class="container">
   <div class="forms-container">
     <div class="signin-signup">
-      <form method="POST" action="{{ route('register') }}" class="sign-up-form">
+      <form method="POST" action="{{ route('create') }}" class="sign-up-form">
       @csrf
         <h2 class="title">S'inscrire</h2>
         <div class="input-field"> <i class="fas fa-user"></i>
