@@ -21,6 +21,8 @@ Route::get('/home', [App\Http\Controllers\GuestServer::class, 'Home'])->name('ho
 Route::get('/', [App\Http\Controllers\GuestServer::class, 'Home']);
 Route::get('/Enprente', [App\Http\Controllers\GuestServer::class, 'Emprente'])->name('Emprente');
 Route::get('/Apropos', [App\Http\Controllers\GuestServer::class, 'Apropos'])->name('Apropos');
+Route::get('/reset', [App\Http\Controllers\GuestServer::class, 'pasword']);
+
 /*route::post('/home', [App\Http\Controllers\CommandesController::class, 'message'])->name('message');
 
 Route::get('/service-web', [App\Http\Controllers\ServiceController::class, 'index_web'])->name('serviceweb');

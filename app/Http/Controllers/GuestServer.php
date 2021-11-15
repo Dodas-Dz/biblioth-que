@@ -22,5 +22,9 @@ class GuestServer extends Controller
     {
         return view ('user/Apropos');
     }
-
+    public function pasword()
+    {
+        return view ('auth/passwords/confirm');
+    }
+    
 }
