@@ -99,13 +99,13 @@
                     <div class="row align-items-center mb-3">
                     
                       
-                     <form class="needs-validation" novalidate>
+                     <form class="needs-validation" method="POST" action="{{ route('AjouterMots') }}" novalidate>
                           <div class="form-row">
 
                            <div class="col-md-12 mb-10">
 
 
-                              <input type="text" class="form-control" id="categorie" placeholder="Entrer le mot clé"  required>
+                              <input name="mots Cle" type="text" class="form-control" id="categorie" placeholder="Entrer le mot clé"  required>
                                 
                            </div>
 
