@@ -11,7 +11,7 @@
     <div class="signin-signup">
       <form method="POST" action="{{ route('create') }}" class="sign-up-form">
       @csrf
-        <h2 class="title">S'inscrire</h2>
+        <h2 class="title">Ajoutez un Gestionnair</h2>
         <div class="input-field"> <i class="fas fa-user"></i>
            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
         </div>

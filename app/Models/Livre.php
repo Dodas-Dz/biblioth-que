@@ -17,5 +17,12 @@ class Livre extends Model
         'langue',
         'anneé',
         'autuer',
+        'category_id'
     ];
+    public function Categorie(){
+        return $this->belongsTo('App\Models\Categorie');
+    }
+    public function Empreinte(){
+        return $this->hasMany('App\Models\Empreinte');
+    }
 }

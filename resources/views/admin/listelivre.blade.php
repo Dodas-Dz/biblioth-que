@@ -41,6 +41,7 @@
                       
                     </thead>
                     <tbody>
+                    @foreach($livres as $livre)
                       <tr>
                         <td>1</td>
                         <td>After</td>
@@ -50,33 +51,7 @@
                         <td><a href="#"><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Wonder</td>
-                        <td>Raquel j.palacio</td>
-                        <td>en</td>
-                        <td>Enfant</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Harry Potter</td>
-                        <td>Joanne Kathleen Rowling</td>
-                        <td>en</td>
-                        <td>Science fiction</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>The choice</td>
-                        <td>Ahmed Deedat</td>
-                        <td>en</td>
-                        <td>Islamique</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
+                    @endforeach
                     </tbody>
                   </table>
                 </div>
@@ -122,48 +97,35 @@
                     <div class="row align-items-center mb-3">
                     
                       
-                     <form class="needs-validation" novalidate>
+                     <form class="needs-validation" novalidate method="POST" action="{{ route('AjouterL') }}" >
                           
 
-                           <div class="col-md-12 mb-3">
-     
-                              <input type="text" class="form-control" id="titre" placeholder="Titre"  required>
-                                
-                           </div>
+                        <div class="input-field"> 
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                       </div>
     
-                           <div class="col-md-12 mb-3">
-     
-                              <input type="text" class="form-control" id="isbn" placeholder="ISBN"  required>
-                               
-                          </div>
+                        <div class="input-field"> 
+                        <input id="isbn" type="text" class="form-control  " name="isbn" placeholder="Isbn" required  autofocus>
+                       </div>
+                 
 
-                           <div class="col-md-12 mb-3">
-     
-                              <div class="input-group">
-                                <div class="input-group-prepend">
-                                      <!--  <span class="input-group-text" id="inputGroupPrepend">@</span>-->
-                                </div>
-                                 <input type="text" class="form-control" id="nom_auteur" placeholder="Nom auteur" aria-describedby="inputGroupPrepend" required>
-                               
-
-                             </div>
-                           </div>
-
+                        <div class="input-field"> 
+                        <input  type="text" class="form-control  " name="nom_auteur" placeholder="nom auteur" required  autofocus>
+                       </div>
+                        <div class="input-field"> 
+                        <input  type="date" class="form-control  " name="date"required  autofocus>
+                       </div>
                     
   
                         
-                           <div class="col-md-12 mb-3">
-                           <label class="form-label" for="inputdate">Date de Production</label>
-                                 <input type="date" class="form-control" id="date" placeholder="Date Production" required>
-                              
-                            </div>
+                          
 
-                            <div class="col-md-12 mb-3">
+                            
    
-                            <label class="form-label" for="inputCategories">Categories</label>
+                            <label name="categorie" class="form-label" for="inputCategories">Categories</label>
                             </div>
                             <div class="col-md-12 mb-3">
-              <select class="form-select " id="categorie" onchange="searching()">
+              <select name="categorie" class="form-select " id="categorie" onchange="searching()">
                 <option selected disabled>Choisir une </option>
                 <option value="islamique">Islamique</option>
                 <option value="enfant">Enfant</option>
@@ -176,27 +138,25 @@
                 <option value="Dictionnaire">Dictionnaire</option>
               </select>
                             
-                            </div>
+                     
 
                          
 
-                           <div class="col-md-12 mb-3">
+                          
 
 
-                           <input type="file" class="form-control" id="image" placeholder="ajouter image" required>
+                           <input type="file" name="image" class="form-control" id="image" placeholder="ajouter image" required>
 
 
                                
+                     
+
+                          
+
+                          <label name="description"class="form-label" for="description">Description</label>
+                            <textarea class="form-control rounded-0" type="textarea" class="form-control" id="description" rows="7" placeholder="Description" required> </textarea>
                           </div>
 
-                          <div class="col-md-12 mb-3">
-
-                          <label class="form-label" for="description">Description</label>
-    <textarea class="form-control rounded-0" type="textarea" class="form-control" id="description" rows="7" placeholder="Description" required> </textarea>
-   
-</div>
-
-                     </div>
  
      
                            

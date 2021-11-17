@@ -13,4 +13,6 @@ class Abonne extends Model
        'prenom',
        'date_naissance',
     ];
+
 }
+

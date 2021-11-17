@@ -10,6 +10,10 @@ class Categorie extends Model
     use HasFactory;
     protected $fillable = [
         'name',
+        
        
     ];
+    public function Livre(){
+        return $this->HasMany('App\Models\livre');
+    }
 }

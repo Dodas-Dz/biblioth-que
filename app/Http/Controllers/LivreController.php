@@ -22,9 +22,10 @@ class LivreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function livres() 
     {
-        //
+        $livres= Livre::all();                 
+        return view('admin.listelivre',compact('livres'));
     }
 
     /**
@@ -33,9 +34,9 @@ class LivreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function AjouterL(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
@@ -46,7 +47,9 @@ class LivreController extends Controller
      */
     public function show(Livre $livre)
     {
-        //
+     
+    
+    
     }
 
     /**

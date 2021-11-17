@@ -19,6 +19,10 @@ class CreateEmpreintesTable extends Migration
             $table->date('date_debut');
             $table->date('date_fin');
             $table->boolean('rendu');
+            $table->foreignId('livre_id')->constrained();
+            $table->foreignId('abonne_id')->constrained();
+          
+          
     
         });
     }

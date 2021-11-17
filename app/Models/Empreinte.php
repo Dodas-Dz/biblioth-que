@@ -12,6 +12,14 @@ class Empreinte extends Model
        'date_debut',
        'date_fin',
        'rendu',
+       'livre_id',
+       'abonne_id',
        
     ];
+    public function abonne(){
+        return $this->hasMany('App\Models\Abonne');
+    }
+    public function Livre(){
+        return $this->hasOne('App\Models\livre');
+    }
 }

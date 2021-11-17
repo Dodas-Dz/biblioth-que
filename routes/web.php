@@ -7,15 +7,18 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/statistique', [App\Http\Controllers\HomeController::class, 'statistic'])->middleware('can:isBoth')->name('statistic');
 Route::get('/liste', [App\Http\Controllers\HomeController::class, 'liste'])->middleware('can:isBoth')->name('liste');
 Route::get('/ProfileAdmin', [App\Http\Controllers\HomeController::class, 'profileadmin'])->middleware('can:isBoth')->name('profileadmin');
-Route::get('/ListeAdmin', [App\Http\Controllers\HomeController::class, 'listelivre'])->middleware('can:isBoth')->name('listelivre');
+Route::get('/Listelivre', [App\Http\Controllers\LivreController::class, 'Livres'])->middleware('can:isBoth')->name('listelivre');
 Route::get('/AjouterMot', [App\Http\Controllers\HomeController::class, 'AjouterMot'])->middleware('can:isBoth')->name('AjouterMot');
 Route::get('/categorie', [App\Http\Controllers\HomeController::class, 'categorie'])->middleware('can:isBoth')->name('categorie');
 Route::get('/notification', [App\Http\Controllers\HomeController::class, 'notification'])->middleware('can:isBoth')->name('notification');
 Route::get('/message', [App\Http\Controllers\HomeController::class, 'message'])->middleware('can:isBoth')->name('message');
 Route::get('/AjouterGestionnaire', [App\Http\Controllers\HomeController::class, 'AjouterG'])->middleware('can:isAdmin')->name('AjouterG');
+Route::post('/AjouterLivre', [App\Http\Controllers\LivreController::class, 'AjouterL'])->middleware('can:isAdmin')->name('AjouterL');
 Route::get('/ListeUser', [App\Http\Controllers\Auth\registere::class, 'getUser'])->middleware('can:isAdmin')->name('listeuser');
 
+
 route::post('/AjouterGestionnaire', [App\Http\Controllers\Auth\registere::class, 'create'])->middleware('can:isAdmin')->name('create');
+
 });
 
 
