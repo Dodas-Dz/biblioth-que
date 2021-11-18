@@ -76,14 +76,13 @@
          
            
           @canany(['isAdmin' , 'isGestion'])
-          <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
            
-            <li class="nav-item px-2"><a class="fw-bold fs-1  nav-link active" aria-current="page" href="{{Route('homee')}}">Accueil</a></li>                                                                                                                                     
-              <li class="nav-item px-2"><a class="fw-bold fs-1 nav-link" aria-current="page" href="{{Route('recherche')}}">Livre</a></li>
-            <li class="nav-item px-2"> <a class="fw-bold fs-1 nav-link" aria-current="page" href="{{route('statistic')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> <i class="fas fa-user-cog">   </i>     {{ Auth::user()->name }} </a>
-              </a></li>
-            <li class="nav-item px-2"> <a class="btn btn-primary btn-lg fw-bold fs-1" aria-current="page" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a> </li>
-            <li class="nav-item px-2">
+                      <li class="nav-item px-2"><a class="fw-bold fs-1  nav-link active" aria-current="page" href="{{Route('homee')}}">Accueil</a></li>                                                                                                                                     
+                      <li class="nav-item px-2"><a class="fw-bold fs-1 nav-link" aria-current="page" href="{{Route('recherche')}}">Livre</a></li>
+                      <li class="nav-item px-2"> <a class="fw-bold fs-1 nav-link" aria-current="page" href="{{route('statistic')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> <i class="fas fa-user-cog">   </i>     {{ Auth::user()->name }} </a></a></li>
+                      <li class="nav-item px-2"> <a class="btn btn-primary btn-lg fw-bold fs-1" aria-current="page" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a> </li>
+                      <li class="nav-item px-2">
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
          
               @endcan
@@ -92,3 +91,4 @@
         </div>
       </div>
     </nav>
+   

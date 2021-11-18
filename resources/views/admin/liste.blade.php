@@ -103,18 +103,18 @@
                     <div class="row align-items-center mb-3">
                     
                       
-                     <form class="needs-validation" novalidate>
+                     <form class="needs-validation" method="POST" action="{{ route('createabonne') }}"  novalidate>
                           <div class="form-row">
 
                            <div class="col-md-12 mb-3">
      
-                              <input type="text" class="form-control" id="nom" placeholder="Nom"  required>
+                              <input type="text" class="form-control" id="nom" name="name" placeholder="Nom"  required>
                                
                            </div>
     
                            <div class="col-md-12 mb-3">
      
-                              <input type="text" class="form-control" id="prenom" placeholder="Prénom"  required>
+                              <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom"  required>
                                  
                           </div>
 
@@ -124,7 +124,7 @@
                         <div class="form-row">
                            <div class="col-md-12 mb-3">
                            <label class="form-label" for="satenaissance">Date de naissance</label>
-                                 <input type="date" class="form-control" id="datenaissance" placeholder="Date de Naissance" required>
+                                 <input type="date" name="date" class="form-control" id="datenaissance" placeholder="Date de Naissance" required>
                               
 </div>
                      </div>
@@ -136,7 +136,7 @@
 
                       <button class="btn btn-primary" type="submit">Ajouter</button>
 
-</form>
+              </form>
 </div>
   </div>
 

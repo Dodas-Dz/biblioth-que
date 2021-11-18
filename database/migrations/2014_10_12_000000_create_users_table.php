@@ -32,7 +32,28 @@ class CreateUsersTable extends Migration
                 'prenom' => 'younes',
                 'email' => 'zennaki.younes@outlook.fr',
                 'password' => Hash::make('zennaki31'),
-                'role' =>'admin'
+                'role' =>'admin',
+                
+            )
+        );
+        DB::table('users')->insert(
+            array(
+                'name' => 'hadjer',
+                'prenom' => 'tabet',
+                'email' => 'tabethadjer2506@gmail.com',
+                'password' => Hash::make('tabet31'),
+                'role' =>'admin',
+                
+            )
+        );
+        DB::table('users')->insert(
+            array(
+                'name' => 'beloufa',
+                'prenom' => 'zakaria',
+                'email' => 'zakaria.beloufa13@gmail.com',
+                'password' => Hash::make('beloufa31'),
+                'role' =>'admin',  
+                
             )
         );
     }

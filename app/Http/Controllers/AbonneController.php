@@ -7,79 +7,22 @@ use Illuminate\Http\Request;
 
 class AbonneController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+   
+    public function abonne() 
     {
-        //
+        $abonnes= Abonne::all();                 
+        return view('admin.liste',compact('abonnes'));
+    }
+    protected function create(Request $request)
+    {   
+      dd($request);
+  
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function getUser()
     {
-        //
+        $users= User::all();                    
+        return view('admin.listeuser',compact('users'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Abonne  $abonne
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Abonne $abonne)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Abonne  $abonne
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Abonne $abonne)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Abonne  $abonne
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Abonne $abonne)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Abonne  $abonne
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Abonne $abonne)
-    {
-        //
-    }
+   
 }
