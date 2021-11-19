@@ -38,9 +38,9 @@ class CreateUsersTable extends Migration
         );
         DB::table('users')->insert(
             array(
-                'name' => 'hadjer',
-                'prenom' => 'tabet',
-                'email' => 'tabethadjer2506@gmail.com',
+                'name' => 'tabet',
+                'prenom' => 'hadjer',
+                'email' => 'tabethadjer2706@gmail.com',
                 'password' => Hash::make('tabet31'),
                 'role' =>'admin',
                 
