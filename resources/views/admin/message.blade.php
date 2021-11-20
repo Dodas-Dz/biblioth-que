@@ -40,7 +40,7 @@
                       <th>
                          <h3> <span class="badge badge-pill badge-secondary "> Vous avez trois nouveaux membres aujourd'hui !</span></h3>
                       </th>
-                        <td><a href="#"><i class="fa fa-trash fa-lg" ></i></a></td>
+                        <td><a href="#" onclick="delete_confirmation()"><i class="fa fa-trash fa-lg" ></i></a></td>
                         <td><a href="mailto:zyrahgroupe@gmail.com"><i class="fa fa-comment fa-lg" ></i></a></td>
                       </tr>
 

@@ -44,7 +44,7 @@
                         <td>{{$user->prenom}}</td>
                         <td>{{$user->role}}</td>
                         <td>{{$user->email}}</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
+                        <td><a href="#" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
                        @endforeach

@@ -40,7 +40,7 @@
                         <td>1</td>
                         <td>Technologie</td>
                         <td>3456</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
+                        <td><a href="#" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
                       <tr>

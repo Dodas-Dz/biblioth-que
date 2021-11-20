@@ -27,32 +27,44 @@
                 <div class="card-body table-responsive">
                 <table class="table table-hover">
                     <thead class=" text-warning">
+                      <th class="my-auto font-weight-bold">  <input class="form-check-input " type="checkbox" value="" id="checkall">
+                        <label class="form-check-label font-weight-bold text-warning" for="checkall">
+                          check 
+                        </label>
+
+                      </th>
                         <th  class="font-weight-bold ">Notification </th>
-                    <th>Supprimer</th>
-                      <th>Modifier</th>
+                    <th class="font-weight-bold">Supprimer</th>
+                      <th class="font-weight-bold">Modifier</th>
                       
                     </thead>
                     <tbody>
 
                       <tr>
-                      <th>
-                         <h3> <span class="badge badge-pill badge-success "> Vous avez trois nouveaux membres aujourd'hui !</span></h3>
-                      </th>
-                        <td><a href="#"><i class="fa fa-trash fa-lg" ></i></a></td>
+                        <td>  <input class="form-check-input mx-auto" type="checkbox" value="" id="checkall">
+                        </td>
+                      <td>
+                         <h3 > <span class="badge badge-pill badge-success "> Vous avez trois nouveaux membres aujourd'hui !</span></h3>
+                      </td>
+                        <td><a href="#" onclick="delete_confirmation()"><i class="fa fa-trash fa-lg" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit fa-lg" ></i></a></td>
                       </tr>
 
 
                       <tr>
-                      <th>
+                        <td>  <input class="form-check-input mx-auto" type="checkbox" value="" id="checkall">
+                        </td>
+                      <td>
                          <h3> <span class="badge badge-pill badge-danger "> Vous avez 10 livres non rendu !</span></h3>
-                      </th>
-                        <td><a href="#"><i class="fa fa-trash fa-lg" ></i></a></td>
+                      </td>
+                        <td><a href="#" ><i class="fa fa-trash fa-lg" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit fa-lg" ></i></a></td>
                       </tr>
 
 
                       <tr>
+                        <td>  <input class="form-check-input mx-auto" type="checkbox" value="" id="checkall">
+                        </td>
                       <th>
                          <h3> <span class="badge badge-pill badge-primary "> Livre num°=3567 est rendu à 10:15</span></h3>
                       </th>
@@ -61,6 +73,8 @@
                       </tr>
 
                       <tr>
+                        <td>  <input class="form-check-input mx-auto" type="checkbox" value="" id="checkall">
+                        </td>
                       <th>
                          <h3> <span class="badge badge-pill badge-success "> 15 livres emprunté en 48h </span></h3>
                       </th>
