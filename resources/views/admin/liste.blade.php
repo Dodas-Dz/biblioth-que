@@ -42,7 +42,7 @@
                         <td>TABET</td>
                         <td>Hadjer</td>
                         <td>27/12/2000</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
+                        <td><a href="#" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
                       <tr>

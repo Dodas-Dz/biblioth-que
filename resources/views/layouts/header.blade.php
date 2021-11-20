@@ -112,7 +112,8 @@
     </div>
 
 
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="sweetalert2.min.js"></script>
 
 <script src="assetsU/vendors/@popperjs/popper.min.js"></script>
 <script src="assetsU/vendors/bootstrap/bootstrap.min.js"></script>
@@ -127,6 +128,6 @@
 <script src="assetsU/js/animation.js"></script>
 <script src="assetsU/js/imagesloaded.js"></script>
 <script src="assetsU/js/custom.js"></script>
-
+<script src="assetsU/js/allerts.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Rubik:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">

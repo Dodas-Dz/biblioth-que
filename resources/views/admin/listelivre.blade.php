@@ -31,24 +31,29 @@
          <div class="card-body table-responsive">
                   <table class="table table-hover">
                     <thead class="text-warning">
-                      <th>ID</th>
+                      <th>ISBN</th>
                       <th>Titre</th>
                       <th>Nom Auteur</th>
                       <th>Langue</th>
                       <th>Catégorie</th>
+                       <th>Année</th>
+                       <th>Nombres</th>
                       <th>Supprimer</th>
                       <th>Modifier</th>
+                     
                       
                     </thead>
                     <tbody>
                     @foreach($livres as $livre)
                       <tr>
-                        <td>1</td>
-                        <td>After</td>
-                        <td>Anna Todd</td>
-                        <td>fr / en</td>
-                        <td>Roman</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
+                        <td>{{$livre->isbn}}</td>
+                        <td>{{$livre->titre}}</td>
+                        <td>{{$livre->autuer}}</td>
+                        <td>{{$livre->langue}}</td>
+                        <td></td>
+                        <td>{{$livre->anneé}}</td>
+                        <td>{{$livre->nbr}}</td>
+                        <td><a href="#" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
                     @endforeach
@@ -94,52 +99,46 @@
                   </div>
                   <!-- Modal body -->
                   <div class="modal-body mx-auto">
+                     
                     <div class="row align-items-center mb-3">
-                    
                       
-                     <form class="needs-validation" novalidate method="POST" action="{{ route('AjouterL') }}" >
-                          
+                       <form class="needs-validation" novalidate method="POST" action="{{ route('AjouterL') }}" >
+                        
 
-                        <div class="input-field"> 
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                       </div>
-    
+                          <div class="input-field"> 
+                               <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                          </div>
+        
                         <div class="input-field"> 
                         <input id="isbn" type="text" class="form-control  " name="isbn" placeholder="Isbn" required  autofocus>
                        </div>
                  
-
+                       <div class="my-2">
                         <div class="input-field"> 
                         <input  type="text" class="form-control  " name="nom_auteur" placeholder="nom auteur" required  autofocus>
                        </div>
                         <div class="input-field"> 
                         <input  type="date" class="form-control  " name="date"required  autofocus>
                        </div>
-                    
-  
+                      </div>
+
                         
                           
 
+                            <div class="row my-2">
+                       
+                            <label name="categorie" class="form-label col-12" for="inputCategories">Categories</label>
                             
-   
-                            <label name="categorie" class="form-label" for="inputCategories">Categories</label>
-                            </div>
-                            <div class="col-md-12 mb-3">
-              <select name="categorie" class="form-select " id="categorie" onchange="searching()">
-                <option selected disabled>Choisir une </option>
-                <option value="islamique">Islamique</option>
-                <option value="enfant">Enfant</option>
-                <option value="manga">Manga</option>
-                <option value="roman">Roman</option>
-                <option value="science">Science</option>
-                <option value="informatique">Informatique</option>
-                <option value="histoire">Histoire</option>
-                <option value="Litérature">Litérature</option>
-                <option value="Dictionnaire">Dictionnaire</option>
-              </select>
+                           
+                            <select class="form-select form-select-lg col-12" aria-label=".form-select-lg example">
+                                       <option selected disabled>Choisir une </option>
+                                      
+                                       <option value="categorie">categorie</option>
+                                     
+                                </select>
                             
-                     
-
+                             
+                              </div>
                          
 
                           
@@ -155,7 +154,8 @@
 
                           <label name="description"class="form-label" for="description">Description</label>
                             <textarea class="form-control rounded-0" type="textarea" class="form-control" id="description" rows="7" placeholder="Description" required> </textarea>
-                          </div>
+                          
+                       
 
  
      
@@ -163,7 +163,8 @@
 
                       <button class="btn btn-primary text-center" type="submit">Ajouter</button>
 
-</form>
+                </form>
+</div>
 </div>
   
 

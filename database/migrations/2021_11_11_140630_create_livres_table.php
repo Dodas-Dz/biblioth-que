@@ -24,10 +24,22 @@ class CreateLivresTable extends Migration
             $table->date('anneé');
             $table->string('autuer');
           
-            $table->foreignId('category_id')->constrained();
+           // $table->foreignId('category_id')->constrained();
             
            
         });
+        DB::table('livres')->insert(
+            array(
+                'isbn' => '77777777',
+                'titre' => 'zakaria',
+                'resumer' => 'zakaria.beloufa13@gmail.com',
+                'nbr' => '50',
+                'langue' =>'eng',  
+                'anneé' =>'2015-10-17',  
+                'autuer' =>'admin',  
+                
+            )
+        );
     }
 
     /**
