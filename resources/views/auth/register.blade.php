@@ -1,17 +1,24 @@
 @include('layouts.header')
-<body>
+<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+  <div class="container-fluid">
+    <div class="navbar-wrapper">
+      <a class="navbar-brand font-weight-bold" href="javascript:void(0)">Messages</a>
+    </div>
+  
+ @include('layouts.bar')
+</nav>
 
 @if($errors->any())
  @foreach($errors->all() as $error)
   {{ $error}}
   @endforeach
 @endif 
-<div class="container">
+<div class="content">
   <div class="forms-container">
-    <div class="signin-signup">
+    <div class="">
       <form method="POST" action="{{ route('create') }}" class="sign-up-form">
       @csrf
-        <h2 class="title">Ajoutez un Gestionnair</h2>
+        <h2 class="title">Ajoutez un Gestionnaire</h2>
         <div class="input-field"> <i class="fas fa-user"></i>
            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
         </div>
@@ -36,8 +43,7 @@
       --></form>
     </div>
   </div>
-
+</div>
 
 <script src= "js/app.js"></script>
-</body>
-</html>
+
