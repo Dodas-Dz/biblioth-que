@@ -32,43 +32,24 @@
                       <th>Nom</th>
                       <th>Prénom</th>
                       <th>Date de naissance</th>
+                      <th>Code_etudien</th>
                       <th>Supprimer</th>
                       <th>Modifier</th>
                       
                     </thead>
                     <tbody>
+                      @foreach($abonnes as $Abonne)
                       <tr>
-                        <td>1</td>
-                        <td>TABET</td>
-                        <td>Hadjer</td>
-                        <td>27/12/2000</td>
+                        <td>{{$Abonne->id}}</td>
+                        <td>{{$Abonne->name}}</td>
+                        <td>{{$Abonne->prenom}}</td>
+                        <td>{{$Abonne->date_naissance}}</td>
+                        <td>{{$Abonne->student_id}}</td>
                         <td><a href="#" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>BELLOUFA</td>
-                        <td>Zakaria</td>
-                        <td>08/01/1999</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>ZENNAKI</td>
-                        <td>Younes</td>
-                        <td>08/01/1999</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>MOUSSAOUI</td>
-                        <td>Abdelhak</td>
-                        <td>08/01/1999</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
+                      @endforeach
+                      
                     </tbody>
                   </table>
                   </div>
@@ -129,7 +110,7 @@
 </div>
                      </div>
  
-     
+                     
                             <div class="invalid-feedback">
                               You must agree before submitting.
                             </div>

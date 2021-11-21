@@ -18,6 +18,7 @@ class CreateAbonnesTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('prenom');
+            $table->string('student_id');
             $table->date('date_naissance');
      
         });

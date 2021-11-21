@@ -9,9 +9,10 @@ class Abonne extends Model
 {
     use HasFactory;
     protected $fillable = [
-       'nom ',
+       'name',
        'prenom',
-       'date_naissance',
+       'student_id',
+       'date_naissance',   
     ];
 
 }
