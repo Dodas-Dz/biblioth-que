@@ -16,7 +16,7 @@ class Livre extends Model
         'image',
         'langue',
         'anneé',
-        'autuer',
+        'auteur',
         'category_id'
     ];
     public function Categorie(){

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Livre;
 use Illuminate\Http\Request;
 use App\Models\Categorie;
+use Illuminate\Support\Facades\Validator;
 
 class LivreController extends Controller
 {
@@ -38,7 +39,27 @@ class LivreController extends Controller
      */
     public function AjouterL(Request $request)
     {
-        dd($request);
+        $request->validate([
+            'name'=> ['required', 'string', 'max:255'],
+            'isbn'=> ['required'],
+            'nbr'=> ['required'],
+            'nom_auteur'=> ['required'],
+            'date' => ['required'],
+            'categories'=> ['required'],
+            'description' => ['required'],
+            ]);
+            Livre::create([
+                'titre' => $request->input('name'),
+                'isbn' => $request->input('isbn'),
+                'anneé' => $request->input('date'),
+                'auteur' => $request->input('nom_auteur'),
+                'category_id'=>$request->input('categories'),
+                'resumer' =>$request->input('description'),
+                'nbr'=> $request->input('nbr'),
+                'langue'=>$request->input('langue'),
+              ]); 
+            return redirect()->route('listelivre');
+      
     }
 
     /**

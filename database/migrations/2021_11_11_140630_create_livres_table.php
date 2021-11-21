@@ -16,30 +16,18 @@ class CreateLivresTable extends Migration
         Schema::create('livres', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('isbn');
+            $table->bigInteger('isbn');
             $table->string('titre');
             $table->text('resumer');
             $table->integer('nbr');
             $table->string('langue');
             $table->date('anneé');
-            $table->string('autuer');
-          
-             $table->foreignId('category_id')->constrained();
+            $table->string('auteur');
+           $table->foreignId('category_id')->constrained();
             
            
         });
-        DB::table('livres')->insert(
-            array(
-                'isbn' => '77777777',
-                'titre' => 'zakaria',
-                'resumer' => 'zakaria.beloufa13@gmail.com',
-                'nbr' => '50',
-                'langue' =>'eng',  
-                'anneé' =>'2015-10-17',  
-                'autuer' =>'admin',  
-                
-            )
-        );
+       
     }
 
     /**

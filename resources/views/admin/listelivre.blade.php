@@ -48,7 +48,7 @@
                       <tr>
                         <td>{{$livre->isbn}}</td>
                         <td>{{$livre->titre}}</td>
-                        <td>{{$livre->autuer}}</td>
+                        <td>{{$livre->auteur}}</td>
                         <td>{{$livre->langue}}</td>
                         <td></td>
                         <td>{{$livre->anneé}}</td>
@@ -112,6 +112,9 @@
                         <div class="input-field"> 
                         <input id="isbn" type="text" class="form-control  " name="isbn" placeholder="Isbn" required  autofocus>
                        </div>
+                       <div class="input-field"> 
+                        <input id="isbn" type="text" class="form-control  " name="nbr" placeholder="nombre de page" required  autofocus>
+                       </div>
                  
                        <div class="my-2">
                         <div class="input-field"> 
@@ -127,14 +130,27 @@
 
                             <div class="row my-2">
                        
-                            <label name="categorie" class="form-label col-12" for="inputCategories">Categories</label>
+                            <label class="form-label col-12" for="inputCategories">Categories</label>
                             
                            
-                            <select class="form-select form-select-lg col-12" aria-label=".form-select-lg example">
-                                       <option selected disabled>Choisir une </option>
-                                   @foreach($categories as $cat)
-                                       <option value="{{$cat->id}}">{{$cat->name}}</option>
-                                  @endforeach
+                                <select name="categories" class="form-select form-select-lg col-12" aria-label=".form-select-lg example">
+                                       <option  selected disabled>Choisir une </option>
+                                    @foreach($categories as $cat)
+                                       <option name="categorie" value="{{$cat->id}}">{{$cat->name}}</option>
+                                    @endforeach
+                                </select>
+                            
+                             
+                              </div>
+                          <div class="row my-2">
+                       
+                            <label class="form-label col-12" for="inputCategories">langue</label>
+                            
+                                <select name="langue" class="form-select form-select-lg col-12" aria-label=".form-select-lg example">                                 
+                                       <option name="langue" value="francais" selected >francais</option>
+                                        <option name="langue" value="arab">arab</option>
+                                         <option name="langue" value="anglais">anglais</option>
+                                
                                 </select>
                             
                              
@@ -152,8 +168,8 @@
 
                           
 
-                          <label name="description"class="form-label" for="description">Description</label>
-                            <textarea class="form-control rounded-0" type="textarea" class="form-control" id="description" rows="7" placeholder="Description" required> </textarea>
+                          <label name="description" class="form-label" for="description">Description</label>
+                            <textarea name="description" class="form-control rounded-0" type="textarea" class="form-control" id="description" rows="7" placeholder="Description" required> </textarea>
                           
                        
 
