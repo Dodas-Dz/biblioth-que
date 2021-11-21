@@ -6,6 +6,7 @@ use App\Models\Livre;
 use Illuminate\Http\Request;
 use App\Models\Categorie;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class LivreController extends Controller
 {
@@ -26,7 +27,10 @@ class LivreController extends Controller
      */
     public function livres() 
     {
-        $livres= Livre::all();     
+       
+        $livres= DB::table('livres')
+        ->join('categories','livres.category_id',"=",'categories.id')
+        ->get();    
         $categories =Categorie::all();            
         return view('admin.listelivre',compact('livres','categories'));
     }

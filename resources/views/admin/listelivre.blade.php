@@ -50,7 +50,7 @@
                         <td>{{$livre->titre}}</td>
                         <td>{{$livre->auteur}}</td>
                         <td>{{$livre->langue}}</td>
-                        <td></td>
+                        <td>{{$livre->name}}</td>
                         <td>{{$livre->anneé}}</td>
                         <td>{{$livre->nbr}}</td>
                         <td><a href="#" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
