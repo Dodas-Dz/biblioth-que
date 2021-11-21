@@ -89,12 +89,6 @@
           @endcan
           @can('isAdmin')
           <li class="nav-item ">
-            <a class="nav-link" href="{{route('AjouterG')}}">
-              <i class="material-icons">add user</i>
-              <p>Ajouter Gestionnaire</p>
-            </a>
-          </li>
-          <li class="nav-item ">
             <a class="nav-link" href="{{route('listeuser')}}">
               <i class="material-icons">list </i>
               <p>Liste emploié</p>
