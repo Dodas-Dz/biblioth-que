@@ -29,7 +29,7 @@ class AbonneController extends Controller
                 'student_id' =>$student_id 
                 
         ]); 
-        return view('admin.liste');
+        return redirect()->route('liste');
     }
 
   

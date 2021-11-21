@@ -26,7 +26,7 @@ class registere extends Controller
           'email' => $request->input('email'),
           'password' => Hash::make($request->input('password')),
         ]); 
-        return redirect()->route('liste');
+        return redirect()->route('listeuser');
   
     }
 
