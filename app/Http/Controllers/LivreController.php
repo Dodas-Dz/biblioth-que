@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Livre;
 use Illuminate\Http\Request;
+use App\Models\Categorie;
 
 class LivreController extends Controller
 {
@@ -24,8 +25,9 @@ class LivreController extends Controller
      */
     public function livres() 
     {
-        $livres= Livre::all();                 
-        return view('admin.listelivre',compact('livres'));
+        $livres= Livre::all();     
+        $categories =Categorie::all();            
+        return view('admin.listelivre',compact('livres','categories'));
     }
 
     /**

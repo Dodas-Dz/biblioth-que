@@ -59,6 +59,11 @@ class CategorieController extends Controller
     {
         //
     }
+    public function getCategories() 
+    {
+        $categories = Categorie::all();                 
+        return view('admin.categorie',compact('categories'));
+    }
 
     /**
      * Update the specified resource in storage.

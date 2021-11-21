@@ -24,7 +24,7 @@ class CreateLivresTable extends Migration
             $table->date('anneé');
             $table->string('autuer');
           
-           // $table->foreignId('category_id')->constrained();
+             $table->foreignId('category_id')->constrained();
             
            
         });

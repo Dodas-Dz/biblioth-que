@@ -39,35 +39,16 @@
                       
                     </thead>
                     <tbody>
+                      @foreach ($categories as $Categorie)
                       <tr>
-                        <td>1</td>
-                        <td>Roman</td>
-                        <td>345</td>
+                        <td>{{$Categorie->id}}</td>
+                        <td>{{$Categorie->name}}</td>
+                        
                         <td><a href="#" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
-                      <tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Enfant</td>
-                        <td>3456</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Science</td>
-                        <td>556</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Islamique</td>
-                        <td>4567</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
+                      @endforeach
+              
                     </tbody>
                   </table>
                 </div>

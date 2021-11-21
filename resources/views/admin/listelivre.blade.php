@@ -132,9 +132,9 @@
                            
                             <select class="form-select form-select-lg col-12" aria-label=".form-select-lg example">
                                        <option selected disabled>Choisir une </option>
-                                   
-                                       <option value="categorie">categorie</option>
-                                 
+                                   @foreach($categories as $cat)
+                                       <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                  @endforeach
                                 </select>
                             
                              
