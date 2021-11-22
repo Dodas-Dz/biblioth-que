@@ -86,16 +86,17 @@
 
 
     <div class="modal" id="wnd">
-              <div class="modal-dialog modal-dialog-scrollable modal-md">
+              <div class="modal-dialog modal-dialog-scrollable modal-lg">
                 <div class="modal-content">
 
                   <!-- Modal Header -->
                   <div class="modal-header">
-                 
-                    <button class="pull-right text-right" type="button"  data-bs-dismiss="modal">
+                   
+                   <!-- <button class="pull-right text-right" type="button"  data-bs-dismiss="modal">
                      <i class="material-icons large text-secondary  ">close  </i></button>
-
-                     <h3 class="text-center font-weight-bold text-dark mx-auto"> Remplir les informations </h3> 
+                   -->
+                     <h3 class="font-sans-serif text-center fw-bold fs-1 text-dark mx-auto my-auto"> Remplir les informations </h3>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button> 
                   </div>
                   <!-- Modal body -->
                   <div class="modal-body mx-auto">
@@ -105,35 +106,35 @@
                        <form class="needs-validation" novalidate method="POST" action="{{ route('AjouterL') }}" >
                         
 
-                          <div class="input-field"> 
-                               <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                          <div class="input-field mb-3"> 
+                               <input id="name" type="text" class="form-control form-control-sm @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                           </div>
         
-                        <div class="input-field"> 
-                        <input id="isbn" type="text" class="form-control  " name="isbn" placeholder="Isbn" required  autofocus>
+                        <div class="input-field mb-3"> 
+                        <input id="isbn" type="text" class="form-control form-control-sm" name="isbn" placeholder="Isbn" required  autofocus>
                        </div>
-                       <div class="input-field"> 
-                        <input id="isbn" type="text" class="form-control  " name="nbr" placeholder="nombre de page" required  autofocus>
+                       <div class="input-field mb-3"> 
+                        <input id="isbn" type="text" class="form-control form-control-sm" name="nbr" placeholder="nombre de page" required  autofocus>
                        </div>
                  
-                       <div class="my-2">
-                        <div class="input-field"> 
-                        <input  type="text" class="form-control  " name="nom_auteur" placeholder="nom auteur" required  autofocus>
+                      
+                        <div class="input-field mb-3"> 
+                        <input  type="text" class="form-control form-control-sm" name="nom_auteur" placeholder="nom auteur" required  autofocus>
                        </div>
-                        <div class="input-field"> 
-                        <input  type="date" class="form-control  " name="date"required  autofocus>
+                        <div class="input-field mb-3"> 
+                        <input  type="date" class="form-control form-control-sm" name="date"required  autofocus>
                        </div>
                       </div>
 
                         
                           
 
-                            <div class="row my-2">
+                            <div class="row mb-3 mx-auto">
                        
                             <label class="form-label col-12" for="inputCategories">Categories</label>
                             
                            
-                                <select name="categories" class="form-select form-select-lg col-12" aria-label=".form-select-lg example">
+                                <select name="categories" class="form-select form-select-sm col-12" aria-label=".form-select-sm example">
                                        <option  selected disabled>Choisir une </option>
                                     @foreach($categories as $cat)
                                        <option name="categorie" value="{{$cat->id}}">{{$cat->name}}</option>
@@ -142,11 +143,11 @@
                             
                              
                               </div>
-                          <div class="row my-2">
+                          <div class="row my-2 mb-3 mx-auto">
                        
                             <label class="form-label col-12" for="inputCategories">langue</label>
                             
-                                <select name="langue" class="form-select form-select-lg col-12" aria-label=".form-select-lg example">                                 
+                                <select name="langue" class="form-select form-select-sm col-12" aria-label=".form-select-sm example">                                 
                                        <option name="langue" value="francais" selected >francais</option>
                                         <option name="langue" value="arab">arab</option>
                                          <option name="langue" value="anglais">anglais</option>
@@ -157,10 +158,13 @@
                               </div>
                          
 
-                          
+                              <div class="row my-2 mb-3 mx-auto">
+                                <label for="formFile" class="form-label">Default file input example</label>
+                                <input name="image" class="form-control form-control-sm" type="file" id="formFile" required>
+                              </div>
 
 
-                           <input type="file" name="image" class="form-control" id="image" placeholder="ajouter image" required>
+                          <!-- <input type="file" name="image" class="form-control" id="image" placeholder="ajouter image" required>-->
 
 
                                
@@ -169,7 +173,7 @@
                           
 
                           <label name="description" class="form-label" for="description">Description</label>
-                            <textarea name="description" class="form-control rounded-0" type="textarea" class="form-control" id="description" rows="7" placeholder="Description" required> </textarea>
+                            <textarea name="description" class="form-control form-control-sm rounded-0" type="textarea" class="form-control" id="description" rows="7" placeholder="Description" required> </textarea>
                           
                        
 
