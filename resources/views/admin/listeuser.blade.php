@@ -19,7 +19,7 @@
             <div class="col-lg-12 col-md-12 ">
               <div class="card ">
                 <div class="card-header card-header-warning " >
-                  <h2 class="card-title text-center ">Liste User</h2>
+                  <h2 class="card-title text-center font-sans-serif">Liste User</h2>
                 </div>
        
 
@@ -66,16 +66,14 @@
            
 
     <div class="modal" id="wnd">
-              <div class="modal-dialog modal-dialog-scrollable modal-md">
+              <div class="modal-dialog modal-md">
                 <div class="modal-content">
 
                   <!-- Modal Header -->
                   <div class="modal-header">
                  
-                    <button class="pull-right text-right" type="button"  data-bs-dismiss="modal">
-                     <i class="material-icons large text-secondary  ">close  </i></button>
-
-                     <h3 class="text-center font-weight-bold text-dark mx-auto"> Remplir les informations </h3> 
+                    <h3 class="font-sans-serif text-center fw-bold fs-1 text-dark mx-auto ms-8"> Remplir les informations </h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button> 
                   </div>
                   <!-- Modal body -->
                   <div class="modal-body mx-auto">
@@ -84,30 +82,45 @@
                       
                 <form method="POST" action="{{ route('create') }}" class="sign-up-form" onsubmit="return userformcheck(this)">
       @csrf
-        <h2 class="title">Ajoutez un Gestionnaire</h2>
-        <div class="input-field"> <i class="fas fa-user"></i>
-           <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
-        </div>
-        <div class="input-field"> <i class="fas fa-user"></i>
-           <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" placeholder="Prenom" name="prenom" value="{{ old('prenom') }}"  autocomplete="prenom" autofocus>
-        </div>
         
-        <div class="input-field"> <i class="fas fa-envelope"></i>
-         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}"  autocomplete="email">
+        <div class="input-group-icon mb-3 "> 
+          <label class="form-label col-12" for="inputCategories">Nom</label>
+           <input id="name" type="text" class="form-control form-little-squirrel-control @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{ old('name') }}" autocomplete="name" autofocus/>
+           <i class="fas fa-user input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i> 
         </div>
-        <div class="input-field"> <i class="fas fa-lock"></i>
-          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Mot de passe" name="password"  autocomplete="new-password">
+        <div class="input-group-icon mb-3"> 
+          <label class="form-label col-12" for="inputCategories">Prénom</label>
+           <input id="prenom" type="text" class="form-control form-little-squirrel-control @error('prenom') is-invalid @enderror" placeholder="Prenom" name="prenom" value="{{ old('prenom') }}"  autocomplete="prenom" autofocus>
+           <i class="fas fa-user input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
         </div>
-        <div class="input-field"> <i class="fas fa-lock"></i>
-          <input id="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Confirmation Mot de pass" name="password_confirmation"  autocomplete="new-password">
-        </div>
-       
-        <input class="btn btn-primary" type="submit" class="btn" value="Ajouter" />
-       <!-- <p class="social-text">Or Sign up with social platforms</p>
-       
-        <div class="social-media"> <a href="#" class="social-icon"> <i class="fab fa-facebook-f"></i> </a> <a href="#" class="social-icon"> <i class="fab fa-twitter"></i> </a> <a href="#" class="social-icon"> <i class="fab fa-google"></i> </a> <a href="#" class="social-icon"> <i class="fab fa-linkedin-in"></i> </a> </div>
+
+        <div class="input-group-icon mb-3"> 
+          <label class="form-label col-12" for="inputCategories">Date de naissance</label>
+        <input  type="date" class="form-control form-little-squirrel-control form-control-sm @error('date_naissance') is-invalid @enderror" name="date"required  autofocus>
+        <i class="fas fa-calendar input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
+       </div>
       
-      --></form>
+        <div class="input-group-icon mb-3"> 
+          <label class="form-label col-12" for="inputCategories">Email</label>
+         <input id="email" type="email" class="form-control form-little-squirrel-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}"  autocomplete="email">
+         <i class="fas fa-envelope input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
+        </div>
+        <div class="input-group-icon mb-3"> 
+          <label class="form-label col-12" for="inputCategories">Mot de passe</label>
+          <input id="password" type="password" class="form-control form-little-squirrel-control @error('password') is-invalid @enderror" placeholder="Mot de passe" name="password"  autocomplete="new-password">
+          <i class="fas fa-lock input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
+        </div>
+        <div class="input-group-icon mb-3"> 
+          <label class="form-label col-12" for="inputCategories"> Confirmer Mot de passe</label>
+          <input id="password_confirmation" type="password" class="form-control form-little-squirrel-control @error('password_confirmation') is-invalid @enderror" placeholder="Confirmation Mot de pass" name="password_confirmation"  autocomplete="new-password">
+          <i class="fas fa-lock input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
+        </div>
+       
+        <div class="input-group-icon ms-3 mb-3 mt-7">
+          <button class="btn btn-primary form-little-squirrel-control" type="submit">Ajouter Employé</button>
+          <i class="fas fa-user-plus amber-text input-box-icon" style="color:white"></i>
+         </div>
+      </form>
 
                       
 

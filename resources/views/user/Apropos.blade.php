@@ -66,7 +66,8 @@ adresse :<a rel="nofollow" href="https://www.google.com/search?q=nouveau%20p%C3%
         <form class="row g-0 align-items-center">
           <div class="col">
             <div class="mb-5 input-group-icon">
-              <input class="form-control form-little-squirrel-control" type="email" placeholder="Entrer email "  aria-label="email" required/><i class="fas fa-envelope input-box-icon"></i>
+              <input class="form-control form-little-squirrel-control" type="email" placeholder="Entrer email "  aria-label="email" required/>
+              <i class="fas fa-envelope input-box-icon"></i>
             </div>
           </div>
           <div class="input-group-icon lg">

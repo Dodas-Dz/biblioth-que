@@ -94,7 +94,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="{{route('listeuser')}}">
               <i class="material-icons">list </i>
-              <p>Liste emploié</p>
+              <p>Liste Employé</p>
             </a>
           </li>
           @endcan

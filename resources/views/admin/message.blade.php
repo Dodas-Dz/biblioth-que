@@ -18,8 +18,8 @@
               <div class="card ">
 
                 <div class="card-header card-header-warning " >
-                  <h2 class="card-title text-center ">Message</h2>
-                  <h5 class="card-category text-center"> 145 nouveaux, aujourd'hui</h5>
+                  <h2 class="card-title text-center font-sans-serif">Message</h2>
+                  <h5 class="card-category text-center font-sans-serif"> 145 nouveaux, aujourd'hui</h5>
                 </div>
        
 

@@ -19,8 +19,8 @@
             <div class="col-lg-12 col-md-12 ">
               <div class="card ">
                 <div class="card-header card-header-warning " >
-                  <h2 class="card-title text-center ">Liste Abonnés</h2>
-                  <h5 class="card-category text-center"> 3 nouveaux, aujourd'hui</h5>
+                  <h2 class="card-title text-center font-sans-serif ">Liste Abonnés</h2>
+                  <h5 class="card-category text-center font-sans-serif"> 3 nouveaux, aujourd'hui</h5>
                 </div>
        
 
@@ -32,7 +32,7 @@
                       <th>Nom</th>
                       <th>Prénom</th>
                       <th>Date de naissance</th>
-                      <th>Code_etudien</th>
+                      <th>N° de carte</th>
                       <th>Supprimer</th>
                       <th>Modifier</th>
                       
@@ -58,7 +58,7 @@
                
               </div>
                   <div>
-                  <a class="btn btn-primary btn-lg font-weight-bold text-light fs--1 stretched-link text-decoration-none " 
+                  <a class="btn btn-primary btn-lg font-weight-bold text-light fs-2 stretched-link text-decoration-none " 
                     data-bs-toggle="modal" data-bs-target="#wnd" aria-haspopup="true" aria-expanded="false" role="button"  v-pre>
                      Ajouter Abonné
            </a>
@@ -73,11 +73,8 @@
 
                   <!-- Modal Header -->
                   <div class="modal-header">
-                 
-                    <button class="pull-right text-right" type="button"  data-bs-dismiss="modal">
-                     <i class="material-icons large text-secondary  ">close  </i></button>
-
-                     <h3 class="text-center font-weight-bold text-dark mx-auto"> Remplir les informations </h3> 
+                    <h3 class="font-sans-serif text-center fw-bold fs-1 text-dark mx-auto ms-8"> Remplir les informations </h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button> 
                   </div>
                   <!-- Modal body -->
                   <div class="modal-body mx-auto">
@@ -85,38 +82,30 @@
                     
                       
                      <form class="needs-validation" method="POST" action="{{ route('createabonne') }}" onsubmit="return aboneformcheck(this)" novalidate>
-                          <div class="form-row">
+                          
 
-                           <div class="col-md-12 mb-3">
-     
-                              <input type="text" class="form-control" id="nom" name="name" placeholder="Nom"  required>
-                               
-                           </div>
-    
-                           <div class="col-md-12 mb-3">
-     
-                              <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom"  required>
-                                 
-                          </div>
-
-
-                    </div>
-  
-                        <div class="form-row">
-                           <div class="col-md-12 mb-3">
-                           <label class="form-label" for="satenaissance">Date de naissance</label>
-                                 <input type="date" name="date" class="form-control" id="datenaissance" placeholder="Date de Naissance"  min="1910-01-01" max="2014-12-31" required>
-                              
-</div>
-                     </div>
- 
-                     
-                            <div class="invalid-feedback">
-                              You must agree before submitting.
+                            <div class="input-group-icon mb-3 "> 
+                              <label class="form-label col-12" for="inputCategories">Nom</label>
+                               <input id="name" type="text" class="form-control form-little-squirrel-control @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{ old('name') }}" autocomplete="name" autofocus/>
+                               <i class="fas fa-user input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i> 
                             </div>
+                            <div class="input-group-icon mb-3"> 
+                              <label class="form-label col-12" for="inputCategories">Prénom</label>
+                               <input id="prenom" type="text" class="form-control form-little-squirrel-control @error('prenom') is-invalid @enderror" placeholder="Prenom" name="prenom" value="{{ old('prenom') }}"  autocomplete="prenom" autofocus>
+                               <i class="fas fa-user input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
+                            </div>
+                    
+                            <div class="input-group-icon mb-3"> 
+                              <label class="form-label col-12" for="inputCategories">Date de naissance</label>
+                            <input  type="date" class="form-control form-little-squirrel-control form-control-sm @error('date_naissance') is-invalid @enderror" name="date"required  autofocus>
+                            <i class="fas fa-calendar input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
+                           </div>
+                     
 
-                      <button class="btn btn-primary" type="submit">Ajouter</button>
-
+                           <div class="input-group-icon ms-3 mb-3 mt-7">
+                            <button class="btn btn-primary form-little-squirrel-control" type="submit">Ajouter Abonné</button>
+                            <i class="fas fa-user-plus amber-text input-box-icon" style="color:white"></i>
+                           </div>
               </form>
 </div>
   </div>

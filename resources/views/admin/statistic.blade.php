@@ -18,9 +18,9 @@
                   <div class="ct-chart" id="dailySalesChart"></div>
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">Livre Emprunter</h4>
-                  <p class="card-category">
-                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 45% </span> Livres empruntés ajourd'hui</p>
+                  <h4 class="card-title font-sans-serif">Livre Emprunter</h4>
+                  <p class="card-category font-sans-serif">
+                    <span class="text-success"><i class="fas fa-long-arrow-up"></i> 45% </span> Livres empruntés ajourd'hui</p>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -35,9 +35,9 @@
                   <div class="ct-chart" id="websiteViewsChart"></div>
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">Nombre d'Abonnés </h4>
-                  <p class="card-category">
-                  <span class="text-danger"><i class="fa fa-long-arrow-down" ></i> 10%  </span>nombre d'abonnés par année</p>
+                  <h4 class="card-title font-sans-serif">Nombre d'Abonnés </h4>
+                  <p class="card-category font-sans-serif">
+                  <span class="text-danger"><i class="fas fa-long-arrow-down" ></i> 10%  </span>nombre d'abonnés par année</p>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -52,8 +52,8 @@
                   <div class="ct-chart" id="completedTasksChart"></div>
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">Livre Existant</h4>
-                  <p class="card-category">Livre total moins Livre empreinté</p>
+                  <h4 class="card-title font-sans-serif">Livre Existant</h4>
+                  <p class="card-category font-sans-serif">Livre total moins Livre empreinté</p>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -68,8 +68,8 @@
             <div class="col-lg-12 col-md-12 ">
               <div class="card ">
                 <div class="card-header card-header-warning " >
-                  <h2 class="card-title text-center ">Livre Emprunter</h2>
-                  <h5 class="card-category text-center"> 3 rendu, aujourd'hui</h5>
+                  <h2 class="card-title text-center font-sans-serif">Livre Emprunter</h2>
+                  <h5 class="card-category text-center font-sans-serif"> 3 rendu, aujourd'hui</h5>
                 </div>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">

@@ -21,8 +21,8 @@
             <div class="col-lg-12 col-md-12 ">
               <div class="card ">
                 <div class="card-header card-header-warning " >
-                  <h2 class="card-title text-center ">Liste des Livres</h2>
-                  <h5 class="card-category text-center"> 3 nouveaux, aujourd'hui</h5>
+                  <h2 class="card-title text-center font-sans-serif ">Liste des Livres</h2>
+                  <h5 class="card-category text-center font-sans-serif"> 3 nouveaux, aujourd'hui</h5>
                 </div>
              
         
@@ -102,76 +102,90 @@
                       
                        <form class="needs-validation" novalidate method="POST" action="{{ route('AjouterL') }}" >
                         
-                          <div class="input-field mb-3"> 
+                          <div class="input-group-icon mb-3"> 
                             <label class="form-label col-12" for="inputCategories">Titre</label>
-                               <input id="name" type="text" class="form-control form-control-sm @error('name') is-invalid @enderror" placeholder="Titre du livre" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                               <input id="name" type="text" class="form-control form-little-squirrel-control form-control-sm @error('name') is-invalid @enderror" placeholder="Titre du livre" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                               <i class="fas fa-book input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                           </div>
         
-                        <div class="input-field mb-3"> 
+                        <div class="input-group-icon mb-3"> 
                           <label class="form-label col-12" for="inputCategories">ISBN</label>
-                        <input id="isbn" type="text" class="form-control form-control-sm" name="isbn" placeholder="Isbn" required  autofocus>
+                        <input id="isbn" type="text" class="form-control form-little-squirrel-control form-control-sm" name="isbn" placeholder="Isbn" required  autofocus>
+                        <i class="fas fa-passport input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                        </div>
-                       <div class="input-field mb-3"> 
+                       <div class="input-group-icon mb-3"> 
                         <label class="form-label col-12" for="inputCategories">Nombre d'exemplaire</label>
-                        <input id="nbr" type="text" class="form-control form-control-sm" name="nbr" placeholder="Nombre d'exemplaires" required  autofocus>
+                        <input id="nbr" type="text" class="form-control form-little-squirrel-control form-control-sm" name="nbr" placeholder="Nombre d'exemplaires" required  autofocus>
+                        <i class="fas fa-sort-numeric-up-alt input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                        </div>
                  
                       
-                        <div class="input-field mb-3"> 
+                        <div class="input-group-icon mb-3"> 
                           <label class="form-label col-12" for="inputCategories">Nom d'auteur</label>
-                        <input  type="text" class="form-control form-control-sm" name="nom_auteur" placeholder="Nom d'auteur" required  autofocus>
+                        <input  type="text" class="form-control form-little-squirrel-control form-control-sm" name="nom_auteur" placeholder="Nom d'auteur" required  autofocus>
+                        <i class="fas fa-user input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                        </div>
 
-                        <div class="input-field mb-3"> 
+                        <div class="input-group-icon mb-3"> 
                           <label class="form-label col-12" for="inputCategories">Date d'édition</label>
-                        <input  type="date" class="form-control form-control-sm" name="date"required  autofocus>
+                        <input  type="date" class="form-control form-little-squirrel-control form-control-sm" name="date"required  autofocus>
+                        <i class="fas fa-calendar input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                        </div>
                       
 
-                         <div class="input-field mb-3 mx-auto">
+                         <div class="input-group-icon mb-3">
                             <label class="form-label col-12" for="inputCategories">Categories</label>
 
-                                <select name="categories" class="form-select form-select-sm col-12" aria-label=".form-select-sm example">
-                                       <option  selected disabled>Choisir une </option>
+                                <select name="categories" class="form-select form-little-squirrel-control form-select-sm col-12" aria-label=".form-select-sm example">
+                                  
+                                       <option  selected disabled>Choisir une Catégorie</option>
                                     @foreach($categories as $cat)
                                        <option name="categorie" value="{{$cat->id}}">{{$cat->name}}</option>
                                     @endforeach
                                 </select>
                               </div>
                               
-                         <div class="input-field mb-3 mx-auto">
-                          <label class="form-label col-12" for="inputCategories">Mots Clé</label>
+                         <div class="input-group-icon mb-3">
+                          <label class="form-label col-12" for="inputMotcle">Mots Clé</label>
 
-                          <select class="selectpicker form-select form-select-sm col-12" data-live-search="true" aria-label="multiple select select-sm example" multiple data-selected-text-format="count > 3">
-                            <option>Mustard</option>
-                            <option>Ketchup</option>
-                            <option>Relish</option>
-                            <option>Onions</option>
+                          <select class="form-select form-select-sm form-little-squirrel-control mdb-select dropdown-primary md-form" multiple data-mdb-filter="true" searchable="Search here..">
+                           
+                            <option value="" disabled selected>Choisir un Mot clé</option>
+                            <option value="1">USA</option>
+                            <option value="2">Germany</option>
+                            <option value="3">France</option>
+                            <option value="4">Poland</option>
+                            <option value="5">Japan</option>
                           </select>
+                         
                             </div>
 
-                          <div class="input-fieldmy-2 mb-3 mx-auto">
+                          <div class="input-group-icon mb-3">
                             <label class="form-label col-12" for="inputCategories">Langue</label>
-                                <select name="langue" class="form-select form-select-sm col-12" aria-label=".form-select-sm example"> 
-                                  <option  selected disabled>Choisir une </option>                                
-                                       <option name="langue" value="francais">francais</option>
-                                        <option name="langue" value="arab">arab</option>
-                                         <option name="langue" value="anglais">anglais</option>
+                                <select name="langue" class="form-select form-select-sm form-little-squirrel-control col-12" aria-label=".form-select-sm example"> 
+                                
+                                  <option  selected disabled>Choisir une Langue </option>                                
+                                       <option name="langue" value="francais">Francais</option>
+                                        <option name="langue" value="arab">Arabe</option>
+                                         <option name="langue" value="anglais">Anglais</option>
                                 </select>
                               </div>
                          
-                              <div class="input-field my-2 mb-3 mx-auto">
+                              <div class="input-group-icon mb-3">
                                 <label for="formFile" class="form-label col-12">L'image de couverture</label>
-                                <input name="image" class="form-control form-control-sm" type="file" id="formFile" placeholder="Insérer une image"required>
+                                <i class="fas fa-image input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
+                                <input name="image" class="form-control form-little-squirrel-control form-control-sm" type="file" id="formFile" placeholder="Insérer une image"required>
                               </div>
 
-                              <div class="input-field my-2 mb-3 mx-auto">
+                              <div class="input-group-icon mb-3">
                           <label name="description" class="form-label col-12" for="description">Description</label>
-                            <textarea name="description" class="form-control form-control-sm rounded-0" type="textarea" id="description" placeholder="Description du livre" rows="7" required></textarea>
+                          <i class="fas fa-quote-left input-box-icon mt-n5" style="color:rgb(73, 73, 73)"></i>
+                          <textarea name="description" class="form-control form-little-squirrel-control form-control-sm rounded-0" type="textarea" id="description" placeholder="Description du livre" rows="7" required></textarea>
                               </div>
 
-                              <div class="input-field col-12 ms-7">
-                             <button class="btn btn-primary text-center font-sans-serif" type="submit">Ajouter</button>
+                              <div class="input-group-icon ms-6 mt-5 mb-3">
+                             <button class="btn btn-primary form-little-squirrel-control" type="submit">Ajouter Livre</button>
+                             <i class="fas fa-book-medical input-box-icon" style="color:white"></i>
                             </div>
                 </form>
 </div>
@@ -194,7 +208,12 @@
       
             
            
-      
+      <script>
+        // Material Select Initialization
+$(document).ready(function() {
+$('.mdb-select').materialSelect();
+});
+        </script>
                     
                   
                 

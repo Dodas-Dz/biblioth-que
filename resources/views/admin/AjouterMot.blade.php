@@ -19,8 +19,8 @@
             <div class="col-lg-12 col-md-12 ">
               <div class="card ">
                 <div class="card-header card-header-warning " >
-                  <h2 class="card-title text-center ">Liste des Mot Clé</h2>
-                  <h5 class="card-category text-center"> 3 nouveaux, aujourd'hui</h5>
+                  <h2 class="card-title text-center font-sans-serif">Liste des Mot Clé</h2>
+                  <h5 class="card-category text-center font-sans-serif"> 3 nouveaux, aujourd'hui</h5>
                 </div>
        
 
@@ -89,30 +89,27 @@
                   <!-- Modal Header -->
                   <div class="modal-header">
                  
-                    <button class="pull-right text-right" type="button"  data-bs-dismiss="modal">
-                     <i class="material-icons large text-secondary  ">close  </i></button>
-
-                     <h3 class="text-center font-weight-bold text-dark mx-auto"> Remplir les informations </h3> 
+                    <h3 class="font-sans-serif text-center fw-bold fs-1 text-dark mx-auto ms-8"> Remplir les informations </h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button> 
                   </div>
                   <!-- Modal body -->
                   <div class="modal-body mx-auto">
-                    <div class="row align-items-center mb-3">
+                    <div class="row align-items-center mb-3 mt-3">
                     
                       
                      <form class="needs-validation" method="POST" action="{{ route('AjouterMots') }}" novalidate>
-                          <div class="form-row">
 
-                           <div class="col-md-12 mb-10">
+                      <div class="input-group-icon mb-3"> 
+                        <label class="form-label col-12" for="inputCategories">Mot clé</label>
+                      <input id="isbn" type="text" class="form-control form-little-squirrel-control form-control-sm" name="isbn" placeholder="Entrer un mot clé" required  autofocus>
+                      <i class="fas fa-key input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
+                     </div>
 
+                     <div class="input-group-icon ms-2 mt-5 mb-3">
+                      <button class="btn btn-primary form-little-squirrel-control" type="submit">Ajouter Mot Clé</button>
+                      <i class="fas fa-plus input-box-icon" style="color:white"></i>
+                     </div>
 
-                              <input name="mots Cle" type="text" class="form-control" id="categorie" placeholder="Entrer le mot clé"  required>
-                                
-                           </div>
-
-                           <div class="mt-5 mx-auto">
-                           <button class="btn btn-primary pull-right" type="submit">Ajouter Mot Clé</button>
-                         </div>
-                          </div>
                        </form>
 
   </div>

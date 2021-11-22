@@ -19,7 +19,7 @@
             <div class="col-lg-12 col-md-12 ">
               <div class="card ">
                 <div class="card-header card-header-warning " >
-                  <h2 class="card-title text-center ">Mes Informations</h2>
+                  <h2 class="card-title text-center font-sans-serif">Mes Informations</h2>
                 
                 </div>
        
