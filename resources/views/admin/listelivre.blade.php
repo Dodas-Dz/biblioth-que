@@ -86,18 +86,15 @@
 
 
     <div class="modal" id="wnd">
-              <div class="modal-dialog modal-dialog-scrollable modal-lg">
+              <div class="modal-dialog modal-dialog modal-dm">
                 <div class="modal-content">
 
                   <!-- Modal Header -->
                   <div class="modal-header">
-                   
-                   <!-- <button class="pull-right text-right" type="button"  data-bs-dismiss="modal">
-                     <i class="material-icons large text-secondary  ">close  </i></button>
-                   -->
-                     <h3 class="font-sans-serif text-center fw-bold fs-1 text-dark mx-auto my-auto"> Remplir les informations </h3>
+                     <h3 class="font-sans-serif text-center fw-bold fs-1 text-dark mx-auto ms-8"> Remplir les informations </h3>
                      <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button> 
                   </div>
+
                   <!-- Modal body -->
                   <div class="modal-body mx-auto">
                      
@@ -105,84 +102,77 @@
                       
                        <form class="needs-validation" novalidate method="POST" action="{{ route('AjouterL') }}" >
                         
-
                           <div class="input-field mb-3"> 
-                               <input id="name" type="text" class="form-control form-control-sm @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <label class="form-label col-12" for="inputCategories">Titre</label>
+                               <input id="name" type="text" class="form-control form-control-sm @error('name') is-invalid @enderror" placeholder="Titre du livre" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                           </div>
         
                         <div class="input-field mb-3"> 
+                          <label class="form-label col-12" for="inputCategories">ISBN</label>
                         <input id="isbn" type="text" class="form-control form-control-sm" name="isbn" placeholder="Isbn" required  autofocus>
                        </div>
                        <div class="input-field mb-3"> 
-                        <input id="isbn" type="text" class="form-control form-control-sm" name="nbr" placeholder="nombre de page" required  autofocus>
+                        <label class="form-label col-12" for="inputCategories">Nombre d'exemplaire</label>
+                        <input id="nbr" type="text" class="form-control form-control-sm" name="nbr" placeholder="Nombre d'exemplaires" required  autofocus>
                        </div>
                  
                       
                         <div class="input-field mb-3"> 
-                        <input  type="text" class="form-control form-control-sm" name="nom_auteur" placeholder="nom auteur" required  autofocus>
+                          <label class="form-label col-12" for="inputCategories">Nom d'auteur</label>
+                        <input  type="text" class="form-control form-control-sm" name="nom_auteur" placeholder="Nom d'auteur" required  autofocus>
                        </div>
+
                         <div class="input-field mb-3"> 
+                          <label class="form-label col-12" for="inputCategories">Date d'édition</label>
                         <input  type="date" class="form-control form-control-sm" name="date"required  autofocus>
                        </div>
-                      </div>
+                      
 
-                        
-                          
-
-                            <div class="row mb-3 mx-auto">
-                       
+                         <div class="input-field mb-3 mx-auto">
                             <label class="form-label col-12" for="inputCategories">Categories</label>
-                            
-                           
+
                                 <select name="categories" class="form-select form-select-sm col-12" aria-label=".form-select-sm example">
                                        <option  selected disabled>Choisir une </option>
                                     @foreach($categories as $cat)
                                        <option name="categorie" value="{{$cat->id}}">{{$cat->name}}</option>
                                     @endforeach
                                 </select>
-                            
-                             
                               </div>
-                          <div class="row my-2 mb-3 mx-auto">
-                       
-                            <label class="form-label col-12" for="inputCategories">langue</label>
-                            
-                                <select name="langue" class="form-select form-select-sm col-12" aria-label=".form-select-sm example">                                 
-                                       <option name="langue" value="francais" selected >francais</option>
+                              
+                         <div class="input-field mb-3 mx-auto">
+                          <label class="form-label col-12" for="inputCategories">Mots Clé</label>
+
+                          <select class="selectpicker form-select form-select-sm col-12" data-live-search="true" aria-label="multiple select select-sm example" multiple data-selected-text-format="count > 3">
+                            <option>Mustard</option>
+                            <option>Ketchup</option>
+                            <option>Relish</option>
+                            <option>Onions</option>
+                          </select>
+                            </div>
+
+                          <div class="input-fieldmy-2 mb-3 mx-auto">
+                            <label class="form-label col-12" for="inputCategories">Langue</label>
+                                <select name="langue" class="form-select form-select-sm col-12" aria-label=".form-select-sm example"> 
+                                  <option  selected disabled>Choisir une </option>                                
+                                       <option name="langue" value="francais">francais</option>
                                         <option name="langue" value="arab">arab</option>
                                          <option name="langue" value="anglais">anglais</option>
-                                
                                 </select>
-                            
-                             
                               </div>
                          
-
-                              <div class="row my-2 mb-3 mx-auto">
-                                <label for="formFile" class="form-label">Default file input example</label>
-                                <input name="image" class="form-control form-control-sm" type="file" id="formFile" required>
+                              <div class="input-field my-2 mb-3 mx-auto">
+                                <label for="formFile" class="form-label col-12">L'image de couverture</label>
+                                <input name="image" class="form-control form-control-sm" type="file" id="formFile" placeholder="Insérer une image"required>
                               </div>
 
+                              <div class="input-field my-2 mb-3 mx-auto">
+                          <label name="description" class="form-label col-12" for="description">Description</label>
+                            <textarea name="description" class="form-control form-control-sm rounded-0" type="textarea" id="description" placeholder="Description du livre" rows="7" required></textarea>
+                              </div>
 
-                          <!-- <input type="file" name="image" class="form-control" id="image" placeholder="ajouter image" required>-->
-
-
-                               
-                     
-
-                          
-
-                          <label name="description" class="form-label" for="description">Description</label>
-                            <textarea name="description" class="form-control form-control-sm rounded-0" type="textarea" class="form-control" id="description" rows="7" placeholder="Description" required> </textarea>
-                          
-                       
-
- 
-     
-                           
-
-                      <button class="btn btn-primary text-center" type="submit">Ajouter</button>
-
+                              <div class="input-field col-12 ms-7">
+                             <button class="btn btn-primary text-center font-sans-serif" type="submit">Ajouter</button>
+                            </div>
                 </form>
 </div>
 </div>

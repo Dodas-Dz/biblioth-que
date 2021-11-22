@@ -43,7 +43,7 @@ return false;
      
 Swal.fire({
   position: 'top-end',
-  icon: 'succée',
+  icon: 'success',
   title: 'Abonée ajouté avec succée ',
   showConfirmButton: false,
   timer: 1500
@@ -92,7 +92,7 @@ return false;
 
   Swal.fire({
    position: 'top-end',
-   icon: 'succée',
+   icon: 'success',
    title: 'emplyee ajouté avec succée',
    showConfirmButton: false,
    timer: 1500
