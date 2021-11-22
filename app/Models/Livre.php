@@ -19,8 +19,8 @@ class Livre extends Model
         'auteur',
         'category_id'
     ];
-    public function Categorie(){
-        return $this->belongsTo('App\Models\Categorie');
+    public function categorie(){
+        return $this->belongsTo('App\Models\Categorie','category_id');
     }
     public function Empreinte(){
         return $this->hasMany('App\Models\Empreinte');

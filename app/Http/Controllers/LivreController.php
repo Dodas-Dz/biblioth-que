@@ -6,7 +6,6 @@ use App\Models\Livre;
 use Illuminate\Http\Request;
 use App\Models\Categorie;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\DB;
 
 class LivreController extends Controller
 {
@@ -27,10 +26,7 @@ class LivreController extends Controller
      */
     public function livres() 
     {
-       
-        $livres= DB::table('livres')
-        ->join('categories','livres.category_id',"=",'categories.id')
-        ->get();    
+        $livres= Livre::with('categorie')->get();     
         $categories =Categorie::all();            
         return view('admin.listelivre',compact('livres','categories'));
     }
@@ -55,8 +51,8 @@ class LivreController extends Controller
             Livre::create([
                 'titre' => $request->input('name'),
                 'isbn' => $request->input('isbn'),
-                'anneé' => $request->input('date'),
                 'auteur' => $request->input('nom_auteur'),
+                'anneé' => $request->input('date'),
                 'category_id'=>$request->input('categories'),
                 'resumer' =>$request->input('description'),
                 'nbr'=> $request->input('nbr'),
