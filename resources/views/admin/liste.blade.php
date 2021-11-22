@@ -84,7 +84,7 @@
                     <div class="row align-items-center mb-3">
                     
                       
-                     <form class="needs-validation" method="POST" action="{{ route('createabonne') }}"  novalidate>
+                     <form class="needs-validation" method="POST" action="{{ route('createabonne') }}" onsubmit="return aboneformcheck(this)" novalidate>
                           <div class="form-row">
 
                            <div class="col-md-12 mb-3">
@@ -105,7 +105,7 @@
                         <div class="form-row">
                            <div class="col-md-12 mb-3">
                            <label class="form-label" for="satenaissance">Date de naissance</label>
-                                 <input type="date" name="date" class="form-control" id="datenaissance" placeholder="Date de Naissance" required>
+                                 <input type="date" name="date" class="form-control" id="datenaissance" placeholder="Date de Naissance"  min="1910-01-01" max="2014-12-31" required>
                               
 </div>
                      </div>

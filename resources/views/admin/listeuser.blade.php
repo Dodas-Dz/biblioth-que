@@ -82,24 +82,24 @@
                     <div class="row align-items-center mb-3">
                     
                       
-                <form method="POST" action="{{ route('create') }}" class="sign-up-form">
+                <form method="POST" action="{{ route('create') }}" class="sign-up-form" onsubmit="return userformcheck(this)">
       @csrf
         <h2 class="title">Ajoutez un Gestionnaire</h2>
         <div class="input-field"> <i class="fas fa-user"></i>
-           <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+           <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
         </div>
         <div class="input-field"> <i class="fas fa-user"></i>
-           <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" placeholder="Prenom" name="prenom" value="{{ old('prenom') }}" required autocomplete="prenom" autofocus>
+           <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" placeholder="Prenom" name="prenom" value="{{ old('prenom') }}"  autocomplete="prenom" autofocus>
         </div>
         
         <div class="input-field"> <i class="fas fa-envelope"></i>
-         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email">
+         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}"  autocomplete="email">
         </div>
         <div class="input-field"> <i class="fas fa-lock"></i>
-          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Mot de passe" name="password" required autocomplete="new-password">
+          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Mot de passe" name="password"  autocomplete="new-password">
         </div>
         <div class="input-field"> <i class="fas fa-lock"></i>
-          <input id="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Confirmation Mot de pass" name="password_confirmation" required autocomplete="new-password">
+          <input id="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Confirmation Mot de pass" name="password_confirmation"  autocomplete="new-password">
         </div>
        
         <input class="btn btn-primary" type="submit" class="btn" value="Ajouter" />
