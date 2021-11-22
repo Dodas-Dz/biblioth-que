@@ -4,7 +4,7 @@ namespace App\Helpers;
 class Helper
 {
 
-    public static function IDGenerator($model, $trow, $length = 4, $prefix){
+    public static function IDGenerator($model, $trow, $length = 4, $prefix=null){ 
         $data = $model::orderBy('id','desc')->first();
         if(!$data){
             $og_length = $length;

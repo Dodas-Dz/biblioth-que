@@ -100,7 +100,7 @@
                      
                     <div class="row align-items-center mb-3">
                       
-                       <form class="needs-validation" novalidate method="POST" action="{{ route('AjouterL') }}" >
+                       <form class="needs-validation" novalidate method="POST" action="{{ route('AjouterL') }}" onsubmit="return livreformcheck(this)" >
                         
                           <div class="input-group-icon mb-3"> 
                             <label class="form-label col-12" for="inputCategories">Titre</label>
@@ -204,7 +204,11 @@
             </div>
 
           </div>
-     
+     <script>
+       $(function () {
+    $('select').selectpicker();
+});
+     </script>
       
             
            

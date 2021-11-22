@@ -98,9 +98,57 @@ return false;
    timer: 1500
  })
 return true;
+}
+$(document).ready(function(){
+
+  $('select').selectpicker();
+
+
+})
 
 
 
+function livreformcheck(form) {
+  if(form.name.value =="" ||  form.isbn.value ==""  || form.nbr.value =="" || form.nom_auteur.value =="" || form.date.value =="" || form.categories.value=="" || form.langue.value =="" || form.image.value =="" || form.description.value ==""){
+     Swal.fire({
+       icon: 'error',
+       title: 'Oops...',
+       timer: 2000,
+       text: 'un ou plusieur chemain sont vides',
+       
+     })
+return false;
+  }
+  else if(/\d/.test(form.nom_auteur.value) ){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      timer: 2000,
+      text: 'le nom ne doit pas contenire un chiffre',
+      
+    })
+return false;
 
+  }
+ 
+  else if(  form.isbn.value.length<=4 || form.nom_auteur.value.langue<=3 || form.description.value.length<=5){
 
+   Swal.fire({
+     icon: 'error',
+     title: 'Oops...',
+     timer: 2000,
+     text: 'entrer un nom ou prénom ou email ou mot de pass valid !',
+     
+   })
+   return false;
+  }
+
+  Swal.fire({
+   position: 'top-end',
+   icon: 'success',
+   title: 'votre livre a etais ajouté !',
+   showConfirmButton: false,
+   timer: 1500
+ })
+return true;
 }
