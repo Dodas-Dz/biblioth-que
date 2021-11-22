@@ -110,12 +110,12 @@
         
                         <div class="input-group-icon mb-3"> 
                           <label class="form-label col-12" for="inputCategories">ISBN</label>
-                        <input id="isbn" type="text" class="form-control form-little-squirrel-control form-control-sm" name="isbn" placeholder="Isbn" required  autofocus>
+                        <input id="isbn" type="number" class="form-control form-little-squirrel-control form-control-sm" name="isbn" placeholder="Isbn" required  autofocus>
                         <i class="fas fa-passport input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                        </div>
                        <div class="input-group-icon mb-3"> 
                         <label class="form-label col-12" for="inputCategories">Nombre d'exemplaire</label>
-                        <input id="nbr" type="text" class="form-control form-little-squirrel-control form-control-sm" name="nbr" placeholder="Nombre d'exemplaires" required  autofocus>
+                        <input id="nbr" type="number" class="form-control form-little-squirrel-control form-control-sm" name="nbr" placeholder="Nombre d'exemplaires" required  autofocus>
                         <i class="fas fa-sort-numeric-up-alt input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                        </div>
                  
@@ -174,7 +174,7 @@
                               <div class="input-group-icon mb-3">
                                 <label for="formFile" class="form-label col-12">L'image de couverture</label>
                                 <i class="fas fa-image input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
-                                <input name="image" class="form-control form-little-squirrel-control form-control-sm" type="file" id="formFile" placeholder="Insérer une image"required>
+                                <input name="image" class="form-control form-little-squirrel-control form-control-sm" type="file" id="formFile" placeholder="Insérer une image"required accept=".jpg,.gif,.png">
                               </div>
 
                               <div class="input-group-icon mb-3">
