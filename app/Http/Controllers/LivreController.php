@@ -26,7 +26,7 @@ class LivreController extends Controller
      */
     public function livres() 
     {
-        $livres= Livre::all();     
+        $livres= Livre::with('categorie')->get();     
         $categories =Categorie::all();            
         return view('admin.listelivre',compact('livres','categories'));
     }
@@ -51,8 +51,8 @@ class LivreController extends Controller
             Livre::create([
                 'titre' => $request->input('name'),
                 'isbn' => $request->input('isbn'),
-                'anneé' => $request->input('date'),
                 'auteur' => $request->input('nom_auteur'),
+                'anneé' => $request->input('date'),
                 'category_id'=>$request->input('categories'),
                 'resumer' =>$request->input('description'),
                 'nbr'=> $request->input('nbr'),
