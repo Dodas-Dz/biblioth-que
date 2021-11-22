@@ -204,20 +204,7 @@
             </div>
 
           </div>
-     <script>
-       $(function () {
-    $('select').selectpicker();
-});
-     </script>
-      
-            
-           
-      <script>
-        // Material Select Initialization
-$(document).ready(function() {
-$('.mdb-select').materialSelect();
-});
-        </script>
+
                     
                   
                 

@@ -58,7 +58,7 @@
                
               </div>
                   <div>
-                  <a class="btn btn-primary btn-lg font-weight-bold text-light fs-2 stretched-link text-decoration-none " 
+                  <a class="btn btn-primary btn-lg text-light stretched-link text-decoration-none " 
                     data-bs-toggle="modal" data-bs-target="#wnd" aria-haspopup="true" aria-expanded="false" role="button"  v-pre>
                      Ajouter Abonné
            </a>
