@@ -100,7 +100,7 @@
                      
                     <div class="row align-items-center mb-3">
                       
-                       <form class="needs-validation" novalidate method="POST" action="{{ route('AjouterL') }}" >
+                       <form class="needs-validation" novalidate method="POST" action="{{ route('AjouterL') }}" onsubmit="return livreformcheck(this)" >
                         
                           <div class="input-field mb-3"> 
                             <label class="form-label col-12" for="inputCategories">Titre</label>
@@ -109,11 +109,11 @@
         
                         <div class="input-field mb-3"> 
                           <label class="form-label col-12" for="inputCategories">ISBN</label>
-                        <input id="isbn" type="text" class="form-control form-control-sm" name="isbn" placeholder="Isbn" required  autofocus>
+                        <input id="isbn" type="number" class="form-control form-control-sm" name="isbn" placeholder="Isbn" required  autofocus>
                        </div>
                        <div class="input-field mb-3"> 
                         <label class="form-label col-12" for="inputCategories">Nombre d'exemplaire</label>
-                        <input id="nbr" type="text" class="form-control form-control-sm" name="nbr" placeholder="Nombre d'exemplaires" required  autofocus>
+                        <input id="nbr" type="number" class="form-control form-control-sm" name="nbr" placeholder="Nombre d'exemplaires" required  autofocus>
                        </div>
                  
                       
@@ -132,7 +132,7 @@
                             <label class="form-label col-12" for="inputCategories">Categories</label>
 
                                 <select name="categories" class="form-select form-select-sm col-12" aria-label=".form-select-sm example">
-                                       <option  selected disabled>Choisir une </option>
+                                       <option value="" selected disabled>Choisir une </option>
                                     @foreach($categories as $cat)
                                        <option name="categorie" value="{{$cat->id}}">{{$cat->name}}</option>
                                     @endforeach
@@ -142,12 +142,13 @@
                          <div class="input-field mb-3 mx-auto">
                           <label class="form-label col-12" for="inputCategories">Mots Clé</label>
 
-                          <select class="selectpicker form-select form-select-sm col-12" data-live-search="true" aria-label="multiple select select-sm example" multiple data-selected-text-format="count > 3">
-                            <option>Mustard</option>
-                            <option>Ketchup</option>
-                            <option>Relish</option>
-                            <option>Onions</option>
+                          <select class="selectpicker">
+                            <option value="0" selected>what</option>
+                            <option value="1">Mustard</option>
+                            <option value="2">Ketchup</option>
+                            <option value="3">Barbecue</option>
                           </select>
+                          
                             </div>
 
                           <div class="input-fieldmy-2 mb-3 mx-auto">
@@ -162,7 +163,7 @@
                          
                               <div class="input-field my-2 mb-3 mx-auto">
                                 <label for="formFile" class="form-label col-12">L'image de couverture</label>
-                                <input name="image" class="form-control form-control-sm" type="file" id="formFile" placeholder="Insérer une image"required>
+                                <input name="image" class="form-control form-control-sm" type="file" id="formFile" placeholder="Insérer une image"required accept=".jpg,.gif,.png">
                               </div>
 
                               <div class="input-field my-2 mb-3 mx-auto">
@@ -190,7 +191,11 @@
             </div>
 
           </div>
-     
+     <script>
+       $(function () {
+    $('select').selectpicker();
+});
+     </script>
       
             
            
