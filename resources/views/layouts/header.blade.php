@@ -101,6 +101,13 @@
             </a>
           </li>
           @endcan
+
+          <li class="nav-item ">
+            <a class="nav-link" href="{{route('emprunter')}}">
+              <i class="material-icons">autorenew </i>
+              <p>Emprunter Livre</p>
+            </a>
+          </li>
           <!-- <li class="nav-item active-pro ">
                 <a class="nav-link" href="./upgrade.html">
                     <i class="material-icons">unarchive</i>

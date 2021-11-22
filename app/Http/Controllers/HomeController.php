@@ -61,5 +61,9 @@ class HomeController extends Controller
         return view('/admin/listeuser');
 
     }
+    public function emprunter(){
+        return view('/admin/emprunter');
+
+    }
     
 }
