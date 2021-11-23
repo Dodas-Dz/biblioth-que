@@ -23,13 +23,14 @@ Route::post('/liste', [App\Http\Controllers\abonneController::class, 'create'])-
 
 Route::get('/emprunter', [App\Http\Controllers\HomeController::class, 'emprunter'])->middleware('can:isBoth')->name('emprunter');
 
+
+
+
+});
 /* Testing Routes for Excel */
 Route::get('excel',[App\Http\Controllers\TestController::class,'view']);
 Route::POST('excelUpload',[App\Http\Controllers\TestController::class,'import'])->name('import');
 /* END Tensting */
-
-
-});
 
 
 Route::get('/recherche', [App\Http\Controllers\GuestServer::class, 'Recherche'])->name('recherche');

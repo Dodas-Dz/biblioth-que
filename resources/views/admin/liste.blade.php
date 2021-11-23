@@ -81,7 +81,7 @@
                     <div class="row align-items-center mb-3">
                     
                       
-                     <form class="needs-validation" method="POST" action="{{ route('createabonne') }}" onsubmit="return aboneformcheck(this)" novalidate>
+                     <form class="needs-validation" method="POST" action="{{ route('createabonne') }}" onsubmit="return aboneformcheck(this)" enctype="multipart/form-data" novalidate>
                           
 
                             <div class="input-group-icon mb-3 "> 
@@ -100,7 +100,11 @@
                             <input  type="date" class="form-control form-little-squirrel-control form-control-sm @error('date_naissance') is-invalid @enderror" name="date"required  autofocus>
                             <i class="fas fa-calendar input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                            </div>
-                     
+                          <div class="input-group-icon mb-3">
+                                <label for="formFile" class="form-label col-12">L'image de couverture</label>
+                                <i class="fas fa-image input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
+                                <input name="image" class="form-control form-little-squirrel-control form-control-sm" type="file" id="formFile" placeholder="Insérer une image"required accept=".jpg,.gif,.png">
+                          </div>
 
                            <div class="input-group-icon ms-3 mb-3 mt-7">
                             <button class="btn btn-primary form-little-squirrel-control" type="submit">Ajouter Abonné</button>

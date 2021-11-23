@@ -43,11 +43,22 @@ class LivreController extends Controller
             'name'=> ['required', 'string', 'max:255'],
             'isbn'=> ['required'],
             'nbr'=> ['required'],
+            'image'=>['required'],
             'nom_auteur'=> ['required'],
             'date' => ['required'],
             'categories'=> ['required'],
             'description' => ['required'],
             ]);
+            if($request->hasFile('image'))
+            {
+                $image=$request->file('image');
+                $image_name = $image->getClientOriginalName();
+              
+                $path='public/image/abonne';
+                $filename= time(). $image_name;
+                $request->file('image')->storeAs($path,$filename);
+    
+            }
             Livre::create([
                 'titre' => $request->input('name'),
                 'isbn' => $request->input('isbn'),
@@ -57,6 +68,7 @@ class LivreController extends Controller
                 'resumer' =>$request->input('description'),
                 'nbr'=> $request->input('nbr'),
                 'langue'=>$request->input('langue'),
+                'image'=> $path .'/' .$filename ,
               ]); 
             return redirect()->route('listelivre');
       

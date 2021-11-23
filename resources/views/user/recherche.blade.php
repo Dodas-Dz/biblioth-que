@@ -93,7 +93,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 mb-4 " id="kid_novel">
-        <div class="card h-80 align-items-center"><img class="card-img-top w-100" src="assetsU/img/gallery/wonderbookcover.png" alt="Responsive image"/>
+        <div class="card h-80 align-items-center"><img class="card-img-top w-100" src="https://media.cultura.com/media/catalog/product/cache/1/image/160x160/85e4522595efc69f496374d01ef2bf13/s/e/n/s-entrainer-aux-exercices-9782807324855_0.jpg?t=1628736355" alt="Responsive image"/>
           <div class="card-body">
             <h4 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Wonder</h4>
             <a href="#!" class="text-muted fs--1 stretched-link text-decoration-none " data-bs-toggle="modal" data-bs-target="#wnd">
@@ -109,7 +109,7 @@
                   <!-- Modal body -->
                   <div class="modal-body">
                     <div class="row align-items-center mb-3">
-                      <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75" src="assetsU/img/gallery/wonderbookcover.png" alt="wonder.png"></div>
+                      <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75"src="https://media.cultura.com/media/catalog/product/cache/1/image/160x160/85e4522595efc69f496374d01ef2bf13/s/e/n/s-entrainer-aux-exercices-9782807324855_0.jpg?t=1628736355" alt="wonder.png"></div>
                       <div class="col-md-6">
                           <h5>
                             Auteur: </h5><a href="https://www.goodreads.com/author/show/4859212.R_J_Palacio">Raquel J. Palacio</a>
@@ -415,7 +415,7 @@
                   <!-- Modal body -->
                   <div class="modal-body">
                     <div class="row align-items-center mb-3">
-                      <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75" src="assetsU/img/gallery/dragonlovetacos.png" alt="wonder.png"></div>
+                      <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75" src="https://media.cultura.com/media/catalog/product/cache/1/image/160x160/85e4522595efc69f496374d01ef2bf13/s/e/n/s-entrainer-aux-exercices-9782807324855_0.jpg?t=1628736355" alt="wonder.png"></div>
                       <div class="col-md-6">
                           <h5>
                             Auteur:  </h5><p><a href="https://www.goodreads.com/author/list/132184.Adam_Rubin" class="text-dark">

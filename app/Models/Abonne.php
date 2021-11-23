@@ -11,6 +11,7 @@ class Abonne extends Model
     protected $fillable = [
        'name',
        'prenom',
+       'image',
        'student_id',
        'date_naissance',   
     ];

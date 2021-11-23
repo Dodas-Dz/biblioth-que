@@ -20,13 +20,26 @@ class AbonneController extends Controller
             'name'=> ['required', 'string', 'max:255'],
             'prenom'=> ['required', 'string', 'max:255'],
             'date'=>['required'],
+            'image' => ['required']
             ]);
+        if($request->hasFile('image'))
+        {
+       
+            $image=$request->file('image');
+            $image_name = $image->getClientOriginalName();
+          
+            $path='public/image/abonne';
+            $filename= time(). $image_name;
+            $request->file('image')->storeAs($path,$filename);
+
+        }
         $student_id = Helper::IDGenerator(new Abonne, 'student_id', 8, 'STD'); 
          Abonne::create([
                 'name' => $request->input('name'),
                 'prenom' => $request->input('prenom'),
                 'date_naissance' => $request->input('date'),
-                'student_id' =>$student_id 
+                'student_id' =>$student_id ,
+                'image'=> $path .'/'.$student_id .$filename ,
                 
         ]); 
         return redirect()->route('liste');
