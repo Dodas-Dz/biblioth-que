@@ -20,14 +20,57 @@ class CreateCategoriesTable extends Migration
         });
         DB::table('categories')->insert(
             array(
-                'name' => 'islamique',
-                
-             
-                
+                'name' => 'medecin',  
             )
         );
+        DB::table('categories')->insert(
+            array(
+                'name' => 'lettre et lingustique',  
+            )
+        );
+        DB::table('categories')->insert(
+            array(
+                'name' => 'islamique',  
+            )
+        );
+        DB::table('categories')->insert(
+            array(
+                'name' => 'preparation des grande ecole',  
+            )
+        );
+        DB::table('categories')->insert(
+            array(
+                'name' => 'programe des prepas scientifique',  
+            )
+        );
+        DB::table('categories')->insert(
+            array(
+                'name' => 'informatique',  
+            )
+        );
+        DB::table('categories')->insert(
+            array(
+                'name' => 'livre culture generale',  
+            )
+        );
+        DB::table('categories')->insert(
+            array(
+                'name' => 'livre comtabilite',  
+            )
+        );
+        DB::table('categories')->insert(
+            array(
+                'name' => 'livre des siences politique',  
+            )
+        );
+        DB::table('categories')->insert(
+            array(
+                'name' => 'livre de droite',  
+            )
+        );
+        
     }
-
+   
     /**
      * Reverse the migrations.
      *

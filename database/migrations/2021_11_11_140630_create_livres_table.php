@@ -19,13 +19,12 @@ class CreateLivresTable extends Migration
             $table->bigInteger('isbn');
             $table->string('titre');
             $table->text('resumer');
+            $table->text('image');
             $table->integer('nbr');
             $table->string('langue');
-            $table->date('anneé');
+            $table->dateTime('anneé');
             $table->string('auteur');
            $table->foreignId('category_id')->constrained();
-            
-           
         });
        
     }
