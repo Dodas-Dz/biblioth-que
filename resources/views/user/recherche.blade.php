@@ -11,8 +11,10 @@
           <h6 class="font-sans-serif text-primary fw-bold">Catégories des livres </h6>
           <h1 class="mb-6">Trouvez Votre Livre</h1>
           <div class="row ">
+
             <div class="col-sm-6 col-md-3">
               <label class="form-label" for="inputCategories">Categories</label>
+              
               <select class="form-select " id="inputCategories" onchange="searching()">
                 
                     @foreach($categories as $categorie)
@@ -20,6 +22,7 @@
                     @endforeach
               </select>
             </div>
+
             <div class="col-sm-6 col-md-9">
 
               <label class="form-label" for="search">Rechercher</label>
