@@ -26,9 +26,10 @@ class LivreController extends Controller
      */
     public function livres() 
     {
-        $livres= Livre::with('categorie')->get();     
+        $livres= Livre::with('categorie')->get(); 
+        $livresfiltre= Livre::paginate(20);    
         $categories =Categorie::all();            
-        return view('admin.listelivre',compact('livres','categories'));
+        return view('admin.listelivre',compact('livres','categories','livresfiltre'));
     }
 
     public function livress() 
