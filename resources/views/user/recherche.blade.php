@@ -14,16 +14,10 @@
             <div class="col-sm-6 col-md-3">
               <label class="form-label" for="inputCategories">Categories</label>
               <select class="form-select " id="inputCategories" onchange="searching()">
-                <option selected disabled>Choisir une </option>
-                <option value="islamique">Islamique</option>
-                <option value="enfant">Enfant</option>
-                <option value="manga">Manga</option>
-                <option value="roman">Roman</option>
-                <option value="science">Science</option>
-                <option value="informatique">Informatique</option>
-                <option value="histoire">Histoire</option>
-                <option value="Litérature">Litérature</option>
-                <option value="Dictionnaire">Dictionnaire</option>
+                
+                    @foreach($categories as $categorie)
+                      <option name="categorie" value="{{$categorie->id}}">{{$categorie->name}}</option>
+                    @endforeach
               </select>
             </div>
             <div class="col-sm-6 col-md-9">
