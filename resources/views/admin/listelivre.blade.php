@@ -44,7 +44,7 @@
                       
                     </thead>
                     <tbody>
-                    @foreach($livres as $livre)
+                    @foreach($livresfiltre as $livre)
                       <tr>
                         <td>{{$livre->isbn}}</td>
                         <td>{{$livre->titre}}</td>
@@ -62,6 +62,7 @@
                 </div>
           </div>
 </div>
+<div class="d-flex justify-content-center">{{$livresfiltre->links("pagination::bootstrap-4")}}
 </div>
 </div>
 
