@@ -31,6 +31,13 @@ class LivreController extends Controller
         return view('admin.listelivre',compact('livres','categories'));
     }
 
+    public function livress() 
+    {
+        $livres= Livre::with('categorie')->get();     
+        $categories =Categorie::all();            
+        return view('user.recherche',compact('livres','categories'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *

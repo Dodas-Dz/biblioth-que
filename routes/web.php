@@ -40,6 +40,9 @@ Route::get('/Enprente', [App\Http\Controllers\GuestServer::class, 'Emprente'])->
 Route::get('/Apropos', [App\Http\Controllers\GuestServer::class, 'Apropos'])->name('Apropos');
 
 
+Route::get('/recherche', [App\Http\Controllers\LivreController::class, 'Livress'])->name('recherche');
+
+
 /*route::post('/home', [App\Http\Controllers\CommandesController::class, 'message'])->name('message');
 
 Route::get('/service-web', [App\Http\Controllers\ServiceController::class, 'index_web'])->name('serviceweb');
