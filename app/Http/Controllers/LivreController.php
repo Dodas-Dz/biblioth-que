@@ -33,7 +33,7 @@ class LivreController extends Controller
 
     public function livress() 
     {
-        $livres= Livre::with('categorie')->get();     
+        $livres= Livre::paginate(16);     
         $categories =Categorie::all();            
         return view('user.recherche',compact('livres','categories'));
     }

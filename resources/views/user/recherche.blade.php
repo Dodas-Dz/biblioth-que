@@ -171,7 +171,8 @@
     </div>
   </div>
   <!-- end of .container-->
-
+<div class="d-flex justify-content-center">{{$livres->links("pagination::bootstrap-4")}}
+</div>
 </section>
 <!-- <section> close ============================-->
 <!-- ============================================-->
