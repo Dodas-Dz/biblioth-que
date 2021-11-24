@@ -95,39 +95,39 @@
                               Mon Compte
                              </a>
 
-                          <div class="dropdown-menu  text-center" aria-labelledby="navbarDropdownMenuLink">
+                          <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
 
                              
-                            <a class="dropdown-item fw-bold  "  style="color:rgb(63, 63, 63)" href="{{route('profileadmin')}}"> 
+                            <a class="dropdown-item fw-bold text-center "  style="color:rgb(63, 63, 63)" href="{{route('profileadmin')}}"> 
                               <i class="fs-0 fas fa-user-cog me-2 mt-0 "  style="color:rgb(63, 63, 63)" > </i>{{ Auth::user()->name }} {{ Auth::user()->prenom }}</a>
 
                             <div class="dropdown-divider"></div>
 
-                          <a class="dropdown-item mt-2" href="{{route('statistic')}}"> 
+                          <a class="dropdown-item text-left mt-2" href="{{route('statistic')}}"> 
                             <i class="fs-0 fas fa-chart-line me-2 mt-0" style="color:rgb(139, 139, 139)"> </i>Tableau de bord</a>
 
-                          <a class="dropdown-item mt-2" href="{{Route('listelivre')}}"> 
+                          <a class="dropdown-item text-left mt-2" href="{{Route('listelivre')}}"> 
                             <i class="fs-0 fas fa-book me-2 mt-0" style="color:rgb(139, 139, 139)"> </i>Liste Livre</a>
 
-                          <a class="dropdown-item mt-2" href="{{Route('categorie')}}">
+                          <a class="dropdown-item text-left mt-2" href="{{Route('categorie')}}">
                              <i class="fs-0 fas fa-list-alt me-2 mt-0" style="color:rgb(139, 139, 139)"> </i>Liste Catégorie</a>
 
-                             <a class="dropdown-item mt-2" href="{{route('AjouterMot')}}">
+                             <a class="dropdown-item text-left mt-2" href="{{route('AjouterMot')}}">
                               <i class="fs-0 fas fa-hashtag me-2 mt-0" style="color:rgb(139, 139, 139)"> </i>Liste Mot Clé</a>
 
-                              <a class="dropdown-item mt-2" href="{{Route('liste')}}">
+                              <a class="dropdown-item text-left mt-2" href="{{Route('liste')}}">
                                 <i class="fs-0 fas fa-users me-2 mt-0" style="color:rgb(139, 139, 139)"> </i>Liste Abonné</a>
                          @can('isAdmin')
-                                <a class="dropdown-item mt-2" href="{{Route('listeuser')}}">
+                                <a class="dropdown-item text-left mt-2" href="{{Route('listeuser')}}">
                                   <i class="fs-0 fas fa-users-cog me-2 mt-0" style="color:rgb(139, 139, 139)"> </i>Liste Employé</a>
                           @endcan
-                                <a class="dropdown-item mt-2" href="{{Route('emprunter')}}">
+                                <a class="dropdown-item text-left mt-2" href="{{Route('emprunter')}}">
                                   <i class="fs-0 fas fa-sync-alt me-2 mt-0" style="color:rgb(139, 139, 139)"> </i>Emprunter Livre</a>
 
                           <div class="dropdown-divider"></div>
 
-                          <button class="btn btn-primary btn-sm btn-warning fw-bold " style="color:rgb(63, 63, 63)" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> 
-                            <i class="fs-0 fas fa-book me-2 mt-0" style="color:rgb(63, 63, 63)"> </i>{{ __('Se déconecter') }} </button>
+                          <button class="btn btn-primary btn-sm btn-warning fw-bold ms-5" style="color:rgb(63, 63, 63)" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> 
+                            <i class="fs-0 fas fa-sign-out-alt me-2 mt-0" style="color:rgb(63, 63, 63)"> </i>{{ __('Se déconecter') }} </button>
                             
                           </div>
                         </li>
