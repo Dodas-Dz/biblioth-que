@@ -40,7 +40,10 @@
                        <th>Nombres</th>
                       <th>Supprimer</th>
                       <th>Modifier</th>
-                     
+                
+                      
+                   
+                      
                       
                     </thead>
                     <tbody>
@@ -206,7 +209,7 @@
 
           </div>
 
-                    
+       
                   
                 
          
