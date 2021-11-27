@@ -45,6 +45,11 @@ class AbonneController extends Controller
         return redirect()->route('liste');
     }
 
-  
+    public function deleteAbonne($id)
+    {
+        $abonnes = Livre::find($id);
+        $abonnes->delete();
+        return back();
+    }
    
 }
