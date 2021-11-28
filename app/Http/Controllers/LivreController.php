@@ -97,11 +97,7 @@ class LivreController extends Controller
                
        
     }
-    public function searchadmin(Request $request)
-    {   
-       dd($request);
-       
-    }
+   
 
   
 }

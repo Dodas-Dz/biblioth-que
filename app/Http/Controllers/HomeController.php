@@ -45,8 +45,8 @@ class HomeController extends Controller
         return view('/admin/categorie');
 
     }
-    public function notification(){
-        return view('/admin/notification');
+    public function supprimer(){
+        return view('/admin/supprimer');
 
     }
     public function message(){

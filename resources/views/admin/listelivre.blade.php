@@ -19,7 +19,7 @@
               </div>
             </form>
         </div>  
-         @include('layouts.bar')   
+          
       </nav>
       
 

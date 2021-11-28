@@ -33,7 +33,7 @@
 
 
               <li class="nav-item ">
-                <a class="nav-link" href="{{route('notification')}}"  >
+                <a class="nav-link" href="{{route('statistic')}}"  >
 <!--<span class="notification">5</span>-->
                   <i class="material-icons">notifications    </i>
                  
