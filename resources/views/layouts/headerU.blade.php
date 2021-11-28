@@ -69,7 +69,9 @@
             <li class="nav-item px-2"><a class="fw-bold fs-1 nav-link" aria-current="page" href="{{Route('recherche')}}">Livre</a></li>
       
             <li class="nav-item px-2"><a class="fw-bold fs-1 nav-link" aria-current="page" href="{{Route('Apropos')}}">A propos</a></li>
-            <li class="nav-item px-2 ms-4 me-n8 "> <a class="btn btn-primary btn-lg fw-bold fs-1" aria-current="page" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre href="{{Route('Emprente')}}">
+            <li class="nav-item px-2 ms-4 me-n8 "> <a class="btn btn-primary btn-lg fw-bold fs-1" 
+              aria-current="page" role="button" aria-haspopup="true" aria-expanded="false" v-pre
+               href="{{Route('Emprente')}}">
                 <i class="fw-bold fs-2 fas fa-book me-2 mt-0"> </i> Mes livres</a></li>
            @endguest
           </ul>
