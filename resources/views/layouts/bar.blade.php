@@ -6,18 +6,7 @@
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
-        <div class="collapse navbar-collapse justify-content-center px-5">
-            
-          <form class="navbar-form me-5">
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Rechercher...">
-                <button type="submit" class="btn btn-default btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
-              </div>
-            </form>
-        </div>    
+        
 
             <div class="collapse navbar-collapse justify-content-end">
             

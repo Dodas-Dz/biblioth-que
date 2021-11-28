@@ -6,18 +6,32 @@ use App\Models\Livre;
 use Illuminate\Http\Request;
 use App\Models\Categorie;
 use Illuminate\Support\Facades\Validator;
+use DB ;
 
 class LivreController extends Controller
 {
-  
+    
     public function livres() 
     {
-        $livres= Livre::with('categorie')->get(); 
+        
         $livresfiltre= Livre::paginate(20);    
         $categories =Categorie::all();            
-        return view('admin.listelivre',compact('livres','categories','livresfiltre'));
+        return view('admin.listelivre',compact('categories','livresfiltre'));
     }
+    public function search_admin(Request $request)
+    {    $request->validate([
+        'q'=>'required|min:2'
+     ]);
 
+     $categories =Categorie::all(); 
+     
+     $search_text = $request->input('q');
+     $livresfiltre= Livre::where('titre','LIKE','%'.$search_text.'%')
+                ->orwhere('isbn','LIKE','%'.$search_text)
+                ->paginate(15);
+                return view('admin.listelivre',compact('categories','livresfiltre'));
+
+    }
     public function livress() 
     {
         $livres= Livre::paginate(16);     
@@ -42,7 +56,6 @@ class LivreController extends Controller
             {
                 $image=$request->file('image');
                 $image_name = $image->getClientOriginalName();
-              
                 $path='public/image/abonne';
                 $filename= time(). $image_name;
                 $request->file('image')->storeAs($path,$filename);
@@ -69,41 +82,22 @@ class LivreController extends Controller
         return back();
     }
 
-    public function searchedBooks(){ 
-        $seachedbooks=$_GET['searchcontent'];
-        $replies= reply::where('titre','like','%'.$seachedbooks.'%')
-        ->orwhere('isbn','like','%'.$seachedbooks.'%')
-        ->orwhere('auteur','like','%'.$seachedbooks.'%')
-        -orwhere('langue','like','%'.$seachedbooks.'%')
-        ->get();
-
-        $resultat='';
-        foreach($replies as $reply){
-            $output.='
-             <tr>
-                        <td>'.$reply->isbn.'</td>
-                        <td>'.$reply->titre.'</td>
-                        <td>'.$reply->auteur.'</td>
-                        <td>'.$reply->langue.'</td>
-                        <td>'.$reply->Categorie->name.'</td>
-                        <td>'.$reply->anneé.'</td>
-                        <td>'.$reply->nbr.'</td>
-                        <td><a onclick="return delete_confirmation()" href="'.route('Livre.delete',$reply->id) .'" ><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-            ';
-
-        }
-
-        return $data=array(
-            'resultats'=>$output
-
-
-
-        );
-
+    public function search(Request $request)
+    {   
+       
+        /*  */
+         $categories =Categorie::all(); 
+         $search_text = $request->input('q');
+         $search_categorie = $request->input('inputCategories');
+         $livres = Livre:: where('titre','LIKE','%'.$search_text.'%')
+                    ->where('category_id','=',$search_categorie)
+                    ->orwhere('isbn','=',$search_text)
+                    ->paginate(15);
+        return view('user.recherche',compact('livres','categories'));
+               
+       
     }
-    
+   
 
   
 }

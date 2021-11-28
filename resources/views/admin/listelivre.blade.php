@@ -7,10 +7,23 @@
             <a class="navbar-brand font-weight-bold" href="javascript:void(0)">Liste des Livre</a>
           </div>
         
-       @include('layouts.bar')
+         <div class="collapse navbar-collapse justify-content-center px-5">
+           
+          <form class="navbar-form me-5" method="get" action={{route('searchAdmin')}}>
+              <div class="input-group no-border">
+                <input type="text" name='q' class="form-control" placeholder="Rechercher...">
+                <button type="submit" class="btn btn-default btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
+                  <div class="ripple-container"></div>
+                </button>
+              </div>
+            </form>
+        </div>  
+          
       </nav>
+      
 
-      <!-- End Navbar -->
+     
       <div class="content">
         <div class="container-fluid">
 
@@ -29,9 +42,6 @@
 
         
          <div class="card-body table-responsive">
-           <div class="search_livres my-auto">
-            <input type="text" id="search_livre" class="form-control" placeholder="recherche..." name="search_livre" >
-           </div>
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>ISBN</th>
@@ -44,6 +54,10 @@
                       <th>Supprimer</th>
                       <th>Modifier</th>
                 
+                      
+                   
+                      
+                      
                     </thead>
                     <tbody>
                     @foreach($livresfiltre as $livre)
@@ -55,7 +69,7 @@
                         <td>{{$livre->Categorie->name}}</td>
                         <td>{{$livre->anneé}}</td>
                         <td>{{$livre->nbr}}</td>
-                        <td><a onclick="return delete_confirmation()" href="{{ route('Livre.delete',$livre->id) }}" ><i class="fa fa-trash" ></i></a></td>
+                        <td><a href="{{ route('Livre.delete',$livre->id) }} " onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
                     @endforeach
@@ -204,100 +218,12 @@
                 </div>
                 </div>
               </div>
-            
-
-           <!--table livre emrunter-->
-           <div class="row">
-            <div class="col-lg-12 col-md-12 ">
-              <div class="card ">
-                <div class="card-header card-header-warning " >
-                  <h2 class="card-title text-center font-sans-serif">Livre Emprunter</h2>
-                  <h5 class="card-category text-center font-sans-serif"> 3 rendu, aujourd'hui</h5>
-                </div>
-                <div class="card-body table-responsive">
-                  <table class="table table-hover">
-                    <thead class="text-warning">
-                      <th>ID</th>
-                      <th>Titre</th>
-                      <th>Nom Auteur</th>
-                      <th>Langue</th>
-                      <th>Catégorie</th>
-                      <th>Supprimer</th>
-                      <th>Modifier</th>
-                      
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>After</td>
-                        <td>Anna Todd</td>
-                        <td>fr / en</td>
-                        <td>Roman</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Wonder</td>
-                        <td>Raquel j.palacio</td>
-                        <td>en</td>
-                        <td>Enfant</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Harry Potter</td>
-                        <td>Joanne Kathleen Rowling</td>
-                        <td>en</td>
-                        <td>Science fiction</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>The choice</td>
-                        <td>Ahmed Deedat</td>
-                        <td>en</td>
-                        <td>Islamique</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
             </div>
-           
-               
-                    </div>
 
+          </div>
 
-                  </div>
-
-                </div>
-           <script >
-           $('body').on('keyup','#search_livre',function(){
-
-            var searchcontent=$(this).val();
-           $.ajax({
-            method: 'POST',
-            url: {{route("searchedBooks")}},
-            dataType: 'json',
-            data: {'_token':'{{csrf_token()}}',
-            searchcontent:searchcontent
-          },
-          success: function(res){
-
-
-            
-          }
-
-           })
-
-
-           })
-           </script>       
+       
+                  
                 
          
      
