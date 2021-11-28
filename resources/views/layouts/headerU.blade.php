@@ -79,9 +79,9 @@
              <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
            
                       <li class="nav-item px-2 mt-n1"><a class="fw-bold fs-0  nav-link active" aria-current="page" href="{{Route('homee')}}">
-                        <i class="fs-0 fas fa-home me-2 mt-0 text-secondary" > </i>Accueil</a></li>                                                                                                                                     
+                        <i class="fs-1 fas fa-home me-2 mt-0 text-secondary" > </i>Accueil</a></li>                                                                                                                                     
                       <li class="nav-item px-2 mt-n1"><a class="fw-bold fs-0 nav-link" aria-current="page" href="{{Route('recherche')}}">
-                        <i class="fs-0 fas fa-book me-2 mt-0 text-secondary" > </i>Livre</a></li>
+                        <i class="fs-1 fas fa-book me-2 mt-0 text-secondary" > </i>Livre</a></li>
                      <!-- <li class="nav-item px-2"> <a class="fw-bold fs-1 nav-link" aria-current="page" href="{{route('statistic')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> <i class="fas fa-user-cog">   </i>     {{ Auth::user()->name }} </a></a></li>
                       <li class="nav-item px-2"> <a class="btn btn-primary btn-lg fw-bold fs-1" aria-current="page" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a> </li>
                       <li class="nav-item px-2">-->
@@ -91,7 +91,7 @@
                         
                           <div class="dropdown ms-4 me-n5">
                             <a class="btn btn-primary btn-sm dropdown-toggle fw-bold text-secondary" role="button"  id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-                             <i class="fs-0 fas fa-user me-2 mt-0 text-secondary" ></i>
+                             <i class="fs-1 fas fa-user me-2 mt-0 text-secondary" ></i>
                               Mon Compte
                              </a>
 

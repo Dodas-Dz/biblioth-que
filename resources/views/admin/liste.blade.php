@@ -29,6 +29,7 @@
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>ID</th>
+                     
                       <th>Nom</th>
                       <th>Prénom</th>
                       <th>Date de naissance</th>
@@ -41,6 +42,7 @@
                       @foreach($abonnes as $Abonne)
                       <tr>
                         <td>{{$Abonne->id}}</td>
+                      <!--  <td><img class="card-img-top w-100" src="{{url('$Abonne->image')}}"/></td>-->
                         <td>{{$Abonne->name}}</td>
                         <td>{{$Abonne->prenom}}</td>
                         <td>{{$Abonne->date_naissance}}</td>
@@ -101,7 +103,7 @@
                             <i class="fas fa-calendar input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                            </div>
                           <div class="input-group-icon mb-3">
-                                <label for="formFile" class="form-label col-12">L'image de couverture</label>
+                                <label for="formFile" class="form-label col-12">Photo de profil</label>
                                 <i class="fas fa-image input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                                 <input name="image" class="form-control form-little-squirrel-control form-control-sm" type="file" id="formFile" placeholder="Insérer une image"required accept=".jpg,.gif,.png">
                           </div>
