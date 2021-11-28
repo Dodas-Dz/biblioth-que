@@ -20,20 +20,35 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 ">
               <div class="card ">
-                <div class="card-header card-header-warning " >
-                  <h2 class="card-title text-center font-sans-serif ">Liste des Livres</h2>
+                <div class="card-header card-header-warning "  >
+                  <div class="row mx-auto">
+                  <div class="col-sm-2">
+                    <!-- Button trigger modal -->
+                   
+                       <a class="btn btn-primary btn-lg font-weight-bold text-light fs--1 stretched-link text-decoration-none " 
+                              data-bs-toggle="modal" data-bs-target="#wnd" aria-haspopup="true" aria-expanded="false" role="button"  v-pre> Ajouter livre
+                     </a>
+                                </div>
+                 <div class="col-sm-8"><h2 class="card-title text-center font-sans-serif ">Liste des Livres</h2>
                   <h5 class="card-category text-center font-sans-serif"> 3 nouveaux, aujourd'hui</h5>
+                </div> 
+                <div class="col-sm-2">
+                  <button class="btn btn-primary btn-lg font-weight-bold text-light fs--1 stretched-link text-decoration-none " type="button" data-toggle="collapse" data-target="#livre-card-content" aria-expanded="false" aria-controls="livre-card-content">
+                    Voir livres
+                  </button>
                 </div>
-             
+                </div>
+                </div>
         
 
-        
-         <div class="card-body table-responsive">
+                <div class="collapse" id ="livre-card-content"> 
+         <div class="card-body table-responsive" >
            <div class="search_livres my-auto">
             <input type="text" id="search_livre" class="form-control" placeholder="recherche..." name="search_livre" >
            </div>
                   <table class="table table-hover">
                     <thead class="text-warning">
+                      <th>Details</th>
                       <th>ISBN</th>
                       <th>Titre</th>
                       <th>Nom Auteur</th>
@@ -48,6 +63,10 @@
                     <tbody>
                     @foreach($livresfiltre as $livre)
                       <tr>
+                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#livres{{$livre->id}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-square-fill" viewBox="0 0 16 16">
+                          <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.93 4.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                        </svg>
+                        </a></td>
                         <td>{{$livre->isbn}}</td>
                         <td>{{$livre->titre}}</td>
                         <td>{{$livre->auteur}}</td>
@@ -58,14 +77,65 @@
                         <td><a onclick="return delete_confirmation()" href="{{ route('Livre.delete',$livre->id) }}" ><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
+                      <div class="modal" id="livres{{$livre->id}}">
+                        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                          <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h2 class="text-center modal-title ">{{$livre->titre}}</h2>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <div class="row align-items-center mb-3">
+                                <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75" src="{{$livre->image}}" alt="wonder.png"></div>
+                                <div class="col-md-6">
+                                    <h5>
+                                      Auteur: </h5><p>{{$livre->auteur}}</p>
+                                    
+                                    <h5>
+                                      ISBN: </h5><p>{{$livre->isbn}}</p>
+                                    
+                                    <h5>
+                                      Année:</h5> <p class="date">{{$livre->anneé}}</p>
+                                    
+                                    <h5>
+                                      Langues:</h5> <p>{{$livre->langue}}</p>
+                                    
+                                    <h5 >
+                                      Categorie: </h5><p>{{$livre->Categorie->name}}</p>
+                                    
+                                </div>
+                                
+                              </div>
+                             <div class="row"><h3 class="text-center">Description</h3>
+                              <p>
+                                {{$livre->resumer}}
+                                 </p>
+                              </div> 
+                                
+                                
+                      
+                            </div>
+                      
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                            </div>
+                          </div>
+          
+                          
+                        </div>
+                      </div>
                     @endforeach
                     </tbody>
                   </table>
+                  <div class="d-flex justify-content-center">{{$livresfiltre->links("pagination::bootstrap-4")}}
+                  </div>
                 </div>
           </div>
 </div>
-<div class="d-flex justify-content-center">{{$livresfiltre->links("pagination::bootstrap-4")}}
-</div>
+
 </div>
 
 
@@ -78,13 +148,7 @@
                       </div>-->
 
 
-                      <div >
-          <!-- Button trigger modal -->
-         
-             <a class="btn btn-primary btn-lg font-weight-bold text-light fs--1 stretched-link text-decoration-none " 
-                    data-bs-toggle="modal" data-bs-target="#wnd" aria-haspopup="true" aria-expanded="false" role="button"  v-pre> Ajouter livre
-           </a>
-
+             
     </div>
 
 
