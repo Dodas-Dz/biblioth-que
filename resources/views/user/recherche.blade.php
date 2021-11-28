@@ -6,14 +6,14 @@
 
   <div class="container">
     <div class="row">
-      <form class="row ">
+      <form class="row "  method="Get" action={{route('search')}}>
         <div class="col-12 justify-content-center">
           <h6 class="font-sans-serif text-primary fw-bold">Catégories des livres </h6>
           <h1 class="mb-6">Trouvez Votre Livre</h1>
           <div class="row ">
 
             <div class="col-sm-6 col-md-3">
-              <label class="form-label" for="inputCategories">Categories</label>
+              <label class="form-label" for="inputCategorie">Categories</label>
               
               <select class="js-example-basic-multiple js-states form-control" name="inputCategories">
                 
@@ -30,8 +30,8 @@
 
 
               <div class="input-group col-sm-5">
-                <input type="text" class="form-control rounded" id="search" placeholder="Tapez un mot clé" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button" class="btn btn-outline-primary ms-5" onclick="searching()">Rechercher</button>
+                <input type="text" class="form-control rounded"  name='q' id="search" placeholder="Tapez un mot clé" aria-label="Search" aria-describedby="search-addon" />
+                <button type="submit" class="btn btn-outline-primary ms-5" onclick="searching()">Rechercher</button>
               </div>
 
 
@@ -176,7 +176,7 @@
 
 
 
-
+@livewireScripts
 <!-- ============================================-->
 
 <!-- ============================================-->

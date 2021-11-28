@@ -7,10 +7,23 @@
             <a class="navbar-brand font-weight-bold" href="javascript:void(0)">Liste des Livre</a>
           </div>
         
-       @include('layouts.bar')
+         <div class="collapse navbar-collapse justify-content-center px-5">
+           
+          <form class="navbar-form me-5" method="get" action={{route('searchAdmin')}}>
+              <div class="input-group no-border">
+                <input type="text" name='q' class="form-control" placeholder="Rechercher...">
+                <button type="submit" class="btn btn-default btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
+                  <div class="ripple-container"></div>
+                </button>
+              </div>
+            </form>
+        </div>  
+         @include('layouts.bar')   
       </nav>
+      
 
-      <!-- End Navbar -->
+     
       <div class="content">
         <div class="container-fluid">
 
