@@ -55,12 +55,7 @@
                     Statistique</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="{{route('notification')}}">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
-            </a>
-          </li>
+         
          
           <li class="nav-item ">
             <a class="nav-link" href="{{route('liste')}}">
@@ -95,14 +90,7 @@
             </a>
           </li>
           @endcan
-          @can('isAdmin')
-          <li class="nav-item ">
-            <a class="nav-link" href="{{route('listeuser')}}">
-              <i class="material-icons">list </i>
-              <p>Liste Employé</p>
-            </a>
-          </li>
-          @endcan
+         
 
           <li class="nav-item ">
             <a class="nav-link" href="{{route('emprunter')}}">
@@ -110,6 +98,23 @@
               <p>Emprunter Livre</p>
             </a>
           </li>
+
+          @can('isAdmin')
+          <li class="nav-item ">
+            <a class="nav-link" href="{{route('listeuser')}}">
+              <i class="material-icons">list </i>
+              <p>Liste Employé</p>
+            </a>
+          </li>
+         
+          <li class="nav-item ">
+            <a class="nav-link" href="{{route('supprimer')}}">
+              <i class="material-icons">delete</i>
+              <p>Corbeille</p>
+            </a>
+          </li>
+          @endcan
+          
           <!-- <li class="nav-item active-pro ">
                 <a class="nav-link" href="./upgrade.html">
                     <i class="material-icons">unarchive</i>
