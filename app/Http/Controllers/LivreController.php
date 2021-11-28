@@ -68,7 +68,41 @@ class LivreController extends Controller
         $livres->delete();
         return back();
     }
-   
+
+    public function searchedBooks(){ 
+        $seachedbooks=$_GET['searchcontent'];
+        $replies= reply::where('titre','like','%'.$seachedbooks.'%')
+        ->orwhere('isbn','like','%'.$seachedbooks.'%')
+        ->orwhere('auteur','like','%'.$seachedbooks.'%')
+        -orwhere('langue','like','%'.$seachedbooks.'%')
+        ->get();
+
+        $resultat='';
+        foreach($replies as $reply){
+            $output.='
+             <tr>
+                        <td>'.$reply->isbn.'</td>
+                        <td>'.$reply->titre.'</td>
+                        <td>'.$reply->auteur.'</td>
+                        <td>'.$reply->langue.'</td>
+                        <td>'.$reply->Categorie->name.'</td>
+                        <td>'.$reply->anneé.'</td>
+                        <td>'.$reply->nbr.'</td>
+                        <td><a onclick="return delete_confirmation()" href="'.route('Livre.delete',$reply->id) .'" ><i class="fa fa-trash" ></i></a></td>
+                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                      </tr>
+            ';
+
+        }
+
+        return $data=array(
+            'resultats'=>$output
+
+
+
+        );
+
+    }
     
 
   

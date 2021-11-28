@@ -1,4 +1,4 @@
-function delete_confirmation () {
+function delete_confirmation (conf) {
     Swal.fire({
         title: 'Etes-vous sur?',
         text: "vous ne pouvez pas restaurer les données supprimer!",
@@ -8,16 +8,22 @@ function delete_confirmation () {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Oui , supprimer!'
       }).then((result) => {
-        if (result.isConfirmed) {
+        if (!result.isConfirmed) {
+          Event.preventDefault();
           Swal.fire(
             'supprimé!',
             'données supprimées.',
             'success'
           )
+        
         }
-      })
-
+      }
+      )
+     
+    
 }
+
+
 function aboneformcheck(form) {
        if(form.nom.value =="" || form.prenom.value =="" || form.date.value ==""){
           Swal.fire({
@@ -50,11 +56,9 @@ Swal.fire({
 })
 return true;
 
-
-
-
-  
 }
+
+
 function userformcheck(form) {
   if(form.name.value =="" ||  form.prenom.value ==""  || form.email.value =="" || form.password.value ==""){
      Swal.fire({
