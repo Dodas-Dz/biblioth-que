@@ -20,11 +20,9 @@ Route::post('/AjouterMot', [App\Http\Controllers\MotController::class, 'AjouterM
 Route::post('/AjouterLivre', [App\Http\Controllers\LivreController::class, 'AjouterL'])->middleware('can:isAdmin')->name('AjouterL');
 Route::post('/AjouterGestionnaire', [App\Http\Controllers\Auth\registere::class, 'create'])->middleware('can:isAdmin')->name('create');
 Route::post('/liste', [App\Http\Controllers\abonneController::class, 'create'])->middleware('can:isAdmin')->name('createabonne');
-
 Route::get('/emprunter', [App\Http\Controllers\HomeController::class, 'emprunter'])->middleware('can:isBoth')->name('emprunter');
-
-
-
+Route::get('deleteAbonne/{id}',[App\Http\Controllers\AbonneController::class,'deleteAbonne'])->middleware('can:isAdmin')->name('abonne.delete');
+Route::get('deletelivres/{id}',[App\Http\Controllers\LivreController::class,'deleteLivre'])->middleware('can:isAdmin')->name('Livre.delete');
 
 });
 /* Testing Routes for Excel */
@@ -43,35 +41,3 @@ Route::get('/Apropos', [App\Http\Controllers\GuestServer::class, 'Apropos'])->na
 Route::get('/recherche', [App\Http\Controllers\LivreController::class, 'Livress'])->name('recherche');
 
 
-/*route::post('/home', [App\Http\Controllers\CommandesController::class, 'message'])->name('message');
-
-Route::get('/service-web', [App\Http\Controllers\ServiceController::class, 'index_web'])->name('serviceweb');
-Route::get('/service-app', [App\Http\Controllers\ServiceController::class, 'index_app'])->name('serviceapp');
-Route::get('/service-des', [App\Http\Controllers\ServiceController::class, 'index_des'])->name('servicedes');
-Route::get('/apropos-nous', function () {
-    return view('web/apropos');
-})->name('apropos');
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/mycommande', [App\Http\Controllers\CommandesController::class,'getMyCommandes'])->name('commandeuser');
-   
-
-    /********************************************rendezvous********************************************************************************************/
-   /* Route::get('/rendezvous/{id}', [App\Http\Controllers\RendezvousController::class, 'index'])->name('rendezvous');
-    route::post('rendezvossus', [App\Http\Controllers\RendezvousController::class, 'store'])->name('rendez_vous');
-    /***********************************************commande***************************************************************************************** */
-  /*  route::post('/templateweb', [App\Http\Controllers\CommandesController::class, 'store'])->name('commande');
-    route::post('/templateapp', [App\Http\Controllers\CommandesController::class, 'commandeapp'])->name('commandeapp');
-    route::post('/templatedesign', [App\Http\Controllers\CommandesController::class, 'commandedesign'])->name('commandedesign');
-    Route::get('/paiments', function () {
-        return view('web/paiment');
-    })->name('paiment');
-});
-/**********************************commande-interface ***************************************************** */
-/*Route::get('/message', [App\Http\Controllers\CommandesController::class,'getmessage'])->middleware('can:isAdmin')->name('allmessage');
-Route::get('/All_commande', [App\Http\Controllers\CommandesController::class,'getCommandesAdmin'])->middleware('can:isAdmin')->name('commandeadmin');
-Route::get('deleteComande/{id}',[App\Http\Controllers\CommandesController::class,'deleteCommande'])->middleware('can:isAdmin')->name('commande.delete');
-Route::get('message/{id}',[App\Http\Controllers\CommandesController::class,'deletemessage'])->middleware('can:isAdmin')->name('message.delete');
-Route::PUT('toggleCommande/{id}',[App\Http\Controllers\CommandesController::class,'toggleCommande'])->middleware('can:isAdmin')->name('toggleCommande');
-
-/**************************************************template**************************************************************************************/ 
