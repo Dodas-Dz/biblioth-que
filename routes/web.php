@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 Auth::routes();
+Route::post('/searchedBooks', [App\Http\Controllers\LivreController::class, 'searchedBooks'])->middleware('can:isBoth')->name('searchedBooks');
 
 Route::middleware(['auth'])->group(function () {
 Route::get('/statistique', [App\Http\Controllers\HomeController::class, 'statistic'])->middleware('can:isBoth')->name('statistic');

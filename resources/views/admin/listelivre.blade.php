@@ -29,6 +29,9 @@
 
         
          <div class="card-body table-responsive">
+           <div class="search_livres my-auto">
+            <input type="text" id="search_livre" class="form-control" placeholder="recherche..." name="search_livre" >
+           </div>
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>ISBN</th>
@@ -41,10 +44,6 @@
                       <th>Supprimer</th>
                       <th>Modifier</th>
                 
-                      
-                   
-                      
-                      
                     </thead>
                     <tbody>
                     @foreach($livresfiltre as $livre)
@@ -56,7 +55,7 @@
                         <td>{{$livre->Categorie->name}}</td>
                         <td>{{$livre->anneé}}</td>
                         <td>{{$livre->nbr}}</td>
-                        <td><a href="{{ route('Livre.delete',$livre->id) }} " onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
+                        <td><a onclick="return delete_confirmation()" href="{{ route('Livre.delete',$livre->id) }}" ><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
                     @endforeach
@@ -210,7 +209,28 @@
           </div>
 
        
-                  
+           <script >
+           $('body').on('keyup','#search_livre',function(){
+
+            var searchcontent=$(this).val();
+           $.ajax({
+            method: 'POST',
+            url: {{route("searchedBooks")}},
+            dataType: 'json',
+            data: {'_token':'{{csrf_token()}}',
+            searchcontent:searchcontent
+          },
+          success: function(res){
+
+
+            
+          }
+
+           })
+
+
+           })
+           </script>       
                 
          
      
