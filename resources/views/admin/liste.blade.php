@@ -47,7 +47,7 @@
                         <td>{{$Abonne->prenom}}</td>
                         <td>{{$Abonne->date_naissance}}</td>
                         <td>{{$Abonne->student_id}}</td>
-                        <td><a href="#" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
+                        <td><a {{ route('abonne.delete',$Abonne->id) }} onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
                       @endforeach

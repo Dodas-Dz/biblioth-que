@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '6df30578d8eb859d795de74a2a0b712c9d1050d3',
+    'reference' => '682a9684b8e8d4cbde2ccb8b83e125b2604a4b2e',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -455,6 +455,15 @@ private static $installed = array (
         0 => 'v8.73.2',
       ),
     ),
+    'intervention/image' => 
+    array (
+      'pretty_version' => '2.7.0',
+      'version' => '2.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9a8cc99d30415ec0b3f7649e1647d03a55698545',
+    ),
     'kodova/hamcrest-php' => 
     array (
       'replaced' => 
@@ -478,7 +487,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '6df30578d8eb859d795de74a2a0b712c9d1050d3',
+      'reference' => '682a9684b8e8d4cbde2ccb8b83e125b2604a4b2e',
     ),
     'laravel/sail' => 
     array (
@@ -551,6 +560,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'aa70e813a6ad3d1558fc927863d47309b4c23e69',
+    ),
+    'livewire/livewire' => 
+    array (
+      'pretty_version' => 'v2.8.0',
+      'version' => '2.8.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'fc8c315babf8d42c2a25f207b3931b1bc8eb5e70',
     ),
     'maatwebsite/excel' => 
     array (

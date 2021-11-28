@@ -15,7 +15,7 @@
             <div class="col-sm-6 col-md-3">
               <label class="form-label" for="inputCategories">Categories</label>
               
-              <select class="form-select " id="inputCategories" onchange="searching()">
+              <select class="js-example-basic-multiple js-states form-control" name="inputCategories">
                 
                     @foreach($categories as $categorie)
                       <option name="categorie" value="{{$categorie->id}}">{{$categorie->name}}</option>
@@ -183,6 +183,8 @@
 <!-- <section> begin ============================-->
 @include('layouts.Footeru')
 <script src="assetsU/js/searching.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="bower_components/select2/dist/js/select2.min.js"></script>
 </body>
 
 </html>
