@@ -22,6 +22,50 @@ function delete_confirmation (conf) {
      
     
 }
+function messageverif (form){
+  if(form.mail.value.length<=5 || form.message.value == ""|| form.objet.value == "" )
+  {
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Saisir les cases vides !',
+      
+    })
+   
+    return false;
+  }
+   if(form.message.value.length<=15 ){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Saisir Un message valid !',
+      
+    })
+    return false;
+  }
+  if(form.objet.value.length<=4 || form.objet.value.length>=30 ){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Saisir objet ou valid !',
+      
+    })
+    return false;
+  }
+
+
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Message envoyé ',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  
+return true;
+
+}
 
 
 function aboneformcheck(form) {

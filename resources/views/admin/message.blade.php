@@ -28,50 +28,60 @@
                 <table class="table table-hover">
                     <thead class=" text-warning">
                         <th  class="font-weight-bold ">Email </th>
-                        <th  class="font-weight-bold ">Message </th>
-                    <th>Supprimer</th>
-                      <th>Répondre</th>
+                        <th  class="font-weight-bold ">Objet </th>
+                        <th class="font-weight-bold ">Ouvrir</th>
+                    <th class="font-weight-bold ">Supprimer</th>
+                      <th class="font-weight-bold ">Répondre</th>
                       
                     </thead>
                     <tbody>
-
+                      @foreach ($message as $msg)
+                          
+                    
                       <tr>
-                          <th>tabethadjer2706@gmail.com</th>
-                      <th>
-                         <h3> <span class="badge badge-pill badge-secondary "> Vous avez trois nouveaux membres aujourd'hui !</span></h3>
-                      </th>
-                        <td><a href="#" onclick="delete_confirmation()"><i class="fa fa-trash fa-lg" ></i></a></td>
-                        <td><a href="mailto:zyrahgroupe@gmail.com"><i class="fa fa-comment fa-lg" ></i></a></td>
+                          <td>{{$msg->email}}</td>
+                      <td>
+                         <p class="fs--1 my-auto">  {{$msg->objet}}</p>
+                      </td>
+                      <td><a href="#" data-bs-toggle="modal" data-bs-target="#msg{{$msg->id}}"> <i class="fas fa-eye fa-lg"></i></a></td>
+                        <td><a href="#" ><i class="fa fa-trash fa-lg" ></i></a></td>
+                        <td><a href="mailto:{{$msg->email}}"><i class="fa fa-comment fa-lg" ></i></a></td>
                       </tr>
+                      <div class="modal" id="msg{{$msg->id}}">
+                        <div class="modal-dialog modal-dialog-scrollable modal-md">
+                          <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h3 class="text-center modal-title ">{{$msg->objet}}</h3>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                             
+                             <div class=""><h4 class="text-center">Message</h4>
+                              <p class="fs-0">
+                                {{$msg->message}}
+                                 </p>
+                              </div> 
+                                
+                                
+                      
+                            </div>
+                      
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                              <button type="button " class="btn " href="mailto:{{$msg->email}}"> Rependre</button>
+                            </div>
+                          </div>
+          
+                          
+                        </div>
+                      </div>
+                      @endforeach
+                   
 
 
-                      <tr>
-                      <th>user1334@gmail.com</th>
-                      <th>
-                         <h3> <span class="badge badge-pill badge-secondary "> Vous avez 10 livres non rendu !</span></h3>
-                      </th>
-                        <td><a href="#"><i class="fa fa-trash fa-lg" ></i></a></td>
-                        <td><a href="mailto:zyrahgroupe@gmail.com"><i class="fa fa-comment fa-lg" ></i></a></td>
-                      </tr>
-
-
-                      <tr>
-                      <th>use35467@gmail.com</th>
-                      <th>
-                         <h3> <span class="badge badge-pill badge-secondary "> Livre num°=3567 est rendu à 10:15</span></h3>
-                      </th>
-                        <td><a href="#"><i class="fa fa-trash fa-lg" ></i></a></td>
-                        <td><a href="mailto:zyrahgroupe@gmail.com"><i class="fa fa-comment fa-lg" ></i></a></td>
-                      </tr>
-
-                      <tr>
-                      <th>zkr234567@gmail.com</th>
-                      <th>
-                         <h3> <span class="badge badge-pill badge-secondary "> 15 livres emprunté en 48h </span></h3>
-                      </th>
-                        <td><a href="#"><i class="fa fa-trash fa-lg" ></i></a></td>
-                        <td><a href="mailto:zyrahgroupe@gmail.com"><i class="fa fa-comment fa-lg" ></i></a></td>
-                      </tr>
 
                     </tbody>
                   </table>

@@ -7,7 +7,7 @@
                 </div>
                 <br class="text-light my-4"> <i class="fas fa-map-marker-alt me-3" style="color:white"></i><span class="text-light">Nouveuau pôle la rocade &nbsp;</br></br> &nbsp; Tlemcen, 13 000</span>
                 <p class="text-light"> <i class="fas fa-envelope me-3"> </i><a class="text-light">maktaba@gmail.com </a></p>
-                <p class="text-light"> <i class="fas fa-phone-alt me-3"></i><a class="text-light">Fix: 043 41 11 95 </br></br>&nbsp; &nbsp;Fax: 043 41 11 91</br></br> &nbsp;&nbsp;Télex: 1871-18034</a></p>
+                <p class="text-light"> <br><i class="fas fa-phone-alt me-3"></i><a class="text-light">Fix: 043 41 11 95 &nbsp; &nbsp;Fax: 043 41 11 91</br></br> &nbsp;&nbsp;Télex: 1871-18034</a></p>
             </div>
             <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
                 <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif">Menu</h5>
@@ -93,9 +93,10 @@
 <script src="assetsU/vendors/@popperjs/popper.min.js"></script>
 <script src="assetsU/vendors/bootstrap/bootstrap.min.js"></script>
 <script src="assetsU/vendors/is/is.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
 <script src="assetsU/vendors/fontawesome/all.min.js"></script>
-
+<script src="sweetalert2.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="assetsU/js/theme.js"></script>
@@ -103,6 +104,7 @@
 <script src="assetsU/js/animation.js"></script>
 <script src="assetsU/js/imagesloaded.js"></script>
 <script src="assetsU/js/custom.js"></script>
+<script src="assetsU/js/allerts.js"></script>
 
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Rubik:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">

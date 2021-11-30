@@ -6,6 +6,7 @@ use App\Models\Message;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
@@ -24,9 +25,16 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        Message::create([
+              'email'=>$request->input('mail'),
+              'objet'=> $request->input('objet'),
+              'message'=>$request->input('message')
+
+        ]);
+        return redirect()->route('Apropos');
+        
     }
 
     /**
@@ -46,9 +54,11 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(Message $message)
+    public function show()
     {
-        //
+        $message = Message::orderBy('created_at', 'desc')->paginate(10);
+        return view('admin.message',compact('message'));
+
     }
 
     /**
@@ -84,4 +94,5 @@ class MessageController extends Controller
     {
         //
     }
+
 }
