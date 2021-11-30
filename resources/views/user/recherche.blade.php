@@ -185,6 +185,20 @@
 <script src="assetsU/js/searching.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="bower_components/select2/dist/js/select2.min.js"></script>
+<script> 
+$('#search').on('keyup',function(){
+
+    var val=$(this).val();
+    console.log(val);
+ $.ajax({
+
+
+ })
+
+  });
+
+
+</script>
 </body>
 
 </html>
