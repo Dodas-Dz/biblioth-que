@@ -63,7 +63,7 @@ adresse :<a rel="nofollow" href="https://www.google.com/search?q=nouveau%20p%C3%
       <div class="col-md-6 col-lg-5">
         <h5 class="text-primary font-sans-serif fw-bold">Contactez nous</h5>
         <h1 class="mb-5">Pour plus d'informations </h1>
-        <form class="row g-0 align-items-center">
+        <form class="row g-0 align-items-center" method="post" action="{{{{route('')}}}}">
           <div class="col">
             <div class="mb-5 input-group-icon">
               <input class="form-control form-little-squirrel-control" type="email" placeholder="Entrer email "  aria-label="email" required/>

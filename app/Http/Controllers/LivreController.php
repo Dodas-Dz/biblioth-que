@@ -92,7 +92,7 @@ class LivreController extends Controller
          $livres = Livre:: where('titre','LIKE','%'.$search_text.'%')
                     ->where('category_id','=',$search_categorie)
                     ->orwhere('isbn','=',$search_text)
-                    ->paginate(15);
+                    ->paginate(16);
         return view('user.recherche',compact('livres','categories'));
                
        
