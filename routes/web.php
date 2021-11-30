@@ -11,7 +11,7 @@ Route::get('/ProfileAdmin', [App\Http\Controllers\HomeController::class, 'profil
 Route::get('/Listelivre', [App\Http\Controllers\LivreController::class, 'Livres'])->middleware('can:isBoth')->name('listelivre');
 Route::get('/categorie', [App\Http\Controllers\CategorieController::class, 'getCategories'])->middleware('can:isBoth')->name('categorie');
 Route::get('/supprimer', [App\Http\Controllers\HomeController::class, 'supprimer'])->middleware('can:isBoth')->name('supprimer');
-Route::get('/message', [App\Http\Controllers\HomeController::class, 'message'])->middleware('can:isBoth')->name('message');
+Route::get('/message', [App\Http\Controllers\MessageController::class, 'show'])->middleware('can:isBoth')->name('message');
 Route::get('/AjouterGestionnaire', [App\Http\Controllers\HomeController::class, 'AjouterG'])->middleware('can:isAdmin')->name('AjouterG');
 Route::get('/ListeUser', [App\Http\Controllers\Auth\registere::class, 'getUser'])->middleware('can:isAdmin')->name('listeuser');
 Route::get('/AjouterMot', [App\Http\Controllers\HomeController::class, 'AjouterMot'])->middleware('can:isBoth')->name('AjouterMot');
@@ -35,3 +35,5 @@ Route::get('/Enprente', [App\Http\Controllers\GuestServer::class, 'Emprente'])->
 Route::get('/Apropos', [App\Http\Controllers\GuestServer::class, 'Apropos'])->name('Apropos');
 Route::get('/recherche', [App\Http\Controllers\LivreController::class, 'Livress'])->name('recherche');
 Route::get('/recherchee', [App\Http\Controllers\LivreController::class, 'search'])->name('search');
+
+Route::post('/Apropos', [App\Http\Controllers\MessageController::class, 'create'])->name('Apropos');
