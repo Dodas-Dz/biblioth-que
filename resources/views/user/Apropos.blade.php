@@ -38,7 +38,7 @@
                     target="blank">Maktaba</a>
                     La bibliothèque que tout les étudiants en besoin dans leur cursus universitaire. C'est gratuit est surtout plein de livres, dictionnaire... 
                     dans tout les catégories littérature, histoire, science, chimie, physique, informatique, mathématique, médecine, pharmaie...</br>
-Il suffit de demander une carte bibliothèque au niveau de notre bureau </br>
+Il suffit de demander une carte bibliothèque au niveau de notre bureau 
 adresse :<a rel="nofollow" href="https://www.google.com/search?q=nouveau%20p%C3%B4le%20universitaire%20abou%20bekr%20belkaid%20tlemcen&oq=nouveau+pole+univer&aqs=chrome.3.69i57j0i512l2j0i10i22i30j0i22i30.6408j1j7&sourceid=chrome&ie=UTF-8&tbs=lf:1,lf_ui:2&tbm=lcl&sxsrf=AOaemvKVszzBugg4VMu-A2wkx2Tag1QFgA:1636758507885&rflfq=1&num=10&rldimm=4872864406569258480&lqi=CjVub3V2ZWF1IHDDtGxlIHVuaXZlcnNpdGFpcmUgYWJvdSBiZWtyIGJlbGthaWQgdGxlbWNlblpBIjVub3V2ZWF1IHDDtGxlIHVuaXZlcnNpdGFpcmUgYWJvdSBiZWtyIGJlbGthaWQgdGxlbWNlbioICAIQAxAEEAWSAQp1bml2ZXJzaXR5qgEtEAEqKSIlcMO0bGUgdW5pdmVyc2l0YWlyZSBhYm91IGJla3IgYmVsa2FpZCgE&ved=2ahUKEwjk2sfL-JP0AhWS5OAKHXrUAgQQvS56BAgQECE&rlst=f#rlfi=hd:;si:;mv:[[34.92970159278059,-1.282394898876964],[34.885075685780855,-1.3699422011230575]]" 
                     target="blank">nouveau pôle la rocade, univesité de Tlmecen"</a>  et la bibliothèque est à vous, emprunter le livre que vous voulez !!!
 </p>
@@ -63,7 +63,7 @@ adresse :<a rel="nofollow" href="https://www.google.com/search?q=nouveau%20p%C3%
       <div class="col-md-6 col-lg-5">
         <h5 class="text-primary font-sans-serif fw-bold">Contactez nous</h5>
         <h1 class="mb-5">Pour plus d'informations </h1>
-        <form class="row g-0 align-items-center" method="post" action="{{{{route('')}}}}">
+        <form class="row g-0 align-items-center" method="post" action="">
           <div class="col">
             <div class="mb-5 input-group-icon">
               <input class="form-control form-little-squirrel-control" type="email" placeholder="Entrer email "  aria-label="email" required/>

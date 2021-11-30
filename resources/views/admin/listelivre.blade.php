@@ -15,7 +15,7 @@
         <div class="container-fluid">
 
 
-        
+         
    
         <div class="row">
             <div class="col-lg-12 col-md-12 ">
@@ -44,7 +44,17 @@
                 <div class="collapse" id ="livre-card-content"> 
          <div class="card-body table-responsive" >
            <div class="search_livres my-auto">
-            <input type="text" id="search_livre" class="form-control" placeholder="recherche..." name="search_livre" >
+            <form class="navbar-form me-5" method="get" action={{route('searchAdmin')}}>
+              <div class="input-group no-border">
+                <input type="text" name='q' class="form-control" placeholder="Rechercher...">
+                <button type="submit" class="btn btn-default btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
+                  <div class="ripple-container"></div>
+                </button>
+              </div>
+            </form>
+          
+           
            </div>
                   <table class="table table-hover">
                     <thead class="text-warning">
@@ -340,28 +350,7 @@
                   </div>
 
                 </div>
-           <script >
-           $('body').on('keyup','#search_livre',function(){
-
-            var searchcontent=$(this).val();
-           $.ajax({
-            method: 'POST',
-            url: {{route("searchedBooks")}},
-            dataType: 'json',
-            data: {'_token':'{{csrf_token()}}',
-            searchcontent:searchcontent
-          },
-          success: function(res){
-
-
-            
-          }
-
-           })
-
-
-           })
-           </script>       
+        
                 
          
      
