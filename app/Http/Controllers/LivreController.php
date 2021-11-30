@@ -89,8 +89,7 @@ class LivreController extends Controller
          $categories =Categorie::all(); 
          $search_text = $request->input('q');
          $search_categorie = $request->input('inputCategories');
-         $livres = Livre:: where('titre','LIKE','%'.$search_text.'%')
-                    ->where('category_id','=',$search_categorie)
+         $livres = Livre:: where([['titre','LIKE','%'.$search_text.'%'],['category_id','=',$search_categorie]])
                     ->orwhere('isbn','=',$search_text)
                     ->paginate(16);
         return view('user.recherche',compact('livres','categories'));
