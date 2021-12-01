@@ -16,6 +16,7 @@ class CreateAbonnesTable extends Migration
         Schema::create('abonnes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('mail');
             $table->string('name');
             $table->string('prenom');
             $table->text('image');

@@ -30,7 +30,9 @@
                       <div class="align-self-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#00B0FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>                      </div>
                       <div class="media-body text-right">
-                        <h2>278</h2>
+                      @if (auth()->user()->notification)
+                      <h2> {{$notification->count()}} </h2>
+                        @endif
                         <h3 class="text-muted"><span>Abonné </span></h3>
                       </div>
                     </div>
@@ -206,7 +208,8 @@
 
         </div>
       
-                   
+      
+             
       <div class="a">
    
           <div class="row">
@@ -218,68 +221,56 @@
                 </div>
 
                 <div class="card-body table-responsive">
-                <table class="table table-hover">
+                <table class="table">
                     <thead class=" text-warning">
-                      <th class="my-auto font-weight-bold">  <input class="form-check-input " type="checkbox" value="" id="checkall">
-                        <label class="form-check-label font-weight-bold text-warning" for="checkall">
-                          check 
-                        </label>
-
-                      </th>
+                      
                         <th  class="font-weight-bold ">Notification </th>
                     <th class="font-weight-bold">Supprimer</th>
-                      <th class="font-weight-bold">Modifier</th>
+                     
                       
                     </thead>
                     <tbody>
 
+                      @foreach (auth()->user()->Notifications as $notif)
+                          
+                    
                       <tr>
-                        <td>  <input class="form-check-input mx-auto" type="checkbox" value="" id="checkall">
-                        </td>
+                      
                       <td>
-                         <h3 > <span class="badge badge-pill badge-success "> Vous avez trois nouveaux membres aujourd'hui !</span></h3>
+                        <div class="card card border-success shadow p-3 mb-5 bg-white rounded" >
+                          <div class="card-header ">
+                            <button type="button" class="btn-close aligh-item-right" aria-label="Close" onclick="delete_confirmation()" {{route('notif.delete',$notif->id)}}></button>
+                            <h4 class="card-title fw-bold text-success">Nouveau Abonné !</h4>
+                          <small class="text-right text-dark">{{$notif->created_at}} </small>
+                        </div>
+                        <hr class="my-2">
+                          <div class="card-body">
+                           
+                            <p class="card-text text-dark">{{$notif->data['titre']}} <br> <br> <span class="fw-bold">{{$notif->data['abonne_nom']}}</span></p>
+                            <hr class="my-2">
+                  <div class="card-footer"> <a href="{{route('liste')}}" class="d-flex fs-0" style="color:#474747" > 
+                    <small>Voir Plus > </small></a></div>
+                          </div>
+                        </div>
+
+                      
+                        
                       </td>
+                      
                         <td><a href="#" onclick="delete_confirmation()"><i class="fa fa-trash fa-lg" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit fa-lg" ></i></a></td>
+                       
                       </tr>
+                      @endforeach
 
-
-                      <tr>
-                        <td>  <input class="form-check-input mx-auto" type="checkbox" value="" id="checkall">
-                        </td>
-                      <td>
-                         <h3> <span class="badge badge-pill badge-danger "> Vous avez 10 livres non rendu !</span></h3>
-                      </td>
-                        <td><a href="#" ><i class="fa fa-trash fa-lg" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit fa-lg" ></i></a></td>
-                      </tr>
-
-
-                      <tr>
-                        <td>  <input class="form-check-input mx-auto" type="checkbox" value="" id="checkall">
-                        </td>
-                      <th>
-                         <h3> <span class="badge badge-pill badge-primary "> Livre num°=3567 est rendu à 10:15</span></h3>
-                      </th>
-                        <td><a href="#"><i class="fa fa-trash fa-lg" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit fa-lg" ></i></a></td>
-                      </tr>
-
-                      <tr>
-                        <td>  <input class="form-check-input mx-auto" type="checkbox" value="" id="checkall">
-                        </td>
-                      <th>
-                         <h3> <span class="badge badge-pill badge-success "> 15 livres emprunté en 48h </span></h3>
-                      </th>
-                        <td><a href="#"><i class="fa fa-trash fa-lg" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit fa-lg" ></i></a></td>
-                      </tr>
 
 
                       </tbody>
                   </table>
                   </div>
             </div>
+
+
+           
         </div>
 
 </div>
@@ -291,7 +282,6 @@
       </div>
      
     </div>
-
 
   </div>
 </div>
@@ -308,3 +298,17 @@
   transition: transform 0.2s ease;
 }
         </style>
+
+<script>
+    $(document).ready(function() {
+    $(".dropdown-toggle").dropdown();
+}
+  
+      $("#mytoast").toast("show");
+      $("#mytoast").toast({delay:5000});
+      $("#mytoast").toast(showautohide: false);
+  
+</script>
+
+
+
