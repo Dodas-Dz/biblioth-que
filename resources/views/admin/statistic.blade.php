@@ -30,9 +30,7 @@
                       <div class="align-self-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#00B0FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>                      </div>
                       <div class="media-body text-right">
-                      @if (auth()->user()->notification)
-                      <h2> {{$notification->count()}} </h2>
-                        @endif
+                     
                         <h3 class="text-muted"><span>Abonné </span></h3>
                       </div>
                     </div>
@@ -237,27 +235,42 @@
                       <tr>
                       
                       <td>
-                        <div class="card card border-success shadow p-3 mb-5 bg-white rounded" >
+         
+                        <div class="row" height="40">
+
+                          <div class="col-xl-3 col-md-12 ">
+
+                          </div>
+                      <!--  start card-->
+                          <div class="col-xl-6 col-md-12 ">
+                        <div class="card card border-success shadow p-3 mb-5 bg-white rounded" height="30" >
                           <div class="card-header ">
-                            <button type="button" class="btn-close aligh-item-right" aria-label="Close" onclick="delete_confirmation()" {{route('notif.delete',$notif->id)}}></button>
                             <h4 class="card-title fw-bold text-success">Nouveau Abonné !</h4>
-                          <small class="text-right text-dark">{{$notif->created_at}} </small>
-                        </div>
-                        <hr class="my-2">
+                            <small class="text-right text-dark">{{$notif->created_at}} </small>
+                            </div>
+                            <hr class="my-2">
                           <div class="card-body">
                            
                             <p class="card-text text-dark">{{$notif->data['titre']}} <br> <br> <span class="fw-bold">{{$notif->data['abonne_nom']}}</span></p>
                             <hr class="my-2">
-                  <div class="card-footer"> <a href="{{route('liste')}}" class="d-flex fs-0" style="color:#474747" > 
-                    <small>Voir Plus > </small></a></div>
+                            <div class="card-footer"> <a href="{{route('liste')}}" class="d-flex fs-0" style="color:#474747" > 
+                              <small>Voir Plus > </small></a>
+                            </div>
+                          </div>
+                          </div>
+                          </div>
+                          <!--end card-->
+                          <div class="col-xl-2 col-md-12 ">
+
                           </div>
                         </div>
-
-                      
-                        
                       </td>
                       
-                        <td><a href="#" onclick="delete_confirmation()"><i class="fa fa-trash fa-lg" ></i></a></td>
+                        <td><a href="#" onclick="delete_confirmation()"> 
+                          <div class="align-self-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#808080" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>   
+                          </div></a>
+                        </td>
                        
                       </tr>
                       @endforeach

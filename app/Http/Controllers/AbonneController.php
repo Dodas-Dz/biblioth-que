@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Abonne;
 use App\Models\User;
+use App\Models\Abonne;
 use App\Helpers\Helper;
 use Illuminate\Http\Request;
-use App\Notifications\abonneNotification;        
+use App\Notifications\AbonneMail;
 use Illuminate\Support\Facades\Validator;
+use App\Notifications\abonneNotification;        
 
 Use Notifiable;
 
@@ -55,20 +56,15 @@ class AbonneController extends Controller
                 
         ]); 
 
+        
+      $abonne->notify(new AbonneMail());
 
-        //event(new Create($user));
-
-        $users = User::all();
-
-    
+       $users = User::all();
         $abone = $abonne->name;
-        $abone_prenom= $abonne->prenom; 
-
-      
 
         foreach ($users as $user) {
 
-            $user->notify(new abonneNotification($abone, $abone_prenom)); 
+            $user->notify(new abonneNotification($abone)); 
             # code...
         }
      

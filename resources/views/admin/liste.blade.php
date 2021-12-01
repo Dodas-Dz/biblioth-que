@@ -87,7 +87,7 @@
                      
                             <div class="input-group-icon mb-3 "> 
                               <label class="form-label col-12" for="inputCategories">Email</label>
-                              <input id="mail" type="text" class="form-control form-little-squirrel-control @error('mail') is-invalid @enderror" placeholder="Email" name="mail" value="{{ old('mail') }}" autocomplete="mail" autofocus/>
+                              <input id="mail" type="email" class="form-control form-little-squirrel-control @error('mail') is-invalid @enderror" placeholder="Email" name="mail" value="{{ old('mail') }}" autocomplete="mail" autofocus/>
                               <i class="fas fa-user input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i> 
                             </div>
 
