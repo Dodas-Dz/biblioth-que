@@ -39,7 +39,7 @@ class AbonneController extends Controller
             $image=$request->file('image');
             $image_name = $image->getClientOriginalName();
           
-            $path='public/image/abonne';
+            $path='public/image';
             $filename= time(). $image_name;
             $request->file('image')->storeAs($path,$filename);
 
@@ -79,7 +79,7 @@ class AbonneController extends Controller
 
     public function deleteAbonne($id)
     {
-        $abonnes = Livre::find($id);
+        $abonnes = Abonne::find($id);
         $abonnes->delete();
         return back();
     }
