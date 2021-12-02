@@ -18,7 +18,7 @@ public $pdf;
 
     public function abonne() 
     {
-        $abonnes= Abonne::all();                 
+        $abonnes= Abonne::orderBy('created_at', 'DESC')->paginate(10);              
         return view('admin.liste',compact('abonnes'));
     }
 
@@ -79,10 +79,10 @@ public $pdf;
     {
         $abonnes = Abonne::find($id);
         
-       $pdf = \PDF::loadView('admin.pdf', compact('abonnes'))->setOptions(['defaultFont' => 'sans-serif',
-                                                                           "defaultPaperSize" => "a8"]);;
+       $pdf = \PDF::loadView('admin.pdf', compact('abonnes'))->setPaper('A6', 'landscape');
+    
 
-      return $pdf->download('abonne.pdf');
+      return $pdf->stream('abonne.pdf');
     }
 
 
