@@ -35,7 +35,7 @@
               <li class="nav-item ">
                 <a class="nav-link" href="{{route('statistic')}}"  >
 <!--<span class="notification">5</span>-->
-                  <i class="material-icons">notifications    </i>
+                  <i class="material-icons"> notifications   </i>
                  
                   <p class="d-lg-none d-md-block">
                     Some Actions

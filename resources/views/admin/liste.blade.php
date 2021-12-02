@@ -34,6 +34,7 @@
                       <th>Prénom</th>
                       <th>Date de naissance</th>
                       <th>N° de carte</th>
+                      <th>Imprimer</th>
                       <th>Supprimer</th>
                       <th>Modifier</th>
                       
@@ -47,7 +48,8 @@
                         <td>{{$Abonne->prenom}}</td>
                         <td>{{$Abonne->date_naissance}}</td>
                         <td>{{$Abonne->student_id}}</td>
-                        <td><a {{ route('abonne.delete',$Abonne->id) }} onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
+                        <td><a href="{{ route('abonne.pdf',$Abonne->id)}}"><i class="fa fa-print" ></i></a>   </td>
+                        <td><a href="{{ route('abonne.delete',$Abonne->id) }}" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
                       @endforeach
@@ -84,7 +86,12 @@
                     
                       
                      <form class="needs-validation" method="POST" action="{{ route('createabonne') }}" onsubmit="return aboneformcheck(this)" enctype="multipart/form-data" novalidate>
-                          
+                     
+                            <div class="input-group-icon mb-3 "> 
+                              <label class="form-label col-12" for="inputCategories">Email</label>
+                              <input id="mail" type="email" class="form-control form-little-squirrel-control @error('mail') is-invalid @enderror" placeholder="Email" name="mail" value="{{ old('mail') }}" autocomplete="mail" autofocus/>
+                              <i class="fas fa-user input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i> 
+                            </div>
 
                             <div class="input-group-icon mb-3 "> 
                               <label class="form-label col-12" for="inputCategories">Nom</label>

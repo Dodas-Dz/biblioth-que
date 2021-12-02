@@ -23,9 +23,11 @@ Route::get('/emprunter', [App\Http\Controllers\HomeController::class, 'emprunter
 Route::get('deleteAbonne/{id}',[App\Http\Controllers\AbonneController::class,'deleteAbonne'])->middleware('can:isAdmin')->name('abonne.delete');
 Route::get('deletelivres/{id}',[App\Http\Controllers\LivreController::class,'deleteLivre'])->middleware('can:isAdmin')->name('Livre.delete');
 Route::get('/search_livre', [App\Http\Controllers\LivreController::class, 'search_admin'])->middleware('can:isBoth')->name('searchAdmin');
-Route::get('/messagee', [App\Http\Controllers\MessageController::class, 'fetch_data'])->middleware('can:isBoth')->name('fetch_data');
 Route::get('deletemessage/{id}',[App\Http\Controllers\MessageController::class,'deletemessage'])->middleware('can:isAdmin')->name('message.delete');
 
+Route::get('/download-pdf/{id}', [App\Http\Controllers\AbonneController::class, 'getPostPdf'])->middleware('can:isBoth')->name('abonne.pdf');
+
+Route::get('deleteNotification/{id}',[App\Http\Controllers\abonneNotification::class,'deleteNotification'])->middleware('can:isAdmin')->name('notif.delete');
 
 });
 /* Testing Routes for Excel */
