@@ -44,7 +44,18 @@
                          <p class="fs--1 my-auto">  {{$msg->objet}}</p>
                       </td>
                       <td><a href="#" data-bs-toggle="modal" data-bs-target="#msg{{$msg->id}}"> <i class="fas fa-eye fa-lg"></i></a></td>
-                        <td><a href="#" ><i class="fa fa-trash fa-lg" ></i></a></td>
+                        <td>
+                          <form method="GET" action="{{ route('message.delete',$msg->id) }}" onsubmit="return delete_confirmation(this)">
+                            @csrf
+                            <input  type="hidden" value="DELETE">
+                            <button type="submit" class="show_confirm" data-toggle="tooltip" title='Delete'><i class="fa fa-trash fa-lg" ></i></button>
+                        </form>
+                          
+                          
+                          
+                          
+                          
+                         </td>
                         <td><a href="mailto:{{$msg->email}}"><i class="fa fa-comment fa-lg" ></i></a></td>
                       </tr>
                       <div class="modal" id="msg{{$msg->id}}">
@@ -81,12 +92,13 @@
                       @endforeach
                    
 
-
+                      <div class="d-flex justify-content-center">{{$message->links("pagination::bootstrap-4")}}
+                      </div>
 
                     </tbody>
                   </table>
                   </div>
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
                
-    

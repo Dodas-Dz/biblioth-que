@@ -34,6 +34,7 @@
                       <th>Prénom</th>
                       <th>Date de naissance</th>
                       <th>N° de carte</th>
+                      <th>Imprimer</th>
                       <th>Supprimer</th>
                       <th>Modifier</th>
                       

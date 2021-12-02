@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Abonne;
 use App\Helpers\Helper;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use App\Notifications\AbonneMail;
 use Illuminate\Support\Facades\Validator;
-use App\Notifications\abonneNotification;        
+use App\Notifications\abonneNotification;  
 
 Use Notifiable;
-
 class AbonneController extends Controller
 {
 
-    
+public $pdf;    
 
     public function abonne() 
     {
@@ -72,10 +72,19 @@ class AbonneController extends Controller
 
         return redirect()->route('liste');
 
-        
-
-       
     }
+
+
+    public function getPostPdf($id)
+    {
+        $abonnes = Abonne::find($id);
+        
+       $pdf = \PDF::loadView('admin.pdf', compact('abonnes'))->setOptions(['defaultFont' => 'sans-serif',
+                                                                           "defaultPaperSize" => "a8"]);;
+
+      return $pdf->download('abonne.pdf');
+    }
+
 
     public function deleteAbonne($id)
     {

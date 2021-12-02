@@ -38,7 +38,7 @@ class abonneNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database','mail'];
     }
 
     /**
@@ -73,11 +73,11 @@ class abonneNotification extends Notification
         ];
     }
 
-    public function deleteNotification($id)
+   /* public function deleteNotification($id)
     {
         $notification = Notification::find($id);
         $notification->delete();
         return back();
-    }
+    }*/
    
 }
