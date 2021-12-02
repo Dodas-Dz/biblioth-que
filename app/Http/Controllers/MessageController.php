@@ -36,6 +36,20 @@ class MessageController extends Controller
         return redirect()->route('Apropos');
         
     }
+    public function fetch_data(Request $request){
+
+                if($request->ajax()){
+                     $data= Message::paginate(5);
+                     return view('admin.message',compact('data'))->render();
+                    }
+
+
+    }
+    public function deletemessage($id){
+        $data=Message::find($id);
+        $data->delete();
+        return back();
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -56,7 +70,7 @@ class MessageController extends Controller
      */
     public function show()
     {
-        $message = Message::orderBy('created_at', 'desc')->paginate(10);
+        $message = Message::orderBy('created_at', 'desc')->paginate(5);
         return view('admin.message',compact('message'));
 
     }

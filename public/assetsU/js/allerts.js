@@ -1,4 +1,8 @@
-function delete_confirmation (conf) {
+const { fromPairs } = require("lodash");
+
+
+function delete_confirmation (form) {
+  from.preven
     Swal.fire({
         title: 'Etes-vous sur?',
         text: "vous ne pouvez pas restaurer les données supprimer!",
@@ -7,24 +11,25 @@ function delete_confirmation (conf) {
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Oui , supprimer!'
-      }).then((result) => {
-        if (!result.isConfirmed) {
-          Event.preventDefault();
+      }).then((rseult) => {
+        if (result.isConfirmed) {
+         
           Swal.fire(
             'supprimé!',
             'données supprimées.',
             'success'
           )
-        
+      
         }
       }
       )
-     
+     return false;
     
 }
 function messageverif (form){
   if(form.mail.value.length<=5 || form.message.value == ""|| form.objet.value == "" )
   {
+    
 
     Swal.fire({
       icon: 'error',
@@ -32,7 +37,7 @@ function messageverif (form){
       text: 'Saisir les cases vides !',
       
     })
-   
+  
     return false;
   }
    if(form.message.value.length<=15 ){
@@ -63,7 +68,7 @@ function messageverif (form){
       timer: 1000
     })
   
-return true;
+ return true;
 
 }
 
