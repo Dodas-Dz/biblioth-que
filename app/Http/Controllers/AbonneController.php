@@ -39,7 +39,7 @@ public $pdf;
             $image=$request->file('image');
             $image_name = $image->getClientOriginalName();
           
-            $path='public/image/abonne';
+            $path='public/image';
             $filename= time(). $image_name;
             $request->file('image')->storeAs($path,$filename);
 

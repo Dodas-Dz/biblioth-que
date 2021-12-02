@@ -48,7 +48,6 @@
                         <td>{{$Abonne->prenom}}</td>
                         <td>{{$Abonne->date_naissance}}</td>
                         <td>{{$Abonne->student_id}}</td>
-                        <td><a href="{{ route('abonne.pdf',$Abonne->id)}}"><i class="fa fa-print" ></i></a>   </td>
                         <td><a href="{{ route('abonne.delete',$Abonne->id) }}" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
