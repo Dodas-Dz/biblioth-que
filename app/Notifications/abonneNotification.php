@@ -6,8 +6,10 @@ use App\Models\Abonne;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
+use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Auth;
 
 class abonneNotification extends Notification
 {
@@ -22,7 +24,7 @@ class abonneNotification extends Notification
      *
      * @return void
      */
-    public function __construct($abonne_nom )
+    public function __construct($abonne_nom='' )
     {
        
         $this->abonne_nom=$abonne_nom;
@@ -73,11 +75,15 @@ class abonneNotification extends Notification
         ];
     }
 
-   /* public function deleteNotification($id)
+   public function deleteNotification($id)
     {
-        $notification = Notification::find($id);
-        $notification->delete();
+        $notification = DatabaseNotification::find($id);
+        $notification->markAsRead();
         return back();
-    }*/
+    
+
+         
+    }
    
 }
+

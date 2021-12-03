@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Notifications\AbonneMail;
 use Illuminate\Support\Facades\Validator;
 use App\Notifications\abonneNotification;  
+use App\Http\Requests\CreateSubscriberRequest;
+
 
 Use Notifiable;
 class AbonneController extends Controller
@@ -23,39 +25,20 @@ public $pdf;
     }
 
   
-    public function create(Request $request)
+    public function create(CreateSubscriberRequest $request)
     {   
         
-        $request->validate([
-            'mail'=> ['required', 'string', 'max:255'],
-            'name'=> ['required', 'string', 'max:255'],
-            'prenom'=> ['required', 'string', 'max:255'],
-            'date'=>['required'],
-            'image' => ['required']
-            ]);
         if($request->hasFile('image'))
         {
-       
-            $image=$request->file('image');
-            $image_name = $image->getClientOriginalName();
-          
-            $path='public/image';
-            $filename= time(). $image_name;
-            $request->file('image')->storeAs($path,$filename);
+            $imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('/abonnes'), $imageName);
 
         }
-        $student_id = Helper::IDGenerator(new Abonne, 'student_id', 8, 'STD'); 
-
-        $abonne = Abonne::create([
-                'mail' => $request->input('mail'),
-                'name' => $request->input('name'),
-                'prenom' => $request->input('prenom'),
-                'date_naissance' => $request->input('date'),
-                'student_id' =>$student_id ,
-                'image'=> $path .'/'.$student_id .$filename ,
-                
-        ]); 
-
+        $validatedData = $request->validated();
+        $validatedData['image'] = $imageName ?? null; 
+        $abonne = Abonne::create(
+            $validatedData
+        ); 
         
       $abonne->notify(new AbonneMail());
 
@@ -73,13 +56,13 @@ public $pdf;
         return redirect()->route('liste');
 
     }
-
+   
 
     public function getPostPdf($id)
     {
         $abonnes = Abonne::find($id);
         
-       $pdf = \PDF::loadView('admin.pdf', compact('abonnes'))->setPaper('A6', 'landscape');
+       $pdf = PDF::loadView('admin.pdf', compact('abonnes'))->setPaper('A6', 'landscape');
     
 
       return $pdf->stream('abonne.pdf');

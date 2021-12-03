@@ -19,7 +19,7 @@ class CreateAbonnesTable extends Migration
             $table->string('mail');
             $table->string('name');
             $table->string('prenom');
-            $table->text('image');
+            $table->string('image');
             $table->string('student_id');
             $table->date('date_naissance');
      

@@ -29,7 +29,7 @@
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>ID</th>
-                     
+                     <th>image</th>
                       <th>Nom</th>
                       <th>Prénom</th>
                       <th>Date de naissance</th>
@@ -39,11 +39,11 @@
                       <th>Modifier</th>
                       
                     </thead>
-                    <tbody>
+                    <tbody> redah koma kan rani dert kitman psq ni nahder bel pc
                       @foreach($abonnes as $Abonne)
                       <tr>
                         <td>{{$Abonne->id}}</td>
-                      <!--  <td><img class="card-img-top w-100" src="{{url('$Abonne->image')}}"/></td>-->
+                      <td><img height="75px"  src="{{asset('abonnes/'.$Abonne->image)}}"/></td>
                         <td>{{$Abonne->name}}</td>
                         <td>{{$Abonne->prenom}}</td>
                         <td>{{$Abonne->date_naissance}}</td>
@@ -105,7 +105,7 @@
                     
                             <div class="input-group-icon mb-3"> 
                               <label class="form-label col-12" for="inputCategories">Date de naissance</label>
-                            <input  type="date" class="form-control form-little-squirrel-control form-control-sm @error('date_naissance') is-invalid @enderror" name="date"required  autofocus>
+                            <input  type="date" class="form-control form-little-squirrel-control form-control-sm @error('date_naissance') is-invalid @enderror" name="date_naissance"required  autofocus>
                             <i class="fas fa-calendar input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                            </div>
                           <div class="input-group-icon mb-3">

@@ -1,0 +1,14 @@
+public function create(CreateSubscriberRequest $request)
+    {   
+        
+        if($request->hasFile('image'))
+        {
+            $imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('/abonnes'), $imageName);
+
+        }
+        $validatedData = $request->validated();
+        $validatedData['image'] = $imageName ?? null; 
+        $abonne = Abonne::create(
+            $validatedData
+        ); 

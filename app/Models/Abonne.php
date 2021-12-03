@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\models\User;
 use App\Notifications\AbonneMail;
+use App\Helpers\Helper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\abonneNotification;
@@ -23,7 +24,12 @@ class Abonne extends Model
        'student_id',
        'date_naissance',   
     ];
-
+    protected static function booted()
+    {
+        static::creating(function ($ab) {
+            $ab->student_id =  Helper::IDGenerator(new Abonne, 'student_id', 8, 'STD'); 
+        });
+    }
    
 
 }

@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::post('/searchedBooks', [App\Http\Controllers\LivreController::class, 'searchedBooks'])->middleware('can:isBoth')->name('searchedBooks');
@@ -27,7 +26,7 @@ Route::get('deletemessage/{id}',[App\Http\Controllers\MessageController::class,'
 
 Route::get('/download-pdf/{id}', [App\Http\Controllers\AbonneController::class, 'getPostPdf'])->middleware('can:isBoth')->name('abonne.pdf');
 
-Route::get('deleteNotification/{id}',[App\Http\Controllers\abonneNotification::class,'deleteNotification'])->middleware('can:isAdmin')->name('notif.delete');
+Route::get('delete/{id}',[App\Notifications\abonneNotification::class,'deleteNotification'])->middleware('can:isAdmin')->name('notif.delete');
 
 });
 /* Testing Routes for Excel */
