@@ -65,5 +65,9 @@ class HomeController extends Controller
         return view('/admin/emprunter');
 
     }
+    public function notification(){
+        return view('/admin/notification');
+
+    }
     
 }

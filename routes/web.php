@@ -5,6 +5,7 @@ Route::post('/searchedBooks', [App\Http\Controllers\LivreController::class, 'sea
 
 Route::middleware(['auth'])->group(function () {
 Route::get('/statistique', [App\Http\Controllers\HomeController::class, 'statistic'])->middleware('can:isBoth')->name('statistic');
+Route::get('/notification', [App\Http\Controllers\HomeController::class, 'notification'])->middleware('can:isBoth')->name('notification');
 Route::get('/liste', [App\Http\Controllers\abonneController::class, 'abonne'])->middleware('can:isBoth')->name('liste');
 Route::get('/ProfileAdmin', [App\Http\Controllers\HomeController::class, 'profileadmin'])->middleware('can:isBoth')->name('profileadmin');
 Route::get('/Listelivre', [App\Http\Controllers\LivreController::class, 'Livres'])->middleware('can:isBoth')->name('listelivre');

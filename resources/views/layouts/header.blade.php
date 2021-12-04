@@ -52,7 +52,7 @@
             <a class="nav-link" href="{{Route('statistic')}}">
               <i class="material-icons">assessment</i>
               <p>
-                    Statistique</p>
+                   Tableau de bord</p>
             </a>
           </li>
          
