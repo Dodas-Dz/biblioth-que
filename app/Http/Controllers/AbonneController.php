@@ -62,7 +62,9 @@ public $pdf;
     {
         $abonnes = Abonne::find($id);
         
-       $pdf = PDF::loadView('admin.pdf', compact('abonnes'))->setPaper('A6', 'landscape');
+     $customPaper = array(0,0,198.42,368.50);
+
+       $pdf = \PDF::loadView('admin.pdf', compact('abonnes'))->setPaper($customPaper,'landscape');;
     
 
       return $pdf->stream('abonne.pdf');

@@ -4,40 +4,141 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title>
     Abonne-PDF
   </title>
-
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500" rel="stylesheet">
 </head>
+
+<body>
 <style>
-  @import 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300';
+ 
+ *{
+	margin: 0;
+	padding: 0;
+	
+}
+
+body {
+	background:rgb(179, 168, 182);
+}
+
+
+.page {
+	width: 100%;
+	height:100%;
+	background: rgb(179, 168, 182);
+	margin: 0px 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.page .overlay #left_rect {
+	width: 200%;
+	height: 175px;
+	background: #f1bc67;
+	position: absolute;
+    z-index: 1;
+    transform: rotate(-45deg);
+    left: -100%;
+	top: -50px;
+}
+
+.page .overlay #right_rect {
+	width: 200%;
+	height: 420px;
+	background: #643f86;
+	position: absolute;
+    transform: rotate(16.18deg);
+    z-index: 2;
+    left: -100px;
+    top: -249px;
+}
+
+
+.page .overlay {
+	width: 100%;
+	height: 100%;
+	background: rgb(255, 255, 255);
+	padding: 5px 0px 0;
+}
+
+.page .overlay #right_rect img {
+	width: 130px;
+    position: fixed;
+    right: 0px;
+    transform: rotate(-16.18deg);
+    top: 0px;
+    z-index: 2;
+}
+
+.page .overlay h5 {
+  margin-top: 150px;
+  margin-left: 30px;
+  color:rgb(8, 8, 8);
+  font-family: system-ui;
+}
+
+
+.page .table {
+margin-top: 100px;
+margin-left: 50px;
+
+
+}
+
+.page .table .li .b {
+  font-family: cursive;
+}
+
 
 
 </style>
-<body >
-   
-  <div class="card">
-    <header>
-      <time
-    datetime="2018-05-15T19:00">May 15 - 2018</time>
-      <div class="logo">
-        <span>
-          <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 234.5 53.7"><style>.st0{fill:none;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}</style><path d="M.6 1.4L116.9 52l117-50.6" class="st0"/></svg>
-        </span>Logo</div>
-      <div class="sponsor">Sponsor</div>
-    </header>
-    <div class="announcement">
-      <h3>We present</h3>
-      <h1>This message</h1>
-      <h3 class="italic">+ and many more</h3>
+
+
+<section class="page">
+  <div class="overlay">
+    <div id="left_rect">
+
     </div>
-  </div>
+   
+        
   
-  <div class="inspiration">
-    <a rel="noopener" target="_blank" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/heartland.jpg">Inspiration</a>
+    <div id="right_rect">
+      <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png">
+
+    </div>
+  
+    <h3>Carte Maktaba</h3>
+   <div class="table">
+   
+   <ul>
+           
+    <!-- <li> <img class="card-img-top w-100" src="{{url('$Abonne->image')}}"/> </li>-->
+          <li>
+              <b> Nom : </b>  {{$abonnes->name}}</li>
+             <br> 
+          
+          <li>
+              <b>Prénom : </b>  {{$abonnes->prenom}}</li>
+              <br>
+          
+            <li>  <b>Date de naissance : </b>{{$abonnes->date_naissance}}</li>
+              
+              <br>
+          <li>
+              <b>N° de carte : </b> {{$abonnes->student_id}}</li>
+              <br>
+     
+    
+  </ul>
+
+   </div>
+    
+    
   </div>
-
+ 
+</section>
 </body>
-
 </html>
