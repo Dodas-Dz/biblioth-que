@@ -20,6 +20,7 @@
                   <p class="d-lg-none d-md-block">
                     Some Actions
                   </p>
+                  
                 </a>
                 <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="{{Route('homee')}}">Accueil</a>
