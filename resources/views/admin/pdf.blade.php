@@ -17,13 +17,16 @@
  *{
 	margin: 0;
 	padding: 0;
-	
 }
 
 body {
 	background:rgb(179, 168, 182);
 }
-
+h3{
+  z-index: 1000;
+  color:rgb(61, 59, 49);
+  
+}
 
 .page {
 	width: 100%;

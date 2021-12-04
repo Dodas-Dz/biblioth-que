@@ -8,37 +8,19 @@
           </div>
           @include('layouts.bar')   
       </nav>
+      
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
           <div class="row">
             <div class="col-xl-4 col-lg-12">
-              <div class="card card-chart">
-                <div class="card-header card-header-success">
-                  <div class="ct-chart" id="dailySalesChart"></div>
+              <div class="card card-chart mx-auto">
+                <div class="card-header card-header-outline card-header-primary text-center">
+                 Nombre de livres par catégorie
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title font-sans-serif">Livre Emprunter</h4>
-                  <p class="card-category font-sans-serif">
-                    <span class="text-success"><i class="fas fa-long-arrow-up"></i> 45% </span> Livres empruntés ajourd'hui</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> mise à jours il y a 1 heure
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-4 col-lg-12">
-              <div class="card card-chart">
-                <div class="card-header card-header-primary">
-                  <div class="ct-chart" id="websiteViewsChart"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title font-sans-serif">Nombre d'Abonnés </h4>
-                  <p class="card-category font-sans-serif">
-                  <span class="text-danger"><i class="fas fa-long-arrow-down" ></i> 10%  </span>nombre d'abonnés par année</p>
-                </div>
+                  @include('layouts.piechart')
+                 </div>
                 <div class="card-footer">
                   <div class="stats">
                     <i class="material-icons">access_time</i> mise à jours il y 15 jours
@@ -47,20 +29,35 @@
               </div>
             </div>
             <div class="col-xl-4 col-lg-12">
-              <div class="card card-chart">
-                <div class="card-header card-header-danger">
-                  <div class="ct-chart" id="completedTasksChart"></div>
+              <div class="card card-chart mx-auto">
+                <div class="card-header card-header-outline card-header-danger text-center">
+                 Nombre livres Emprenté & retour 
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title font-sans-serif">Livre Existant</h4>
-                  <p class="card-category font-sans-serif">Livre total moins Livre empreinté</p>
-                </div>
+                  @include('layouts.barchart')
+                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">access_time</i> mise à jours il y 1 jours
+                    <i class="material-icons">access_time</i> mise à jours il y 15 jours
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="col-xl-4 col-lg-12 ">
+              <div class="card card-chart mx-auto">
+                <div class="card-header card-header-outline card-header-info text-center">
+                  Cumul du nombre des livres par année 
+                </div>
+                <div class="card-body text-canter">
+                  @include('layouts.linechart')
+                 </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> mise à jours il y 15 jours
+                  </div>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
    

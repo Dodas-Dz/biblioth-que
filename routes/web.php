@@ -28,6 +28,10 @@ Route::get('deletemessage/{id}',[App\Http\Controllers\MessageController::class,'
 Route::get('/download-pdf/{id}', [App\Http\Controllers\AbonneController::class, 'getPostPdf'])->middleware('can:isBoth')->name('abonne.pdf');
 
 Route::get('delete/{id}',[App\Notifications\abonneNotification::class,'deleteNotification'])->middleware('can:isAdmin')->name('notif.delete');
+Route::get('/linechart',[App\Http\Controllers\StatsController::class, 'lineChart'])->middleware('can:isAdmin')->name('linechart');
+Route::get('/piechart',[App\Http\Controllers\StatsController::class, 'pieChart'])->middleware('can:isAdmin')->name('piechart');
+Route::get('/barchart',[App\Http\Controllers\StatsController::class, 'barChart'])->middleware('can:isAdmin')->name('barChart');
+
 
 });
 /* Testing Routes for Excel */
