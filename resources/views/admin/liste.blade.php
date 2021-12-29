@@ -39,7 +39,7 @@
                       <th>Modifier</th>
                       
                     </thead>
-                    <tbody> redah koma kan rani dert kitman psq ni nahder bel pc
+                    <tbody> 
                       @foreach($abonnes as $Abonne)
                       <tr>
                         <td>{{$Abonne->id}}</td>

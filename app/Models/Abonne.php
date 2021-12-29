@@ -30,7 +30,6 @@ class Abonne extends Model
             $ab->student_id =  Helper::IDGenerator(new Abonne, 'student_id', 8, 'STD'); 
         });
     }
-   
-
+ 
 }
 

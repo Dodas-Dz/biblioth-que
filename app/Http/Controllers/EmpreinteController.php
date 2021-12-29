@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empreinte;
+use App\Models\Abonne;
+use App\Models\Livre;
 use Illuminate\Http\Request;
 
 class EmpreinteController extends Controller
@@ -29,13 +31,39 @@ class EmpreinteController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     *if (User::where('email', '=', Input::get('email'))->exists()) {
+   
+
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function EmprenterLivre(Request $request)
     {
-        //
+      
+        
+            $Abonne_code=$request->input('code_abonne');
+            $Livre_code=$request->input('code_livre');
+
+      
+             if (Abonne::where('student_id',$Abonne_code)->first())
+              { 
+                if (Livre::where('isbn',$Livre_code)->first())
+                {   $abonne = Abonne::where('student_id',$Abonne_code)->get();
+                    Empreinte::create([
+                        'livre_id' => $request->input('code_livre'),
+                        'abonne_id' => collect($abonne)->first()->id,
+                      ]); 
+                    return redirect()->route('emprunter');
+                }
+                else{
+                    echo "erreur Isbn Livre dont exist" ;
+                }
+              }
+            else
+            {
+                echo "erreur Abonne dont exist" ;
+    
+            }
     }
 
     /**
