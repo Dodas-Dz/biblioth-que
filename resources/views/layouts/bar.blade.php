@@ -20,6 +20,7 @@
                   <p class="d-lg-none d-md-block">
                     Some Actions
                   </p>
+
                 </a>
                 <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="{{Route('homee')}}">Accueil</a>
@@ -30,10 +31,18 @@
                 </div>
               </li>
 
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('message')}}">
+                  <i class="material-icons">message</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+              </li>
 
 
               <li class="nav-item ">
-                <a class="nav-link" href="{{route('statistic')}}"  >
+                <a class="nav-link" href="{{route('notification')}}"  >
 <!--<span class="notification">5</span>-->
                   <i class="material-icons"> notifications   </i>
                  
@@ -52,7 +61,8 @@
                   </p>
                 </a>
               </li>
-
+              
+             
             
              <!--<li  class="nav-item dropdown ">
 

@@ -45,14 +45,16 @@ class EmpreinteController extends Controller
             $Livre_code=$request->input('code_livre');
 
       
-             if (Abonne::where('student_id',$Abonne_code)->first())
+             if ($ab = Abonne::where('student_id',$Abonne_code)->first())
               { 
-                if (Livre::where('isbn',$Livre_code)->first())
+                if ($livre = Livre::where('isbn',$Livre_code)->first())
                 {   $abonne = Abonne::where('student_id',$Abonne_code)->get();
                     Empreinte::create([
-                        'livre_id' => $request->input('code_livre'),
-                        'abonne_id' => collect($abonne)->first()->id,
+                        'livre_id' => $livre->id,
+                        'abonne_id' => $ab->id
                       ]); 
+                      $livre->nbr = $livre->nbr-1;
+                      $livre->save();
                     return redirect()->route('emprunter');
                 }
                 else{

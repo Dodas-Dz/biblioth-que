@@ -17,45 +17,44 @@
 
          
    
-        <div class="row">
+          <div class="row">
             <div class="col-lg-12 col-md-12 ">
-              <div class="card ">
-                <div class="card-header card-header-warning "  >
-                  <div class="row mx-auto">
-                  <div class="col-sm-2">
-                    <!-- Button trigger modal -->
-                   
-                       <a class="btn btn-primary btn-lg font-weight-bold text-light fs--1 stretched-link text-decoration-none " 
-                              data-bs-toggle="modal" data-bs-target="#wnd" aria-haspopup="true" aria-expanded="false" role="button"  v-pre> Ajouter livre
-                     </a>
-                                </div>
-                 <div class="col-sm-8"><h2 class="card-title text-center font-sans-serif ">Liste des Livres</h2>
-                  <h5 class="card-category text-center font-sans-serif"> 3 nouveaux, aujourd'hui</h5>
-                </div> 
-                <div class="col-sm-2">
-                  <button class="btn btn-primary btn-lg font-weight-bold text-light fs--1 stretched-link text-decoration-none " type="button" data-toggle="collapse" data-target="#livre-card-content" aria-expanded="false" aria-controls="livre-card-content">
-                    Voir livres
-                  </button>
+            <div class="card ">
+                <div class="card-header card-header-warning " >
+                  <h2 class="card-title text-center font-sans-serif">Liste Livres</h2>
                 </div>
-                </div>
-                </div>
-        
+                <div class="card-body table-responsive">
 
-                <div class="collapse" id ="livre-card-content"> 
-         <div class="card-body table-responsive" >
-           <div class="search_livres my-auto">
-            <form class="navbar-form me-5" method="get" action={{route('searchAdmin')}}>
-              <div class="input-group no-border">
-                <input type="text" name='q' class="form-control" placeholder="Rechercher...">
-                <button type="submit" class="btn btn-default btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
-              </div>
-            </form>
-          
-           
-           </div>
+              <div class="row">
+                <div class="col-lg-12 col-md-12 ">
+
+                  <div class="col-lg-6 col-md-12 ">
+                  </div>
+
+                  <div class="col-lg-6 col-md-12 ">
+                    <form class="navbar-form " method="get" action={{route('searchAdmin')}}>  
+                      <div class="input-group input-group-sm mb-0">
+                        <input type="text" name='q' class="form-control" placeholder="Rechercher..." aria-label="Rechercher..." aria-describedby="button-addon2">
+                        <button class="btn btn-default btn-round btn-just-icon mt-0" type="submit" id="button-addon2"> 
+                          <i class="material-icons">search</i>
+                        </button>
+                      </div>
+        
+                      </form>     
+                  </div>
+                  
+
+                 
+
+
+
+
+               </div>
+             
+
+              
+
+              <div class="row">
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>Details</th>
@@ -87,6 +86,10 @@
                         <td><a onclick="return delete_confirmation()" href="{{ route('Livre.delete',$livre->id) }}" ><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
+
+
+                  
+                   
                       <div class="modal" id="livres{{$livre->id}}">
                         <div class="modal-dialog modal-dialog-scrollable modal-lg">
                           <div class="modal-content">
@@ -98,7 +101,7 @@
                             <!-- Modal body -->
                             <div class="modal-body">
                               <div class="row align-items-center mb-3">
-                                <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75" src="{{$livre->image}}" alt="wonder.png"></div>
+                                <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75" src="{{asset($livre->image)}}" alt="wonder.png"></div>
                                 <div class="col-md-6">
                                     <h5>
                                       Auteur: </h5><p>{{$livre->auteur}}</p>
@@ -140,12 +143,16 @@
                     @endforeach
                     </tbody>
                   </table>
+
+                  <a class="btn btn-primary btn-lg font-weight-bold text-light fs--1 stretched-link text-decoration-none " 
+                  data-bs-toggle="modal" data-bs-target="#wnd" aria-haspopup="true" aria-expanded="false" role="button"  v-pre> Ajouter livre
+         </a> 
                   <div class="d-flex justify-content-center">{{$livresfiltre->links("pagination::bootstrap-4")}}
                   </div>
                 </div>
           </div>
 </div>
-
+          </div>
 </div>
 
 
@@ -280,68 +287,9 @@
               </div>
             
 
-           <!--table livre emrunter-->
-           <div class="row">
-            <div class="col-lg-12 col-md-12 ">
-              <div class="card ">
-                <div class="card-header card-header-warning " >
-                  <h2 class="card-title text-center font-sans-serif">Livre Emprunter</h2>
-                  <h5 class="card-category text-center font-sans-serif"> 3 rendu, aujourd'hui</h5>
-                </div>
-                <div class="card-body table-responsive">
-                  <table class="table table-hover">
-                    <thead class="text-warning">
-                      <th>ID</th>
-                      <th>Titre</th>
-                      <th>Nom Auteur</th>
-                      <th>Langue</th>
-                      <th>Catégorie</th>
-                      <th>Supprimer</th>
-                      <th>Modifier</th>
-                      
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>After</td>
-                        <td>Anna Todd</td>
-                        <td>fr / en</td>
-                        <td>Roman</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Wonder</td>
-                        <td>Raquel j.palacio</td>
-                        <td>en</td>
-                        <td>Enfant</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Harry Potter</td>
-                        <td>Joanne Kathleen Rowling</td>
-                        <td>en</td>
-                        <td>Science fiction</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>The choice</td>
-                        <td>Ahmed Deedat</td>
-                        <td>en</td>
-                        <td>Islamique</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+          
+           
+            
            
                
                     </div>

@@ -2,11 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 Auth::routes();
 Route::post('/searchedBooks', [App\Http\Controllers\LivreController::class, 'searchedBooks'])->middleware('can:isBoth')->name('searchedBooks');
 
 Route::middleware(['auth'])->group(function () {
 Route::get('/statistique', [App\Http\Controllers\HomeController::class, 'statistic'])->middleware('can:isBoth')->name('statistic');
+Route::get('/notification', [App\Http\Controllers\HomeController::class, 'notification'])->middleware('can:isBoth')->name('notification');
 Route::get('/liste', [App\Http\Controllers\abonneController::class, 'abonne'])->middleware('can:isBoth')->name('liste');
 Route::get('/ProfileAdmin', [App\Http\Controllers\HomeController::class, 'profileadmin'])->middleware('can:isBoth')->name('profileadmin');
 Route::get('/Listelivre', [App\Http\Controllers\LivreController::class, 'Livres'])->middleware('can:isBoth')->name('listelivre');
@@ -30,6 +32,10 @@ Route::get('/download-pdf/{id}', [App\Http\Controllers\AbonneController::class, 
 
 Route::get('delete/{id}',[App\Notifications\abonneNotification::class,'deleteNotification'])->middleware('can:isAdmin')->name('notif.delete');
 Route::post('/EmprenterLivre', [App\Http\Controllers\EmpreinteController::class, 'EmprenterLivre'])->middleware('can:isAdmin')->name('EmprenterLivre');
+
+Route::get('/linechart',[App\Http\Controllers\StatsController::class, 'lineChart'])->middleware('can:isAdmin')->name('linechart');
+Route::get('/piechart',[App\Http\Controllers\StatsController::class, 'pieChart'])->middleware('can:isAdmin')->name('piechart');
+Route::get('/barchart',[App\Http\Controllers\StatsController::class, 'barChart'])->middleware('can:isAdmin')->name('barChart');
 });
 /* Testing Routes for Excel */
 Route::get('excel',[App\Http\Controllers\TestController::class,'view']);
@@ -42,5 +48,4 @@ Route::get('/Enprente', [App\Http\Controllers\GuestServer::class, 'Emprente'])->
 Route::get('/Apropos', [App\Http\Controllers\GuestServer::class, 'Apropos'])->name('Apropos');
 Route::get('/recherche', [App\Http\Controllers\LivreController::class, 'Livress'])->name('recherche');
 Route::get('/recherchee', [App\Http\Controllers\LivreController::class, 'search'])->name('search');
-
 Route::post('/Apropos', [App\Http\Controllers\MessageController::class, 'create'])->name('Apropos');
