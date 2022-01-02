@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name')->unique();
+            $table->SoftDeletes();
         });
         DB::table('categories')->insert(
             array(

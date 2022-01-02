@@ -23,6 +23,7 @@ Route::post('/AjouterLivre', [App\Http\Controllers\LivreController::class, 'Ajou
 Route::post('/AjouterGestionnaire', [App\Http\Controllers\Auth\registere::class, 'create'])->middleware('can:isAdmin')->name('create');
 Route::post('/liste', [App\Http\Controllers\abonneController::class, 'create'])->middleware('can:isAdmin')->name('createabonne');
 Route::get('/emprunter', [App\Http\Controllers\HomeController::class, 'emprunter'])->middleware('can:isBoth')->name('emprunter');
+Route::get('/rendre', [App\Http\Controllers\HomeController::class, 'rendre'])->middleware('can:isBoth')->name('rendre');
 Route::get('deleteAbonne/{id}',[App\Http\Controllers\AbonneController::class,'deleteAbonne'])->middleware('can:isAdmin')->name('abonne.delete');
 Route::get('deletelivres/{id}',[App\Http\Controllers\LivreController::class,'deleteLivre'])->middleware('can:isAdmin')->name('Livre.delete');
 Route::get('/search_livre', [App\Http\Controllers\LivreController::class, 'search_admin'])->middleware('can:isBoth')->name('searchAdmin');
@@ -32,7 +33,7 @@ Route::get('/download-pdf/{id}', [App\Http\Controllers\AbonneController::class, 
 
 Route::get('delete/{id}',[App\Notifications\abonneNotification::class,'deleteNotification'])->middleware('can:isAdmin')->name('notif.delete');
 Route::post('/EmprenterLivre', [App\Http\Controllers\EmpreinteController::class, 'EmprenterLivre'])->middleware('can:isAdmin')->name('EmprenterLivre');
-
+Route::post('/rendreLivre', [App\Http\Controllers\EmpreinteController::class, 'RendreLivre'])->middleware('can:isAdmin')->name('RendreLivre');
 Route::get('/linechart',[App\Http\Controllers\StatsController::class, 'lineChart'])->middleware('can:isAdmin')->name('linechart');
 Route::get('/piechart',[App\Http\Controllers\StatsController::class, 'pieChart'])->middleware('can:isAdmin')->name('piechart');
 Route::get('/barchart',[App\Http\Controllers\StatsController::class, 'barChart'])->middleware('can:isAdmin')->name('barChart');
@@ -45,6 +46,7 @@ Route::POST('excelUpload',[App\Http\Controllers\TestController::class,'import'])
 Route::get('/home', [App\Http\Controllers\GuestServer::class, 'Home'])->name('homee');
 Route::get('/', [App\Http\Controllers\GuestServer::class, 'Home']);
 Route::get('/Enprente', [App\Http\Controllers\GuestServer::class, 'Emprente'])->name('Emprente');
+
 Route::get('/Apropos', [App\Http\Controllers\GuestServer::class, 'Apropos'])->name('Apropos');
 Route::get('/recherche', [App\Http\Controllers\LivreController::class, 'Livress'])->name('recherche');
 Route::get('/recherchee', [App\Http\Controllers\LivreController::class, 'search'])->name('search');

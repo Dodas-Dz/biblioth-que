@@ -9,7 +9,6 @@ class Empreinte extends Model
 {
     use HasFactory;
     protected $fillable = [
-       'date_debut',
        'date_fin',
        'rendu',
        'livre_id',
@@ -22,4 +21,4 @@ class Empreinte extends Model
     public function Livre(){
         return $this->hasOne('App\Models\livre');
     }
-}
+  }

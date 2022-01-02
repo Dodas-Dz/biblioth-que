@@ -9,10 +9,9 @@ class Categorie extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        
-       
+        'name', 
     ];
+    protected $date=['deleted_at'];
     public function Livre(){
         return $this->HasMany('App\Models\livre');
     }

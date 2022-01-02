@@ -12,6 +12,7 @@ use App\Notifications\abonneNotification;
 use App\Http\Requests\CreateSubscriberRequest;
 
 
+
 Use Notifiable;
 class AbonneController extends Controller
 {

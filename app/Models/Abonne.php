@@ -9,13 +9,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\abonneNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Abonne extends Model
 {
 
 
     use HasFactory, Notifiable;
-
+    use SoftDeletes;
     protected $fillable = [
         'mail',
        'name',
@@ -24,6 +25,7 @@ class Abonne extends Model
        'student_id',
        'date_naissance',   
     ];
+    protected $date=['deleted_at'];
     protected static function booted()
     {
         static::creating(function ($ab) {

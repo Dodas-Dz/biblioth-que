@@ -21,6 +21,7 @@ class CreateAbonnesTable extends Migration
             $table->string('prenom');
             $table->string('image');
             $table->string('student_id');
+            $table->SoftDeletes();
             $table->date('date_naissance');
      
         });

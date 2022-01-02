@@ -19,7 +19,7 @@
                           <div class="card ">
             
                             <div class="card-header card-header-warning " >
-                              <h2 class="card-title text-center font-sans-serif mx-auto">Emprunter  </h2>
+                              <h2 class="card-title text-center font-sans-serif mx-auto">Rendre  </h2>
                               <h4 class="card-category text-center font-sans-serif mx-auto"> Un ou plusieurs livre</h4>
                             </div>
                    
@@ -31,7 +31,7 @@
                             
                             <h3>Remplir Les Cordonnées</h3>
                             
-                            <form class="text-center needs-validation mt-6" novalidate method="POST" action="{{ route('EmprenterLivre') }}"  role="form">
+                            <form class="text-center needs-validation mt-6" novalidate method="POST" action="{{ route('RendreLivre') }}"  role="form">
                                
                                  
                                     <div class="input-group-icon mb-3 "> 
@@ -46,7 +46,7 @@
                                      </div>
                               <button class="btn btn-warning btn-lg my-2 me-5 text-center text-white fs-2 mb-5 mt-7" type="submit" data-bs-toggle="collapse" data-bs-target="#collapseExample" 
                               aria-expanded="false" >
-                                Emprunter
+                                voir
                               </button>
                         
                             </form>

@@ -99,6 +99,12 @@
               <p>Emprunter Livre</p>
             </a>
           </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{{route('rendre')}}">
+              <i class="material-icons">autorenew </i>
+              <p>Renre Livre</p>
+            </a>
+          </li>
 
           @can('isAdmin')
           <li class="nav-item ">
