@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Livre extends Model
 {
     use HasFactory;
+    use softDeletes;
     protected $fillable = [
         'isbn',
         'titre',
