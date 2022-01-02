@@ -36,6 +36,7 @@ public $pdf;
         }
         $validatedData = $request->validated();
         $validatedData['image'] = $imageName ?? null; 
+
         $abonne = Abonne::create(
             $validatedData
         ); 
@@ -56,6 +57,23 @@ public $pdf;
         return redirect()->route('liste');
 
     }
+#fonction modifier
+
+    public function update(Request $request){
+        
+  $abonnes = Abonne::find($request->$id);
+  
+  $abonnes->name=$request->name;
+  $abonnes->prenom=$request->prenom;
+  $abonnes->mail=$request->mail;
+  $abonnes->date_naissance=$request->date_naissance;
+  $abonnes->image=$request->image;
+
+   $abonnes->create();
+
+  return redirect()->route('listelivre');
+}
+
    
 
     public function getPostPdf($id)

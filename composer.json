@@ -13,12 +13,11 @@
         "intervention/image": "^2.7",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.2",
+        "laravel/ui": "^3.4",
         "livewire/livewire": "^2.8",
         "maatwebsite/excel": "^3.1",
         "milon/barcode": "^8.0",
         "simplesoftwareio/simple-qrcode": "^4.2"
-        
     },
     "require-dev": {
         "facade/ignition": "^2.5",
