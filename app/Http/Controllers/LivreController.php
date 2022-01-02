@@ -77,8 +77,8 @@ class LivreController extends Controller
     }
     public function deleteLivre($id)
     {
-        $livres = Livre::find($id);
-        $livres->delete();
+        $livres = Livre::find($id)->Delete();
+
         return back();
     }
 

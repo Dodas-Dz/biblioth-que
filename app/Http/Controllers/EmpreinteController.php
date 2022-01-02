@@ -67,6 +67,24 @@ class EmpreinteController extends Controller
     
             }
     }
+    public function RendreLivre(Request $request)
+    {
+        $Abonne_code=$request->input('code_abonne');
+        $Livre_code=$request->input('code_livre');
+        $ab = Abonne::where('student_id',$Abonne_code)->first();
+        $livre = Livre::where('isbn',$Livre_code)->first();
+     if($c=Empreinte::where([['livre_id',$livre->id],['abonne_id','=',$ab->id],['rendu','=','0']]))
+     {
+        $c->rendu=1;
+        $c->save();
+        $livre->nbr = $livre->nbr+1;
+        $livre->save();
+     }
+     else
+     {
+         echo("emprente introvabre ou le livre est deja rendu");
+     }
+    }
 
     /**
      * Display the specified resource.

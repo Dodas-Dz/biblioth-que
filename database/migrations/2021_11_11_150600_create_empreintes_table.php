@@ -16,9 +16,8 @@ class CreateEmpreintesTable extends Migration
         Schema::create('empreintes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->date('date_debut');
-            $table->date('date_fin');
-            $table->boolean('rendu');
+            $table->date('date_fin')->nullable();
+            $table->boolean('rendu')->default(0);
             $table->foreignId('livre_id')->constrained();
             $table->foreignId('abonne_id')->constrained();
           
