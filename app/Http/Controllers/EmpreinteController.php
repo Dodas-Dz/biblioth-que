@@ -79,6 +79,7 @@ class EmpreinteController extends Controller
         $c->save();
         $livre->nbr = $livre->nbr+1;
         $livre->save();
+        return redirect()->route('emprunter');
      }
      else
      {
