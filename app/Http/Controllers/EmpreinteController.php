@@ -73,7 +73,7 @@ class EmpreinteController extends Controller
         $Livre_code=$request->input('code_livre');
         $ab = Abonne::where('student_id',$Abonne_code)->first();
         $livre = Livre::where('isbn',$Livre_code)->first();
-     if($c=Empreinte::where([['livre_id',$livre->id],['abonne_id','=',$ab->id],['rendu','=','0']]))
+     if($c=Empreinte::where([['livre_id',$livre->id],['abonne_id','=',$ab->id],['rendu','=','0']])->first())
      {
         $c->rendu=1;
         $c->save();

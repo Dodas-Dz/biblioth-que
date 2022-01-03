@@ -16,7 +16,7 @@ class CreateLivresTable extends Migration
         Schema::create('livres', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->bigInteger('isbn');
+            $table->bigInteger('isbn')->unique();
             $table->string('titre');
             $table->text('resumer');
             $table->text('image');
