@@ -20,7 +20,7 @@ class CreateAbonnesTable extends Migration
             $table->string('name');
             $table->string('prenom');
             $table->string('image');
-            $table->string('student_id');
+            $table->string('student_id')->unique();
             $table->SoftDeletes();
             $table->date('date_naissance');
      

@@ -46,7 +46,7 @@
                                      </div>
                               <button class="btn btn-warning btn-lg my-2 me-5 text-center text-white fs-2 mb-5 mt-7" type="submit" data-bs-toggle="collapse" data-bs-target="#collapseExample" 
                               aria-expanded="false" >
-                                voir
+                                rendre
                               </button>
                         
                             </form>
