@@ -16,8 +16,17 @@ class CreateMotsTable extends Migration
         Schema::create('mots', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('mot_cle');
+            $table->string('mot_cle')->unique();
+            $table->integer('nbr_livre');
+            $table->SoftDeletes('deleted_at');
         });
+
+        DB::table('mots')->insert(
+            array(
+                'mot_cle' => 'étude', 
+                'nbr_livre'=> '3',
+            )
+        );
     }
 
     /**

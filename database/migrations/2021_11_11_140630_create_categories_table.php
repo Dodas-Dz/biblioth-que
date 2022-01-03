@@ -17,61 +17,75 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name')->unique();
-            $table->SoftDeletes();
+            $table->integer('nbr_livre')->NULL;
+            $table->SoftDeletes('deleted_at');
         });
-        DB::table('categories')->insert(
+    
+
+     DB::table('categories')->insert(
             array(
-                'name' => 'medecin',  
+                'name' => 'medecin', 
+                'nbr_livre'=> '3',
             )
         );
-        DB::table('categories')->insert(
-            array(
-                'name' => 'lettre et lingustique',  
-            )
-        );
-        DB::table('categories')->insert(
-            array(
-                'name' => 'islamique',  
-            )
-        );
-        DB::table('categories')->insert(
-            array(
-                'name' => 'preparation des grande ecole',  
-            )
-        );
-        DB::table('categories')->insert(
-            array(
-                'name' => 'programe des prepas scientifique',  
-            )
-        );
-        DB::table('categories')->insert(
-            array(
-                'name' => 'informatique',  
-            )
-        );
-        DB::table('categories')->insert(
-            array(
-                'name' => 'livre culture generale',  
-            )
-        );
-        DB::table('categories')->insert(
-            array(
-                'name' => 'livre comtabilite',  
-            )
-        );
-        DB::table('categories')->insert(
-            array(
-                'name' => 'livre des siences politique',  
-            )
-        );
-        DB::table('categories')->insert(
-            array(
-                'name' => 'livre de droite',  
-            )
-        );
-        
     }
-   
+    
+                       /* DB::table('categories')->insert(
+                            array(
+                                'name' => 'lettre et lingustique',  
+                                'nbr_livre'=> '3',
+                            )
+                        );
+                    
+                    DB::table('categories')->insert(
+                        array(
+                            'name' => 'islamique',  
+                            'nbr_livre'=> 'null',
+                        )
+                    );
+                    DB::table('categories')->insert(
+                        array(
+                            'name' => 'preparation des grande ecole',  
+                            'nbr_livre'=> 'null',
+                        )
+                    );
+                    DB::table('categories')->insert(
+                        array(
+                            'name' => 'programe des prepas scientifique',  
+                            'nbr_livre'=> 'null',
+                        )
+                    );
+                    DB::table('categories')->insert(
+                        array(
+                            'name' => 'informatique',  
+                            'nbr_livre'=> 'null',
+                        )
+                    );
+                    DB::table('categories')->insert(
+                        array(
+                            'name' => 'livre culture generale',
+                            'nbr_livre'=> 'null',  
+                        )
+                    );
+                    DB::table('categories')->insert(
+                        array(
+                            'name' => 'livre comtabilite',  
+                            'nbr_livre'=> 'null',
+                        )
+                    );
+                    DB::table('categories')->insert(
+                        array(
+                            'name' => 'livre des siences politique', 
+                            'nbr_livre'=> 'null', 
+                        )
+                    );
+                    DB::table('categories')->insert(
+                        array(
+                            'name' => 'livre de droite',  
+                            'nbr_livre'=> 'null',
+                        )
+                    );
+    }
     /**
      * Reverse the migrations.
      *
@@ -81,4 +95,5 @@ class CreateCategoriesTable extends Migration
     {
         Schema::dropIfExists('categories');
     }
+
 }

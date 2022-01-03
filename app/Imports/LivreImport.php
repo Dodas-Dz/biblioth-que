@@ -24,7 +24,9 @@ class LivreImport implements ToModel
             'langue' => $row[6],
             'anneé' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[7]),
             'auteur' => $row[1],
-            'category_id' => $row[3]
+            'category_id' => $row[3],
+            'mot_id' => $row[9],
+
         ]);
     }
     

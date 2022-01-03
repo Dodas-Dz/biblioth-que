@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Mot;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use DB ;
 
 class MotController extends Controller
 {
@@ -25,6 +27,11 @@ class MotController extends Controller
     public function create()
     {
         //
+        $request->validate([
+            'mot_cle'=> ['required', 'string', 'max:255'],
+     
+           
+            ]);
     }
 
     /**
@@ -33,9 +40,15 @@ class MotController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function AjouterMots(Request $request)
+    public function store(Request $request)
     {   
-        dd($request);
+        //
+        Mot::create([
+             'mot_cle' => $request->input('mot_cle'),
+             'nbr_livre' => DB::table('livres')->orderBy('mot_id')->count(),
+        ]);
+
+        return redirect()->route('AjouterMot');
     }
 
     /**
@@ -44,9 +57,12 @@ class MotController extends Controller
      * @param  \App\Models\Mot  $mot
      * @return \Illuminate\Http\Response
      */
-    public function show(Mot $mot)
+    public function show()
     {
         //
+        $mots = Mot::all();                 
+        return view('admin.AjouterMot',compact('mots'));
+
     }
 
     /**
@@ -55,9 +71,12 @@ class MotController extends Controller
      * @param  \App\Models\Mot  $mot
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mot $mot)
+    public function edit($id)
     {
         //
+        $mot= Mot::findOrFail($id);  
+    
+        return view('admin.AjouterMot',compact('mot'));
     }
 
     /**
@@ -67,9 +86,17 @@ class MotController extends Controller
      * @param  \App\Models\Mot  $mot
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mot $mot)
+    public function update(Request $request, $id)
     {
         //
+        $mot= Mot::findOrFail($id);  
+    
+        $mot -> mot_cle= $request->input('mot_cle');
+       
+
+        $mot->update();
+    
+        return redirect()->route('AjouterMot')->with('success', 'Livre mis à jour avec succèss');
     }
 
     /**
@@ -78,8 +105,11 @@ class MotController extends Controller
      * @param  \App\Models\Mot  $mot
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mot $mot)
+    public function destroy($id)
     {
         //
+        $mots = Mot::find($id)->delete();
+
+        return back();
     }
 }

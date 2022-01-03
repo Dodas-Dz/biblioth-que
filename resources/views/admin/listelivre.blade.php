@@ -64,6 +64,7 @@
                       <th>Nom Auteur</th>
                       <th>Langue</th>
                       <th>Catégorie</th>
+                      
                        <th>Année</th>
                        <th>Nombres</th>
                       <th>Supprimer</th>
@@ -72,7 +73,7 @@
                     </thead>
                     <tbody>
                     @foreach($livresfiltre as $livre)
-
+                  
                       <tr>
                         <td>{{$livre->id}}</td>
                         <td><a href="#" data-bs-toggle="modal" data-bs-target="#livres{{$livre->id}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-square-fill" viewBox="0 0 16 16">
@@ -83,7 +84,8 @@
                         <td>{{$livre->titre}}</td>
                         <td>{{$livre->auteur}}</td>
                         <td>{{$livre->langue}}</td>
-                        <td>{{$livre->Categorie->name}}</td>
+                       <td>{{$livre->Categorie->name}}</td>
+                    
                         <td>{{$livre->anneé}}</td>
                         <td>{{$livre->nbr}}</td>
                         <td><a onclick="return delete_confirmation()" href="{{ route('Livre.delete',$livre->id) }}" ><i class="fa fa-trash" ></i></a></td>

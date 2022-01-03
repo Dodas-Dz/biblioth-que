@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use DB ;
 
 class CategorieController extends Controller
 {
@@ -25,6 +27,11 @@ class CategorieController extends Controller
     public function create()
     {
         //
+        $request->validate([
+            'name'=> ['required', 'string', 'max:255'],
+           
+           
+            ]);
     }
 
     /**
@@ -36,6 +43,12 @@ class CategorieController extends Controller
     public function store(Request $request)
     {
         //
+        Categorie::create([
+            'name' => $request->input('name'),
+            'nbr_livre' => DB::table('livres')->orderBy('category_id')->count(),
+           
+          ]); 
+        return redirect()->route('categorie');
     }
 
     /**
@@ -55,10 +68,7 @@ class CategorieController extends Controller
      * @param  \App\Models\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categorie $categorie)
-    {
-        //
-    }
+   
     public function getCategories() 
     {
         $categories = Categorie::all();                 
@@ -72,9 +82,24 @@ class CategorieController extends Controller
      * @param  \App\Models\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categorie $categorie)
+    public function edit($id)
     {
         //
+        $categorie= Categorie::findOrFail($id);  
+    
+        return view('admin.categorie',compact('categorie'));
+    }
+    public function update(Request $request, $id)
+    {
+        //
+        $categorie= Categorie::findOrFail($id);  
+    
+        $categorie -> name= $request->input('name');
+       
+
+        $categorie->update();
+    
+        return redirect()->route('categorie')->with('success', 'Livre mis à jour avec succèss');
     }
 
     /**
@@ -83,8 +108,11 @@ class CategorieController extends Controller
      * @param  \App\Models\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categorie $categorie)
+    public function destroy($id)
     {
         //
+        $categories = Categorie::find($id)->delete();
+
+        return back();
     }
 }

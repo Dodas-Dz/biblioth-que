@@ -19,11 +19,16 @@ class Livre extends Model
         'langue',
         'anneé',
         'auteur',
-        'category_id'
+        'category_id',
+        'mot_id'
     ];
     protected $date=['deleted_at'];
+
     public function categorie(){
         return $this->belongsTo('App\Models\Categorie','category_id');
+    }
+    public function mot(){
+        return $this->belongsTo('App\Models\Mot','mot_id');
     }
     public function Empreinte(){
         return $this->hasMany('App\Models\Empreinte');

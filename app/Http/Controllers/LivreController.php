@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Livre;
 use Illuminate\Http\Request;
 use App\Models\Categorie;
+use App\Models\Mot;
 use Illuminate\Support\Facades\Validator;
 use DB ;
 
@@ -15,8 +16,10 @@ class LivreController extends Controller
     {
         
         $livresfiltre= Livre::paginate(20);    
-        $categories =Categorie::all();            
-        return view('admin.listelivre',compact('categories','livresfiltre'));
+        $categories =Categorie::all();   
+        $mot =Mot::all();            
+        
+        return view('admin.listelivre',compact('categories','mot','livresfiltre'));
     }
 
     public function search_admin(Request $request)
@@ -25,20 +28,22 @@ class LivreController extends Controller
      ]);
 
      $categories =Categorie::all(); 
+     $mot =Mot::all(); 
      
      $search_text = $request->input('q');
      $livresfiltre= Livre::where('titre','LIKE','%'.$search_text.'%')
                 ->orwhere('isbn','LIKE','%'.$search_text)
                 ->paginate(15);
-                return view('admin.listelivre',compact('categories','livresfiltre'));
+                return view('admin.listelivre',compact('categories','mot','livresfiltre'));
 
     }
 
     public function livress() 
     {
         $livres= Livre::paginate(16);     
-        $categories =Categorie::all();            
-        return view('user.recherche',compact('livres','categories'));
+        $categories =Categorie::all(); 
+        $mot =Mot::all();           
+        return view('user.recherche',compact('livres','mot','categories'));
     }
 
   
@@ -102,8 +107,6 @@ public function update(Request $request, $id)
     $livres -> nbr= $request->input('nbr');
     $livres -> langue= $request->input('langue');
    
-      
-
       $livres->update();
 
     return redirect()->route('listelivre')->with('success', 'Livre mis à jour avec succèss');
@@ -122,12 +125,13 @@ public function update(Request $request, $id)
        
         /*  */
          $categories =Categorie::all(); 
+         $mot =Mot::all();
          $search_text = $request->input('q');
          $search_categorie = $request->input('inputCategories');
          $livres = Livre:: where([['titre','LIKE','%'.$search_text.'%'],['category_id','=',$search_categorie]])
                     ->orwhere('isbn','=',$search_text)
                     ->paginate(16);
-        return view('user.recherche',compact('livres','categories'));
+        return view('user.recherche',compact('livres','mot','categories'));
                
        
     }

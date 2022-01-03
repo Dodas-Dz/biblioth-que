@@ -24,8 +24,9 @@ class CreateLivresTable extends Migration
             $table->string('langue');
             $table->dateTime('anneé');
             $table->string('auteur');
-            $table->SoftDeletes();
-           $table->foreignId('category_id')->constrained();
+            $table->SoftDeletes('deleted_at');
+            $table->foreignId('category_id')/*->constrained()*/;
+            $table->foreignId('mot_id');
         });
        
     }
