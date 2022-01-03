@@ -50,26 +50,111 @@
                         <td>{{$Abonne->student_id}}</td>
                         <td><a href="{{ route('abonne.pdf',$Abonne->id)}}"><i class="fa fa-print" ></i></a>   </td>
                         <td><a href="{{ route('abonne.delete',$Abonne->id) }}" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                        <td><a href="{{ route('abonne.update',$Abonne->id) }}" data-bs-toggle="modal" data-bs-target="#abonne{{$Abonne->id}}"><i class="fa fa-edit" ></i></a></td>
                       </tr>
-                      @endforeach
-                      
-                    </tbody>
-                  </table>
-                  </div>
+
+
+                      <!-----------------------editer un livre existant------------------------------------------------------>
+
+
+<div class="modal" id="abonne{{$Abonne->id}}">
+  <div class="modal-dialog modal-dialog modal-dm">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+         <h3 class="font-sans-serif text-center fw-bold fs-1 text-dark mx-auto ms-8"> Modifier les informations </h3>
+         <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button> 
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body mx-auto">
+         
+        <div class="row align-items-center mb-3">
+          
+           <form class="needs-validation" novalidate method="POST" action="{{ route('abonne.update',$Abonne->id) }}" onsubmit="return aboneformcheck(this) " enctype="multipart/form-data" >
+            @method('PATCH')
+
+            <div class="input-group-icon mb-3 "> 
+              <label class="form-label col-12" for="inputCategories">Email</label>
+              <input id="mail" type="email" class="form-control form-little-squirrel-control @error('mail') is-invalid @enderror" placeholder="Email" name="mail" value="{{$Abonne->mail}}" autocomplete="mail" autofocus/>
+              <i class="fas fa-user input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i> 
             </div>
+            <style>
+                                  input:valid {
+                      color: green;
+                    }
+                    input:invalid {
+                      color: red;
+                    }
+              </style>
+
+            <div class="input-group-icon mb-3 "> 
+              <label class="form-label col-12" for="inputCategories">Nom</label>
+               <input id="name" type="text" class="form-control form-little-squirrel-control @error('name') is-invalid @enderror" placeholder="Nom" name="name" value="{{$Abonne->name}}" autocomplete="name" autofocus/>
+               <i class="fas fa-user input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i> 
+            </div>
+            <div class="input-group-icon mb-3"> 
+              <label class="form-label col-12" for="inputCategories">Prénom</label>
+               <input id="prenom" type="text" class="form-control form-little-squirrel-control @error('prenom') is-invalid @enderror" placeholder="Prenom" name="prenom" value="{{$Abonne->prenom}} "  autocomplete="prenom" autofocus>
+               <i class="fas fa-user input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
+            </div>
+    
+            <div class="input-group-icon mb-3"> 
+              <label class="form-label col-12" for="inputCategories">Date de naissance</label>
+            <input  type="date" class="form-control form-little-squirrel-control form-control-sm @error('date_naissance') is-invalid @enderror" name="date_naissance" value="{{old('date_naissance')}} " required  autofocus>
+            <i class="fas fa-calendar input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
+           </div>
+          <div class="input-group-icon mb-3">
+                <label for="formFile" class="form-label col-12">Photo de profil</label>
+                <i class="fas fa-image input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
+                <input name="image" class="form-control form-little-squirrel-control form-control-sm" type="file" id="formFile" placeholder="Insérer une image"required accept=".jpg,.gif,.png">
+                <img src=" {{asset('abonnes/'.$Abonne->image)}}" width="70px" height="70px" alt="Image">
+          </div>
+
+           <div class="input-group-icon ms-3 mb-3 mt-7">
+            <button class="btn btn-primary form-little-squirrel-control" type="submit">Modifier Abonné</button>
+            <i class="fas fa-user-plus amber-text input-box-icon" style="color:white"></i>
+           </div>
+</form>
+    </div>
+    </div>
+
+
+     
+
+      <!-- Modal footer -->
+      <div class="modal-footer ">
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+          </div>
         </div>
-               
-              </div>
-                  <div>
-                  <a class="btn btn-primary btn-lg text-light stretched-link text-decoration-none " 
-                    data-bs-toggle="modal" data-bs-target="#wnd" aria-haspopup="true" aria-expanded="false" role="button"  v-pre>
-                     Ajouter Abonné
-           </a>
-                   
-                      </div>
-            
+              
+        @endforeach
+      </tbody>
+    </table>
+
+              <a class="btn btn-primary btn-lg font-weight-bold text-light fs--1 stretched-link text-decoration-none " 
+              data-bs-toggle="modal" data-bs-target="#wnd" aria-haspopup="true" aria-expanded="false" role="button"  v-pre> Ajouter abonné
+          </a> 
+            <!--<div class="d-flex justify-content-center">
+            </div>-->
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+  <!-----------------------fin editer un livre existant------------------------------------------------------>
+
+
+  
            
+                   
+            
+  <!------------------- créer nv abonne----------------------------------->         
 
     <div class="modal" id="wnd">
               <div class="modal-dialog modal-dialog-scrollable modal-md">
