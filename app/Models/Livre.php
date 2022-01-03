@@ -20,7 +20,7 @@ class Livre extends Model
         'anneé',
         'auteur',
         'category_id',
-        'mot_id'
+        'mot_id',
     ];
     protected $date=['deleted_at'];
 
