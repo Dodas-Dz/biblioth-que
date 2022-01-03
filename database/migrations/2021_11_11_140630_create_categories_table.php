@@ -21,8 +21,8 @@ class CreateCategoriesTable extends Migration
             $table->SoftDeletes('deleted_at');
         });
     
-
-     DB::table('categories')->insert(
+    }
+    /* DB::table('categories')->insert(
             array(
                 'name' => 'medecin', 
                 'nbr_livre'=> '3',

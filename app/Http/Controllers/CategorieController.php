@@ -45,7 +45,7 @@ class CategorieController extends Controller
         //
         Categorie::create([
             'name' => $request->input('name'),
-            'nbr_livre' => DB::table('livres')->orderBy('category_id')->count(),
+            'nbr_livre' => DB::table('livres')->where('category_id')->count(),
            
           ]); 
         return redirect()->route('categorie');

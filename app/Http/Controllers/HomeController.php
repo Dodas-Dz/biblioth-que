@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class HomeController extends Controller
 {
+   
     /**
      * Create a new controller instance.
      *
@@ -70,9 +71,18 @@ class HomeController extends Controller
 
     }
     public function notification(){
-        return view('/admin/notification');
 
-    } public function lineChart(){
+        $abonne = DB::table('abonnes')->count();
+        $categorie = DB::table('categories')->count();
+        $mot = DB::table('mots')->count();
+        $message = DB::table('messages')->count();
+        $livre = DB::table('livres')->count();
+        $livre_emp = DB::table('empreintes')->count();
+
+        return view('admin.notification', compact('abonne', 'categorie', 'mot', 'message', 'livre','livre_emp'));
+
+    } 
+    public function lineChart(){
 
 
         return view('admin.linechart');

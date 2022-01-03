@@ -21,12 +21,12 @@ class CreateMotsTable extends Migration
             $table->SoftDeletes('deleted_at');
         });
 
-        DB::table('mots')->insert(
+       /* DB::table('mots')->insert(
             array(
                 'mot_cle' => 'étude', 
                 'nbr_livre'=> '3',
             )
-        );
+        );*/
     }
 
     /**
