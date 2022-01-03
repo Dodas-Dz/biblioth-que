@@ -8,6 +8,7 @@ use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use App\Notifications\AbonneMail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 use App\Notifications\abonneNotification;  
 use App\Http\Requests\CreateSubscriberRequest;
 
@@ -37,6 +38,7 @@ public $pdf;
         }
         $validatedData = $request->validated();
         $validatedData['image'] = $imageName ?? null; 
+
         $abonne = Abonne::create(
             $validatedData
         ); 
@@ -57,6 +59,7 @@ public $pdf;
         return redirect()->route('liste');
 
     }
+
    
 
     public function getPostPdf($id)
@@ -71,6 +74,43 @@ public $pdf;
       return $pdf->stream('abonne.pdf');
     }
 
+    public function edit($id)
+    {
+        $abonnes= Abonne::findOrFail($id);  
+    
+        return view('admin.liste',compact('abonnes'));
+       
+       
+    }
+    
+    public function update(Request $request, $id)
+    { 
+       
+        $abonnes= Abonne::findOrFail($id);  
+    
+        $abonnes -> mail= $request->input('mail');
+        $abonnes-> name = $request->input('name');
+        $abonnes -> prenom = $request->input('prenom');
+        $abonnes -> date_naissance = $request->input('date_naissance');
+
+        if($request->hasFile('image'))
+        { 
+            $destination = public_path('/abonnes').$abonnes -> image;
+
+            if(File::exists($destination))
+            {
+                File::delete($destination);
+            }
+            $imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('/abonnes'), $imageName);
+            $abonnes -> image = $imageName;
+        }
+        
+       
+        $abonnes->update();
+    
+        return redirect()->route('liste')->with('success', 'Livre mis à jour avec succèss');
+    }
 
     public function deleteAbonne($id)
     {

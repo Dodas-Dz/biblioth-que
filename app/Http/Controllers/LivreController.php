@@ -18,6 +18,7 @@ class LivreController extends Controller
         $categories =Categorie::all();            
         return view('admin.listelivre',compact('categories','livresfiltre'));
     }
+
     public function search_admin(Request $request)
     {    $request->validate([
         'q'=>'required|min:2'
@@ -32,6 +33,7 @@ class LivreController extends Controller
                 return view('admin.listelivre',compact('categories','livresfiltre'));
 
     }
+
     public function livress() 
     {
         $livres= Livre::paginate(16);     
@@ -75,6 +77,39 @@ class LivreController extends Controller
             return redirect()->route('listelivre');
       
     }
+
+    public function edit($id)
+{
+    $livresfiltre= Livre::findOrFail($id);  
+    $categories =Categorie::all();
+
+    return view('admin.listelivre',compact('categories','livresfiltre'));
+   
+   
+}
+
+public function update(Request $request, $id)
+{ 
+    
+    $livres = Livre::findOrFail($id);
+
+    $livres-> titre = $request->input('name');
+    $livres -> isbn = $request->input('isbn');
+    $livres -> auteur = $request->input('nom_auteur');
+    $livres -> anneé = $request->input('date');
+    $livres -> category_id= $request->input('categories');
+    $livres -> resumer = $request->input('description');
+    $livres -> nbr= $request->input('nbr');
+    $livres -> langue= $request->input('langue');
+   
+      
+
+      $livres->update();
+
+    return redirect()->route('listelivre')->with('success', 'Livre mis à jour avec succèss');
+}
+
+
     public function deleteLivre($id)
     {
         $livres = Livre::find($id)->delete();

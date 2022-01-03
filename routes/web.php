@@ -31,6 +31,12 @@ Route::get('deletemessage/{id}',[App\Http\Controllers\MessageController::class,'
 
 Route::get('/download-pdf/{id}', [App\Http\Controllers\AbonneController::class, 'getPostPdf'])->middleware('can:isBoth')->name('abonne.pdf');
 
+Route::get('/modifier-livre/{id}', [App\Http\Controllers\LivreController::class, 'edit'])->middleware('can:isBoth')->name('livre.edit');
+Route::put('/modifier-livre/{id}', [App\Http\Controllers\LivreController::class, 'update'])->middleware('can:isBoth')->name('livre.update');
+//
+Route::get('/modifier-abonne/{id}', [App\Http\Controllers\AbonneController::class, 'edit'])->middleware('can:isBoth')->name('abonne.edit');
+Route::patch('/modifier-abonne/{id}', [App\Http\Controllers\AbonneController::class, 'update'])->middleware('can:isBoth')->name('abonne.update');
+
 Route::get('delete/{id}',[App\Notifications\abonneNotification::class,'deleteNotification'])->middleware('can:isAdmin')->name('notif.delete');
 Route::post('/EmprenterLivre', [App\Http\Controllers\EmpreinteController::class, 'EmprenterLivre'])->middleware('can:isAdmin')->name('EmprenterLivre');
 Route::post('/rendreLivre', [App\Http\Controllers\EmpreinteController::class, 'RendreLivre'])->middleware('can:isAdmin')->name('RendreLivre');
