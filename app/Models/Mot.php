@@ -12,11 +12,12 @@ class Mot extends Model
     use softDeletes;
     protected $fillable = [
         'mot_cle',
-        'nbr_livre',
+        'livre_id',
+        
     ];
     protected $date=['deleted_at'];
     
     public function Livre(){
-        return $this->HasMany('App\Models\livre');
+        return $this->hasOne('App\Models\livre');
     }
 }

@@ -37,18 +37,18 @@
                       
                     </thead>
                     <tbody>
-                      @foreach($mots as $mot)
+                      @foreach($mots as $mott)
                       <tr>
-                        <td>{{$mot->id}}</td>
-                        <td>{{$mot->mot_cle}}</td>
-                        <td>{{$mot->nbr_livre}}</td>
-                        <td><a href="{{route('mot.update',$mot->id)}}" data-bs-toggle="modal" data-bs-target="#mot{{$mot->id}}"><i class="fa fa-edit" ></i></a></td>
-                        <td><a href="{{route('Mot.delete',$mot->id)}}" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
+                        <td>{{$mott->id}}</td>
+                        <td>{{$mott->mot_cle}}</td>
+                        <td>{{$mott->livre->livre_id}}</td>
+                        <td><a href="{{route('mot.update',$mott->id)}}" data-bs-toggle="modal" data-bs-target="#mot{{$mott->id}}"><i class="fa fa-edit" ></i></a></td>
+                        <td><a href="{{route('Mot.delete',$mott->id)}}" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
 
 
                       </tr>
 
-                      <div class="modal" id="mot{{$mot->id}}">
+                      <div class="modal" id="mot{{$mott->id}}">
                         <div class="modal-dialog modal-dialog-scrollable modal-md">
                           <div class="modal-content">
           
@@ -63,7 +63,7 @@
                               <div class="row align-items-center mb-3 mt-3">
                               
                                 
-                               <form class="needs-validation" method="POST" action="{{ route('mot.update',$mot->id) }}" novalidate>
+                               <form class="needs-validation" method="POST" action="{{ route('mot.update',$mott->id) }}" novalidate>
           @method('PUT')
           <style>
             input:valid {
@@ -75,9 +75,14 @@ color: red;
 </style>
                                 <div class="input-group-icon mb-3"> 
                                   <label class="form-label col-12" for="inputCategories">Mot clé</label>
-                                <input id="mot_cle" type="text" class="form-control form-little-squirrel-control form-control-sm" name="mot_cle" value="{{$mot->mot_cle}}" placeholder="Entrer un mot clé" required  autofocus>
+                                <input id="mot_cle" type="text" class="form-control form-little-squirrel-control form-control-sm" name="mot_cle" value="{{$mott->mot_cle}}" placeholder="Entrer un mot clé" required  autofocus>
                                 <i class="fas fa-key input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                                </div>
+                               <div class="input-group-icon mb-3"> 
+                                <label class="form-label col-12" for="inputCategories">ID Livre</label>
+                              <input id="livre_id" type="text" class="form-control form-little-squirrel-control form-control-sm" name="livre_id" value="{{$mott->livre->livre_id}}" placeholder="Entrer ID du livre" required  autofocus>
+                              <i class="fas fa-key input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
+                             </div>
           
                                <div class="input-group-icon ms-2 mt-5 mb-3">
                                 <button class="btn btn-primary form-little-squirrel-control" type="submit">Modifier Mot Clé</button>
@@ -142,6 +147,11 @@ color: red;
                       <input id="mot_cle" type="text" class="form-control form-little-squirrel-control form-control-sm" name="mot_cle" placeholder="Entrer un mot clé" required  autofocus>
                       <i class="fas fa-key input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                      </div>
+                     <div class="input-group-icon mb-3"> 
+                      <label class="form-label col-12" for="inputCategories">ID Livre</label>
+                    <input id="livre_id" type="text" class="form-control form-little-squirrel-control form-control-sm" name="livre_id"  placeholder="Entrer ID du livre" required  autofocus>
+                    <i class="fas fa-key input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
+                   </div>
 
                      <div class="input-group-icon ms-2 mt-5 mb-3">
                       <button class="btn btn-primary form-little-squirrel-control" type="submit">Ajouter Mot Clé</button>

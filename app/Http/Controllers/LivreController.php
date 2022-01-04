@@ -19,7 +19,6 @@ class LivreController extends Controller
         $categories =Categorie::all();   
         $mot =Mot::all();    
 
-            
         
         return view('admin.listelivre',compact('categories','mot','livresfiltre'));
     }
@@ -142,12 +141,7 @@ public function update(Request $request, $id)
        
     }
 
-    public function test ()
-    {
-        $cat= Livre::groupBy('category_id')->get()->count();
-
-        dd($cat);
-    }
+   
    
 
   

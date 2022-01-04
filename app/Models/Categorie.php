@@ -12,7 +12,7 @@ class Categorie extends Model
     use softDeletes;
     protected $fillable = [
         'name', 
-        'nbr_livre',
+        
     ];
     protected $date=['deleted_at'];
     

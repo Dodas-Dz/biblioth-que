@@ -17,72 +17,61 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name')->unique();
-            $table->integer('nbr_livre');
             $table->SoftDeletes('deleted_at');
         });
 
-    }
-    /* DB::table('categories')->insert(
-            array(
-                'name' => 'medecin', 
-                'nbr_livre'=> '3',
-            )
-        );
-    }
     
-                       /* DB::table('categories')->insert(
+                        DB::table('categories')->insert(
+                                array(
+                                    'name' => 'medecin', 
+                                )
+                            );
+                        
+    
+                        DB::table('categories')->insert(
                             array(
                                 'name' => 'lettre et lingustique',  
-                                'nbr_livre'=> '3',
                             )
                         );
                     
                     DB::table('categories')->insert(
                         array(
                             'name' => 'islamique',  
-                            'nbr_livre'=> 'null',
                         )
                     );
                     DB::table('categories')->insert(
                         array(
                             'name' => 'preparation des grande ecole',  
-                            'nbr_livre'=> 'null',
                         )
                     );
                     DB::table('categories')->insert(
                         array(
                             'name' => 'programe des prepas scientifique',  
-                            'nbr_livre'=> 'null',
                         )
                     );
                     DB::table('categories')->insert(
                         array(
                             'name' => 'informatique',  
-                            'nbr_livre'=> 'null',
                         )
                     );
                     DB::table('categories')->insert(
                         array(
                             'name' => 'livre culture generale',
-                            'nbr_livre'=> 'null',  
                         )
                     );
                     DB::table('categories')->insert(
                         array(
                             'name' => 'livre comtabilite',  
-                            'nbr_livre'=> 'null',
                         )
                     );
                     DB::table('categories')->insert(
                         array(
                             'name' => 'livre des siences politique', 
-                            'nbr_livre'=> 'null', 
                         )
                     );
                     DB::table('categories')->insert(
                         array(
                             'name' => 'livre de droite',  
-                            'nbr_livre'=> 'null',
                         )
                     );
     }

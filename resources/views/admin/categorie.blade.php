@@ -44,7 +44,7 @@
                       <tr>
                         <td>{{$Categorie->id}}</td>
                         <td>{{$Categorie->name}}</td>
-                        <td>{{$Categorie->nbr_livre}}</td>
+                        <td>{{$categorie}}</td>
                         
                         <td><a href="{{route('categorie.update',$Categorie->id)}}" data-bs-toggle="modal" data-bs-target="#categorie{{$Categorie->id}}"><i class="fa fa-edit" ></i></a></td>
                         <td><a href="{{route('Categorie.delete',$Categorie->id)}}" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>

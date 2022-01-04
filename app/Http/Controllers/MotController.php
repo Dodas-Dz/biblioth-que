@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mot;
+use App\Models\Livre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use DB ;
@@ -29,6 +30,7 @@ class MotController extends Controller
         //
         $request->validate([
             'mot_cle'=> ['required', 'string', 'max:255'],
+            'livre_id'=> ['required'],
      
            
             ]);
@@ -45,7 +47,7 @@ class MotController extends Controller
         //
         Mot::create([
              'mot_cle' => $request->input('mot_cle'),
-             'nbr_livre' => DB::table('livres')->orderBy('mot_id')->count(),
+             'livre_id' => $request->input('livre_id'),
         ]);
 
         return redirect()->route('AjouterMot');
@@ -60,8 +62,11 @@ class MotController extends Controller
     public function show()
     {
         //
-        $mots = Mot::all();                 
-        return view('admin.AjouterMot',compact('mots'));
+        $mots = Mot::all();
+        $livre = Livre::all(); 
+        
+
+        return view('admin.AjouterMot',compact('mots','livre'));
 
     }
 
@@ -92,6 +97,8 @@ class MotController extends Controller
         $mot= Mot::findOrFail($id);  
     
         $mot -> mot_cle= $request->input('mot_cle');
+        $mot -> livre_id= $request->input('livre_id');
+
        
 
         $mot->update();

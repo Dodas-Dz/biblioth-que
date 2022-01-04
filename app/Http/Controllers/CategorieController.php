@@ -17,16 +17,6 @@ class CategorieController extends Controller
      */
     public function index($id)
     {
-        $categories=Categorie::find($id);
-        $livre=Livre::all();
-
-        $categorie = $categories -> nbr_livre; 
-
-        $categorie = DB::table('livres')->GroupBy('category_id')->count();
-        //
-        dd($categorie);
-        return view('admin.categorie',compact('livre','categorie'));
-
     }
 
     /**
@@ -55,7 +45,6 @@ class CategorieController extends Controller
         //
         Categorie::create([
             'name' => $request->input('name'),
-            'nbr_livre' => '0',
            
           ]); 
         return redirect()->route('categorie');
@@ -82,9 +71,10 @@ class CategorieController extends Controller
     public function getCategories() 
     {
         $categories = Categorie::all(); 
-        
 
-        return view('admin.categorie',compact('categories'));
+        $categorie = DB::table('livres')->count();
+
+        return view('admin.categorie',compact('categories', 'categorie'));
     }
 
     /**

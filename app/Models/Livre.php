@@ -20,7 +20,7 @@ class Livre extends Model
         'anneé',
         'auteur',
         'category_id',
-        'mot_id',
+        
     ];
     protected $date=['deleted_at'];
 
@@ -28,7 +28,7 @@ class Livre extends Model
         return $this->belongsTo('App\Models\Categorie','category_id');
     }
     public function mot(){
-        return $this->belongsTo('App\Models\Mot','mot_id');
+        return $this->hasMany('App\Models\Mot');
     }
     public function Empreinte(){
         return $this->hasMany('App\Models\Empreinte');
