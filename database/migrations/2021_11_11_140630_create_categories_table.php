@@ -17,10 +17,10 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name')->unique();
-            $table->integer('nbr_livre')->NULL;
+            $table->integer('nbr_livre');
             $table->SoftDeletes('deleted_at');
         });
-    
+
     }
     /* DB::table('categories')->insert(
             array(

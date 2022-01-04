@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categorie;
+use App\Models\Livre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use DB ;
@@ -14,9 +15,18 @@ class CategorieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
+        $categories=Categorie::find($id);
+        $livre=Livre::all();
+
+        $categorie = $categories -> nbr_livre; 
+
+        $categorie = DB::table('livres')->GroupBy('category_id')->count();
         //
+        dd($categorie);
+        return view('admin.categorie',compact('livre','categorie'));
+
     }
 
     /**
@@ -45,7 +55,7 @@ class CategorieController extends Controller
         //
         Categorie::create([
             'name' => $request->input('name'),
-            'nbr_livre' => DB::table('livres')->where('category_id')->count(),
+            'nbr_livre' => '0',
            
           ]); 
         return redirect()->route('categorie');
@@ -71,7 +81,9 @@ class CategorieController extends Controller
    
     public function getCategories() 
     {
-        $categories = Categorie::all();                 
+        $categories = Categorie::all(); 
+        
+
         return view('admin.categorie',compact('categories'));
     }
 

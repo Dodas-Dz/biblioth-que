@@ -30,6 +30,8 @@ Route::get('/modifier-mot/{id}', [App\Http\Controllers\MotController::class, 'ed
 Route::put('/modifier-mot/{id}', [App\Http\Controllers\MotController::class, 'update'])->middleware('can:isAdmin')->name('mot.update');
 
 Route::get('/categorie', [App\Http\Controllers\CategorieController::class, 'getCategories'])->middleware('can:isBoth')->name('categorie');
+Route::get('/categorie/{id}', [App\Http\Controllers\CategorieController::class, 'index'])->middleware('can:isBoth')->name('categorie.nbr');
+
 Route::get('/AjouterCategorie', [App\Http\Controllers\CategorieController::class, 'create'])->middleware('can:isAdmin')->name('create.categorie');
 Route::post('/AjouterCategorie', [App\Http\Controllers\CategorieController::class, 'store'])->middleware('can:isAdmin')->name('store.categorie');
 Route::get('deletecategorie/{id}',[App\Http\Controllers\CategorieController::class,'destroy'])->middleware('can:isAdmin')->name('Categorie.delete');

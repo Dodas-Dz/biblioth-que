@@ -40,6 +40,7 @@
                     </thead>
                     <tbody>
                       @foreach ($categories as $Categorie)
+                      
                       <tr>
                         <td>{{$Categorie->id}}</td>
                         <td>{{$Categorie->name}}</td>

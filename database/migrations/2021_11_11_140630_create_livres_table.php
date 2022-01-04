@@ -28,7 +28,7 @@ class CreateLivresTable extends Migration
             $table->foreignId('category_id')/*->constrained()*/;
             $table->foreignId('mot_id');
         });
-       
+
     }
 
     /**

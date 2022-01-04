@@ -17,7 +17,9 @@ class LivreController extends Controller
         
         $livresfiltre= Livre::paginate(20);    
         $categories =Categorie::all();   
-        $mot =Mot::all();            
+        $mot =Mot::all();    
+
+            
         
         return view('admin.listelivre',compact('categories','mot','livresfiltre'));
     }
@@ -78,7 +80,11 @@ class LivreController extends Controller
                 'nbr'=> $request->input('nbr'),
                 'langue'=>$request->input('langue'),
                 'image'=> $path .'/' .$filename ,
+                
               ]); 
+
+             
+
             return redirect()->route('listelivre');
       
     }
@@ -134,6 +140,13 @@ public function update(Request $request, $id)
         return view('user.recherche',compact('livres','mot','categories'));
                
        
+    }
+
+    public function test ()
+    {
+        $cat= Livre::groupBy('category_id')->get()->count();
+
+        dd($cat);
     }
    
 
