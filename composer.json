@@ -17,7 +17,8 @@
         "livewire/livewire": "^2.8",
         "maatwebsite/excel": "^3.1",
         "milon/barcode": "^8.0",
-        "simplesoftwareio/simple-qrcode": "^4.2"
+        "simplesoftwareio/simple-qrcode": "^4.2",
+        "spatie/laravel-analytics": "^3.11"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

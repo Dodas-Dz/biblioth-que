@@ -93,9 +93,15 @@ class EmpreinteController extends Controller
      * @param  \App\Models\Empreinte  $empreinte
      * @return \Illuminate\Http\Response
      */
-    public function show(Empreinte $empreinte)
+    public function show()
     {
         //
+        $empreinte=Empreinte::all();
+        $livre=Livre::all();
+        $abonne=Abonne::all();
+
+
+        return view('admin.statistic', compact('empreinte','livre','abonne'));
     }
 
     /**

@@ -28,6 +28,7 @@ class HomeController extends Controller
     }
     public function statistic()
     {
+        
         return view('/admin/statistic');
     }
     public function profileadmin()

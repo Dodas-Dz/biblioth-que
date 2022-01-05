@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StatsController;
+
 
 
 Auth::routes();
@@ -54,11 +56,15 @@ Route::get('/modifier-abonne/{id}', [App\Http\Controllers\AbonneController::clas
 Route::patch('/modifier-abonne/{id}', [App\Http\Controllers\AbonneController::class, 'update'])->middleware('can:isBoth')->name('abonne.update');
 
 Route::get('delete/{id}',[App\Notifications\abonneNotification::class,'deleteNotification'])->middleware('can:isAdmin')->name('notif.delete');
+
+Route::get('/statistique', [App\Http\Controllers\EmpreinteController::class, 'show'])->middleware('can:isBoth')->name('statistic');
 Route::post('/EmprenterLivre', [App\Http\Controllers\EmpreinteController::class, 'EmprenterLivre'])->middleware('can:isAdmin')->name('EmprenterLivre');
 Route::post('/rendreLivre', [App\Http\Controllers\EmpreinteController::class, 'RendreLivre'])->middleware('can:isAdmin')->name('RendreLivre');
+
 Route::get('/linechart',[App\Http\Controllers\StatsController::class, 'lineChart'])->middleware('can:isAdmin')->name('linechart');
 Route::get('/piechart',[App\Http\Controllers\StatsController::class, 'pieChart'])->middleware('can:isAdmin')->name('piechart');
 Route::get('/barchart',[App\Http\Controllers\StatsController::class, 'barChart'])->middleware('can:isAdmin')->name('barChart');
+
 });
 /* Testing Routes for Excel */
 Route::get('excel',[App\Http\Controllers\TestController::class,'view']);

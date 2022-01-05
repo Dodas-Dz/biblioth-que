@@ -72,51 +72,39 @@
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>ID</th>
-                      <th>Titre</th>
-                      <th>Nom Auteur</th>
-                      <th>Langue</th>
-                      <th>Catégorie</th>
-                      <th>Supprimer</th>
+                      <th>ID livre</th>
+                      <th>ID abonne</th>
+                      <th>rendu</th>
                       <th>Modifier</th>
+                      <th>Supprimer</th>
+
                       
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>After</td>
-                        <td>Anna Todd</td>
-                        <td>fr / en</td>
-                        <td>Roman</td>
+                     
+                        @foreach($empreinte as $emp)
+
+                        @if($emp->rendu == '1')
+                    
+                            
+                        @else
+                        { 
+                          <tr> 
+                        <td>{{$emp->id}}</td>
+                        <td>{{$emp->livre_id}}</td>
+                        <td>{{$emp->abonne_id}}</td>
+                        <td>{{$emp->rendu}}</td>
                         <td><a href="#"><i class="fa fa-trash" ></i></a></td>
                         <td><a href="#"><i class="fa fa-edit" ></i></a></td>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Wonder</td>
-                        <td>Raquel j.palacio</td>
-                        <td>en</td>
-                        <td>Enfant</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                    }
+
+                        @endif
+                        
                       </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Harry Potter</td>
-                        <td>Joanne Kathleen Rowling</td>
-                        <td>en</td>
-                        <td>Science fiction</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>The choice</td>
-                        <td>Ahmed Deedat</td>
-                        <td>en</td>
-                        <td>Islamique</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
-                      </tr>
+
+                      @endforeach
+                     
                     </tbody>
                   </table>
                 </div>
@@ -134,11 +122,7 @@
         </div>
       </div>
      
-      <script>
-        const x = new Date().getFullYear();
-        let date = document.getElementById('date');
-        date.innerHTML = '&copy; ' + x + date.innerHTML;
-      </script>
+    
     </div>
   </div>
     <!--   Core JS Files   -->

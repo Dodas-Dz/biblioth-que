@@ -85,7 +85,6 @@
                         <td>{{$livre->auteur}}</td>
                         <td>{{$livre->langue}}</td>
                        <td>{{$livre->Categorie->name}}</td>
-                    
                         <td>{{$livre->anneé}}</td>
                         <td>{{$livre->nbr}}</td>
                         <td><a onclick="return delete_confirmation()" href="{{ route('Livre.delete',$livre->id) }}" ><i class="fa fa-trash" ></i></a></td>
@@ -231,11 +230,9 @@
               <select class="form-select form-select-sm form-little-squirrel-control mdb-select dropdown-primary md-form" multiple data-mdb-filter="true" searchable="Search here..">
                
                 <option value="" disabled selected>Choisir un Mot clé</option>
-                <option value="1">USA</option>
-                <option value="2">Germany</option>
-                <option value="3">France</option>
-                <option value="4">Poland</option>
-                <option value="5">Japan</option>
+                @foreach($mots as $cat)
+                <option name="categorie" value="{{$cat->id}}">{{$cat->name}}</option>
+             @endforeach
               </select>
              
                 </div>
