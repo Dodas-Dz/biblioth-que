@@ -10,6 +10,7 @@ Route::post('/searchedBooks', [App\Http\Controllers\LivreController::class, 'sea
 
 Route::middleware(['auth'])->group(function () {
 
+Route::get('/statistique', [App\Http\Controllers\HomeController::class, 'statistic'])->middleware('can:isAdmin')->name('statistic');
 Route::get('/notification', [App\Http\Controllers\HomeController::class, 'notification'])->middleware('can:isBoth')->name('notification');
 Route::get('/supprimer', [App\Http\Controllers\HomeController::class, 'supprimer'])->middleware('can:isBoth')->name('supprimer');
 Route::get('/ProfileAdmin', [App\Http\Controllers\HomeController::class, 'profileadmin'])->middleware('can:isBoth')->name('profileadmin');
@@ -38,6 +39,8 @@ Route::get('deletecategorie/{id}',[App\Http\Controllers\CategorieController::cla
 Route::get('/modifier-categorie/{id}', [App\Http\Controllers\CategorieController::class, 'edit'])->middleware('can:isBoth')->name('categorie.edit');
 Route::put('/modifier-categorie/{id}', [App\Http\Controllers\CategorieController::class, 'update'])->middleware('can:isBoth')->name('categorie.update');
 
+Route::get('/listeemprente', [App\Http\Controllers\EmpreinteController::class, 'show'])->middleware('can:isBoth')->name('listeemprente');
+
 
 Route::post('/AjouterGestionnaire', [App\Http\Controllers\Auth\registere::class, 'create'])->middleware('can:isAdmin')->name('create');
 Route::post('/liste', [App\Http\Controllers\abonneController::class, 'create'])->middleware('can:isAdmin')->name('createabonne');
@@ -57,13 +60,11 @@ Route::patch('/modifier-abonne/{id}', [App\Http\Controllers\AbonneController::cl
 
 Route::get('delete/{id}',[App\Notifications\abonneNotification::class,'deleteNotification'])->middleware('can:isAdmin')->name('notif.delete');
 
-Route::get('/statistique', [App\Http\Controllers\EmpreinteController::class, 'show'])->middleware('can:isBoth')->name('statistic');
+
 Route::post('/EmprenterLivre', [App\Http\Controllers\EmpreinteController::class, 'EmprenterLivre'])->middleware('can:isAdmin')->name('EmprenterLivre');
 Route::post('/rendreLivre', [App\Http\Controllers\EmpreinteController::class, 'RendreLivre'])->middleware('can:isAdmin')->name('RendreLivre');
 
-Route::get('/linechart',[App\Http\Controllers\StatsController::class, 'lineChart'])->middleware('can:isAdmin')->name('linechart');
-Route::get('/piechart',[App\Http\Controllers\StatsController::class, 'pieChart'])->middleware('can:isAdmin')->name('piechart');
-Route::get('/barchart',[App\Http\Controllers\StatsController::class, 'barChart'])->middleware('can:isAdmin')->name('barChart');
+Route::get('/statistique',[App\Http\Controllers\StatsController::class, 'Chart'])->middleware('can:isAdmin')->name('statistic');
 
 });
 /* Testing Routes for Excel */

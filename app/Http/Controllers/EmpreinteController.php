@@ -28,6 +28,16 @@ class EmpreinteController extends Controller
     {
         //
     }
+    public function show()
+    {
+ 
+        $empreinte=Empreinte::all();
+        $livre=Livre::all();
+        $abonne=Abonne::all();
+ 
+ 
+       return view('admin.listeemprente',compact('empreinte','livre','abonne'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -93,16 +103,7 @@ class EmpreinteController extends Controller
      * @param  \App\Models\Empreinte  $empreinte
      * @return \Illuminate\Http\Response
      */
-    public function show()
-    {
-
-        $empreinte=Empreinte::all();
-        $livre=Livre::all();
-        $abonne=Abonne::all();
-
-
-        return view('admin.statistic', compact('empreinte','livre','abonne'));
-    }
+   
 
     /**
      * Show the form for editing the specified resource.
