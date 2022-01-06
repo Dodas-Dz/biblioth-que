@@ -11,15 +11,15 @@ use DB ;
 
 class LivreController extends Controller
 {
-    
-    public function livres() 
-    {
-        
-        $livresfiltre= Livre::paginate(20);    
-        $categories =Categorie::all();   
-        $mot =Mot::all();    
 
-        
+    public function livres()
+    {
+
+        $livresfiltre= Livre::paginate(20);
+        $categories =Categorie::all();
+        $mot =Mot::all();
+
+
         return view('admin.listelivre',compact('categories','mot','livresfiltre'));
     }
 
@@ -28,9 +28,8 @@ class LivreController extends Controller
         'q'=>'required|min:2'
      ]);
 
-     $categories =Categorie::all(); 
-     $mot =Mot::all(); 
-     
+     $categories =Categorie::all();
+     $mot =Mot::all();
      $search_text = $request->input('q');
      $livresfiltre= Livre::where('titre','LIKE','%'.$search_text.'%')
                 ->orwhere('isbn','LIKE','%'.$search_text)
@@ -39,15 +38,15 @@ class LivreController extends Controller
 
     }
 
-    public function livress() 
+    public function livress()
     {
-        $livres= Livre::paginate(16);     
-        $categories =Categorie::all(); 
-        $mot =Mot::all();           
+        $livres= Livre::paginate(16);
+        $categories =Categorie::all();
+        $mot =Mot::all();
         return view('user.recherche',compact('livres','mot','categories'));
     }
 
-  
+
     public function AjouterL(Request $request)
     {
         $request->validate([
@@ -67,7 +66,7 @@ class LivreController extends Controller
                 $path='public/image/abonne';
                 $filename= time(). $image_name;
                 $request->file('image')->storeAs($path,$filename);
-    
+
             }
             Livre::create([
                 'titre' => $request->input('name'),
@@ -79,28 +78,28 @@ class LivreController extends Controller
                 'nbr'=> $request->input('nbr'),
                 'langue'=>$request->input('langue'),
                 'image'=> $path .'/' .$filename ,
-                
-              ]); 
 
-             
+              ]);
+
+
 
             return redirect()->route('listelivre');
-      
+
     }
 
     public function edit($id)
 {
-    $livresfiltre= Livre::findOrFail($id);  
+    $livresfiltre= Livre::findOrFail($id);
     $categories =Categorie::all();
 
     return view('admin.listelivre',compact('categories','livresfiltre'));
-   
-   
+
+
 }
 
 public function update(Request $request, $id)
-{ 
-    
+{
+
     $livres = Livre::findOrFail($id);
 
     $livres-> titre = $request->input('name');
@@ -111,7 +110,7 @@ public function update(Request $request, $id)
     $livres -> resumer = $request->input('description');
     $livres -> nbr= $request->input('nbr');
     $livres -> langue= $request->input('langue');
-   
+
       $livres->update();
 
     return redirect()->route('listelivre')->with('success', 'Livre mis à jour avec succèss');
@@ -126,10 +125,10 @@ public function update(Request $request, $id)
     }
 
     public function search(Request $request)
-    {   
-       
+    {
+
         /*  */
-         $categories =Categorie::all(); 
+         $categories =Categorie::all();
          $mot =Mot::all();
          $search_text = $request->input('q');
          $search_categorie = $request->input('inputCategories');
@@ -137,12 +136,12 @@ public function update(Request $request, $id)
                     ->orwhere('isbn','=',$search_text)
                     ->paginate(16);
         return view('user.recherche',compact('livres','mot','categories'));
-               
-       
+
+
     }
 
-   
-   
 
-  
+
+
+
 }

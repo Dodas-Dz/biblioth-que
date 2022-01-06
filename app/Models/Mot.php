@@ -13,11 +13,12 @@ class Mot extends Model
     protected $fillable = [
         'mot_cle',
         'livre_id',
-        
+
     ];
     protected $date=['deleted_at'];
-    
+
     public function Livre(){
-        return $this->hasOne('App\Models\livre');
+        return $this->belongsTo('App\Models\Livre','livre_id');
     }
+
 }

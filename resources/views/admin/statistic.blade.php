@@ -1,4 +1,4 @@
-@include('layouts.header')    
+@include('layouts.header')
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
@@ -6,9 +6,9 @@
           <div class="navbar-wrapper">
             <a class="navbar-brand font-weight-bold" href="javascript:void(0)">Dashboard</a>
           </div>
-          @include('layouts.bar')   
+          @include('layouts.bar')
       </nav>
-      
+
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
@@ -19,7 +19,7 @@
                  Nombre de livres par catégorie
                 </div>
                 <div class="card-body">
-                  @include('layouts.piechart')
+
                  </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -31,7 +31,7 @@
             <div class="col-xl-4 col-lg-12">
               <div class="card card-chart mx-auto">
                 <div class="card-header card-header-outline card-header-danger text-center">
-                 Nombre livres Emprenté & retour 
+                 Nombre livres Emprenté & retour
                 </div>
                 <div class="card-body">
                   @include('layouts.barchart')
@@ -46,7 +46,7 @@
             <div class="col-xl-4 col-lg-12 ">
               <div class="card card-chart mx-auto">
                 <div class="card-header card-header-outline card-header-info text-center">
-                  Cumul du nombre des livres par année 
+                  Cumul du nombre des livres par année
                 </div>
                 <div class="card-body text-canter">
                   @include('layouts.linechart')
@@ -60,7 +60,7 @@
             </div>
             </div>
           </div>
-   
+
           <div class="row">
             <div class="col-lg-12 col-md-12 ">
               <div class="card ">
@@ -75,45 +75,45 @@
                       <th>ID livre</th>
                       <th>ID abonne</th>
                       <th>rendu</th>
-                      <th>Modifier</th>
-                      <th>Supprimer</th>
+                      <th>date</th>
 
-                      
+
+
                     </thead>
                     <tbody>
-                     
+
                         @foreach($empreinte as $emp)
 
                         @if($emp->rendu == '1')
-                    
-                            
+
+
                         @else
-                        { 
-                          <tr> 
+
+                          <tr>
                         <td>{{$emp->id}}</td>
-                        <td>{{$emp->livre_id}}</td>
-                        <td>{{$emp->abonne_id}}</td>
+                        <td>{{$emp->livre->titre}}</td>
+                        <td>{{$emp->abonne->name}}</td>
                         <td>{{$emp->rendu}}</td>
-                        <td><a href="#"><i class="fa fa-trash" ></i></a></td>
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                        <td>{{$emp->created_at}}</td>
+
                       </tr>
-                    }
+
 
                         @endif
-                        
+
                       </tr>
 
                       @endforeach
-                     
+
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
-           
-               
+
+
                     </div>
-                   
+
                   </div>
                 </div>
               </div>
@@ -121,8 +121,8 @@
           </div>
         </div>
       </div>
-     
-    
+
+
     </div>
   </div>
     <!--   Core JS Files   -->

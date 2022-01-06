@@ -9,11 +9,11 @@ Auth::routes();
 Route::post('/searchedBooks', [App\Http\Controllers\LivreController::class, 'searchedBooks'])->middleware('can:isBoth')->name('searchedBooks');
 
 Route::middleware(['auth'])->group(function () {
-Route::get('/statistique', [App\Http\Controllers\HomeController::class, 'statistic'])->middleware('can:isBoth')->name('statistic');
+
 Route::get('/notification', [App\Http\Controllers\HomeController::class, 'notification'])->middleware('can:isBoth')->name('notification');
 Route::get('/supprimer', [App\Http\Controllers\HomeController::class, 'supprimer'])->middleware('can:isBoth')->name('supprimer');
 Route::get('/ProfileAdmin', [App\Http\Controllers\HomeController::class, 'profileadmin'])->middleware('can:isBoth')->name('profileadmin');
-Route::get('/AjouterMot', [App\Http\Controllers\HomeController::class, 'AjouterMot'])->middleware('can:isBoth')->name('AjouterMot');
+
 Route::get('/categorie', [App\Http\Controllers\HomeController::class, 'categorie'])->middleware('can:isBoth')->name('categorie');
 Route::get('/AjouterGestionnaire', [App\Http\Controllers\HomeController::class, 'AjouterG'])->middleware('can:isAdmin')->name('AjouterG');
 Route::get('/emprunter', [App\Http\Controllers\HomeController::class, 'emprunter'])->middleware('can:isBoth')->name('emprunter');
@@ -25,8 +25,8 @@ Route::get('/message', [App\Http\Controllers\MessageController::class, 'show'])-
 Route::get('/ListeUser', [App\Http\Controllers\Auth\registere::class, 'getUser'])->middleware('can:isAdmin')->name('listeuser');
 
 Route::get('/Mot-cle', [App\Http\Controllers\MotController::class, 'show'])->middleware('can:isBoth')->name('AjouterMot');
-Route::get('/AjouterMot', [App\Http\Controllers\MotController::class, 'create'])->middleware('can:isAdmin')->name('create.mot');
-Route::post('/AjouterMot', [App\Http\Controllers\MotController::class, 'store'])->middleware('can:isAdmin')->name('store.mot');
+
+Route::post('/AjouterMot', [App\Http\Controllers\MotController::class, 'Ajouter_mot'])->middleware('can:isAdmin')->name('Ajouter_mot');
 Route::get('deleteMot/{id}',[App\Http\Controllers\MotController::class,'destroy'])->middleware('can:isAdmin')->name('Mot.delete');
 Route::get('/modifier-mot/{id}', [App\Http\Controllers\MotController::class, 'edit'])->middleware('can:isAdmin')->name('mot.edit');
 Route::put('/modifier-mot/{id}', [App\Http\Controllers\MotController::class, 'update'])->middleware('can:isAdmin')->name('mot.update');

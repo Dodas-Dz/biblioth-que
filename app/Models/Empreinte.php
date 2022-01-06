@@ -13,12 +13,12 @@ class Empreinte extends Model
        'rendu',
        'livre_id',
        'abonne_id',
-       
+
     ];
     public function abonne(){
-        return $this->hasMany('App\Models\Abonne');
+        return $this->belongsTo('App\Models\Abonne');
     }
     public function Livre(){
-        return $this->hasOne('App\Models\livre');
+        return $this->belongsTo('App\Models\livre');
     }
   }

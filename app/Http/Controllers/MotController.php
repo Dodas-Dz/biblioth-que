@@ -27,13 +27,8 @@ class MotController extends Controller
      */
     public function create()
     {
-        //
-        $request->validate([
-            'mot_cle'=> ['required', 'string', 'max:255'],
-            'livre_id'=> ['required'],
-     
-           
-            ]);
+
+
     }
 
     /**
@@ -42,9 +37,14 @@ class MotController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {   
-        //
+    public function Ajouter_mot(Request $request)
+    {
+        $request->validate([
+            'mot_cle'=> ['required', 'string', 'max:255'],
+            'livre_id'=> ['required'],
+
+
+            ]);
         Mot::create([
              'mot_cle' => $request->input('mot_cle'),
              'livre_id' => $request->input('livre_id'),
@@ -63,10 +63,8 @@ class MotController extends Controller
     {
         //
         $mots = Mot::all();
-        $livre = Livre::all(); 
-        
 
-        return view('admin.AjouterMot',compact('mots','livre'));
+        return view('admin.AjouterMot',compact('mots'));
 
     }
 
@@ -78,10 +76,7 @@ class MotController extends Controller
      */
     public function edit($id)
     {
-        //
-        $mot= Mot::findOrFail($id);  
-    
-        return view('admin.AjouterMot',compact('mot'));
+
     }
 
     /**
@@ -94,15 +89,15 @@ class MotController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $mot= Mot::findOrFail($id);  
-    
+        $mot= Mot::findOrFail($id);
+
         $mot -> mot_cle= $request->input('mot_cle');
         $mot -> livre_id= $request->input('livre_id');
 
-       
+
 
         $mot->update();
-    
+
         return redirect()->route('AjouterMot')->with('success', 'Livre mis à jour avec succèss');
     }
 

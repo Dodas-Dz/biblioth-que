@@ -32,27 +32,27 @@ class EmpreinteController extends Controller
     /**
      * Store a newly created resource in storage.
      *if (User::where('email', '=', Input::get('email'))->exists()) {
-   
+
 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function EmprenterLivre(Request $request)
     {
-      
-        
+
+
             $Abonne_code=$request->input('code_abonne');
             $Livre_code=$request->input('code_livre');
 
-      
+
              if ($ab = Abonne::where('student_id',$Abonne_code)->first())
-              { 
+              {
                 if ($livre = Livre::where('isbn',$Livre_code)->first())
                 {   $abonne = Abonne::where('student_id',$Abonne_code)->get();
                     Empreinte::create([
                         'livre_id' => $livre->id,
                         'abonne_id' => $ab->id
-                      ]); 
+                      ]);
                       $livre->nbr = $livre->nbr-1;
                       $livre->save();
                     return redirect()->route('emprunter');
@@ -64,7 +64,7 @@ class EmpreinteController extends Controller
             else
             {
                 echo "erreur Abonne dont exist" ;
-    
+
             }
     }
     public function RendreLivre(Request $request)
@@ -95,7 +95,7 @@ class EmpreinteController extends Controller
      */
     public function show()
     {
-        //
+
         $empreinte=Empreinte::all();
         $livre=Livre::all();
         $abonne=Abonne::all();

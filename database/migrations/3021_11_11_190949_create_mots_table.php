@@ -19,11 +19,12 @@ class CreateMotsTable extends Migration
             $table->string('mot_cle');
             $table->SoftDeletes('deleted_at');
             $table->foreignId('livre_id')->constrained();
+
         });
 
-      
-    
-     
+
+
+
     }
 
     /**

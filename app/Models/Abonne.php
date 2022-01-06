@@ -23,15 +23,18 @@ class Abonne extends Model
        'prenom',
        'image',
        'student_id',
-       'date_naissance',   
+       'date_naissance',
     ];
+    public function Abonne(){
+        return $this->HasMany('App\Models\Empreinte');
+    }
     protected $date=['deleted_at'];
     protected static function booted()
     {
         static::creating(function ($ab) {
-            $ab->student_id =  Helper::IDGenerator(new Abonne, 'student_id', 8, 'STD'); 
+            $ab->student_id =  Helper::IDGenerator(new Abonne, 'student_id', 8, 'STD');
         });
     }
- 
+
 }
 
