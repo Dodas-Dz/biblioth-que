@@ -17,8 +17,8 @@ use DB;
 class StatsController extends Controller
 {
 
-   
-    
+
+
     public function Chart(){
 
 
@@ -40,7 +40,7 @@ class StatsController extends Controller
         foreach($result1 as $val1)
         {
             $data1.=" ['".$val1->name."'  ,    ".$val1->livres_titre."],";
-          
+
         }
           $chartData1=$data1;
 
@@ -56,12 +56,12 @@ class StatsController extends Controller
         foreach($result2 as $val2)
         {
             $data2.=" [".$val2->annee."  ,    ".$val2->nbr_livre."],";
-          
+
         }
 
 //-----------------------------------
 
-        $result3= DB::select(DB::raw(" SELECT MONTH(`created_at`) AS mois, 
+        $result3= DB::select(DB::raw(" SELECT MONTH(`created_at`) AS mois,
         COUNT(CASE WHEN rendu = 0 THEN 1 END ) AS nbr_livre_empreinter,
         COUNT(CASE WHEN rendu = 1 THEN 1 END ) AS nbr_livre_rendu
         FROM empreintes
@@ -73,23 +73,23 @@ class StatsController extends Controller
       foreach($result3 as $val3)
       {
           if($val3->mois==1 )
-          { 
+          {
             $data3=" ['janvier' ,    ".$val3->nbr_livre_empreinter." ,  ".$val3->nbr_livre_rendu."],";
           }
           else
           $data3.=" ['mois'  ,    ".$val3->nbr_livre_empreinter." ,  ".$val3->nbr_livre_rendu."],";
-        
-          
+
+
       }
-         
-      
+
+
 
        return view('admin.statistic',compact('chartData1','data2','data3','abonne', 'categorie', 'mot', 'message', 'livre','livre_emp'));
 
     }
-   
+
     //
 
-   
-  
+
+
 }

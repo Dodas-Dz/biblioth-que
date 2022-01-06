@@ -29,8 +29,8 @@ class CategorieController extends Controller
         //
         $request->validate([
             'name'=> ['required', 'string', 'max:255'],
-           
-           
+
+
             ]);
     }
 
@@ -45,8 +45,8 @@ class CategorieController extends Controller
         //
         Categorie::create([
             'name' => $request->input('name'),
-           
-          ]); 
+
+          ]);
         return redirect()->route('categorie');
     }
 
@@ -67,14 +67,16 @@ class CategorieController extends Controller
      * @param  \App\Models\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-   
-    public function getCategories() 
+
+    public function getCategories()
     {
-        $categories = Categorie::all(); 
+        $categories =   DB::select(DB::raw("SELECT COUNT(titre) AS livres_titre,categories.name,category_id
+        FROM livres
+        LEFT JOIN  categories ON categories.id = livres.category_id
+        GROUP BY livres.category_id"));
 
-        $categorie = DB::table('livres')->count();
 
-        return view('admin.categorie',compact('categories', 'categorie'));
+        return view('admin.categorie',compact('categories'));
     }
 
     /**
@@ -87,20 +89,20 @@ class CategorieController extends Controller
     public function edit($id)
     {
         //
-        $categorie= Categorie::findOrFail($id);  
-    
+        $categorie= Categorie::findOrFail($id);
+
         return view('admin.categorie',compact('categorie'));
     }
     public function update(Request $request, $id)
     {
         //
-        $categorie= Categorie::findOrFail($id);  
-    
+        $categorie= Categorie::findOrFail($id);
+
         $categorie -> name= $request->input('name');
-       
+
 
         $categorie->update();
-    
+
         return redirect()->route('categorie')->with('success', 'Livre mis à jour avec succèss');
     }
 

@@ -34,7 +34,7 @@ class MessageController extends Controller
 
         ]);
         return redirect()->route('Apropos');
-        
+
     }
     public function fetch_data(Request $request){
 

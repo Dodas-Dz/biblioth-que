@@ -6,7 +6,7 @@
           <div class="navbar-wrapper">
             <a class="navbar-brand font-weight-bold" href="javascript:void(0)">Dashboard</a>
           </div>
-         
+
       </nav>
 
       <!-- End Navbar -->
@@ -15,12 +15,12 @@
 
           <div class="aa">
           <div class="row">
-          
+
             <div class="col-xl-2 col-12">
               <div class="card shadow-lg p-2 mb-5 card-focus border"  >
                 <div class="bg-opacity-2" >
                 <div class="card-content">
-                  
+
                    <a href="{{route('liste')}}" class="d-flex fs-0 " style="color:#00B0FF" ><small>Voir Plus > </small></a>
                   <div class="card-body">
                     <div class="media d-flex">
@@ -32,13 +32,13 @@
                       </div>
                     </div>
                   </div>
-                 
+
                 </div>
               </div>
               </div>
             </div>
 
-          
+
 
             <div class="col-xl-2 col-lg-12">
               <div class="card shadow-lg p-2 mb-5" >
@@ -55,12 +55,12 @@
                         <div class="text-right">
                         <h4>{{$message}}</h4>
                         <h6 class="text-muted"><span>Message </span></h6>
-                        
+
                         </div>
                     </div>
                   </div>
                   </div>
-                  
+
                 </div>
               </div>
               </div>
@@ -83,15 +83,15 @@
                       </div>
                     </div>
                   </div>
-                 
+
                 </div>
               </div>
               </div>
             </div>
 
-          
-       
-          
+
+
+
             <div class="col-xl-2 col-12">
               <div class="card shadow-lg p-2 mb-5" >
                 <div class="bg-opacity-2" >
@@ -108,13 +108,13 @@
                       </div>
                     </div>
                   </div>
-                  
+
                 </div>
               </div>
               </div>
             </div>
 
-           
+
 
             <div class="col-xl-2 col-lg-12">
               <div class="card shadow-lg p-2 mb-5" >
@@ -125,20 +125,20 @@
                   <div class="card-body">
                     <div class="media d-flex">
                       <div class="align-self-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#00BFA6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>                    
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#00BFA6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
 
-                       </div>                  
+                       </div>
                         <div class="media-body ">
 
                         <div class="text-right">
                         <h5>{{$livre}}</h5>
                         <h6 class="text-muted"><span>Livres  </span></h6>
-                        
+
                         </div>
                     </div>
                   </div>
                   </div>
-                  
+
                 </div>
               </div>
               </div>
@@ -160,7 +160,7 @@
                       </div>
                     </div>
                   </div>
-                 
+
                 </div>
               </div>
               </div>
@@ -189,7 +189,7 @@
               </div>
             </div>
           </div>
-         
+
           </div>
 
 
@@ -210,10 +210,10 @@
                 </div>
               </div>
             </div>
-           
+
           </div>
 
-         
+
 
             <div class="row">
             <div class="col-xl-12 col-lg-12 ">
@@ -240,7 +240,7 @@
 
               </div>
             </div>
-      
+
 
 
     </div>
@@ -251,7 +251,7 @@
     .aa .card:hover {
       transform: scale(1.1);
     }
-    
+
     .aa .card{
       transition: transform 0.2s ease;
     }
@@ -260,26 +260,26 @@
             <script type="text/javascript">
               google.charts.load('current', {'packages':['corechart']});
               google.charts.setOnLoadCallback(drawChart);
-        
+
               function drawChart() {
                 var data = google.visualization.arrayToDataTable([
                   ['Année', 'nombre livre'],
                 <?php echo $data2; ?>
                 ]);
-        
+
                 var options = {
                   title: 'Nombre de livre par année',
                   curveType: 'function',
                   legend: { position: 'bottom' }
                 };
-        
+
                 var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-        
+
                 chart.draw(data, options);
               }
             </script>
   //<!---------line chat----------->
- 
+
 <script>
   google.charts.load('current', {packages: ['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawBasic);
@@ -289,7 +289,7 @@ function drawBasic() {
       var data = google.visualization.arrayToDataTable([
         ['Mois', 'nbr livre emprunter','nbr livre rendu'],
         <?php echo $data3; ?>
-        
+
       ]);
 
       var options = {
@@ -312,11 +312,11 @@ function drawBasic() {
 
   //<!---------------fin line chart-------------->
 
-  
+
  // <!--piie chart---->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript"></script>
-    
+
   <script>
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
@@ -326,7 +326,7 @@ function drawBasic() {
       var data = google.visualization.arrayToDataTable([
         ['Categorie', 'Nombre de livre'],
         <?php echo $chartData1; ?>
-        
+
       ]);
 
       var options = {
@@ -338,15 +338,15 @@ function drawBasic() {
 
       chart.draw(data, options);
     }
-  
+
   </script>
   //<!-----fin pie chart---->
 
 
 
   //<!------------------bar chart------------------->
- 
-          
+
+
   //<!----------------fin bar chart ---------------->
 
    // <!--   Core JS Files   -->
