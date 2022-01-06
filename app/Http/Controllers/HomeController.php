@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function statistic()
     {
         
-        return view('/admin/statistic');
+        return view('admin.statistic');
     }
     public function profileadmin()
     {
@@ -83,11 +83,6 @@ class HomeController extends Controller
         return view('admin.notification', compact('abonne', 'categorie', 'mot', 'message', 'livre','livre_emp'));
 
     } 
-    public function lineChart(){
-
-
-        return view('admin.linechart');
-
-    }
+   
     
 }

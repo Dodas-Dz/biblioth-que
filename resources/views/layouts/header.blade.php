@@ -71,6 +71,12 @@
             </a>
           </li>
           <li class="nav-item ">
+            <a class="nav-link" href="{{route('listeemprente')}}">
+              <i class="material-icons">library_books</i>
+              <p>Liste des Livres Empreinté</p>
+            </a>
+          </li>
+          <li class="nav-item ">
             <a class="nav-link" href="{{route('categorie')}}">
               <i class="material-icons">category</i>
               <p>Liste des Catégorie</p>
@@ -102,7 +108,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="{{route('rendre')}}">
               <i class="material-icons">autorenew </i>
-              <p>Renre Livre</p>
+              <p>Rendre Livre</p>
             </a>
           </li>
 

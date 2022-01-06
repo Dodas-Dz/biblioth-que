@@ -6,6 +6,7 @@ use App\Models\Empreinte;
 use App\Models\Abonne;
 use App\Models\Livre;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class EmpreinteController extends Controller
 {
@@ -28,6 +29,16 @@ class EmpreinteController extends Controller
     {
         //
     }
+    public function show()
+    {
+
+        $empreinte=Empreinte::all();
+        $livre=Livre::all();
+        $abonne=Abonne::all();
+
+
+       return view('admin.listeemprente',compact('empreinte','livre','abonne'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -43,6 +54,7 @@ class EmpreinteController extends Controller
 
             $Abonne_code=$request->input('code_abonne');
             $Livre_code=$request->input('code_livre');
+            $date=Carbon::now()->toDateTimeString();
 
 
              if ($ab = Abonne::where('student_id',$Abonne_code)->first())
@@ -51,19 +63,23 @@ class EmpreinteController extends Controller
                 {   $abonne = Abonne::where('student_id',$Abonne_code)->get();
                     Empreinte::create([
                         'livre_id' => $livre->id,
-                        'abonne_id' => $ab->id
+                        'abonne_id' => $ab->id,
+                        'date_fin'=>date('Y-m-d', strtotime($date. ' + 15 days'))
                       ]);
                       $livre->nbr = $livre->nbr-1;
                       $livre->save();
-                    return redirect()->route('emprunter');
+                      $request->session()->flash('succe','vous avez bien empreinte le livre');
+                      return redirect()->route('emprunter');
                 }
                 else{
-                    echo "erreur Isbn Livre dont exist" ;
+                    $request->session()->flash('echec','erreur Isbn Livre dont exist');
+                    return redirect()->route('emprunter');
                 }
               }
             else
             {
-                echo "erreur Abonne dont exist" ;
+                $request->session()->flash('echec','erreur Abonne dont exist');
+                return redirect()->route('emprunter');
 
             }
     }
@@ -79,11 +95,14 @@ class EmpreinteController extends Controller
         $c->save();
         $livre->nbr = $livre->nbr+1;
         $livre->save();
-        return redirect()->route('emprunter');
+        $request->session()->flash('succe','le livre a bien été rendu');
+        return redirect()->route('rendre');
+
      }
      else
      {
-         echo("emprente introvabre ou le livre est deja rendu");
+        $request->session()->flash('echec','emprente introvabre ou le livre est deja rendu');
+        return redirect()->route('rendre');
      }
     }
 
@@ -93,16 +112,7 @@ class EmpreinteController extends Controller
      * @param  \App\Models\Empreinte  $empreinte
      * @return \Illuminate\Http\Response
      */
-    public function show()
-    {
 
-        $empreinte=Empreinte::all();
-        $livre=Livre::all();
-        $abonne=Abonne::all();
-
-
-        return view('admin.statistic', compact('empreinte','livre','abonne'));
-    }
 
     /**
      * Show the form for editing the specified resource.
