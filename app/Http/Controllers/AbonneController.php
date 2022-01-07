@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Abonne;
+use App\Models\Empreinte;
 use App\Helpers\Helper;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ use App\Notifications\abonneNotification;
 use App\Http\Requests\CreateSubscriberRequest;
 
 
-
+use DB;
 Use Notifiable;
 class AbonneController extends Controller
 {
@@ -22,11 +23,23 @@ public $pdf;
 
     public function abonne() 
     {
-        $abonnes= Abonne::orderBy('created_at', 'DESC')->paginate(10);              
-        return view('admin.liste',compact('abonnes'));
+
+        $abonnes= Abonne::orderBy('created_at', 'DESC')->paginate(10);  
+        
+        $emprent_nbr=DB::select(DB::raw(" SELECT  abonne_id AS id, 
+        COUNT(CASE WHEN rendu = 0 THEN 1 END ) AS nbr_livre_empreinter,
+        COUNT(CASE WHEN rendu = 1 THEN 1 END ) AS nbr_livre_rendu
+        FROM empreintes
+        GROUP BY abonne_id; "));
+
+    
+        return view('admin.liste',compact('abonnes','emprent_nbr'));
     }
 
   
+  
+
+
     public function create(CreateSubscriberRequest $request)
     {   
         
@@ -66,7 +79,7 @@ public $pdf;
     {
         $abonnes = Abonne::find($id);
         
-     $customPaper = array(0,0,198.42,368.50);
+     $customPaper = array(0,0,215.42,368.50);
 
        $pdf = \PDF::loadView('admin.pdf', compact('abonnes'))->setPaper($customPaper,'landscape');;
     
@@ -77,7 +90,8 @@ public $pdf;
     public function edit($id)
     {
         $abonnes= Abonne::findOrFail($id);  
-    
+
+        
         return view('admin.liste',compact('abonnes'));
        
        

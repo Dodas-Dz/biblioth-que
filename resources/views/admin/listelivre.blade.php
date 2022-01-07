@@ -105,7 +105,8 @@
                             <!-- Modal body -->
                             <div class="modal-body">
                               <div class="row align-items-center mb-3">
-                                <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75" src="{{asset($livre->image)}}" alt="wonder.png"></div>
+                                <div class=" col-md-6 "> <img class="img-fluid rounded float-start"  width="250px" height="250px" src="{{asset('livre/'.$livre->image)}}" />
+                                  <img class="img-fluid rounded float-start " width="250px" height="250px" src="{{$livre->image}}" /></div>
                                 <div class="col-md-6">
                                     <h5>
                                       Auteur: </h5><p>{{$livre->auteur}}</p>
@@ -252,7 +253,8 @@
                     <label for="formFile" class="form-label col-12">L'image de couverture</label>
                     <i class="fas fa-image input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                     <input name="image" class="form-control form-little-squirrel-control form-control-sm" type="file" id="formFile" placeholder="Insérer une image"required accept=".jpg,.gif,.png">
-                    <img class="img-fluid rounded float-start h-75" src="{{asset($livre->image)}}" alt="wonder.png">
+                    <img class="img-fluid rounded float-start " src="{{asset('livre/'.$livre->image)}}" width="150px" height="150px">
+                    <img class="img-fluid rounded float-start h-75" width="150px" height="150px" src="{{$livre->image}}" />
                   </div>
 
                   <div class="input-group-icon mb-3">
@@ -366,14 +368,11 @@
                  <div class="input-group-icon mb-3">
                   <label class="form-label col-12" for="inputMotcle">Mots Clé</label>
 
-                  <select class="form-select form-select-sm form-little-squirrel-control mdb-select dropdown-primary md-form" multiple data-mdb-filter="true" searchable="Search here..">
+                  <select class="form-select form-select-sm form-little-squirrel-control mdb-select dropdown-primary md-form" multiple data-mdb-filter="true" >
 
                     <option value="" disabled selected>Choisir un Mot clé</option>
-                    <option value="1">USA</option>
-                    <option value="2">Germany</option>
-                    <option value="3">France</option>
-                    <option value="4">Poland</option>
-                    <option value="5">Japan</option>
+
+                   
                   </select>
 
                     </div>

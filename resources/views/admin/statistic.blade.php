@@ -17,7 +17,7 @@
           <div class="row">
 
             <div class="col-xl-2 col-12">
-              <div class="card shadow-lg p-2 mb-5 card-focus" >
+              <div class="card shadow-lg p-2 mb-5 card-focus border"  >
                 <div class="bg-opacity-2" >
                 <div class="card-content">
 

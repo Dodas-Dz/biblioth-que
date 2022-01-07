@@ -15,7 +15,7 @@ class LivreController extends Controller
     public function livres()
     {
 
-        $livresfiltre= Livre::paginate(20);
+        $livresfiltre= Livre::orderBy('anneé', 'DESC')->paginate(20);
         $categories =Categorie::all();
         $mot =Mot::all();
 
@@ -58,15 +58,15 @@ class LivreController extends Controller
             'categories'=> ['required'],
             'description' => ['required'],
             ]);
-            if($request->hasFile('image'))
-            {
-                $image=$request->file('image');
-                $image_name = $image->getClientOriginalName();
-                $path='public/image/abonne';
-                $filename= time(). $image_name;
-                $request->file('image')->storeAs($path,$filename);
+        
+            
+        if($request->hasFile('image'))
+        {
+            $imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('/livre'), $imageName);
 
-            }
+        }
+           
             Livre::create([
                 'titre' => $request->input('name'),
                 'isbn' => $request->input('isbn'),
@@ -76,7 +76,7 @@ class LivreController extends Controller
                 'resumer' =>$request->input('description'),
                 'nbr'=> $request->input('nbr'),
                 'langue'=>$request->input('langue'),
-                'image'=> $path .'/' .$filename ,
+                'image'=> $imageName ?? null ,
 
               ]);
 

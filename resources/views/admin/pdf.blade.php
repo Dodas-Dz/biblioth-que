@@ -19,9 +19,7 @@
 	padding: 0;
 }
 
-body {
-	background:rgb(179, 168, 182);
-}
+
 h3{
   z-index: 1000;
   color:rgb(61, 59, 49);
@@ -31,7 +29,7 @@ h3{
 .page {
 	width: 100%;
 	height:100%;
-	background: rgb(179, 168, 182);
+	background: rgb(110, 110, 110);
 	margin: 0px 0;
 	position: relative;
 	overflow: hidden;
@@ -40,7 +38,7 @@ h3{
 .page .overlay #left_rect {
 	width: 200%;
 	height: 175px;
-	background: #f1bc67;
+	background: #ff9d00;
 	position: absolute;
     z-index: 1;
     transform: rotate(-45deg);
@@ -51,7 +49,7 @@ h3{
 .page .overlay #right_rect {
 	width: 200%;
 	height: 420px;
-	background: #643f86;
+	background: #4b0091;
 	position: absolute;
     transform: rotate(16.18deg);
     z-index: 2;
@@ -63,7 +61,7 @@ h3{
 .page .overlay {
 	width: 100%;
 	height: 100%;
-	background: rgb(255, 255, 255);
+	background: rgb(226, 226, 226);
 	padding: 5px 0px 0;
 }
 
@@ -76,10 +74,10 @@ h3{
     z-index: 2;
 }
 
-.page .overlay h5 {
-  margin-top: 150px;
-  margin-left: 30px;
-  color:rgb(8, 8, 8);
+.page .overlay h3 {
+  margin-top: 0px;
+  margin-left: 150px;
+  color:rgb(255, 255, 255);
   font-family: system-ui;
 }
 
@@ -95,6 +93,10 @@ margin-left: 50px;
   font-family: cursive;
 }
 
+.code {
+  margin-left: 285px;
+ 
+}
 
 
 </style>
@@ -118,7 +120,7 @@ margin-left: 50px;
    
    <ul>
            
-    <!-- <li> <img class="card-img-top w-100" src="{{url('$Abonne->image')}}"/> </li>-->
+    <!--<li> <img class="card-img-top w-100" src="{{asset('abonnes/'.$abonnes->image)}}"/> </li>-->
           <li>
               <b> Nom : </b>  {{$abonnes->name}}</li>
              <br> 
@@ -133,11 +135,13 @@ margin-left: 50px;
           <li>
               <b>N° de carte : </b> {{$abonnes->student_id}}</li>
               <br>
-     
+
     
   </ul>
 
    </div>
+  <div class="code"> {!! DNS1D::getBarcodeHTML('4445645656', 'CODABAR',3,37) !!} 
+  </div>
     
     
   </div>
