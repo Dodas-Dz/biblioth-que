@@ -7,11 +7,12 @@ use App\Models\Empreinte;
 use App\Helpers\Helper;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
-use App\Notifications\AbonneMail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 use App\Notifications\abonneNotification;  
 use App\Http\Requests\CreateSubscriberRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AbonneMail;
 
 
 use DB;
@@ -56,7 +57,27 @@ public $pdf;
             $validatedData
         ); 
         
-      $abonne->notify(new AbonneMail());
+        
+        //$mail=$abonne->mail;
+           
+          //  dd($mail);
+          $data = array(
+            'from' => env('MAIL_FROM_ADDRESS'),
+            'to' => $abonne->mail,
+            'subject' => 'Bienvenue sur Maktaba',
+            'name' => $abonne->name,
+            'prenom' => $abonne->prenom,
+            'std' => $abonne->student_id,
+          );
+         // dd($data);
+          Mail::to($data['to'])
+                              ->send(new AbonneMail($data));
+    
+        
+    //  Mail::to('$mail')->send(new AbonneMail()); 
+
+
+      $abonne->notify(new abonneNotification());
 
        $users = User::all();
         $abone = $abonne->name;
@@ -66,9 +87,7 @@ public $pdf;
             $user->notify(new abonneNotification($abone)); 
             # code...
         }
-     
-
-
+        
         return redirect()->route('liste');
 
     }

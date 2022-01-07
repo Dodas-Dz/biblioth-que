@@ -2,7 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StatsController;
+use App\Mail\AbonneMail;
+use Illuminate\Support\Facades\Mail;
 
+/*Route::get('/email',function(){
+    Mail::to('email@gmail.com')->send(new AbonneMail());
+
+    return new AbonneMail();
+});*/
 
 
 Auth::routes();
