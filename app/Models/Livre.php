@@ -22,15 +22,27 @@ class Livre extends Model
         'category_id',
 
     ];
-    protected $date=['deleted_at'];
+    protected $date = ['deleted_at'];
 
-    public function categorie(){
-        return $this->belongsTo('App\Models\Categorie','category_id');
+    public function categorie()
+    {
+        return $this->belongsTo('App\Models\Categorie', 'category_id');
     }
-    public function mot(){
+    public function mots()
+    {
         return $this->hasMany('App\Models\Mot');
     }
-    public function Empreinte(){
+    public function Empreinte()
+    {
         return $this->hasMany('App\Models\Empreinte');
+    }
+    public function scopeSearch($query, $key_word)
+    {
+
+        return $query->where('titre', 'LIKE', '%' . $key_word . '%')
+            ->orwhere('isbn', 'LIKE', '%' . $key_word)
+            ->orWhereHas('mots', function ($q) use ($key_word) {
+                $q->where('mot_cle', 'LIKE', $key_word);
+            });
     }
 }
