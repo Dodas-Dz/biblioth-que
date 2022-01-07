@@ -17,7 +17,7 @@ class Mot extends Model
     ];
     protected $date=['deleted_at'];
 
-    public function Livre(){
+    public function livre(){
         return $this->belongsTo('App\Models\Livre','livre_id');
     }
 

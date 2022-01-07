@@ -31,8 +31,7 @@ class LivreController extends Controller
      $categories =Categorie::all();
      $mot =Mot::all();
      $search_text = $request->input('q');
-     $livresfiltre= Livre::where('titre','LIKE','%'.$search_text.'%')
-                ->orwhere('isbn','LIKE','%'.$search_text)
+     $livresfiltre= Livre::search($search_text)
                 ->paginate(15);
                 return view('admin.listelivre',compact('categories','mot','livresfiltre'));
 
@@ -132,9 +131,8 @@ public function update(Request $request, $id)
          $mot =Mot::all();
          $search_text = $request->input('q');
          $search_categorie = $request->input('inputCategories');
-         $livres = Livre:: where([['titre','LIKE','%'.$search_text.'%'],['category_id','=',$search_categorie]])
-                    ->orwhere('isbn','=',$search_text)
-                    ->paginate(16);
+         $livres =  Livre::search($search_text)->where('category_id','=',$search_categorie)
+         ->paginate(15);
         return view('user.recherche',compact('livres','mot','categories'));
 
 
