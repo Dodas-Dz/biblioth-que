@@ -122,6 +122,9 @@
 
                                     <h5 >
                                       Categorie: </h5><p>{{$livre->Categorie->name}}</p>
+                                    
+                                      <h5 >
+                                        Mots Clé: </h5><p>{{$livre->mot}}</p>
 
                                 </div>
 
@@ -225,18 +228,7 @@
                     </select>
                   </div>
 
-             <div class="input-group-icon mb-3">
-              <label class="form-label col-12" for="inputMotcle">Mots Clé</label>
-
-              <select class="form-select form-select-sm form-little-squirrel-control mdb-select dropdown-primary md-form" multiple data-mdb-filter="true" searchable="Search here..">
-
-                <option value="" disabled selected>Choisir un Mot clé</option>
-                @foreach($mot as $cat)
-                <option name="categorie" value="{{$cat->id}}">{{$cat->name}}</option>
-                @endforeach
-              </select>
-
-                </div>
+            
 
               <div class="input-group-icon mb-3">
                 <label class="form-label col-12" for="inputCategories">Langue</label>
@@ -365,18 +357,7 @@
                         </select>
                       </div>
 
-                 <div class="input-group-icon mb-3">
-                  <label class="form-label col-12" for="inputMotcle">Mots Clé</label>
-
-                  <select class="form-select form-select-sm form-little-squirrel-control mdb-select dropdown-primary md-form" multiple data-mdb-filter="true" >
-
-                    <option value="" disabled selected>Choisir un Mot clé</option>
-
-                   
-                  </select>
-
-                    </div>
-
+                     
                   <div class="input-group-icon mb-3">
                     <label class="form-label col-12" for="inputCategories">Langue</label>
                         <select name="langue" class="form-select form-select-sm form-little-squirrel-control col-12" aria-label=".form-select-sm example">

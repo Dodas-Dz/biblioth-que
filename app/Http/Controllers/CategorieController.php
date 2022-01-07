@@ -70,7 +70,7 @@ class CategorieController extends Controller
 
     public function getCategories()
     {
-        $categories =   DB::select(DB::raw("SELECT COUNT(titre) AS livres_titre,categories.name,category_id
+        $categories = DB::select(DB::raw("SELECT COUNT(titre) AS livres_titre,categories.name,category_id
         FROM livres
         LEFT JOIN  categories ON categories.id = livres.category_id
         GROUP BY livres.category_id"));

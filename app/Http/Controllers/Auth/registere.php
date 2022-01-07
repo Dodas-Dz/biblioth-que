@@ -29,10 +29,41 @@ class registere extends Controller
         return redirect()->route('listeuser');
   
     }
+    public function edit($id)
+    {
+        $users= User::findOrFail($id);  
+
+        
+        return view('admin.listeuser',compact('users'));
+       
+       
+    }
+    
+    public function update(Request $request, $id)
+    { 
+       
+        $users= User::findOrFail($id);  
+    
+        $users -> name= $request->input('name');
+        $users-> prenom = $request->input('prenom');
+        $users -> email = $request->input('email');
+
+        $users->update();
+    
+        return redirect()->route('listeuser')->with('success', 'Employe est mis à jour avec succèss');
+    }
 
     public function getUser()
     {
         $users= User::all();                    
         return view('admin.listeuser',compact('users'));
     }
+
+    public function delete($id)
+    {
+        $users = User::find($id);
+        $users->delete();
+        return back();
+    }
+   
 }

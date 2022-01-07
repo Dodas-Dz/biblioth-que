@@ -6,7 +6,10 @@ use App\Models\Livre;
 use Illuminate\Http\Request;
 use App\Models\Categorie;
 use App\Models\Mot;
+use App\Models\Abonne;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\LivreMail;
 use DB ;
 
 class LivreController extends Controller
@@ -17,9 +20,8 @@ class LivreController extends Controller
 
         $livresfiltre= Livre::orderBy('anneé', 'DESC')->paginate(20);
         $categories =Categorie::all();
-        $mot =Mot::all();
-
-
+        $mot =DB::select(DB::raw(" SELECT mot_cle FROM mots"));
+       
         return view('admin.listelivre',compact('categories','mot','livresfiltre'));
     }
 
@@ -45,6 +47,14 @@ class LivreController extends Controller
         return view('user.recherche',compact('livres','mot','categories'));
     }
 
+    public function livrehome()
+    {
+        $livres= DB::select(DB::raw("SELECT * FROM livres LIMIT 4;"));
+        $categories =Categorie::all();
+        $mot =Mot::all();
+        return view('user.index',compact('livres','mot','categories'));
+    }
+
 
     public function AjouterL(Request $request)
     {
@@ -67,7 +77,7 @@ class LivreController extends Controller
 
         }
            
-            Livre::create([
+           $livre= Livre::create([
                 'titre' => $request->input('name'),
                 'isbn' => $request->input('isbn'),
                 'auteur' => $request->input('nom_auteur'),
@@ -80,7 +90,24 @@ class LivreController extends Controller
 
               ]);
 
+          $abonnes=Abonne::all();
 
+          foreach ($abonnes as $abonne) {
+
+              $data = array(
+                'from' => env('MAIL_FROM_ADDRESS'),
+                'to' => $abonne->mail,
+                'subject' => 'Nouveaux Livres chez Maktaba',
+                'name' => $abonne->name,
+                'prenom' => $abonne->prenom,
+                'std' => $abonne->student_id,
+                'titre' => $livre->titre,
+              );
+             // dd($data);
+              Mail::to($data['to'])
+                                  ->send(new LivreMail($data));
+
+            }
 
             return redirect()->route('listelivre');
 

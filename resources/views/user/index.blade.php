@@ -56,118 +56,91 @@
 
 
 </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/wonderbookcover.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Wonder</h5><a class="text-muted fs--1 stretched-link text-decoration-none categorie1" href="#!">kid novel</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/iternalchallengebook.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">The Eternal Challenge</h5><a class="text-muted fs--1 stretched-link text-decoration-non categorie2" href="#!">islamic</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/thechoicebook.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">The choice</h5><a class="text-muted fs--1 stretched-link text-decoration-none categorie3" href="#!">islamic</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/deamonslayermanga.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Demon Slayer</h5><a class="text-muted fs--1 stretched-link text-decoration-none categorie4" href="#!">manga</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/harrypotterbook.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Harry Potter</h5><a class="text-muted fs--1 stretched-link text-decoration-none categorie5" href="#!">novel</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/dragonlovetacos.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Dragons Love Tacos</h5><a class="text-muted fs--1 stretched-link text-decoration-none categorie6" href="#!">kids</a>
-          </div>
-        </div>
-      </div>
+ <!-- <section> begin ============================-->
+<section class="pb-0" style="margin-top:-7rem">
 
-      <!--
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/user-design.png" alt="courses" />
+  <div class="container">
+
+   
+    <div class="row">
+      @foreach($livres as $livre)
+      <div class="col-md-3 mb-4 " id="kid_novel">
+
+        <div class="card h-80 align-items-center">
+          
+        
+
+          <img class="card-img-top w-100" src="{{$livre->image}}" alt="Responsive image"/>
           <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">User Research for User Experience Design</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">The Museum of Modern Art</a>
+
+            <h4 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">{{$livre->titre}}</h4>
+
+            <a href="#!" class="text-muted fs--1 stretched-link text-decoration-none " data-bs-toggle="modal" data-bs-target="#livres{{$livre->id}}">
+            </a>
+           
+            <div class="modal" id="livres{{$livre->id}}">
+              <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h2 class="text-center modal-title ">{{$livre->titre}}</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <div class="row align-items-center mb-3">
+                      <div class=" col-md-6 "> <img class="img-fluid rounded float-start h-75" src="{{$livre->image}}" alt="wonder.png"></div>
+                      <div class="col-md-6">
+                          <h5>
+                            Auteur: </h5><p>{{$livre->auteur}}</p>
+                          
+                          <h5>
+                            ISBN: </h5><p>{{$livre->isbn}}</p>
+                          
+                          <h5>
+                            Année:</h5> <p class="date">{{$livre->anneé}}</p>
+                          
+                          <h5>
+                            Langues:</h5> <p>{{$livre->langue}}</p>
+                          
+                         
+                          
+                      </div>
+                      
+                    </div>
+                   <div class="row"><h3 class="text-center">Description</h3>
+                    <p>
+                      {{$livre->resumer}}
+                       </p>
+                    </div> 
+                      
+                      
+            
+                  </div>
+            
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                  </div>
+                </div>
+
+                
+              </div>
+            </div>
           </div>
+          
         </div>
+        
       </div>
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/critical-thinking.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Introduction to Logic and Critical Thinking</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">Duke University</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/art-design.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Modern and Contemporary Art and Design</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">The Museum of Modern Art</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/user-research.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Modern and Contemporary Art and Design</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">The Museum of Modern Art</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/photographs.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Advance on Seeing Through Photographs</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">Duke University</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/ux.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Modern and Contemporary Art and Design</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">The Museum of Modern Art</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/design.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">User Research for User Experience Design</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">The Museum of Modern Art</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/critical-thinking.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Introduction to Logic and Critical Thinking</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">Duke University</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="assetsU/img/gallery/art-design-1.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Modern and Contemporary Art and Design</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">The Museum of Modern Art</a>
-          </div>
-        </div>
-      </div>-->
+      @endforeach
+     
+
+     
     </div>
   </div>
   <!-- end of .container-->
+
+</section>
 
 </section>
 <!-- <section> close ============================-->

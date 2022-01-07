@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->SoftDeletes();
+            $table->SoftDeletes('deleted_at');
             $table->enum('role',  ['gestion','admin']);
         });
         DB::table('users')->insert(

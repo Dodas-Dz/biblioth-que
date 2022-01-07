@@ -50,6 +50,12 @@ Route::get('/listeemprente', [App\Http\Controllers\EmpreinteController::class, '
 
 
 Route::post('/AjouterGestionnaire', [App\Http\Controllers\Auth\registere::class, 'create'])->middleware('can:isAdmin')->name('create');
+
+Route::get('/modifier-employe/{id}', [App\Http\Controllers\Auth\registere::class, 'edit'])->middleware('can:isAdmin')->name('user.edit');
+Route::put('/modifier-employe/{id}', [App\Http\Controllers\Auth\registere::class, 'update'])->middleware('can:isAdmin')->name('user.update');
+Route::get('/supprimer-employe/{id}', [App\Http\Controllers\Auth\registere::class, 'delete'])->middleware('can:isAdmin')->name('user.delete');
+
+
 Route::post('/liste', [App\Http\Controllers\abonneController::class, 'create'])->middleware('can:isAdmin')->name('createabonne');
 Route::get('deleteAbonne/{id}',[App\Http\Controllers\AbonneController::class,'deleteAbonne'])->middleware('can:isAdmin')->name('abonne.delete');
 Route::get('deletelivres/{id}',[App\Http\Controllers\LivreController::class,'deleteLivre'])->middleware('can:isAdmin')->name('Livre.delete');
@@ -85,5 +91,7 @@ Route::get('/Enprente', [App\Http\Controllers\GuestServer::class, 'Emprente'])->
 
 Route::get('/Apropos', [App\Http\Controllers\GuestServer::class, 'Apropos'])->name('Apropos');
 Route::get('/recherche', [App\Http\Controllers\LivreController::class, 'Livress'])->name('recherche');
+
+Route::get('/', [App\Http\Controllers\LivreController::class, 'livrehome']);
 Route::get('/recherchee', [App\Http\Controllers\LivreController::class, 'search'])->name('search');
 Route::post('/Apropos', [App\Http\Controllers\MessageController::class, 'create'])->name('Apropos');

@@ -37,7 +37,7 @@
                        <div> <td>{{ Auth::user()->name }}</td></div>
                       </div>
                     
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                       
                       </tr>
                       <tr class="  text-dark"> 
                        <div>
@@ -45,7 +45,7 @@
                        <div> <td>{{ Auth::user()->prenom }}</td></div>
                       </div>
                     
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                      
                       </tr>
                       <tr class="  text-dark"> 
                        <div>
@@ -61,7 +61,7 @@
                        <div> <td>{{ Auth::user()->role }}</td></div>
                       </div>
                     
-                        <td><a href="#"><i class="fa fa-edit" ></i></a></td>
+                       
                       </tr>
                     </tbody>
                   </table>
@@ -70,13 +70,7 @@
         </div>
                
               </div>
-                  <div>
-              <button type="submit"  class="btn btn-primary pull-right" >
-                      <a class=" fw-bold fs-1"
-                         href="#"> 
-                        <i class="fw-bold fs-2 fa fa-plus text-white ms- n2"> </i> </a>Enregistrer</button>
-                   
-                      </div>
+              
             
            
       
