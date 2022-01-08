@@ -59,58 +59,58 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
-      <div class="container"><a class="navbar-brand" href="{{Route('homee')}}"><img src="assets/img/favicon.png" height="60" width="150" alt="logo" /></a>
+      <div class="container"><a class="navbar-brand" href="http://localhost:8000/"><img src="assets/img/favicon.png" height="60" width="150" alt="logo" /></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
         <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
-         
+
           <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
           @guest
-            <li class="nav-item px-2"><a class="fw-bold fs-1  nav-link active" aria-current="page" href="{{Route('homee')}}">Accueil</a></li>
-        
+            <li class="nav-item px-2"><a class="fw-bold fs-1  nav-link active" aria-current="page" href="http://localhost:8000/">Accueil</a></li>
+
             <li class="nav-item px-2"><a class="fw-bold fs-1 nav-link" aria-current="page" href="{{Route('recherche')}}">Livre</a></li>
-      
+
             <li class="nav-item px-2"><a class="fw-bold fs-1 nav-link" aria-current="page" href="{{Route('Apropos')}}">A propos</a></li>
-            <li class="nav-item px-2 ms-4 me-n8 "> <a class="btn btn-primary btn-lg fw-bold fs-1" 
+            <li class="nav-item px-2 ms-4 me-n8 "> <a class="btn btn-primary btn-lg fw-bold fs-1"
               aria-current="page" role="button" aria-haspopup="true" aria-expanded="false" v-pre
                href="{{Route('Emprente')}}">
                 <i class="fw-bold fs-2 fas fa-book me-2 mt-0"> </i> Mes livres</a></li>
            @endguest
           </ul>
-         
-           
+
+
           @canany([ 'isAdmin','isGestion'])
              <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
-           
+
                       <li class="nav-item px-2 mt-n1"><a class="fw-bold fs-0  nav-link active" aria-current="page" href="{{Route('homee')}}">
-                        <i class="fs-1 fas fa-home me-2 mt-0 text-secondary" > </i>Accueil</a></li>                                                                                                                                     
+                        <i class="fs-1 fas fa-home me-2 mt-0 text-secondary" > </i>Accueil</a></li>
                       <li class="nav-item px-2 mt-n1"><a class="fw-bold fs-0 nav-link" aria-current="page" href="{{Route('recherche')}}">
                         <i class="fs-1 fas fa-book me-2 mt-0 text-secondary" > </i>Livre</a></li>
                      <!-- <li class="nav-item px-2"> <a class="fw-bold fs-1 nav-link" aria-current="page" href="{{route('statistic')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> <i class="fas fa-user-cog">   </i>     {{ Auth::user()->name }} </a></a></li>
                       <li class="nav-item px-2"> <a class="btn btn-primary btn-lg fw-bold fs-1" aria-current="page" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a> </li>
                       <li class="nav-item px-2">-->
 
-                        
+
                         <li class="nav-item dropdown dropleft">
-                        
+
                           <div class="dropdown ms-4 me-n5">
-                            <a class="btn btn-primary btn-sm dropdown-toggle fw-bold text-secondary" role="button"  id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            <a class="btn btn-primary btn-sm dropdown-toggle fw-bold text-secondary" role="button"  id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                              <i class="fs-1 fas fa-user me-2 mt-0 text-secondary" ></i>
                               Mon Compte
                              </a>
 
                           <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
 
-                             
-                            <a class="dropdown-item fw-bold text-center "  style="color:rgb(63, 63, 63)" href="{{route('profileadmin')}}"> 
+
+                            <a class="dropdown-item fw-bold text-center "  style="color:rgb(63, 63, 63)" href="{{route('profileadmin')}}">
                               <i class="fs-0 fas fa-user-cog me-2 mt-0 "  style="color:rgb(63, 63, 63)" > </i>{{ Auth::user()->name }} {{ Auth::user()->prenom }}</a>
 
                             <div class="dropdown-divider"></div>
 
-                          <a class="dropdown-item text-left mt-2" href="{{route('statistic')}}"> 
+                          <a class="dropdown-item text-left mt-2" href="{{route('statistic')}}">
                             <i class="fs-0 fas fa-chart-line me-2 mt-0" style="color:rgb(139, 139, 139)"> </i>Tableau de bord</a>
 
-                          <a class="dropdown-item text-left mt-2" href="{{Route('listelivre')}}"> 
+                          <a class="dropdown-item text-left mt-2" href="{{Route('listelivre')}}">
                             <i class="fs-0 fas fa-book me-2 mt-0" style="color:rgb(139, 139, 139)"> </i>Liste Livre</a>
 
                           <a class="dropdown-item text-left mt-2" href="{{Route('categorie')}}">
@@ -130,23 +130,23 @@
 
                           <div class="dropdown-divider"></div>
 
-                          <button class="btn btn-primary btn-sm btn-warning fw-bold ms-5" style="color:rgb(63, 63, 63)" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> 
+                          <button class="btn btn-primary btn-sm btn-warning fw-bold ms-5" style="color:rgb(63, 63, 63)" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="fs-0 fas fa-sign-out-alt me-2 mt-0" style="color:rgb(63, 63, 63)"> </i>{{ __('Se déconecter') }} </button>
-                            
+
                           </div>
                         </li>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
-         
+
               @endcan
 
-             
-             
-              
+
+
+
           </ul>
         </div>
       </div>
     </nav>
-   
+
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

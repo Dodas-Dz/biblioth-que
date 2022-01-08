@@ -88,7 +88,7 @@ Route::POST('excelUpload',[App\Http\Controllers\TestController::class,'import'])
 Route::get('/home', [App\Http\Controllers\GuestServer::class, 'Home'])->name('homee');
 Route::get('/', [App\Http\Controllers\GuestServer::class, 'Home']);
 Route::get('/Enprente', [App\Http\Controllers\GuestServer::class, 'Emprente'])->name('Emprente');
-
+Route::post('/emprente', [App\Http\Controllers\EmpreinteController::class, 'voir'])->name('voir');
 Route::get('/Apropos', [App\Http\Controllers\GuestServer::class, 'Apropos'])->name('Apropos');
 Route::get('/recherche', [App\Http\Controllers\LivreController::class, 'Livress'])->name('recherche');
 

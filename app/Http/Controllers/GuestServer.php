@@ -8,7 +8,7 @@ class GuestServer extends Controller
 {
     public function Home()
     {
-        return view('user/index');
+        redirect('/');
     }
     public function Recherche()
     {
@@ -26,5 +26,5 @@ class GuestServer extends Controller
     {
         return view ('auth/passwords/confirm');
     }
-    
+
 }

@@ -39,6 +39,29 @@ class EmpreinteController extends Controller
 
        return view('admin.listeemprente',compact('empreinte','livre','abonne'));
     }
+    public function voir(Request $request)
+    {
+
+        $Abonne_code=$request->input('code');
+        $name=$request->input('name');
+        if($ab = Abonne::where([['student_id',$Abonne_code],['name','=',$name]])->first())
+        {
+           if($emrente=Empreinte::where('abonne_id','=',$ab->id)->get())
+           {
+            return view('user/voir',compact('emrente'));
+           }
+           else
+           {
+                $request->session()->flash('echec','vous avez pas emprente de livre');
+                return view('user/Emprente');
+           }
+
+        }
+        else{
+            $request->session()->flash('echec','Nom ou N° De Carte Biblio incorrect');
+            return view('user/Emprente');
+        }
+    }
 
     /**
      * Store a newly created resource in storage.

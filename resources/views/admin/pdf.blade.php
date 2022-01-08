@@ -13,7 +13,7 @@
 
 <body>
 <style>
- 
+
  *{
 	margin: 0;
 	padding: 0;
@@ -23,7 +23,7 @@
 h3{
   z-index: 1000;
   color:rgb(61, 59, 49);
-  
+
 }
 
 .page {
@@ -95,7 +95,7 @@ margin-left: 50px;
 
 .code {
   margin-left: 285px;
- 
+
 }
 
 
@@ -107,45 +107,45 @@ margin-left: 50px;
     <div id="left_rect">
 
     </div>
-   
-        
-  
+
+
+
     <div id="right_rect">
       <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png">
 
     </div>
-  
+
     <h3>Carte Maktaba</h3>
    <div class="table">
-   
+
    <ul>
-           
-    <!--<li> <img class="card-img-top w-100" src="{{asset('abonnes/'.$abonnes->image)}}"/> </li>-->
+
+    <li> <img class="card-img-top w-100" src="{{asset('abonnes/'.$abonnes->image)}}"/> </li>
           <li>
               <b> Nom : </b>  {{$abonnes->name}}</li>
-             <br> 
-          
+             <br>
+
           <li>
               <b>Prénom : </b>  {{$abonnes->prenom}}</li>
               <br>
-          
+
             <li>  <b>Date de naissance : </b>{{$abonnes->date_naissance}}</li>
-              
+
               <br>
           <li>
               <b>N° de carte : </b> {{$abonnes->student_id}}</li>
               <br>
 
-    
+
   </ul>
 
    </div>
-  <div class="code"> {!! DNS1D::getBarcodeHTML('4445645656', 'CODABAR',3,37) !!} 
+  <div class="code"> {!! DNS1D::getBarcodeHTML('4445645656', 'CODABAR',3,37) !!}
   </div>
-    
-    
+
+
   </div>
- 
+
 </section>
 </body>
 </html>
