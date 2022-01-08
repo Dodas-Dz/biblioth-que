@@ -10,6 +10,7 @@ class GuestServer extends Controller
     {
         redirect('/');
     }
+    
     public function Recherche()
     {
         return view('user/recherche');

@@ -92,6 +92,6 @@ Route::post('/emprente', [App\Http\Controllers\EmpreinteController::class, 'voir
 Route::get('/Apropos', [App\Http\Controllers\GuestServer::class, 'Apropos'])->name('Apropos');
 Route::get('/recherche', [App\Http\Controllers\LivreController::class, 'Livress'])->name('recherche');
 
-Route::get('/', [App\Http\Controllers\LivreController::class, 'livrehome']);
+Route::get('/home', [App\Http\Controllers\LivreController::class, 'livrehome'])->name('homee');;
 Route::get('/recherchee', [App\Http\Controllers\LivreController::class, 'search'])->name('search');
 Route::post('/Apropos', [App\Http\Controllers\MessageController::class, 'create'])->name('Apropos');

@@ -120,7 +120,7 @@ margin-left: 50px;
 
    <ul>
 
-    <li> <img class="card-img-top w-100" src="{{asset('abonnes/'.$abonnes->image)}}"/> </li>
+    <!--<li> <img class="card-img-top w-100" src="{{asset('abonnes/'.$abonnes->image)}}"/> </li>-->
           <li>
               <b> Nom : </b>  {{$abonnes->name}}</li>
              <br>
