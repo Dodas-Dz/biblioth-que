@@ -56,7 +56,7 @@ public $pdf;
         $abonne = Abonne::create(
             $validatedData
         ); 
-        
+       
         
         //$mail=$abonne->mail;
            
@@ -87,7 +87,9 @@ public $pdf;
             $user->notify(new abonneNotification($abone)); 
             # code...
         }
-        
+        $request->session()->flash('succe','abonne ajouter avec succés');
+       
+
         return redirect()->route('liste');
 
     }
@@ -102,7 +104,7 @@ public $pdf;
 
        $pdf = \PDF::loadView('admin.pdf', compact('abonnes'))->setPaper($customPaper,'landscape');;
     
-
+      
       return $pdf->stream('abonne.pdf');
     }
 
@@ -141,15 +143,16 @@ public $pdf;
         
        
         $abonnes->update();
-    
+        $request->session()->flash('succe','abonne modifier avec succés');
         return redirect()->route('liste')->with('success', 'Livre mis à jour avec succèss');
     }
 
     public function deleteAbonne($id)
     {
-        $abonnes = Abonne::find($id);
-        $abonnes->delete();
-        return back();
+    $abonnes = Abonne::find($id);
+    $abonnes->delete();
+
+       return back();
     }
    
 }

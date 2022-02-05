@@ -12,6 +12,18 @@
 
       <!-- End Navbar -->
       <div class="content">
+        @if(session()->has('succe'))
+        <div class="alert alert-success" role="alert">
+         <h4 class="alert-heading">Succes</h4>
+         <p> {{session()->get('succe')}}</p>
+       </div>
+        @endif
+        @if(session()->has('echec'))
+        <div class="alert alert-danger" role="alert">
+         <h4 class="alert-heading">echec</h4>
+         <p> {{session()->get('echec')}}</p>
+        </div>
+        @endif
         <div class="container-fluid">
 
 
@@ -87,9 +99,41 @@
                        <td>{{$livre->Categorie->name}}</td>
                         <td>{{$livre->anneé}}</td>
                         <td>{{$livre->nbr}}</td>
-                        <td><a onclick="return delete_confirmation()" href="{{ route('Livre.delete',$livre->id) }}" ><i class="fa fa-trash" ></i></a></td>
+                        <td><a data-bs-toggle="modal" data-bs-target="#li{{$livre->id}}" href="{{ route('Livre.delete',$livre->id) }}" ><i class="fa fa-trash" ></i></a></td>
                         <td><a href="{{ route('livre.update',$livre->id) }}" data-bs-toggle="modal" data-bs-target="#livress{{$livre->id}}" ><i class="fa fa-edit" ></i></a></td>
                       </tr>
+                      <!----supp----------------------->
+<div class="modal" id="li{{$livre->id}}">
+  <div class="modal-dialog modal-dialog-centered modal-dm">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+         <h3 class="font-sans-serif text-center fw-bold fs-1 text-dark mx-auto ms-8"> Confirmer Supression </h3>
+         <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button> 
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body mx-auto">
+         
+        <div class="row align-items-center mb-3">
+          <p> Voulez-vous vraiment supprimer <br>
+            <b> {{$livre->titre}}  </b> ?
+          </p>
+          
+    </div>
+    </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer ">
+        <a href="{{route('Livre.delete',$livre->id) }}" type="button" class="btn btn-outline-danger">OUI</a>
+        <button type="button" class="btn btn-outline-white" data-bs-dismiss="modal">NON</button>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!--------fin supp-------------->
 
 
                   <!---------------afficher livre modal---------------------->
@@ -172,7 +216,7 @@
 
         <div class="row align-items-center mb-3">
 
-           <form class="needs-validation" novalidate method="POST" action="{{ route('livre.update',$livre->id) }}" onsubmit="return livreformcheck(this) " enctype="multipart/form-data" >
+           <form class="needs-validation" novalidate method="PUT" action="{{ route('livre.update',$livre->id) }}" onsubmit="return livreformcheck(this) " enctype="multipart/form-data" >
             @method('PUT')
 
             <style>

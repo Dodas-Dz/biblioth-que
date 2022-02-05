@@ -10,8 +10,21 @@
           @include('layouts.bar') 
     </nav>
             <!-- End Navbar -->
+           
 
             <div class="content">
+              @if(session()->has('succe'))
+              <div class="alert alert-success" role="alert">
+               <h4 class="alert-heading">Succes</h4>
+               <p> {{session()->get('succe')}}</p>
+             </div>
+              @endif
+              @if(session()->has('echec'))
+              <div class="alert alert-danger" role="alert">
+               <h4 class="alert-heading">echec</h4>
+               <p> {{session()->get('echec')}}</p>
+              </div>
+              @endif
                 <div class="container-fluid">
 
                     <div class="row">

@@ -108,7 +108,7 @@ class LivreController extends Controller
                                   ->send(new LivreMail($data));
 
             }
-
+            $request->session()->flash('succe','livre ajouter avec succés');
             return redirect()->route('listelivre');
 
     }
@@ -138,7 +138,7 @@ public function update(Request $request, $id)
     $livres -> langue= $request->input('langue');
 
       $livres->update();
-
+      $request->session()->flash('succe','livre modifier avec succés');
     return redirect()->route('listelivre')->with('success', 'Livre mis à jour avec succèss');
 }
 
@@ -146,7 +146,7 @@ public function update(Request $request, $id)
     public function deleteLivre($id)
     {
         $livres = Livre::find($id)->delete();
-
+        
         return back();
     }
 

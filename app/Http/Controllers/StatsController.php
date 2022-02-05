@@ -72,9 +72,9 @@ class StatsController extends Controller
 
       foreach($result3 as $val3)
       {
-          if($val3->mois==1 )
+          if($val3->mois==2 )
           {
-            $data3=" ['janvier' ,    ".$val3->nbr_livre_empreinter." ,  ".$val3->nbr_livre_rendu."],";
+            $data3=" ['février' ,    ".$val3->nbr_livre_empreinter." ,  ".$val3->nbr_livre_rendu."],";
           }
           else
           $data3.=" ['mois'  ,    ".$val3->nbr_livre_empreinter." ,  ".$val3->nbr_livre_rendu."],";

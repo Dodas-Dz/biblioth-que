@@ -79,8 +79,8 @@ return array (
     'normal' => $rootDir . '/lib/fonts/DejaVuSerif',
   ),
   'source code pro' => array(
-    'normal' => $fontDir . '/source_code_pro_normal_601fafcddf83c69af7ecc5138e3e6089',
-    '500' => $fontDir . '/source_code_pro_500_2cb2e1f8426aaf4b96654cb9beaadd60',
+    'normal' => $fontDir . '/source_code_pro_normal_b642bfc1efcaf73cb85f4ff0e6f669ce',
+    '500' => $fontDir . '/source_code_pro_500_7ce997912aad9c7cb0778b2be8c52bd3',
   ),
 );
 }; ?>

@@ -17,7 +17,7 @@ Route::post('/searchedBooks', [App\Http\Controllers\LivreController::class, 'sea
 
 Route::middleware(['auth'])->group(function () {
 
-Route::get('/statistique', [App\Http\Controllers\HomeController::class, 'statistic'])->middleware('can:isAdmin')->name('statistic');
+Route::get('/statistique', [App\Http\Controllers\HomeController::class, 'statistic'])->middleware('can:isBoth')->name('statistic');
 Route::get('/notification', [App\Http\Controllers\HomeController::class, 'notification'])->middleware('can:isBoth')->name('notification');
 Route::get('/supprimer', [App\Http\Controllers\HomeController::class, 'supprimer'])->middleware('can:isBoth')->name('supprimer');
 Route::get('/ProfileAdmin', [App\Http\Controllers\HomeController::class, 'profileadmin'])->middleware('can:isBoth')->name('profileadmin');
@@ -34,15 +34,15 @@ Route::get('/ListeUser', [App\Http\Controllers\Auth\registere::class, 'getUser']
 
 Route::get('/Mot-cle', [App\Http\Controllers\MotController::class, 'show'])->middleware('can:isBoth')->name('AjouterMot');
 
-Route::post('/AjouterMot', [App\Http\Controllers\MotController::class, 'Ajouter_mot'])->middleware('can:isAdmin')->name('Ajouter_mot');
-Route::get('deleteMot/{id}',[App\Http\Controllers\MotController::class,'destroy'])->middleware('can:isAdmin')->name('Mot.delete');
-Route::get('/modifier-mot/{id}', [App\Http\Controllers\MotController::class, 'edit'])->middleware('can:isAdmin')->name('mot.edit');
-Route::put('/modifier-mot/{id}', [App\Http\Controllers\MotController::class, 'update'])->middleware('can:isAdmin')->name('mot.update');
+Route::post('/AjouterMot', [App\Http\Controllers\MotController::class, 'Ajouter_mot'])->middleware('can:isBoth')->name('Ajouter_mot');
+Route::get('deleteMot/{id}',[App\Http\Controllers\MotController::class,'destroy'])->middleware('can:isBoth')->name('Mot.delete');
+Route::get('/modifier-mot/{id}', [App\Http\Controllers\MotController::class, 'edit'])->middleware('can:isBoth')->name('mot.edit');
+Route::put('/modifier-mot/{id}', [App\Http\Controllers\MotController::class, 'update'])->middleware('can:isBoth')->name('mot.update');
 
 Route::get('/categorie', [App\Http\Controllers\CategorieController::class, 'getCategories'])->middleware('can:isBoth')->name('categorie');
-Route::get('/AjouterCategorie', [App\Http\Controllers\CategorieController::class, 'create'])->middleware('can:isAdmin')->name('create.categorie');
-Route::post('/AjouterCategorie', [App\Http\Controllers\CategorieController::class, 'store'])->middleware('can:isAdmin')->name('store.categorie');
-Route::get('deletecategorie/{id}',[App\Http\Controllers\CategorieController::class,'destroy'])->middleware('can:isAdmin')->name('Categorie.delete');
+Route::get('/AjouterCategorie', [App\Http\Controllers\CategorieController::class, 'create'])->middleware('can:isBoth')->name('create.categorie');
+Route::post('/AjouterCategorie', [App\Http\Controllers\CategorieController::class, 'store'])->middleware('can:isBoth')->name('store.categorie');
+Route::get('deletecategorie/{id}',[App\Http\Controllers\CategorieController::class,'destroy'])->middleware('can:isBoth')->name('Categorie.delete');
 Route::get('/modifier-categorie/{id}', [App\Http\Controllers\CategorieController::class, 'edit'])->middleware('can:isBoth')->name('categorie.edit');
 Route::put('/modifier-categorie/{id}', [App\Http\Controllers\CategorieController::class, 'update'])->middleware('can:isBoth')->name('categorie.update');
 
@@ -56,28 +56,28 @@ Route::put('/modifier-employe/{id}', [App\Http\Controllers\Auth\registere::class
 Route::get('/supprimer-employe/{id}', [App\Http\Controllers\Auth\registere::class, 'delete'])->middleware('can:isAdmin')->name('user.delete');
 
 
-Route::post('/liste', [App\Http\Controllers\abonneController::class, 'create'])->middleware('can:isAdmin')->name('createabonne');
-Route::get('deleteAbonne/{id}',[App\Http\Controllers\AbonneController::class,'deleteAbonne'])->middleware('can:isAdmin')->name('abonne.delete');
-Route::get('deletelivres/{id}',[App\Http\Controllers\LivreController::class,'deleteLivre'])->middleware('can:isAdmin')->name('Livre.delete');
+Route::post('/liste', [App\Http\Controllers\abonneController::class, 'create'])->middleware('can:isBoth')->name('createabonne');
+Route::get('deleteAbonne/{id}',[App\Http\Controllers\AbonneController::class,'deleteAbonne'])->middleware('can:isBoth')->name('abonne.delete');
+Route::get('deletelivres/{id}',[App\Http\Controllers\LivreController::class,'deleteLivre'])->middleware('can:isBoth')->name('Livre.delete');
 Route::get('/search_livre', [App\Http\Controllers\LivreController::class, 'search_admin'])->middleware('can:isBoth')->name('searchAdmin');
-Route::get('deletemessage/{id}',[App\Http\Controllers\MessageController::class,'deletemessage'])->middleware('can:isAdmin')->name('message.delete');
+Route::get('deletemessage/{id}',[App\Http\Controllers\MessageController::class,'deletemessage'])->middleware('can:isBoth')->name('message.delete');
 
 Route::get('/download-pdf/{id}', [App\Http\Controllers\AbonneController::class, 'getPostPdf'])->middleware('can:isBoth')->name('abonne.pdf');
 
-Route::post('/AjouterLivre', [App\Http\Controllers\LivreController::class, 'AjouterL'])->middleware('can:isAdmin')->name('AjouterL');
+Route::post('/AjouterLivre', [App\Http\Controllers\LivreController::class, 'AjouterL'])->middleware('can:isBoth')->name('AjouterL');
 Route::get('/modifier-livre/{id}', [App\Http\Controllers\LivreController::class, 'edit'])->middleware('can:isBoth')->name('livre.edit');
 Route::put('/modifier-livre/{id}', [App\Http\Controllers\LivreController::class, 'update'])->middleware('can:isBoth')->name('livre.update');
 //
 Route::get('/modifier-abonne/{id}', [App\Http\Controllers\AbonneController::class, 'edit'])->middleware('can:isBoth')->name('abonne.edit');
 Route::patch('/modifier-abonne/{id}', [App\Http\Controllers\AbonneController::class, 'update'])->middleware('can:isBoth')->name('abonne.update');
 
-Route::get('delete/{id}',[App\Notifications\abonneNotification::class,'deleteNotification'])->middleware('can:isAdmin')->name('notif.delete');
+Route::get('delete/{id}',[App\Notifications\abonneNotification::class,'deleteNotification'])->middleware('can:isBoth')->name('notif.delete');
 
 
-Route::post('/EmprenterLivre', [App\Http\Controllers\EmpreinteController::class, 'EmprenterLivre'])->middleware('can:isAdmin')->name('EmprenterLivre');
-Route::post('/rendreLivre', [App\Http\Controllers\EmpreinteController::class, 'RendreLivre'])->middleware('can:isAdmin')->name('RendreLivre');
+Route::post('/EmprenterLivre', [App\Http\Controllers\EmpreinteController::class, 'EmprenterLivre'])->middleware('can:isBoth')->name('EmprenterLivre');
+Route::post('/rendreLivre', [App\Http\Controllers\EmpreinteController::class, 'RendreLivre'])->middleware('can:isBoth')->name('RendreLivre');
 
-Route::get('/statistique',[App\Http\Controllers\StatsController::class, 'Chart'])->middleware('can:isAdmin')->name('statistic');
+Route::get('/statistique',[App\Http\Controllers\StatsController::class, 'Chart'])->middleware('can:isBoth')->name('statistic');
 
 });
 /* Testing Routes for Excel */

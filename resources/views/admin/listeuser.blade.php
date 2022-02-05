@@ -90,7 +90,7 @@
                   </div>
                   <div class="input-group-icon mb-3"> 
                     <label class="form-label col-12" for="inputCategories">Mot de passe</label>
-                    <input id="password" type="password" class="form-control form-little-squirrel-control @error('password') is-invalid @enderror" placeholder="Mot de passe" name="password" value="{{$user->password}}" autocomplete="new-password">
+                    <input id="password" type="password" class="form-control form-little-squirrel-control @error('password') is-invalid @enderror" placeholder="Mot de passe" name="password"  autocomplete="new-password">
                     <i class="fas fa-lock input-box-icon mt-3" style="color:rgb(73, 73, 73)"></i>
                   </div>
                   <div class="input-group-icon mb-3"> 

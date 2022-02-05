@@ -140,7 +140,7 @@ margin-left: 50px;
   </ul>
 
    </div>
-  <div class="code"> {!! DNS1D::getBarcodeHTML('4445645656', 'CODABAR',3,37) !!}
+  <div class="code"> {!! DNS1D::getBarcodeHTML($abonnes->id, 'CODABAR',3,37) !!}
   </div>
 
 

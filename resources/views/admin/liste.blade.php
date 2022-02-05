@@ -12,6 +12,18 @@
       <!-- End Navbar -->
 
       <div class="content">
+        @if(session()->has('succe'))
+        <div class="alert alert-success" role="alert">
+         <h4 class="alert-heading">Succes</h4>
+         <p> {{session()->get('succe')}}</p>
+       </div>
+        @endif
+        @if(session()->has('echec'))
+        <div class="alert alert-danger" role="alert">
+         <h4 class="alert-heading">echec</h4>
+         <p> {{session()->get('echec')}}</p>
+        </div>
+        @endif
         <div class="container-fluid">
 
 
@@ -56,12 +68,43 @@
                         <td>{{$Abonne->prenom}}</td>
                         <td>{{$Abonne->date_naissance}}</td>
                         <td>{{$Abonne->student_id}}</td>
-                        <td> <div class="mb-3">{!! DNS1D::getBarcodeHTML('4445645656', 'CODABAR',2,30) !!}</div> </td>
+                        <td> <div class="mb-3">{!! DNS1D::getBarcodeHTML($Abonne->id, 'CODABAR',2,30) !!}</div> </td>
                         <td><a href="{{ route('abonne.pdf',$Abonne->id)}}"><i class="fa fa-print" ></i></a>   </td>
-                        <td><a href="{{ route('abonne.delete',$Abonne->id) }}" onclick="delete_confirmation()"><i class="fa fa-trash" ></i></a></td>
+                        <td><a href=""data-bs-toggle="modal" data-bs-target="#abo{{$Abonne->id}}" ><i class="fa fa-trash" ></i></a></td>
                         <td><a href="{{ route('abonne.update',$Abonne->id) }}" data-bs-toggle="modal" data-bs-target="#abonne{{$Abonne->id}}"><i class="fa fa-edit" ></i></a></td>
                       </tr>
+<!----supp----------------------->
+<div class="modal" id="abo{{$Abonne->id}}">
+  <div class="modal-dialog modal-dialog-centered modal-dm">
+    <div class="modal-content">
 
+      <!-- Modal Header -->
+      <div class="modal-header">
+         <h3 class="font-sans-serif text-center fw-bold fs-1 text-dark mx-auto ms-8"> Confirmer Supression </h3>
+         <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button> 
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body mx-auto">
+         
+        <div class="row align-items-center mb-3">
+          <p> Voulez-vous vraiment supprimer <br>
+            <b> {{$Abonne->name}} {{$Abonne->prenom}} </b> ?
+          </p>
+          
+    </div>
+    </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer ">
+        <a href="{{ route('abonne.delete',$Abonne->id) }}" type="button" class="btn btn-outline-danger">OUI</a>
+        <button type="button" class="btn btn-outline-white" data-bs-dismiss="modal">NON</button>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!--------fin supp-------------->
   <!---------------afficher livre modal---------------------->
 
   <div class="modal" id="abone{{$Abonne->id}}">
@@ -128,6 +171,7 @@
 
 
     </div>
+  </div>
   </div>
 
 
