@@ -21,9 +21,21 @@ class NodeConfig extends \Google\Collection
 {
   protected $collection_key = 'tags';
   /**
+   * @var string
+   */
+  public $composerInternalIpv4CidrBlock;
+  /**
+   * @var string
+   */
+  public $composerNetworkAttachment;
+  /**
    * @var int
    */
   public $diskSizeGb;
+  /**
+   * @var bool
+   */
+  public $enableIpMasqAgent;
   protected $ipAllocationPolicyType = IPAllocationPolicy::class;
   protected $ipAllocationPolicyDataType = '';
   /**
@@ -56,6 +68,34 @@ class NodeConfig extends \Google\Collection
   public $tags;
 
   /**
+   * @param string
+   */
+  public function setComposerInternalIpv4CidrBlock($composerInternalIpv4CidrBlock)
+  {
+    $this->composerInternalIpv4CidrBlock = $composerInternalIpv4CidrBlock;
+  }
+  /**
+   * @return string
+   */
+  public function getComposerInternalIpv4CidrBlock()
+  {
+    return $this->composerInternalIpv4CidrBlock;
+  }
+  /**
+   * @param string
+   */
+  public function setComposerNetworkAttachment($composerNetworkAttachment)
+  {
+    $this->composerNetworkAttachment = $composerNetworkAttachment;
+  }
+  /**
+   * @return string
+   */
+  public function getComposerNetworkAttachment()
+  {
+    return $this->composerNetworkAttachment;
+  }
+  /**
    * @param int
    */
   public function setDiskSizeGb($diskSizeGb)
@@ -68,6 +108,20 @@ class NodeConfig extends \Google\Collection
   public function getDiskSizeGb()
   {
     return $this->diskSizeGb;
+  }
+  /**
+   * @param bool
+   */
+  public function setEnableIpMasqAgent($enableIpMasqAgent)
+  {
+    $this->enableIpMasqAgent = $enableIpMasqAgent;
+  }
+  /**
+   * @return bool
+   */
+  public function getEnableIpMasqAgent()
+  {
+    return $this->enableIpMasqAgent;
   }
   /**
    * @param IPAllocationPolicy

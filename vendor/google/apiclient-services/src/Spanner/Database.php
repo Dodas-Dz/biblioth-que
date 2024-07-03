@@ -27,11 +27,19 @@ class Database extends \Google\Collection
   /**
    * @var string
    */
+  public $databaseDialect;
+  /**
+   * @var string
+   */
   public $defaultLeader;
   /**
    * @var string
    */
   public $earliestVersionTime;
+  /**
+   * @var bool
+   */
+  public $enableDropProtection;
   protected $encryptionConfigType = EncryptionConfig::class;
   protected $encryptionConfigDataType = '';
   protected $encryptionInfoType = EncryptionInfo::class;
@@ -40,6 +48,12 @@ class Database extends \Google\Collection
    * @var string
    */
   public $name;
+  protected $quorumInfoType = QuorumInfo::class;
+  protected $quorumInfoDataType = '';
+  /**
+   * @var bool
+   */
+  public $reconciling;
   protected $restoreInfoType = RestoreInfo::class;
   protected $restoreInfoDataType = '';
   /**
@@ -68,6 +82,20 @@ class Database extends \Google\Collection
   /**
    * @param string
    */
+  public function setDatabaseDialect($databaseDialect)
+  {
+    $this->databaseDialect = $databaseDialect;
+  }
+  /**
+   * @return string
+   */
+  public function getDatabaseDialect()
+  {
+    return $this->databaseDialect;
+  }
+  /**
+   * @param string
+   */
   public function setDefaultLeader($defaultLeader)
   {
     $this->defaultLeader = $defaultLeader;
@@ -92,6 +120,20 @@ class Database extends \Google\Collection
   public function getEarliestVersionTime()
   {
     return $this->earliestVersionTime;
+  }
+  /**
+   * @param bool
+   */
+  public function setEnableDropProtection($enableDropProtection)
+  {
+    $this->enableDropProtection = $enableDropProtection;
+  }
+  /**
+   * @return bool
+   */
+  public function getEnableDropProtection()
+  {
+    return $this->enableDropProtection;
   }
   /**
    * @param EncryptionConfig
@@ -134,6 +176,34 @@ class Database extends \Google\Collection
   public function getName()
   {
     return $this->name;
+  }
+  /**
+   * @param QuorumInfo
+   */
+  public function setQuorumInfo(QuorumInfo $quorumInfo)
+  {
+    $this->quorumInfo = $quorumInfo;
+  }
+  /**
+   * @return QuorumInfo
+   */
+  public function getQuorumInfo()
+  {
+    return $this->quorumInfo;
+  }
+  /**
+   * @param bool
+   */
+  public function setReconciling($reconciling)
+  {
+    $this->reconciling = $reconciling;
+  }
+  /**
+   * @return bool
+   */
+  public function getReconciling()
+  {
+    return $this->reconciling;
   }
   /**
    * @param RestoreInfo

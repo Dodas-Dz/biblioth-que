@@ -8,9 +8,9 @@ class GuestServer extends Controller
 {
     public function Home()
     {
-        redirect('/');
+        return redirect()->route('homee');
     }
-    
+
     public function Recherche()
     {
         return view('user/recherche');

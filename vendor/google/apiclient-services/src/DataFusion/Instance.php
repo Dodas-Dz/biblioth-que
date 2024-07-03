@@ -35,6 +35,10 @@ class Instance extends \Google\Collection
   protected $cryptoKeyConfigType = CryptoKeyConfig::class;
   protected $cryptoKeyConfigDataType = '';
   /**
+   * @var bool
+   */
+  public $dataplexDataLineageIntegrationEnabled;
+  /**
    * @var string
    */
   public $dataprocServiceAccount;
@@ -63,6 +67,12 @@ class Instance extends \Google\Collection
    */
   public $enableStackdriverMonitoring;
   /**
+   * @var bool
+   */
+  public $enableZoneSeparation;
+  protected $eventPublishConfigType = EventPublishConfig::class;
+  protected $eventPublishConfigDataType = '';
+  /**
    * @var string
    */
   public $gcsBucket;
@@ -70,6 +80,8 @@ class Instance extends \Google\Collection
    * @var string[]
    */
   public $labels;
+  protected $maintenancePolicyType = MaintenancePolicy::class;
+  protected $maintenancePolicyDataType = '';
   /**
    * @var string
    */
@@ -85,9 +97,17 @@ class Instance extends \Google\Collection
    */
   public $p4ServiceAccount;
   /**
+   * @var string
+   */
+  public $patchRevision;
+  /**
    * @var bool
    */
   public $privateInstance;
+  /**
+   * @var bool
+   */
+  public $satisfiesPzs;
   /**
    * @var string
    */
@@ -120,6 +140,10 @@ class Instance extends \Google\Collection
    * @var string
    */
   public $version;
+  /**
+   * @var string
+   */
+  public $workforceIdentityServiceEndpoint;
   /**
    * @var string
    */
@@ -194,6 +218,20 @@ class Instance extends \Google\Collection
   public function getCryptoKeyConfig()
   {
     return $this->cryptoKeyConfig;
+  }
+  /**
+   * @param bool
+   */
+  public function setDataplexDataLineageIntegrationEnabled($dataplexDataLineageIntegrationEnabled)
+  {
+    $this->dataplexDataLineageIntegrationEnabled = $dataplexDataLineageIntegrationEnabled;
+  }
+  /**
+   * @return bool
+   */
+  public function getDataplexDataLineageIntegrationEnabled()
+  {
+    return $this->dataplexDataLineageIntegrationEnabled;
   }
   /**
    * @param string
@@ -294,6 +332,34 @@ class Instance extends \Google\Collection
     return $this->enableStackdriverMonitoring;
   }
   /**
+   * @param bool
+   */
+  public function setEnableZoneSeparation($enableZoneSeparation)
+  {
+    $this->enableZoneSeparation = $enableZoneSeparation;
+  }
+  /**
+   * @return bool
+   */
+  public function getEnableZoneSeparation()
+  {
+    return $this->enableZoneSeparation;
+  }
+  /**
+   * @param EventPublishConfig
+   */
+  public function setEventPublishConfig(EventPublishConfig $eventPublishConfig)
+  {
+    $this->eventPublishConfig = $eventPublishConfig;
+  }
+  /**
+   * @return EventPublishConfig
+   */
+  public function getEventPublishConfig()
+  {
+    return $this->eventPublishConfig;
+  }
+  /**
    * @param string
    */
   public function setGcsBucket($gcsBucket)
@@ -320,6 +386,20 @@ class Instance extends \Google\Collection
   public function getLabels()
   {
     return $this->labels;
+  }
+  /**
+   * @param MaintenancePolicy
+   */
+  public function setMaintenancePolicy(MaintenancePolicy $maintenancePolicy)
+  {
+    $this->maintenancePolicy = $maintenancePolicy;
+  }
+  /**
+   * @return MaintenancePolicy
+   */
+  public function getMaintenancePolicy()
+  {
+    return $this->maintenancePolicy;
   }
   /**
    * @param string
@@ -378,6 +458,20 @@ class Instance extends \Google\Collection
     return $this->p4ServiceAccount;
   }
   /**
+   * @param string
+   */
+  public function setPatchRevision($patchRevision)
+  {
+    $this->patchRevision = $patchRevision;
+  }
+  /**
+   * @return string
+   */
+  public function getPatchRevision()
+  {
+    return $this->patchRevision;
+  }
+  /**
    * @param bool
    */
   public function setPrivateInstance($privateInstance)
@@ -390,6 +484,20 @@ class Instance extends \Google\Collection
   public function getPrivateInstance()
   {
     return $this->privateInstance;
+  }
+  /**
+   * @param bool
+   */
+  public function setSatisfiesPzs($satisfiesPzs)
+  {
+    $this->satisfiesPzs = $satisfiesPzs;
+  }
+  /**
+   * @return bool
+   */
+  public function getSatisfiesPzs()
+  {
+    return $this->satisfiesPzs;
   }
   /**
    * @param string
@@ -502,6 +610,20 @@ class Instance extends \Google\Collection
   public function getVersion()
   {
     return $this->version;
+  }
+  /**
+   * @param string
+   */
+  public function setWorkforceIdentityServiceEndpoint($workforceIdentityServiceEndpoint)
+  {
+    $this->workforceIdentityServiceEndpoint = $workforceIdentityServiceEndpoint;
+  }
+  /**
+   * @return string
+   */
+  public function getWorkforceIdentityServiceEndpoint()
+  {
+    return $this->workforceIdentityServiceEndpoint;
   }
   /**
    * @param string

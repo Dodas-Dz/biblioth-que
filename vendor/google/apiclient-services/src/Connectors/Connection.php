@@ -19,7 +19,7 @@ namespace Google\Service\Connectors;
 
 class Connection extends \Google\Collection
 {
-  protected $collection_key = 'egressBackends';
+  protected $collection_key = 'configVariables';
   protected $authConfigType = AuthConfig::class;
   protected $authConfigDataType = '';
   protected $configVariablesType = ConfigVariable::class;
@@ -37,10 +37,6 @@ class Connection extends \Google\Collection
    */
   public $description;
   /**
-   * @var string[]
-   */
-  public $egressBackends;
-  /**
    * @var string
    */
   public $envoyImageLocation;
@@ -48,10 +44,6 @@ class Connection extends \Google\Collection
    * @var string
    */
   public $imageLocation;
-  /**
-   * @var bool
-   */
-  public $inactive;
   /**
    * @var string[]
    */
@@ -72,6 +64,10 @@ class Connection extends \Google\Collection
   public $serviceDirectory;
   protected $statusType = ConnectionStatus::class;
   protected $statusDataType = '';
+  /**
+   * @var bool
+   */
+  public $suspended;
   /**
    * @var string
    */
@@ -148,20 +144,6 @@ class Connection extends \Google\Collection
     return $this->description;
   }
   /**
-   * @param string[]
-   */
-  public function setEgressBackends($egressBackends)
-  {
-    $this->egressBackends = $egressBackends;
-  }
-  /**
-   * @return string[]
-   */
-  public function getEgressBackends()
-  {
-    return $this->egressBackends;
-  }
-  /**
    * @param string
    */
   public function setEnvoyImageLocation($envoyImageLocation)
@@ -188,20 +170,6 @@ class Connection extends \Google\Collection
   public function getImageLocation()
   {
     return $this->imageLocation;
-  }
-  /**
-   * @param bool
-   */
-  public function setInactive($inactive)
-  {
-    $this->inactive = $inactive;
-  }
-  /**
-   * @return bool
-   */
-  public function getInactive()
-  {
-    return $this->inactive;
   }
   /**
    * @param string[]
@@ -286,6 +254,20 @@ class Connection extends \Google\Collection
   public function getStatus()
   {
     return $this->status;
+  }
+  /**
+   * @param bool
+   */
+  public function setSuspended($suspended)
+  {
+    $this->suspended = $suspended;
+  }
+  /**
+   * @return bool
+   */
+  public function getSuspended()
+  {
+    return $this->suspended;
   }
   /**
    * @param string

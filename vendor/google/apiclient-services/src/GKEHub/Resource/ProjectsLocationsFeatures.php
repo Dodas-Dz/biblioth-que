@@ -30,7 +30,7 @@ use Google\Service\GKEHub\TestIamPermissionsResponse;
  * Typical usage is:
  *  <code>
  *   $gkehubService = new Google\Service\GKEHub(...);
- *   $features = $gkehubService->features;
+ *   $features = $gkehubService->projects_locations_features;
  *  </code>
  */
 class ProjectsLocationsFeatures extends \Google\Service\Resource
@@ -38,24 +38,25 @@ class ProjectsLocationsFeatures extends \Google\Service\Resource
   /**
    * Adds a new Feature. (features.create)
    *
-   * @param string $parent The parent (project and location) where the Feature
-   * will be created. Specified in the format `projects/locations`.
+   * @param string $parent Required. The parent (project and location) where the
+   * Feature will be created. Specified in the format `projects/locations`.
    * @param Feature $postBody
    * @param array $optParams Optional parameters.
    *
    * @opt_param string featureId The ID of the feature to create.
-   * @opt_param string requestId Optional. A request ID to identify requests.
-   * Specify a unique request ID so that if you must retry your request, the
-   * server will know to ignore the request if it has already been completed. The
-   * server will guarantee that for at least 60 minutes after the first request.
-   * For example, consider a situation where you make an initial request and the
-   * request times out. If you make the request again with the same request ID,
-   * the server can check if original operation with the same request ID was
-   * received, and if so, will ignore the second request. This prevents clients
-   * from accidentally creating duplicate commitments. The request ID must be a
-   * valid UUID with the exception that zero UUID is not supported
+   * @opt_param string requestId A request ID to identify requests. Specify a
+   * unique request ID so that if you must retry your request, the server will
+   * know to ignore the request if it has already been completed. The server will
+   * guarantee that for at least 60 minutes after the first request. For example,
+   * consider a situation where you make an initial request and the request times
+   * out. If you make the request again with the same request ID, the server can
+   * check if original operation with the same request ID was received, and if so,
+   * will ignore the second request. This prevents clients from accidentally
+   * creating duplicate commitments. The request ID must be a valid UUID with the
+   * exception that zero UUID is not supported
    * (00000000-0000-0000-0000-000000000000).
    * @return Operation
+   * @throws \Google\Service\Exception
    */
   public function create($parent, Feature $postBody, $optParams = [])
   {
@@ -66,7 +67,7 @@ class ProjectsLocationsFeatures extends \Google\Service\Resource
   /**
    * Removes a Feature. (features.delete)
    *
-   * @param string $name The Feature resource name in the format
+   * @param string $name Required. The Feature resource name in the format
    * `projects/locations/features`.
    * @param array $optParams Optional parameters.
    *
@@ -85,6 +86,7 @@ class ProjectsLocationsFeatures extends \Google\Service\Resource
    * valid UUID with the exception that zero UUID is not supported
    * (00000000-0000-0000-0000-000000000000).
    * @return Operation
+   * @throws \Google\Service\Exception
    */
   public function delete($name, $optParams = [])
   {
@@ -95,10 +97,11 @@ class ProjectsLocationsFeatures extends \Google\Service\Resource
   /**
    * Gets details of a single Feature. (features.get)
    *
-   * @param string $name The Feature resource name in the format
+   * @param string $name Required. The Feature resource name in the format
    * `projects/locations/features`
    * @param array $optParams Optional parameters.
    * @return Feature
+   * @throws \Google\Service\Exception
    */
   public function get($name, $optParams = [])
   {
@@ -111,8 +114,9 @@ class ProjectsLocationsFeatures extends \Google\Service\Resource
    * resource exists and does not have a policy set. (features.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. See the operation documentation for the appropriate value for this
-   * field.
+   * requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int options.requestedPolicyVersion Optional. The maximum policy
@@ -128,6 +132,7 @@ class ProjectsLocationsFeatures extends \Google\Service\Resource
    * documentation](https://cloud.google.com/iam/help/conditions/resource-
    * policies).
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function getIamPolicy($resource, $optParams = [])
   {
@@ -139,16 +144,16 @@ class ProjectsLocationsFeatures extends \Google\Service\Resource
    * Lists Features in a given project and location.
    * (features.listProjectsLocationsFeatures)
    *
-   * @param string $parent The parent (project and location) where the Features
-   * will be listed. Specified in the format `projects/locations`.
+   * @param string $parent Required. The parent (project and location) where the
+   * Features will be listed. Specified in the format `projects/locations`.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Lists Features that match the filter expression,
    * following the syntax outlined in https://google.aip.dev/160. Examples: -
-   * Feature with the name "servicemesh" in project "foo-proj": name = "projects
-   * /foo-proj/locations/global/features/servicemesh" - Features that have a label
-   * called `foo`: labels.foo:* - Features that have a label called `foo` whose
-   * value is `bar`: labels.foo = bar
+   * Feature with the name "servicemesh" in project "foo-proj": name =
+   * "projects/foo-proj/locations/global/features/servicemesh" - Features that
+   * have a label called `foo`: labels.foo:* - Features that have a label called
+   * `foo` whose value is `bar`: labels.foo = bar
    * @opt_param string orderBy One or more fields to compare and use to sort the
    * output. See https://google.aip.dev/132#ordering.
    * @opt_param int pageSize When requesting a 'page' of resources, `page_size`
@@ -158,6 +163,7 @@ class ProjectsLocationsFeatures extends \Google\Service\Resource
    * which specifies the position in the list from where to continue listing the
    * resources.
    * @return ListFeaturesResponse
+   * @throws \Google\Service\Exception
    */
   public function listProjectsLocationsFeatures($parent, $optParams = [])
   {
@@ -168,24 +174,25 @@ class ProjectsLocationsFeatures extends \Google\Service\Resource
   /**
    * Updates an existing Feature. (features.patch)
    *
-   * @param string $name The Feature resource name in the format
+   * @param string $name Required. The Feature resource name in the format
    * `projects/locations/features`.
    * @param Feature $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string requestId Optional. A request ID to identify requests.
-   * Specify a unique request ID so that if you must retry your request, the
-   * server will know to ignore the request if it has already been completed. The
-   * server will guarantee that for at least 60 minutes after the first request.
-   * For example, consider a situation where you make an initial request and the
-   * request times out. If you make the request again with the same request ID,
-   * the server can check if original operation with the same request ID was
-   * received, and if so, will ignore the second request. This prevents clients
-   * from accidentally creating duplicate commitments. The request ID must be a
-   * valid UUID with the exception that zero UUID is not supported
+   * @opt_param string requestId A request ID to identify requests. Specify a
+   * unique request ID so that if you must retry your request, the server will
+   * know to ignore the request if it has already been completed. The server will
+   * guarantee that for at least 60 minutes after the first request. For example,
+   * consider a situation where you make an initial request and the request times
+   * out. If you make the request again with the same request ID, the server can
+   * check if original operation with the same request ID was received, and if so,
+   * will ignore the second request. This prevents clients from accidentally
+   * creating duplicate commitments. The request ID must be a valid UUID with the
+   * exception that zero UUID is not supported
    * (00000000-0000-0000-0000-000000000000).
    * @opt_param string updateMask Mask of fields to update.
    * @return Operation
+   * @throws \Google\Service\Exception
    */
   public function patch($name, Feature $postBody, $optParams = [])
   {
@@ -199,11 +206,13 @@ class ProjectsLocationsFeatures extends \Google\Service\Resource
    * `PERMISSION_DENIED` errors. (features.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. See the operation documentation for the appropriate value for this
-   * field.
+   * specified. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function setIamPolicy($resource, SetIamPolicyRequest $postBody, $optParams = [])
   {
@@ -219,11 +228,13 @@ class ProjectsLocationsFeatures extends \Google\Service\Resource
    * This operation may "fail open" without warning. (features.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. See the operation documentation for the appropriate value
-   * for this field.
+   * being requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return TestIamPermissionsResponse
+   * @throws \Google\Service\Exception
    */
   public function testIamPermissions($resource, TestIamPermissionsRequest $postBody, $optParams = [])
   {

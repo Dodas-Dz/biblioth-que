@@ -21,6 +21,10 @@ class GoogleCloudApigeeV1ApiProxyRevision extends \Google\Collection
 {
   protected $collection_key = 'teams';
   /**
+   * @var string
+   */
+  public $archive;
+  /**
    * @var string[]
    */
   public $basepaths;
@@ -46,6 +50,10 @@ class GoogleCloudApigeeV1ApiProxyRevision extends \Google\Collection
    * @var string[]
    */
   public $entityMetaDataAsProperties;
+  /**
+   * @var bool
+   */
+  public $hasExtensiblePolicy;
   /**
    * @var string[]
    */
@@ -109,6 +117,20 @@ class GoogleCloudApigeeV1ApiProxyRevision extends \Google\Collection
    */
   public $type;
 
+  /**
+   * @param string
+   */
+  public function setArchive($archive)
+  {
+    $this->archive = $archive;
+  }
+  /**
+   * @return string
+   */
+  public function getArchive()
+  {
+    return $this->archive;
+  }
   /**
    * @param string[]
    */
@@ -206,6 +228,20 @@ class GoogleCloudApigeeV1ApiProxyRevision extends \Google\Collection
   public function getEntityMetaDataAsProperties()
   {
     return $this->entityMetaDataAsProperties;
+  }
+  /**
+   * @param bool
+   */
+  public function setHasExtensiblePolicy($hasExtensiblePolicy)
+  {
+    $this->hasExtensiblePolicy = $hasExtensiblePolicy;
+  }
+  /**
+   * @return bool
+   */
+  public function getHasExtensiblePolicy()
+  {
+    return $this->hasExtensiblePolicy;
   }
   /**
    * @param string[]

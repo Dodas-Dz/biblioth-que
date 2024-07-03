@@ -28,6 +28,10 @@ class NetworkInterface extends \Google\Collection
    * @var string
    */
   public $fingerprint;
+  /**
+   * @var int
+   */
+  public $internalIpv6PrefixLength;
   protected $ipv6AccessConfigsType = AccessConfig::class;
   protected $ipv6AccessConfigsDataType = 'array';
   /**
@@ -50,6 +54,10 @@ class NetworkInterface extends \Google\Collection
    * @var string
    */
   public $network;
+  /**
+   * @var string
+   */
+  public $networkAttachment;
   /**
    * @var string
    */
@@ -112,6 +120,20 @@ class NetworkInterface extends \Google\Collection
   public function getFingerprint()
   {
     return $this->fingerprint;
+  }
+  /**
+   * @param int
+   */
+  public function setInternalIpv6PrefixLength($internalIpv6PrefixLength)
+  {
+    $this->internalIpv6PrefixLength = $internalIpv6PrefixLength;
+  }
+  /**
+   * @return int
+   */
+  public function getInternalIpv6PrefixLength()
+  {
+    return $this->internalIpv6PrefixLength;
   }
   /**
    * @param AccessConfig[]
@@ -196,6 +218,20 @@ class NetworkInterface extends \Google\Collection
   public function getNetwork()
   {
     return $this->network;
+  }
+  /**
+   * @param string
+   */
+  public function setNetworkAttachment($networkAttachment)
+  {
+    $this->networkAttachment = $networkAttachment;
+  }
+  /**
+   * @return string
+   */
+  public function getNetworkAttachment()
+  {
+    return $this->networkAttachment;
   }
   /**
    * @param string

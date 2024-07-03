@@ -23,6 +23,10 @@ class WebApp extends \Google\Collection
   /**
    * @var string
    */
+  public $apiKeyId;
+  /**
+   * @var string
+   */
   public $appId;
   /**
    * @var string[]
@@ -35,6 +39,14 @@ class WebApp extends \Google\Collection
   /**
    * @var string
    */
+  public $etag;
+  /**
+   * @var string
+   */
+  public $expireTime;
+  /**
+   * @var string
+   */
   public $name;
   /**
    * @var string
@@ -43,8 +55,26 @@ class WebApp extends \Google\Collection
   /**
    * @var string
    */
+  public $state;
+  /**
+   * @var string
+   */
   public $webId;
 
+  /**
+   * @param string
+   */
+  public function setApiKeyId($apiKeyId)
+  {
+    $this->apiKeyId = $apiKeyId;
+  }
+  /**
+   * @return string
+   */
+  public function getApiKeyId()
+  {
+    return $this->apiKeyId;
+  }
   /**
    * @param string
    */
@@ -90,6 +120,34 @@ class WebApp extends \Google\Collection
   /**
    * @param string
    */
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  /**
+   * @return string
+   */
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  /**
+   * @param string
+   */
+  public function setExpireTime($expireTime)
+  {
+    $this->expireTime = $expireTime;
+  }
+  /**
+   * @return string
+   */
+  public function getExpireTime()
+  {
+    return $this->expireTime;
+  }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
@@ -114,6 +172,20 @@ class WebApp extends \Google\Collection
   public function getProjectId()
   {
     return $this->projectId;
+  }
+  /**
+   * @param string
+   */
+  public function setState($state)
+  {
+    $this->state = $state;
+  }
+  /**
+   * @return string
+   */
+  public function getState()
+  {
+    return $this->state;
   }
   /**
    * @param string

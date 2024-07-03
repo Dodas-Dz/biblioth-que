@@ -25,13 +25,33 @@ class RouterStatusBgpPeerStatus extends \Google\Collection
   protected $bfdStatusType = BfdStatus::class;
   protected $bfdStatusDataType = '';
   /**
+   * @var bool
+   */
+  public $enableIpv4;
+  /**
+   * @var bool
+   */
+  public $enableIpv6;
+  /**
    * @var string
    */
   public $ipAddress;
   /**
    * @var string
    */
+  public $ipv4NexthopAddress;
+  /**
+   * @var string
+   */
+  public $ipv6NexthopAddress;
+  /**
+   * @var string
+   */
   public $linkedVpnTunnel;
+  /**
+   * @var bool
+   */
+  public $md5AuthEnabled;
   /**
    * @var string
    */
@@ -47,6 +67,14 @@ class RouterStatusBgpPeerStatus extends \Google\Collection
   /**
    * @var string
    */
+  public $peerIpv4NexthopAddress;
+  /**
+   * @var string
+   */
+  public $peerIpv6NexthopAddress;
+  /**
+   * @var string
+   */
   public $routerApplianceInstance;
   /**
    * @var string
@@ -56,6 +84,10 @@ class RouterStatusBgpPeerStatus extends \Google\Collection
    * @var string
    */
   public $status;
+  /**
+   * @var string
+   */
+  public $statusReason;
   /**
    * @var string
    */
@@ -94,6 +126,34 @@ class RouterStatusBgpPeerStatus extends \Google\Collection
     return $this->bfdStatus;
   }
   /**
+   * @param bool
+   */
+  public function setEnableIpv4($enableIpv4)
+  {
+    $this->enableIpv4 = $enableIpv4;
+  }
+  /**
+   * @return bool
+   */
+  public function getEnableIpv4()
+  {
+    return $this->enableIpv4;
+  }
+  /**
+   * @param bool
+   */
+  public function setEnableIpv6($enableIpv6)
+  {
+    $this->enableIpv6 = $enableIpv6;
+  }
+  /**
+   * @return bool
+   */
+  public function getEnableIpv6()
+  {
+    return $this->enableIpv6;
+  }
+  /**
    * @param string
    */
   public function setIpAddress($ipAddress)
@@ -110,6 +170,34 @@ class RouterStatusBgpPeerStatus extends \Google\Collection
   /**
    * @param string
    */
+  public function setIpv4NexthopAddress($ipv4NexthopAddress)
+  {
+    $this->ipv4NexthopAddress = $ipv4NexthopAddress;
+  }
+  /**
+   * @return string
+   */
+  public function getIpv4NexthopAddress()
+  {
+    return $this->ipv4NexthopAddress;
+  }
+  /**
+   * @param string
+   */
+  public function setIpv6NexthopAddress($ipv6NexthopAddress)
+  {
+    $this->ipv6NexthopAddress = $ipv6NexthopAddress;
+  }
+  /**
+   * @return string
+   */
+  public function getIpv6NexthopAddress()
+  {
+    return $this->ipv6NexthopAddress;
+  }
+  /**
+   * @param string
+   */
   public function setLinkedVpnTunnel($linkedVpnTunnel)
   {
     $this->linkedVpnTunnel = $linkedVpnTunnel;
@@ -120,6 +208,20 @@ class RouterStatusBgpPeerStatus extends \Google\Collection
   public function getLinkedVpnTunnel()
   {
     return $this->linkedVpnTunnel;
+  }
+  /**
+   * @param bool
+   */
+  public function setMd5AuthEnabled($md5AuthEnabled)
+  {
+    $this->md5AuthEnabled = $md5AuthEnabled;
+  }
+  /**
+   * @return bool
+   */
+  public function getMd5AuthEnabled()
+  {
+    return $this->md5AuthEnabled;
   }
   /**
    * @param string
@@ -166,6 +268,34 @@ class RouterStatusBgpPeerStatus extends \Google\Collection
   /**
    * @param string
    */
+  public function setPeerIpv4NexthopAddress($peerIpv4NexthopAddress)
+  {
+    $this->peerIpv4NexthopAddress = $peerIpv4NexthopAddress;
+  }
+  /**
+   * @return string
+   */
+  public function getPeerIpv4NexthopAddress()
+  {
+    return $this->peerIpv4NexthopAddress;
+  }
+  /**
+   * @param string
+   */
+  public function setPeerIpv6NexthopAddress($peerIpv6NexthopAddress)
+  {
+    $this->peerIpv6NexthopAddress = $peerIpv6NexthopAddress;
+  }
+  /**
+   * @return string
+   */
+  public function getPeerIpv6NexthopAddress()
+  {
+    return $this->peerIpv6NexthopAddress;
+  }
+  /**
+   * @param string
+   */
   public function setRouterApplianceInstance($routerApplianceInstance)
   {
     $this->routerApplianceInstance = $routerApplianceInstance;
@@ -204,6 +334,20 @@ class RouterStatusBgpPeerStatus extends \Google\Collection
   public function getStatus()
   {
     return $this->status;
+  }
+  /**
+   * @param string
+   */
+  public function setStatusReason($statusReason)
+  {
+    $this->statusReason = $statusReason;
+  }
+  /**
+   * @return string
+   */
+  public function getStatusReason()
+  {
+    return $this->statusReason;
   }
   /**
    * @param string

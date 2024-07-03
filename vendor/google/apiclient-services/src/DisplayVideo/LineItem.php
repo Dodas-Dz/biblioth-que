@@ -46,6 +46,10 @@ class LineItem extends \Google\Collection
    * @var string
    */
   public $entityStatus;
+  /**
+   * @var bool
+   */
+  public $excludeNewExchanges;
   protected $flightType = LineItemFlight::class;
   protected $flightDataType = '';
   protected $frequencyCapType = FrequencyCap::class;
@@ -56,10 +60,6 @@ class LineItem extends \Google\Collection
   public $insertionOrderId;
   protected $integrationDetailsType = IntegrationDetails::class;
   protected $integrationDetailsDataType = '';
-  /**
-   * @var string[]
-   */
-  public $inventorySourceIds;
   /**
    * @var string
    */
@@ -80,6 +80,10 @@ class LineItem extends \Google\Collection
   protected $partnerCostsDataType = 'array';
   protected $partnerRevenueModelType = PartnerRevenueModel::class;
   protected $partnerRevenueModelDataType = '';
+  /**
+   * @var string
+   */
+  public $reservationType;
   protected $targetingExpansionType = TargetingExpansionConfig::class;
   protected $targetingExpansionDataType = '';
   /**
@@ -90,6 +94,8 @@ class LineItem extends \Google\Collection
    * @var string[]
    */
   public $warningMessages;
+  protected $youtubeAndPartnersSettingsType = YoutubeAndPartnersSettings::class;
+  protected $youtubeAndPartnersSettingsDataType = '';
 
   /**
    * @param string
@@ -204,6 +210,20 @@ class LineItem extends \Google\Collection
     return $this->entityStatus;
   }
   /**
+   * @param bool
+   */
+  public function setExcludeNewExchanges($excludeNewExchanges)
+  {
+    $this->excludeNewExchanges = $excludeNewExchanges;
+  }
+  /**
+   * @return bool
+   */
+  public function getExcludeNewExchanges()
+  {
+    return $this->excludeNewExchanges;
+  }
+  /**
    * @param LineItemFlight
    */
   public function setFlight(LineItemFlight $flight)
@@ -258,20 +278,6 @@ class LineItem extends \Google\Collection
   public function getIntegrationDetails()
   {
     return $this->integrationDetails;
-  }
-  /**
-   * @param string[]
-   */
-  public function setInventorySourceIds($inventorySourceIds)
-  {
-    $this->inventorySourceIds = $inventorySourceIds;
-  }
-  /**
-   * @return string[]
-   */
-  public function getInventorySourceIds()
-  {
-    return $this->inventorySourceIds;
   }
   /**
    * @param string
@@ -372,6 +378,20 @@ class LineItem extends \Google\Collection
     return $this->partnerRevenueModel;
   }
   /**
+   * @param string
+   */
+  public function setReservationType($reservationType)
+  {
+    $this->reservationType = $reservationType;
+  }
+  /**
+   * @return string
+   */
+  public function getReservationType()
+  {
+    return $this->reservationType;
+  }
+  /**
    * @param TargetingExpansionConfig
    */
   public function setTargetingExpansion(TargetingExpansionConfig $targetingExpansion)
@@ -412,6 +432,20 @@ class LineItem extends \Google\Collection
   public function getWarningMessages()
   {
     return $this->warningMessages;
+  }
+  /**
+   * @param YoutubeAndPartnersSettings
+   */
+  public function setYoutubeAndPartnersSettings(YoutubeAndPartnersSettings $youtubeAndPartnersSettings)
+  {
+    $this->youtubeAndPartnersSettings = $youtubeAndPartnersSettings;
+  }
+  /**
+   * @return YoutubeAndPartnersSettings
+   */
+  public function getYoutubeAndPartnersSettings()
+  {
+    return $this->youtubeAndPartnersSettings;
   }
 }
 

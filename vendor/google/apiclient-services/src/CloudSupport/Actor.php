@@ -34,7 +34,7 @@ class Actor extends \Google\Model
   /**
    * @var string
    */
-  public $principalId;
+  public $username;
 
   /**
    * @param string
@@ -81,16 +81,16 @@ class Actor extends \Google\Model
   /**
    * @param string
    */
-  public function setPrincipalId($principalId)
+  public function setUsername($username)
   {
-    $this->principalId = $principalId;
+    $this->username = $username;
   }
   /**
    * @return string
    */
-  public function getPrincipalId()
+  public function getUsername()
   {
-    return $this->principalId;
+    return $this->username;
   }
 }
 

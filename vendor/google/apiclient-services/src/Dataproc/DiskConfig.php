@@ -20,6 +20,14 @@ namespace Google\Service\Dataproc;
 class DiskConfig extends \Google\Model
 {
   /**
+   * @var string
+   */
+  public $bootDiskProvisionedIops;
+  /**
+   * @var string
+   */
+  public $bootDiskProvisionedThroughput;
+  /**
    * @var int
    */
   public $bootDiskSizeGb;
@@ -28,10 +36,42 @@ class DiskConfig extends \Google\Model
    */
   public $bootDiskType;
   /**
+   * @var string
+   */
+  public $localSsdInterface;
+  /**
    * @var int
    */
   public $numLocalSsds;
 
+  /**
+   * @param string
+   */
+  public function setBootDiskProvisionedIops($bootDiskProvisionedIops)
+  {
+    $this->bootDiskProvisionedIops = $bootDiskProvisionedIops;
+  }
+  /**
+   * @return string
+   */
+  public function getBootDiskProvisionedIops()
+  {
+    return $this->bootDiskProvisionedIops;
+  }
+  /**
+   * @param string
+   */
+  public function setBootDiskProvisionedThroughput($bootDiskProvisionedThroughput)
+  {
+    $this->bootDiskProvisionedThroughput = $bootDiskProvisionedThroughput;
+  }
+  /**
+   * @return string
+   */
+  public function getBootDiskProvisionedThroughput()
+  {
+    return $this->bootDiskProvisionedThroughput;
+  }
   /**
    * @param int
    */
@@ -59,6 +99,20 @@ class DiskConfig extends \Google\Model
   public function getBootDiskType()
   {
     return $this->bootDiskType;
+  }
+  /**
+   * @param string
+   */
+  public function setLocalSsdInterface($localSsdInterface)
+  {
+    $this->localSsdInterface = $localSsdInterface;
+  }
+  /**
+   * @return string
+   */
+  public function getLocalSsdInterface()
+  {
+    return $this->localSsdInterface;
   }
   /**
    * @param int

@@ -22,6 +22,10 @@ class Version extends \Google\Collection
   protected $collection_key = 'zones';
   protected $apiConfigType = ApiConfigHandler::class;
   protected $apiConfigDataType = '';
+  /**
+   * @var bool
+   */
+  public $appEngineApis;
   protected $automaticScalingType = AutomaticScaling::class;
   protected $automaticScalingDataType = '';
   protected $basicScalingType = BasicScaling::class;
@@ -66,6 +70,12 @@ class Version extends \Google\Collection
   public $envVariables;
   protected $errorHandlersType = ErrorHandler::class;
   protected $errorHandlersDataType = 'array';
+  protected $flexibleRuntimeSettingsType = FlexibleRuntimeSettings::class;
+  protected $flexibleRuntimeSettingsDataType = '';
+  /**
+   * @var array[]
+   */
+  public $generatedCustomerMetadata;
   protected $handlersType = UrlMap::class;
   protected $handlersDataType = 'array';
   protected $healthCheckType = HealthCheck::class;
@@ -158,6 +168,20 @@ class Version extends \Google\Collection
   public function getApiConfig()
   {
     return $this->apiConfig;
+  }
+  /**
+   * @param bool
+   */
+  public function setAppEngineApis($appEngineApis)
+  {
+    $this->appEngineApis = $appEngineApis;
+  }
+  /**
+   * @return bool
+   */
+  public function getAppEngineApis()
+  {
+    return $this->appEngineApis;
   }
   /**
    * @param AutomaticScaling
@@ -354,6 +378,34 @@ class Version extends \Google\Collection
   public function getErrorHandlers()
   {
     return $this->errorHandlers;
+  }
+  /**
+   * @param FlexibleRuntimeSettings
+   */
+  public function setFlexibleRuntimeSettings(FlexibleRuntimeSettings $flexibleRuntimeSettings)
+  {
+    $this->flexibleRuntimeSettings = $flexibleRuntimeSettings;
+  }
+  /**
+   * @return FlexibleRuntimeSettings
+   */
+  public function getFlexibleRuntimeSettings()
+  {
+    return $this->flexibleRuntimeSettings;
+  }
+  /**
+   * @param array[]
+   */
+  public function setGeneratedCustomerMetadata($generatedCustomerMetadata)
+  {
+    $this->generatedCustomerMetadata = $generatedCustomerMetadata;
+  }
+  /**
+   * @return array[]
+   */
+  public function getGeneratedCustomerMetadata()
+  {
+    return $this->generatedCustomerMetadata;
   }
   /**
    * @param UrlMap[]

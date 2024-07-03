@@ -23,14 +23,34 @@ class CommitRequest extends \Google\Collection
   /**
    * @var string
    */
+  public $databaseId;
+  /**
+   * @var string
+   */
   public $mode;
   protected $mutationsType = Mutation::class;
   protected $mutationsDataType = 'array';
+  protected $singleUseTransactionType = TransactionOptions::class;
+  protected $singleUseTransactionDataType = '';
   /**
    * @var string
    */
   public $transaction;
 
+  /**
+   * @param string
+   */
+  public function setDatabaseId($databaseId)
+  {
+    $this->databaseId = $databaseId;
+  }
+  /**
+   * @return string
+   */
+  public function getDatabaseId()
+  {
+    return $this->databaseId;
+  }
   /**
    * @param string
    */
@@ -58,6 +78,20 @@ class CommitRequest extends \Google\Collection
   public function getMutations()
   {
     return $this->mutations;
+  }
+  /**
+   * @param TransactionOptions
+   */
+  public function setSingleUseTransaction(TransactionOptions $singleUseTransaction)
+  {
+    $this->singleUseTransaction = $singleUseTransaction;
+  }
+  /**
+   * @return TransactionOptions
+   */
+  public function getSingleUseTransaction()
+  {
+    return $this->singleUseTransaction;
   }
   /**
    * @param string

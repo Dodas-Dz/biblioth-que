@@ -22,10 +22,14 @@ class ClusterConfig extends \Google\Collection
   protected $collection_key = 'initializationActions';
   protected $autoscalingConfigType = AutoscalingConfig::class;
   protected $autoscalingConfigDataType = '';
+  protected $auxiliaryNodeGroupsType = AuxiliaryNodeGroup::class;
+  protected $auxiliaryNodeGroupsDataType = 'array';
   /**
    * @var string
    */
   public $configBucket;
+  protected $dataprocMetricConfigType = DataprocMetricConfig::class;
+  protected $dataprocMetricConfigDataType = '';
   protected $encryptionConfigType = EncryptionConfig::class;
   protected $encryptionConfigDataType = '';
   protected $endpointConfigType = EndpointConfig::class;
@@ -70,6 +74,20 @@ class ClusterConfig extends \Google\Collection
     return $this->autoscalingConfig;
   }
   /**
+   * @param AuxiliaryNodeGroup[]
+   */
+  public function setAuxiliaryNodeGroups($auxiliaryNodeGroups)
+  {
+    $this->auxiliaryNodeGroups = $auxiliaryNodeGroups;
+  }
+  /**
+   * @return AuxiliaryNodeGroup[]
+   */
+  public function getAuxiliaryNodeGroups()
+  {
+    return $this->auxiliaryNodeGroups;
+  }
+  /**
    * @param string
    */
   public function setConfigBucket($configBucket)
@@ -82,6 +100,20 @@ class ClusterConfig extends \Google\Collection
   public function getConfigBucket()
   {
     return $this->configBucket;
+  }
+  /**
+   * @param DataprocMetricConfig
+   */
+  public function setDataprocMetricConfig(DataprocMetricConfig $dataprocMetricConfig)
+  {
+    $this->dataprocMetricConfig = $dataprocMetricConfig;
+  }
+  /**
+   * @return DataprocMetricConfig
+   */
+  public function getDataprocMetricConfig()
+  {
+    return $this->dataprocMetricConfig;
   }
   /**
    * @param EncryptionConfig

@@ -17,9 +17,12 @@
 
 namespace Google\Service\Pubsub\Resource;
 
+use Google\Service\Pubsub\CommitSchemaRequest;
+use Google\Service\Pubsub\ListSchemaRevisionsResponse;
 use Google\Service\Pubsub\ListSchemasResponse;
 use Google\Service\Pubsub\Policy;
 use Google\Service\Pubsub\PubsubEmpty;
+use Google\Service\Pubsub\RollbackSchemaRequest;
 use Google\Service\Pubsub\Schema;
 use Google\Service\Pubsub\SetIamPolicyRequest;
 use Google\Service\Pubsub\TestIamPermissionsRequest;
@@ -34,11 +37,27 @@ use Google\Service\Pubsub\ValidateSchemaResponse;
  * Typical usage is:
  *  <code>
  *   $pubsubService = new Google\Service\Pubsub(...);
- *   $schemas = $pubsubService->schemas;
+ *   $schemas = $pubsubService->projects_schemas;
  *  </code>
  */
 class ProjectsSchemas extends \Google\Service\Resource
 {
+  /**
+   * Commits a new schema revision to an existing schema. (schemas.commit)
+   *
+   * @param string $name Required. The name of the schema we are revising. Format
+   * is `projects/{project}/schemas/{schema}`.
+   * @param CommitSchemaRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Schema
+   * @throws \Google\Service\Exception
+   */
+  public function commit($name, CommitSchemaRequest $postBody, $optParams = [])
+  {
+    $params = ['name' => $name, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('commit', [$params], Schema::class);
+  }
   /**
    * Creates a schema. (schemas.create)
    *
@@ -49,9 +68,10 @@ class ProjectsSchemas extends \Google\Service\Resource
    *
    * @opt_param string schemaId The ID to use for the schema, which will become
    * the final component of the schema's resource name. See
-   * https://cloud.google.com/pubsub/docs/admin#resource_names for resource name
-   * constraints.
+   * https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names for
+   * resource name constraints.
    * @return Schema
+   * @throws \Google\Service\Exception
    */
   public function create($parent, Schema $postBody, $optParams = [])
   {
@@ -66,12 +86,33 @@ class ProjectsSchemas extends \Google\Service\Resource
    * `projects/{project}/schemas/{schema}`.
    * @param array $optParams Optional parameters.
    * @return PubsubEmpty
+   * @throws \Google\Service\Exception
    */
   public function delete($name, $optParams = [])
   {
     $params = ['name' => $name];
     $params = array_merge($params, $optParams);
     return $this->call('delete', [$params], PubsubEmpty::class);
+  }
+  /**
+   * Deletes a specific schema revision. (schemas.deleteRevision)
+   *
+   * @param string $name Required. The name of the schema revision to be deleted,
+   * with a revision ID explicitly included. Example: `projects/123/schemas/my-
+   * schema@c7cfa2a8`
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string revisionId Optional. This field is deprecated and should
+   * not be used for specifying the revision ID. The revision ID should be
+   * specified via the `name` parameter.
+   * @return Schema
+   * @throws \Google\Service\Exception
+   */
+  public function deleteRevision($name, $optParams = [])
+  {
+    $params = ['name' => $name];
+    $params = array_merge($params, $optParams);
+    return $this->call('deleteRevision', [$params], Schema::class);
   }
   /**
    * Gets a schema. (schemas.get)
@@ -84,6 +125,7 @@ class ProjectsSchemas extends \Google\Service\Resource
    * set, returns a Schema with all fields filled out. Set to `BASIC` to omit the
    * `definition`.
    * @return Schema
+   * @throws \Google\Service\Exception
    */
   public function get($name, $optParams = [])
   {
@@ -96,8 +138,9 @@ class ProjectsSchemas extends \Google\Service\Resource
    * resource exists and does not have a policy set. (schemas.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. See the operation documentation for the appropriate value for this
-   * field.
+   * requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int options.requestedPolicyVersion Optional. The maximum policy
@@ -113,6 +156,7 @@ class ProjectsSchemas extends \Google\Service\Resource
    * documentation](https://cloud.google.com/iam/help/conditions/resource-
    * policies).
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function getIamPolicy($resource, $optParams = [])
   {
@@ -135,6 +179,7 @@ class ProjectsSchemas extends \Google\Service\Resource
    * not set, returns Schemas with `name` and `type`, but not `definition`. Set to
    * `FULL` to retrieve all fields.
    * @return ListSchemasResponse
+   * @throws \Google\Service\Exception
    */
   public function listProjectsSchemas($parent, $optParams = [])
   {
@@ -143,16 +188,55 @@ class ProjectsSchemas extends \Google\Service\Resource
     return $this->call('list', [$params], ListSchemasResponse::class);
   }
   /**
+   * Lists all schema revisions for the named schema. (schemas.listRevisions)
+   *
+   * @param string $name Required. The name of the schema to list revisions for.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param int pageSize The maximum number of revisions to return per page.
+   * @opt_param string pageToken The page token, received from a previous
+   * ListSchemaRevisions call. Provide this to retrieve the subsequent page.
+   * @opt_param string view The set of Schema fields to return in the response. If
+   * not set, returns Schemas with `name` and `type`, but not `definition`. Set to
+   * `FULL` to retrieve all fields.
+   * @return ListSchemaRevisionsResponse
+   * @throws \Google\Service\Exception
+   */
+  public function listRevisions($name, $optParams = [])
+  {
+    $params = ['name' => $name];
+    $params = array_merge($params, $optParams);
+    return $this->call('listRevisions', [$params], ListSchemaRevisionsResponse::class);
+  }
+  /**
+   * Creates a new schema revision that is a copy of the provided revision_id.
+   * (schemas.rollback)
+   *
+   * @param string $name Required. The schema being rolled back with revision id.
+   * @param RollbackSchemaRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Schema
+   * @throws \Google\Service\Exception
+   */
+  public function rollback($name, RollbackSchemaRequest $postBody, $optParams = [])
+  {
+    $params = ['name' => $name, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('rollback', [$params], Schema::class);
+  }
+  /**
    * Sets the access control policy on the specified resource. Replaces any
    * existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
    * `PERMISSION_DENIED` errors. (schemas.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. See the operation documentation for the appropriate value for this
-   * field.
+   * specified. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function setIamPolicy($resource, SetIamPolicyRequest $postBody, $optParams = [])
   {
@@ -168,11 +252,13 @@ class ProjectsSchemas extends \Google\Service\Resource
    * This operation may "fail open" without warning. (schemas.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. See the operation documentation for the appropriate value
-   * for this field.
+   * being requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return TestIamPermissionsResponse
+   * @throws \Google\Service\Exception
    */
   public function testIamPermissions($resource, TestIamPermissionsRequest $postBody, $optParams = [])
   {
@@ -188,6 +274,7 @@ class ProjectsSchemas extends \Google\Service\Resource
    * @param ValidateSchemaRequest $postBody
    * @param array $optParams Optional parameters.
    * @return ValidateSchemaResponse
+   * @throws \Google\Service\Exception
    */
   public function validate($parent, ValidateSchemaRequest $postBody, $optParams = [])
   {
@@ -203,6 +290,7 @@ class ProjectsSchemas extends \Google\Service\Resource
    * @param ValidateMessageRequest $postBody
    * @param array $optParams Optional parameters.
    * @return ValidateMessageResponse
+   * @throws \Google\Service\Exception
    */
   public function validateMessage($parent, ValidateMessageRequest $postBody, $optParams = [])
   {

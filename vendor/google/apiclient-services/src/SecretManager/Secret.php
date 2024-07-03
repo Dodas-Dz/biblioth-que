@@ -21,9 +21,15 @@ class Secret extends \Google\Collection
 {
   protected $collection_key = 'topics';
   /**
+   * @var string[]
+   */
+  public $annotations;
+  /**
    * @var string
    */
   public $createTime;
+  protected $customerManagedEncryptionType = CustomerManagedEncryption::class;
+  protected $customerManagedEncryptionDataType = '';
   /**
    * @var string
    */
@@ -50,7 +56,29 @@ class Secret extends \Google\Collection
    * @var string
    */
   public $ttl;
+  /**
+   * @var string[]
+   */
+  public $versionAliases;
+  /**
+   * @var string
+   */
+  public $versionDestroyTtl;
 
+  /**
+   * @param string[]
+   */
+  public function setAnnotations($annotations)
+  {
+    $this->annotations = $annotations;
+  }
+  /**
+   * @return string[]
+   */
+  public function getAnnotations()
+  {
+    return $this->annotations;
+  }
   /**
    * @param string
    */
@@ -64,6 +92,20 @@ class Secret extends \Google\Collection
   public function getCreateTime()
   {
     return $this->createTime;
+  }
+  /**
+   * @param CustomerManagedEncryption
+   */
+  public function setCustomerManagedEncryption(CustomerManagedEncryption $customerManagedEncryption)
+  {
+    $this->customerManagedEncryption = $customerManagedEncryption;
+  }
+  /**
+   * @return CustomerManagedEncryption
+   */
+  public function getCustomerManagedEncryption()
+  {
+    return $this->customerManagedEncryption;
   }
   /**
    * @param string
@@ -176,6 +218,34 @@ class Secret extends \Google\Collection
   public function getTtl()
   {
     return $this->ttl;
+  }
+  /**
+   * @param string[]
+   */
+  public function setVersionAliases($versionAliases)
+  {
+    $this->versionAliases = $versionAliases;
+  }
+  /**
+   * @return string[]
+   */
+  public function getVersionAliases()
+  {
+    return $this->versionAliases;
+  }
+  /**
+   * @param string
+   */
+  public function setVersionDestroyTtl($versionDestroyTtl)
+  {
+    $this->versionDestroyTtl = $versionDestroyTtl;
+  }
+  /**
+   * @return string
+   */
+  public function getVersionDestroyTtl()
+  {
+    return $this->versionDestroyTtl;
   }
 }
 

@@ -17,12 +17,23 @@
 
 namespace Google\Service\Dataproc;
 
-class RepairClusterRequest extends \Google\Model
+class RepairClusterRequest extends \Google\Collection
 {
+  protected $collection_key = 'nodePools';
   /**
    * @var string
    */
   public $clusterUuid;
+  /**
+   * @var string
+   */
+  public $gracefulDecommissionTimeout;
+  protected $nodePoolsType = NodePool::class;
+  protected $nodePoolsDataType = 'array';
+  /**
+   * @var string
+   */
+  public $parentOperationId;
   /**
    * @var string
    */
@@ -41,6 +52,48 @@ class RepairClusterRequest extends \Google\Model
   public function getClusterUuid()
   {
     return $this->clusterUuid;
+  }
+  /**
+   * @param string
+   */
+  public function setGracefulDecommissionTimeout($gracefulDecommissionTimeout)
+  {
+    $this->gracefulDecommissionTimeout = $gracefulDecommissionTimeout;
+  }
+  /**
+   * @return string
+   */
+  public function getGracefulDecommissionTimeout()
+  {
+    return $this->gracefulDecommissionTimeout;
+  }
+  /**
+   * @param NodePool[]
+   */
+  public function setNodePools($nodePools)
+  {
+    $this->nodePools = $nodePools;
+  }
+  /**
+   * @return NodePool[]
+   */
+  public function getNodePools()
+  {
+    return $this->nodePools;
+  }
+  /**
+   * @param string
+   */
+  public function setParentOperationId($parentOperationId)
+  {
+    $this->parentOperationId = $parentOperationId;
+  }
+  /**
+   * @return string
+   */
+  public function getParentOperationId()
+  {
+    return $this->parentOperationId;
   }
   /**
    * @param string

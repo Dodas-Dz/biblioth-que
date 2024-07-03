@@ -26,7 +26,15 @@ class MailExportOptions extends \Google\Model
   /**
    * @var bool
    */
+  public $exportLinkedDriveFiles;
+  /**
+   * @var bool
+   */
   public $showConfidentialModeContent;
+  /**
+   * @var bool
+   */
+  public $useNewExport;
 
   /**
    * @param string
@@ -45,6 +53,20 @@ class MailExportOptions extends \Google\Model
   /**
    * @param bool
    */
+  public function setExportLinkedDriveFiles($exportLinkedDriveFiles)
+  {
+    $this->exportLinkedDriveFiles = $exportLinkedDriveFiles;
+  }
+  /**
+   * @return bool
+   */
+  public function getExportLinkedDriveFiles()
+  {
+    return $this->exportLinkedDriveFiles;
+  }
+  /**
+   * @param bool
+   */
   public function setShowConfidentialModeContent($showConfidentialModeContent)
   {
     $this->showConfidentialModeContent = $showConfidentialModeContent;
@@ -55,6 +77,20 @@ class MailExportOptions extends \Google\Model
   public function getShowConfidentialModeContent()
   {
     return $this->showConfidentialModeContent;
+  }
+  /**
+   * @param bool
+   */
+  public function setUseNewExport($useNewExport)
+  {
+    $this->useNewExport = $useNewExport;
+  }
+  /**
+   * @return bool
+   */
+  public function getUseNewExport()
+  {
+    return $this->useNewExport;
   }
 }
 

@@ -21,12 +21,14 @@ class ExecutionTemplate extends \Google\Model
 {
   protected $acceleratorConfigType = SchedulerAcceleratorConfig::class;
   protected $acceleratorConfigDataType = '';
+  public $acceleratorConfig;
   /**
    * @var string
    */
   public $containerImageUri;
   protected $dataprocParametersType = DataprocParameters::class;
   protected $dataprocParametersDataType = '';
+  public $dataprocParameters;
   /**
    * @var string
    */
@@ -42,7 +44,7 @@ class ExecutionTemplate extends \Google\Model
   /**
    * @var string[]
    */
-  public $labels;
+  public $labels = [];
   /**
    * @var string
    */
@@ -67,8 +69,13 @@ class ExecutionTemplate extends \Google\Model
    * @var string
    */
   public $serviceAccount;
+  /**
+   * @var string
+   */
+  public $tensorboard;
   protected $vertexAiParametersType = VertexAIParameters::class;
   protected $vertexAiParametersDataType = '';
+  public $vertexAiParameters;
 
   /**
    * @param SchedulerAcceleratorConfig
@@ -251,6 +258,20 @@ class ExecutionTemplate extends \Google\Model
   public function getServiceAccount()
   {
     return $this->serviceAccount;
+  }
+  /**
+   * @param string
+   */
+  public function setTensorboard($tensorboard)
+  {
+    $this->tensorboard = $tensorboard;
+  }
+  /**
+   * @return string
+   */
+  public function getTensorboard()
+  {
+    return $this->tensorboard;
   }
   /**
    * @param VertexAIParameters

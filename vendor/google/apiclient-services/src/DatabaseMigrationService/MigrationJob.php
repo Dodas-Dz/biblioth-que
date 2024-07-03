@@ -22,6 +22,12 @@ class MigrationJob extends \Google\Model
   /**
    * @var string
    */
+  public $cmekKeyName;
+  protected $conversionWorkspaceType = ConversionWorkspaceInfo::class;
+  protected $conversionWorkspaceDataType = '';
+  /**
+   * @var string
+   */
   public $createTime;
   /**
    * @var string
@@ -33,10 +39,16 @@ class MigrationJob extends \Google\Model
    * @var string
    */
   public $displayName;
+  protected $dumpFlagsType = DumpFlags::class;
+  protected $dumpFlagsDataType = '';
   /**
    * @var string
    */
   public $dumpPath;
+  /**
+   * @var string
+   */
+  public $dumpType;
   /**
    * @var string
    */
@@ -48,6 +60,10 @@ class MigrationJob extends \Google\Model
   protected $errorType = Status::class;
   protected $errorDataType = '';
   /**
+   * @var string
+   */
+  public $filter;
+  /**
    * @var string[]
    */
   public $labels;
@@ -55,6 +71,8 @@ class MigrationJob extends \Google\Model
    * @var string
    */
   public $name;
+  protected $performanceConfigType = PerformanceConfig::class;
+  protected $performanceConfigDataType = '';
   /**
    * @var string
    */
@@ -67,6 +85,8 @@ class MigrationJob extends \Google\Model
   public $source;
   protected $sourceDatabaseType = DatabaseType::class;
   protected $sourceDatabaseDataType = '';
+  protected $sqlserverHomogeneousMigrationJobConfigType = SqlServerHomogeneousMigrationJobConfig::class;
+  protected $sqlserverHomogeneousMigrationJobConfigDataType = '';
   /**
    * @var string
    */
@@ -84,6 +104,34 @@ class MigrationJob extends \Google\Model
   protected $vpcPeeringConnectivityType = VpcPeeringConnectivity::class;
   protected $vpcPeeringConnectivityDataType = '';
 
+  /**
+   * @param string
+   */
+  public function setCmekKeyName($cmekKeyName)
+  {
+    $this->cmekKeyName = $cmekKeyName;
+  }
+  /**
+   * @return string
+   */
+  public function getCmekKeyName()
+  {
+    return $this->cmekKeyName;
+  }
+  /**
+   * @param ConversionWorkspaceInfo
+   */
+  public function setConversionWorkspace(ConversionWorkspaceInfo $conversionWorkspace)
+  {
+    $this->conversionWorkspace = $conversionWorkspace;
+  }
+  /**
+   * @return ConversionWorkspaceInfo
+   */
+  public function getConversionWorkspace()
+  {
+    return $this->conversionWorkspace;
+  }
   /**
    * @param string
    */
@@ -141,6 +189,20 @@ class MigrationJob extends \Google\Model
     return $this->displayName;
   }
   /**
+   * @param DumpFlags
+   */
+  public function setDumpFlags(DumpFlags $dumpFlags)
+  {
+    $this->dumpFlags = $dumpFlags;
+  }
+  /**
+   * @return DumpFlags
+   */
+  public function getDumpFlags()
+  {
+    return $this->dumpFlags;
+  }
+  /**
    * @param string
    */
   public function setDumpPath($dumpPath)
@@ -153,6 +215,20 @@ class MigrationJob extends \Google\Model
   public function getDumpPath()
   {
     return $this->dumpPath;
+  }
+  /**
+   * @param string
+   */
+  public function setDumpType($dumpType)
+  {
+    $this->dumpType = $dumpType;
+  }
+  /**
+   * @return string
+   */
+  public function getDumpType()
+  {
+    return $this->dumpType;
   }
   /**
    * @param string
@@ -197,6 +273,20 @@ class MigrationJob extends \Google\Model
     return $this->error;
   }
   /**
+   * @param string
+   */
+  public function setFilter($filter)
+  {
+    $this->filter = $filter;
+  }
+  /**
+   * @return string
+   */
+  public function getFilter()
+  {
+    return $this->filter;
+  }
+  /**
    * @param string[]
    */
   public function setLabels($labels)
@@ -223,6 +313,20 @@ class MigrationJob extends \Google\Model
   public function getName()
   {
     return $this->name;
+  }
+  /**
+   * @param PerformanceConfig
+   */
+  public function setPerformanceConfig(PerformanceConfig $performanceConfig)
+  {
+    $this->performanceConfig = $performanceConfig;
+  }
+  /**
+   * @return PerformanceConfig
+   */
+  public function getPerformanceConfig()
+  {
+    return $this->performanceConfig;
   }
   /**
    * @param string
@@ -279,6 +383,20 @@ class MigrationJob extends \Google\Model
   public function getSourceDatabase()
   {
     return $this->sourceDatabase;
+  }
+  /**
+   * @param SqlServerHomogeneousMigrationJobConfig
+   */
+  public function setSqlserverHomogeneousMigrationJobConfig(SqlServerHomogeneousMigrationJobConfig $sqlserverHomogeneousMigrationJobConfig)
+  {
+    $this->sqlserverHomogeneousMigrationJobConfig = $sqlserverHomogeneousMigrationJobConfig;
+  }
+  /**
+   * @return SqlServerHomogeneousMigrationJobConfig
+   */
+  public function getSqlserverHomogeneousMigrationJobConfig()
+  {
+    return $this->sqlserverHomogeneousMigrationJobConfig;
   }
   /**
    * @param string

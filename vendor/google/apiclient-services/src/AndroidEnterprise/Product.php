@@ -20,6 +20,8 @@ namespace Google\Service\AndroidEnterprise;
 class Product extends \Google\Collection
 {
   protected $collection_key = 'screenshotUrls';
+  protected $appRestrictionsSchemaType = AppRestrictionsSchema::class;
+  protected $appRestrictionsSchemaDataType = '';
   protected $appTracksType = TrackInfo::class;
   protected $appTracksDataType = 'array';
   protected $appVersionType = AppVersion::class;
@@ -60,6 +62,10 @@ class Product extends \Google\Collection
    * @var string[]
    */
   public $features;
+  /**
+   * @var string
+   */
+  public $fullDescription;
   /**
    * @var string
    */
@@ -109,6 +115,20 @@ class Product extends \Google\Collection
    */
   public $workDetailsUrl;
 
+  /**
+   * @param AppRestrictionsSchema
+   */
+  public function setAppRestrictionsSchema(AppRestrictionsSchema $appRestrictionsSchema)
+  {
+    $this->appRestrictionsSchema = $appRestrictionsSchema;
+  }
+  /**
+   * @return AppRestrictionsSchema
+   */
+  public function getAppRestrictionsSchema()
+  {
+    return $this->appRestrictionsSchema;
+  }
   /**
    * @param TrackInfo[]
    */
@@ -262,6 +282,20 @@ class Product extends \Google\Collection
   public function getFeatures()
   {
     return $this->features;
+  }
+  /**
+   * @param string
+   */
+  public function setFullDescription($fullDescription)
+  {
+    $this->fullDescription = $fullDescription;
+  }
+  /**
+   * @return string
+   */
+  public function getFullDescription()
+  {
+    return $this->fullDescription;
   }
   /**
    * @param string

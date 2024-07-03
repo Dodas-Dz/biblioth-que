@@ -25,6 +25,10 @@ class CloudsupportCase extends \Google\Collection
   /**
    * @var string
    */
+  public $contactEmail;
+  /**
+   * @var string
+   */
   public $createTime;
   protected $creatorType = Actor::class;
   protected $creatorDataType = '';
@@ -43,11 +47,15 @@ class CloudsupportCase extends \Google\Collection
   /**
    * @var string
    */
+  public $languageCode;
+  /**
+   * @var string
+   */
   public $name;
   /**
    * @var string
    */
-  public $severity;
+  public $priority;
   /**
    * @var string
    */
@@ -82,6 +90,20 @@ class CloudsupportCase extends \Google\Collection
   public function getClassification()
   {
     return $this->classification;
+  }
+  /**
+   * @param string
+   */
+  public function setContactEmail($contactEmail)
+  {
+    $this->contactEmail = $contactEmail;
+  }
+  /**
+   * @return string
+   */
+  public function getContactEmail()
+  {
+    return $this->contactEmail;
   }
   /**
    * @param string
@@ -156,6 +178,20 @@ class CloudsupportCase extends \Google\Collection
   /**
    * @param string
    */
+  public function setLanguageCode($languageCode)
+  {
+    $this->languageCode = $languageCode;
+  }
+  /**
+   * @return string
+   */
+  public function getLanguageCode()
+  {
+    return $this->languageCode;
+  }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
@@ -170,16 +206,16 @@ class CloudsupportCase extends \Google\Collection
   /**
    * @param string
    */
-  public function setSeverity($severity)
+  public function setPriority($priority)
   {
-    $this->severity = $severity;
+    $this->priority = $priority;
   }
   /**
    * @return string
    */
-  public function getSeverity()
+  public function getPriority()
   {
-    return $this->severity;
+    return $this->priority;
   }
   /**
    * @param string

@@ -27,7 +27,7 @@ use Google\Client;
  * collected for all App Engine applications by default. Trace data from other
  * applications can be provided using this API. This library is used to interact
  * with the Cloud Trace API directly. If you are looking to instrument your
- * application for Cloud Trace, we recommend using OpenCensus.</p>
+ * application for Cloud Trace, we recommend using OpenTelemetry.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -47,6 +47,7 @@ class CloudTrace extends \Google\Service
 
   public $projects_traces;
   public $projects_traces_spans;
+  public $rootUrlTemplate;
 
   /**
    * Constructs the internal representation of the CloudTrace service.
@@ -59,6 +60,7 @@ class CloudTrace extends \Google\Service
   {
     parent::__construct($clientOrConfig);
     $this->rootUrl = $rootUrl ?: 'https://cloudtrace.googleapis.com/';
+    $this->rootUrlTemplate = $rootUrl ?: 'https://cloudtrace.UNIVERSE_DOMAIN/';
     $this->servicePath = '';
     $this->batchPath = 'batch';
     $this->version = 'v2';

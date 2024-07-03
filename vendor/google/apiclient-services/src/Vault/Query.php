@@ -21,6 +21,8 @@ class Query extends \Google\Model
 {
   protected $accountInfoType = AccountInfo::class;
   protected $accountInfoDataType = '';
+  protected $calendarOptionsType = CalendarOptions::class;
+  protected $calendarOptionsDataType = '';
   /**
    * @var string
    */
@@ -53,6 +55,8 @@ class Query extends \Google\Model
   public $searchMethod;
   protected $sharedDriveInfoType = SharedDriveInfo::class;
   protected $sharedDriveInfoDataType = '';
+  protected $sitesUrlInfoType = SitesUrlInfo::class;
+  protected $sitesUrlInfoDataType = '';
   /**
    * @var string
    */
@@ -83,6 +87,20 @@ class Query extends \Google\Model
   public function getAccountInfo()
   {
     return $this->accountInfo;
+  }
+  /**
+   * @param CalendarOptions
+   */
+  public function setCalendarOptions(CalendarOptions $calendarOptions)
+  {
+    $this->calendarOptions = $calendarOptions;
+  }
+  /**
+   * @return CalendarOptions
+   */
+  public function getCalendarOptions()
+  {
+    return $this->calendarOptions;
   }
   /**
    * @param string
@@ -237,6 +255,20 @@ class Query extends \Google\Model
   public function getSharedDriveInfo()
   {
     return $this->sharedDriveInfo;
+  }
+  /**
+   * @param SitesUrlInfo
+   */
+  public function setSitesUrlInfo(SitesUrlInfo $sitesUrlInfo)
+  {
+    $this->sitesUrlInfo = $sitesUrlInfo;
+  }
+  /**
+   * @return SitesUrlInfo
+   */
+  public function getSitesUrlInfo()
+  {
+    return $this->sitesUrlInfo;
   }
   /**
    * @param string

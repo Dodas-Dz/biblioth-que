@@ -22,16 +22,23 @@ class VirtualMachineConfig extends \Google\Collection
   protected $collection_key = 'tags';
   protected $acceleratorConfigType = RuntimeAcceleratorConfig::class;
   protected $acceleratorConfigDataType = '';
+  public $acceleratorConfig;
+  protected $bootImageType = BootImage::class;
+  protected $bootImageDataType = '';
+  public $bootImage;
   protected $containerImagesType = ContainerImage::class;
   protected $containerImagesDataType = 'array';
+  public $containerImages = [];
   protected $dataDiskType = LocalDisk::class;
   protected $dataDiskDataType = '';
+  public $dataDisk;
   protected $encryptionConfigType = EncryptionConfig::class;
   protected $encryptionConfigDataType = '';
+  public $encryptionConfig;
   /**
    * @var string[]
    */
-  public $guestAttributes;
+  public $guestAttributes = [];
   /**
    * @var bool
    */
@@ -39,7 +46,7 @@ class VirtualMachineConfig extends \Google\Collection
   /**
    * @var string[]
    */
-  public $labels;
+  public $labels = [];
   /**
    * @var string
    */
@@ -47,7 +54,7 @@ class VirtualMachineConfig extends \Google\Collection
   /**
    * @var string[]
    */
-  public $metadata;
+  public $metadata = [];
   /**
    * @var string
    */
@@ -56,8 +63,13 @@ class VirtualMachineConfig extends \Google\Collection
    * @var string
    */
   public $nicType;
+  /**
+   * @var string
+   */
+  public $reservedIpRange;
   protected $shieldedInstanceConfigType = RuntimeShieldedInstanceConfig::class;
   protected $shieldedInstanceConfigDataType = '';
+  public $shieldedInstanceConfig;
   /**
    * @var string
    */
@@ -65,7 +77,7 @@ class VirtualMachineConfig extends \Google\Collection
   /**
    * @var string[]
    */
-  public $tags;
+  public $tags = [];
   /**
    * @var string
    */
@@ -84,6 +96,20 @@ class VirtualMachineConfig extends \Google\Collection
   public function getAcceleratorConfig()
   {
     return $this->acceleratorConfig;
+  }
+  /**
+   * @param BootImage
+   */
+  public function setBootImage(BootImage $bootImage)
+  {
+    $this->bootImage = $bootImage;
+  }
+  /**
+   * @return BootImage
+   */
+  public function getBootImage()
+  {
+    return $this->bootImage;
   }
   /**
    * @param ContainerImage[]
@@ -224,6 +250,20 @@ class VirtualMachineConfig extends \Google\Collection
   public function getNicType()
   {
     return $this->nicType;
+  }
+  /**
+   * @param string
+   */
+  public function setReservedIpRange($reservedIpRange)
+  {
+    $this->reservedIpRange = $reservedIpRange;
+  }
+  /**
+   * @return string
+   */
+  public function getReservedIpRange()
+  {
+    return $this->reservedIpRange;
   }
   /**
    * @param RuntimeShieldedInstanceConfig

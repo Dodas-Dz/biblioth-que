@@ -20,6 +20,10 @@ namespace Google\Service\Connectors;
 class InputParameter extends \Google\Model
 {
   /**
+   * @var array[]
+   */
+  public $additionalDetails;
+  /**
    * @var string
    */
   public $dataType;
@@ -31,15 +35,31 @@ class InputParameter extends \Google\Model
    * @var string
    */
   public $description;
+  protected $jsonSchemaType = JsonSchema::class;
+  protected $jsonSchemaDataType = '';
+  /**
+   * @var string
+   */
+  public $name;
   /**
    * @var bool
    */
   public $nullable;
-  /**
-   * @var string
-   */
-  public $parameter;
 
+  /**
+   * @param array[]
+   */
+  public function setAdditionalDetails($additionalDetails)
+  {
+    $this->additionalDetails = $additionalDetails;
+  }
+  /**
+   * @return array[]
+   */
+  public function getAdditionalDetails()
+  {
+    return $this->additionalDetails;
+  }
   /**
    * @param string
    */
@@ -83,6 +103,34 @@ class InputParameter extends \Google\Model
     return $this->description;
   }
   /**
+   * @param JsonSchema
+   */
+  public function setJsonSchema(JsonSchema $jsonSchema)
+  {
+    $this->jsonSchema = $jsonSchema;
+  }
+  /**
+   * @return JsonSchema
+   */
+  public function getJsonSchema()
+  {
+    return $this->jsonSchema;
+  }
+  /**
+   * @param string
+   */
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  /**
+   * @return string
+   */
+  public function getName()
+  {
+    return $this->name;
+  }
+  /**
    * @param bool
    */
   public function setNullable($nullable)
@@ -95,20 +143,6 @@ class InputParameter extends \Google\Model
   public function getNullable()
   {
     return $this->nullable;
-  }
-  /**
-   * @param string
-   */
-  public function setParameter($parameter)
-  {
-    $this->parameter = $parameter;
-  }
-  /**
-   * @return string
-   */
-  public function getParameter()
-  {
-    return $this->parameter;
   }
 }
 

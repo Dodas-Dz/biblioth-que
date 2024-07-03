@@ -27,11 +27,19 @@ class ApplicationPolicy extends \Google\Collection
   /**
    * @var string
    */
+  public $alwaysOnVpnLockdownExemption;
+  /**
+   * @var string
+   */
   public $autoUpdateMode;
   /**
    * @var string
    */
   public $connectedWorkAndPersonalApp;
+  /**
+   * @var string
+   */
+  public $credentialProviderPolicy;
   /**
    * @var string
    */
@@ -46,6 +54,12 @@ class ApplicationPolicy extends \Google\Collection
   public $disabled;
   protected $extensionConfigType = ExtensionConfig::class;
   protected $extensionConfigDataType = '';
+  protected $installConstraintType = InstallConstraint::class;
+  protected $installConstraintDataType = 'array';
+  /**
+   * @var int
+   */
+  public $installPriority;
   /**
    * @var string
    */
@@ -70,6 +84,14 @@ class ApplicationPolicy extends \Google\Collection
   public $packageName;
   protected $permissionGrantsType = PermissionGrant::class;
   protected $permissionGrantsDataType = 'array';
+  /**
+   * @var string
+   */
+  public $userControlSettings;
+  /**
+   * @var string
+   */
+  public $workProfileWidgets;
 
   /**
    * @param string[]
@@ -84,6 +106,20 @@ class ApplicationPolicy extends \Google\Collection
   public function getAccessibleTrackIds()
   {
     return $this->accessibleTrackIds;
+  }
+  /**
+   * @param string
+   */
+  public function setAlwaysOnVpnLockdownExemption($alwaysOnVpnLockdownExemption)
+  {
+    $this->alwaysOnVpnLockdownExemption = $alwaysOnVpnLockdownExemption;
+  }
+  /**
+   * @return string
+   */
+  public function getAlwaysOnVpnLockdownExemption()
+  {
+    return $this->alwaysOnVpnLockdownExemption;
   }
   /**
    * @param string
@@ -112,6 +148,20 @@ class ApplicationPolicy extends \Google\Collection
   public function getConnectedWorkAndPersonalApp()
   {
     return $this->connectedWorkAndPersonalApp;
+  }
+  /**
+   * @param string
+   */
+  public function setCredentialProviderPolicy($credentialProviderPolicy)
+  {
+    $this->credentialProviderPolicy = $credentialProviderPolicy;
+  }
+  /**
+   * @return string
+   */
+  public function getCredentialProviderPolicy()
+  {
+    return $this->credentialProviderPolicy;
   }
   /**
    * @param string
@@ -168,6 +218,34 @@ class ApplicationPolicy extends \Google\Collection
   public function getExtensionConfig()
   {
     return $this->extensionConfig;
+  }
+  /**
+   * @param InstallConstraint[]
+   */
+  public function setInstallConstraint($installConstraint)
+  {
+    $this->installConstraint = $installConstraint;
+  }
+  /**
+   * @return InstallConstraint[]
+   */
+  public function getInstallConstraint()
+  {
+    return $this->installConstraint;
+  }
+  /**
+   * @param int
+   */
+  public function setInstallPriority($installPriority)
+  {
+    $this->installPriority = $installPriority;
+  }
+  /**
+   * @return int
+   */
+  public function getInstallPriority()
+  {
+    return $this->installPriority;
   }
   /**
    * @param string
@@ -266,6 +344,34 @@ class ApplicationPolicy extends \Google\Collection
   public function getPermissionGrants()
   {
     return $this->permissionGrants;
+  }
+  /**
+   * @param string
+   */
+  public function setUserControlSettings($userControlSettings)
+  {
+    $this->userControlSettings = $userControlSettings;
+  }
+  /**
+   * @return string
+   */
+  public function getUserControlSettings()
+  {
+    return $this->userControlSettings;
+  }
+  /**
+   * @param string
+   */
+  public function setWorkProfileWidgets($workProfileWidgets)
+  {
+    $this->workProfileWidgets = $workProfileWidgets;
+  }
+  /**
+   * @return string
+   */
+  public function getWorkProfileWidgets()
+  {
+    return $this->workProfileWidgets;
   }
 }
 

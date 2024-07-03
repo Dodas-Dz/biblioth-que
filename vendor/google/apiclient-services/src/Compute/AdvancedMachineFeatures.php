@@ -24,9 +24,21 @@ class AdvancedMachineFeatures extends \Google\Model
    */
   public $enableNestedVirtualization;
   /**
+   * @var bool
+   */
+  public $enableUefiNetworking;
+  /**
+   * @var string
+   */
+  public $performanceMonitoringUnit;
+  /**
    * @var int
    */
   public $threadsPerCore;
+  /**
+   * @var int
+   */
+  public $visibleCoreCount;
 
   /**
    * @param bool
@@ -43,6 +55,34 @@ class AdvancedMachineFeatures extends \Google\Model
     return $this->enableNestedVirtualization;
   }
   /**
+   * @param bool
+   */
+  public function setEnableUefiNetworking($enableUefiNetworking)
+  {
+    $this->enableUefiNetworking = $enableUefiNetworking;
+  }
+  /**
+   * @return bool
+   */
+  public function getEnableUefiNetworking()
+  {
+    return $this->enableUefiNetworking;
+  }
+  /**
+   * @param string
+   */
+  public function setPerformanceMonitoringUnit($performanceMonitoringUnit)
+  {
+    $this->performanceMonitoringUnit = $performanceMonitoringUnit;
+  }
+  /**
+   * @return string
+   */
+  public function getPerformanceMonitoringUnit()
+  {
+    return $this->performanceMonitoringUnit;
+  }
+  /**
    * @param int
    */
   public function setThreadsPerCore($threadsPerCore)
@@ -55,6 +95,20 @@ class AdvancedMachineFeatures extends \Google\Model
   public function getThreadsPerCore()
   {
     return $this->threadsPerCore;
+  }
+  /**
+   * @param int
+   */
+  public function setVisibleCoreCount($visibleCoreCount)
+  {
+    $this->visibleCoreCount = $visibleCoreCount;
+  }
+  /**
+   * @return int
+   */
+  public function getVisibleCoreCount()
+  {
+    return $this->visibleCoreCount;
   }
 }
 

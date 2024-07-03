@@ -17,8 +17,11 @@
 
 namespace Google\Service\Connectors;
 
-class ConfigVariableTemplate extends \Google\Model
+class ConfigVariableTemplate extends \Google\Collection
 {
+  protected $collection_key = 'enumOptions';
+  protected $authorizationCodeLinkType = AuthorizationCodeLink::class;
+  protected $authorizationCodeLinkDataType = '';
   /**
    * @var string
    */
@@ -27,6 +30,8 @@ class ConfigVariableTemplate extends \Google\Model
    * @var string
    */
   public $displayName;
+  protected $enumOptionsType = EnumOption::class;
+  protected $enumOptionsDataType = 'array';
   /**
    * @var string
    */
@@ -40,12 +45,30 @@ class ConfigVariableTemplate extends \Google\Model
   /**
    * @var string
    */
+  public $state;
+  /**
+   * @var string
+   */
   public $validationRegex;
   /**
    * @var string
    */
   public $valueType;
 
+  /**
+   * @param AuthorizationCodeLink
+   */
+  public function setAuthorizationCodeLink(AuthorizationCodeLink $authorizationCodeLink)
+  {
+    $this->authorizationCodeLink = $authorizationCodeLink;
+  }
+  /**
+   * @return AuthorizationCodeLink
+   */
+  public function getAuthorizationCodeLink()
+  {
+    return $this->authorizationCodeLink;
+  }
   /**
    * @param string
    */
@@ -73,6 +96,20 @@ class ConfigVariableTemplate extends \Google\Model
   public function getDisplayName()
   {
     return $this->displayName;
+  }
+  /**
+   * @param EnumOption[]
+   */
+  public function setEnumOptions($enumOptions)
+  {
+    $this->enumOptions = $enumOptions;
+  }
+  /**
+   * @return EnumOption[]
+   */
+  public function getEnumOptions()
+  {
+    return $this->enumOptions;
   }
   /**
    * @param string
@@ -115,6 +152,20 @@ class ConfigVariableTemplate extends \Google\Model
   public function getRoleGrant()
   {
     return $this->roleGrant;
+  }
+  /**
+   * @param string
+   */
+  public function setState($state)
+  {
+    $this->state = $state;
+  }
+  /**
+   * @return string
+   */
+  public function getState()
+  {
+    return $this->state;
   }
   /**
    * @param string

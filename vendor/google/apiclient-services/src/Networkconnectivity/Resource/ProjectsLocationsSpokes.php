@@ -30,24 +30,24 @@ use Google\Service\Networkconnectivity\TestIamPermissionsResponse;
  * Typical usage is:
  *  <code>
  *   $networkconnectivityService = new Google\Service\Networkconnectivity(...);
- *   $spokes = $networkconnectivityService->spokes;
+ *   $spokes = $networkconnectivityService->projects_locations_spokes;
  *  </code>
  */
 class ProjectsLocationsSpokes extends \Google\Service\Resource
 {
   /**
-   * Creates a spoke in the specified project and location. (spokes.create)
+   * Creates a Network Connectivity Center spoke. (spokes.create)
    *
    * @param string $parent Required. The parent resource.
    * @param Spoke $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string requestId Optional. A unique request ID (optional). If you
-   * specify this ID, you can use it in cases when you need to retry your request.
-   * When you need to retry, this ID lets the server know that it can ignore the
-   * request if it has already been completed. The server guarantees that for at
-   * least 60 minutes after the first request. For example, consider a situation
-   * where you make an initial request and the request times out. If you make the
+   * @opt_param string requestId Optional. A request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server knows to ignore the request if it has already been completed. The
+   * server guarantees that a request doesn't result in creation of duplicate
+   * commitments for at least 60 minutes. For example, consider a situation where
+   * you make an initial request and the request times out. If you make the
    * request again with the same request ID, the server can check to see whether
    * the original operation was received. If it was, the server ignores the second
    * request. This behavior prevents clients from mistakenly creating duplicate
@@ -55,6 +55,7 @@ class ProjectsLocationsSpokes extends \Google\Service\Resource
    * zero UUID is not supported (00000000-0000-0000-0000-000000000000).
    * @opt_param string spokeId Required. Unique id for the spoke to create.
    * @return GoogleLongrunningOperation
+   * @throws \Google\Service\Exception
    */
   public function create($parent, Spoke $postBody, $optParams = [])
   {
@@ -63,23 +64,24 @@ class ProjectsLocationsSpokes extends \Google\Service\Resource
     return $this->call('create', [$params], GoogleLongrunningOperation::class);
   }
   /**
-   * Deletes the specified spoke. (spokes.delete)
+   * Deletes a Network Connectivity Center spoke. (spokes.delete)
    *
    * @param string $name Required. The name of the spoke to delete.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string requestId Optional. A unique request ID (optional). If you
-   * specify this ID, you can use it in cases when you need to retry your request.
-   * When you need to retry, this ID lets the server know that it can ignore the
-   * request if it has already been completed. The server guarantees that for at
-   * least 60 minutes after the first request. For example, consider a situation
-   * where you make an initial request and the request times out. If you make the
+   * @opt_param string requestId Optional. A request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server knows to ignore the request if it has already been completed. The
+   * server guarantees that a request doesn't result in creation of duplicate
+   * commitments for at least 60 minutes. For example, consider a situation where
+   * you make an initial request and the request times out. If you make the
    * request again with the same request ID, the server can check to see whether
    * the original operation was received. If it was, the server ignores the second
    * request. This behavior prevents clients from mistakenly creating duplicate
    * commitments. The request ID must be a valid UUID, with the exception that
    * zero UUID is not supported (00000000-0000-0000-0000-000000000000).
    * @return GoogleLongrunningOperation
+   * @throws \Google\Service\Exception
    */
   public function delete($name, $optParams = [])
   {
@@ -88,11 +90,12 @@ class ProjectsLocationsSpokes extends \Google\Service\Resource
     return $this->call('delete', [$params], GoogleLongrunningOperation::class);
   }
   /**
-   * Gets details about the specified spoke. (spokes.get)
+   * Gets details about a Network Connectivity Center spoke. (spokes.get)
    *
    * @param string $name Required. The name of the spoke resource.
    * @param array $optParams Optional parameters.
    * @return Spoke
+   * @throws \Google\Service\Exception
    */
   public function get($name, $optParams = [])
   {
@@ -105,8 +108,9 @@ class ProjectsLocationsSpokes extends \Google\Service\Resource
    * resource exists and does not have a policy set. (spokes.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. See the operation documentation for the appropriate value for this
-   * field.
+   * requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int options.requestedPolicyVersion Optional. The maximum policy
@@ -122,6 +126,7 @@ class ProjectsLocationsSpokes extends \Google\Service\Resource
    * documentation](https://cloud.google.com/iam/help/conditions/resource-
    * policies).
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function getIamPolicy($resource, $optParams = [])
   {
@@ -130,19 +135,18 @@ class ProjectsLocationsSpokes extends \Google\Service\Resource
     return $this->call('getIamPolicy', [$params], Policy::class);
   }
   /**
-   * Lists the spokes in the specified project and location.
-   * (spokes.listProjectsLocationsSpokes)
+   * Lists the Network Connectivity Center spokes in a specified project and
+   * location. (spokes.listProjectsLocationsSpokes)
    *
    * @param string $parent Required. The parent resource.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter An expression that filters the results listed in the
-   * response.
+   * @opt_param string filter An expression that filters the list of results.
    * @opt_param string orderBy Sort the results by a certain order.
-   * @opt_param int pageSize The maximum number of results per page that should be
-   * returned.
+   * @opt_param int pageSize The maximum number of results to return per page.
    * @opt_param string pageToken The page token.
    * @return ListSpokesResponse
+   * @throws \Google\Service\Exception
    */
   public function listProjectsLocationsSpokes($parent, $optParams = [])
   {
@@ -151,7 +155,7 @@ class ProjectsLocationsSpokes extends \Google\Service\Resource
     return $this->call('list', [$params], ListSpokesResponse::class);
   }
   /**
-   * Updates the parameters of the specified spoke. (spokes.patch)
+   * Updates the parameters of a Network Connectivity Center spoke. (spokes.patch)
    *
    * @param string $name Immutable. The name of the spoke. Spoke names must be
    * unique. They use the following form:
@@ -159,12 +163,12 @@ class ProjectsLocationsSpokes extends \Google\Service\Resource
    * @param Spoke $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string requestId Optional. A unique request ID (optional). If you
-   * specify this ID, you can use it in cases when you need to retry your request.
-   * When you need to retry, this ID lets the server know that it can ignore the
-   * request if it has already been completed. The server guarantees that for at
-   * least 60 minutes after the first request. For example, consider a situation
-   * where you make an initial request and the request times out. If you make the
+   * @opt_param string requestId Optional. A request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server knows to ignore the request if it has already been completed. The
+   * server guarantees that a request doesn't result in creation of duplicate
+   * commitments for at least 60 minutes. For example, consider a situation where
+   * you make an initial request and the request times out. If you make the
    * request again with the same request ID, the server can check to see whether
    * the original operation was received. If it was, the server ignores the second
    * request. This behavior prevents clients from mistakenly creating duplicate
@@ -176,6 +180,7 @@ class ProjectsLocationsSpokes extends \Google\Service\Resource
    * full request. A field is overwritten if it is in the mask. If the user does
    * not provide a mask, then all fields are overwritten.
    * @return GoogleLongrunningOperation
+   * @throws \Google\Service\Exception
    */
   public function patch($name, Spoke $postBody, $optParams = [])
   {
@@ -189,11 +194,13 @@ class ProjectsLocationsSpokes extends \Google\Service\Resource
    * `PERMISSION_DENIED` errors. (spokes.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. See the operation documentation for the appropriate value for this
-   * field.
+   * specified. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function setIamPolicy($resource, SetIamPolicyRequest $postBody, $optParams = [])
   {
@@ -209,11 +216,13 @@ class ProjectsLocationsSpokes extends \Google\Service\Resource
    * This operation may "fail open" without warning. (spokes.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. See the operation documentation for the appropriate value
-   * for this field.
+   * being requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return TestIamPermissionsResponse
+   * @throws \Google\Service\Exception
    */
   public function testIamPermissions($resource, TestIamPermissionsRequest $postBody, $optParams = [])
   {

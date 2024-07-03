@@ -20,6 +20,7 @@ namespace Google\Service\AccessApproval\Resource;
 use Google\Service\AccessApproval\ApprovalRequest;
 use Google\Service\AccessApproval\ApproveApprovalRequestMessage;
 use Google\Service\AccessApproval\DismissApprovalRequestMessage;
+use Google\Service\AccessApproval\InvalidateApprovalRequestMessage;
 use Google\Service\AccessApproval\ListApprovalRequestsResponse;
 
 /**
@@ -27,7 +28,7 @@ use Google\Service\AccessApproval\ListApprovalRequestsResponse;
  * Typical usage is:
  *  <code>
  *   $accessapprovalService = new Google\Service\AccessApproval(...);
- *   $approvalRequests = $accessapprovalService->approvalRequests;
+ *   $approvalRequests = $accessapprovalService->folders_approvalRequests;
  *  </code>
  */
 class FoldersApprovalRequests extends \Google\Service\Resource
@@ -41,6 +42,7 @@ class FoldersApprovalRequests extends \Google\Service\Resource
    * @param ApproveApprovalRequestMessage $postBody
    * @param array $optParams Optional parameters.
    * @return ApprovalRequest
+   * @throws \Google\Service\Exception
    */
   public function approve($name, ApproveApprovalRequestMessage $postBody, $optParams = [])
   {
@@ -59,6 +61,7 @@ class FoldersApprovalRequests extends \Google\Service\Resource
    * @param DismissApprovalRequestMessage $postBody
    * @param array $optParams Optional parameters.
    * @return ApprovalRequest
+   * @throws \Google\Service\Exception
    */
   public function dismiss($name, DismissApprovalRequestMessage $postBody, $optParams = [])
   {
@@ -74,12 +77,32 @@ class FoldersApprovalRequests extends \Google\Service\Resource
    * "{projects|folders|organizations}/{id}/approvalRequests/{approval_request}"
    * @param array $optParams Optional parameters.
    * @return ApprovalRequest
+   * @throws \Google\Service\Exception
    */
   public function get($name, $optParams = [])
   {
     $params = ['name' => $name];
     $params = array_merge($params, $optParams);
     return $this->call('get', [$params], ApprovalRequest::class);
+  }
+  /**
+   * Invalidates an existing ApprovalRequest. Returns the updated ApprovalRequest.
+   * NOTE: This does not deny access to the resource if another request has been
+   * made and approved. It only invalidates a single approval. Returns
+   * FAILED_PRECONDITION if the request exists but is not in an approved state.
+   * (approvalRequests.invalidate)
+   *
+   * @param string $name Name of the ApprovalRequest to invalidate.
+   * @param InvalidateApprovalRequestMessage $postBody
+   * @param array $optParams Optional parameters.
+   * @return ApprovalRequest
+   * @throws \Google\Service\Exception
+   */
+  public function invalidate($name, InvalidateApprovalRequestMessage $postBody, $optParams = [])
+  {
+    $params = ['name' => $name, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('invalidate', [$params], ApprovalRequest::class);
   }
   /**
    * Lists approval requests associated with a project, folder, or organization.
@@ -103,6 +126,7 @@ class FoldersApprovalRequests extends \Google\Service\Resource
    * @opt_param string pageToken A token identifying the page of results to
    * return.
    * @return ListApprovalRequestsResponse
+   * @throws \Google\Service\Exception
    */
   public function listFoldersApprovalRequests($parent, $optParams = [])
   {

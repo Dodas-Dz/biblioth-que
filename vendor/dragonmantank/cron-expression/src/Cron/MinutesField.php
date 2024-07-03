@@ -42,13 +42,14 @@ class MinutesField extends AbstractField
     public function increment(DateTimeInterface &$date, $invert = false, $parts = null): FieldInterface
     {
         if (is_null($parts)) {
-            $date = $date->modify(($invert ? '-' : '+'). '1 minute');
+            $date = $this->timezoneSafeModify($date, ($invert ? "-" : "+") ."1 minute");
             return $this;
         }
 
         $current_minute = (int) $date->format('i');
 
         $parts = false !== strpos($parts, ',') ? explode(',', $parts) : [$parts];
+        sort($parts);
         $minutes = [];
         foreach ($parts as $part) {
             $minutes = array_merge($minutes, $this->getRangeForExpression($part, 59));

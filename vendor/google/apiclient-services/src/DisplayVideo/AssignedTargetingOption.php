@@ -29,6 +29,10 @@ class AssignedTargetingOption extends \Google\Model
    * @var string
    */
   public $assignedTargetingOptionId;
+  /**
+   * @var string
+   */
+  public $assignedTargetingOptionIdAlias;
   protected $audienceGroupDetailsType = AudienceGroupAssignedTargetingOptionDetails::class;
   protected $audienceGroupDetailsDataType = '';
   protected $audioContentTypeDetailsType = AudioContentTypeAssignedTargetingOptionDetails::class;
@@ -45,10 +49,16 @@ class AssignedTargetingOption extends \Google\Model
   protected $categoryDetailsDataType = '';
   protected $channelDetailsType = ChannelAssignedTargetingOptionDetails::class;
   protected $channelDetailsDataType = '';
+  protected $contentDurationDetailsType = ContentDurationAssignedTargetingOptionDetails::class;
+  protected $contentDurationDetailsDataType = '';
+  protected $contentGenreDetailsType = ContentGenreAssignedTargetingOptionDetails::class;
+  protected $contentGenreDetailsDataType = '';
   protected $contentInstreamPositionDetailsType = ContentInstreamPositionAssignedTargetingOptionDetails::class;
   protected $contentInstreamPositionDetailsDataType = '';
   protected $contentOutstreamPositionDetailsType = ContentOutstreamPositionAssignedTargetingOptionDetails::class;
   protected $contentOutstreamPositionDetailsDataType = '';
+  protected $contentStreamTypeDetailsType = ContentStreamTypeAssignedTargetingOptionDetails::class;
+  protected $contentStreamTypeDetailsDataType = '';
   protected $dayAndTimeDetailsType = DayAndTimeAssignedTargetingOptionDetails::class;
   protected $dayAndTimeDetailsDataType = '';
   protected $deviceMakeModelDetailsType = DeviceMakeModelAssignedTargetingOptionDetails::class;
@@ -103,6 +113,8 @@ class AssignedTargetingOption extends \Google\Model
   protected $regionalLocationListDetailsDataType = '';
   protected $sensitiveCategoryExclusionDetailsType = SensitiveCategoryAssignedTargetingOptionDetails::class;
   protected $sensitiveCategoryExclusionDetailsDataType = '';
+  protected $sessionPositionDetailsType = SessionPositionAssignedTargetingOptionDetails::class;
+  protected $sessionPositionDetailsDataType = '';
   protected $subExchangeDetailsType = SubExchangeAssignedTargetingOptionDetails::class;
   protected $subExchangeDetailsDataType = '';
   /**
@@ -119,6 +131,10 @@ class AssignedTargetingOption extends \Google\Model
   protected $videoPlayerSizeDetailsDataType = '';
   protected $viewabilityDetailsType = ViewabilityAssignedTargetingOptionDetails::class;
   protected $viewabilityDetailsDataType = '';
+  protected $youtubeChannelDetailsType = YoutubeChannelAssignedTargetingOptionDetails::class;
+  protected $youtubeChannelDetailsDataType = '';
+  protected $youtubeVideoDetailsType = YoutubeVideoAssignedTargetingOptionDetails::class;
+  protected $youtubeVideoDetailsDataType = '';
 
   /**
    * @param AgeRangeAssignedTargetingOptionDetails
@@ -175,6 +191,20 @@ class AssignedTargetingOption extends \Google\Model
   public function getAssignedTargetingOptionId()
   {
     return $this->assignedTargetingOptionId;
+  }
+  /**
+   * @param string
+   */
+  public function setAssignedTargetingOptionIdAlias($assignedTargetingOptionIdAlias)
+  {
+    $this->assignedTargetingOptionIdAlias = $assignedTargetingOptionIdAlias;
+  }
+  /**
+   * @return string
+   */
+  public function getAssignedTargetingOptionIdAlias()
+  {
+    return $this->assignedTargetingOptionIdAlias;
   }
   /**
    * @param AudienceGroupAssignedTargetingOptionDetails
@@ -289,6 +319,34 @@ class AssignedTargetingOption extends \Google\Model
     return $this->channelDetails;
   }
   /**
+   * @param ContentDurationAssignedTargetingOptionDetails
+   */
+  public function setContentDurationDetails(ContentDurationAssignedTargetingOptionDetails $contentDurationDetails)
+  {
+    $this->contentDurationDetails = $contentDurationDetails;
+  }
+  /**
+   * @return ContentDurationAssignedTargetingOptionDetails
+   */
+  public function getContentDurationDetails()
+  {
+    return $this->contentDurationDetails;
+  }
+  /**
+   * @param ContentGenreAssignedTargetingOptionDetails
+   */
+  public function setContentGenreDetails(ContentGenreAssignedTargetingOptionDetails $contentGenreDetails)
+  {
+    $this->contentGenreDetails = $contentGenreDetails;
+  }
+  /**
+   * @return ContentGenreAssignedTargetingOptionDetails
+   */
+  public function getContentGenreDetails()
+  {
+    return $this->contentGenreDetails;
+  }
+  /**
    * @param ContentInstreamPositionAssignedTargetingOptionDetails
    */
   public function setContentInstreamPositionDetails(ContentInstreamPositionAssignedTargetingOptionDetails $contentInstreamPositionDetails)
@@ -315,6 +373,20 @@ class AssignedTargetingOption extends \Google\Model
   public function getContentOutstreamPositionDetails()
   {
     return $this->contentOutstreamPositionDetails;
+  }
+  /**
+   * @param ContentStreamTypeAssignedTargetingOptionDetails
+   */
+  public function setContentStreamTypeDetails(ContentStreamTypeAssignedTargetingOptionDetails $contentStreamTypeDetails)
+  {
+    $this->contentStreamTypeDetails = $contentStreamTypeDetails;
+  }
+  /**
+   * @return ContentStreamTypeAssignedTargetingOptionDetails
+   */
+  public function getContentStreamTypeDetails()
+  {
+    return $this->contentStreamTypeDetails;
   }
   /**
    * @param DayAndTimeAssignedTargetingOptionDetails
@@ -667,6 +739,20 @@ class AssignedTargetingOption extends \Google\Model
     return $this->sensitiveCategoryExclusionDetails;
   }
   /**
+   * @param SessionPositionAssignedTargetingOptionDetails
+   */
+  public function setSessionPositionDetails(SessionPositionAssignedTargetingOptionDetails $sessionPositionDetails)
+  {
+    $this->sessionPositionDetails = $sessionPositionDetails;
+  }
+  /**
+   * @return SessionPositionAssignedTargetingOptionDetails
+   */
+  public function getSessionPositionDetails()
+  {
+    return $this->sessionPositionDetails;
+  }
+  /**
    * @param SubExchangeAssignedTargetingOptionDetails
    */
   public function setSubExchangeDetails(SubExchangeAssignedTargetingOptionDetails $subExchangeDetails)
@@ -763,6 +849,34 @@ class AssignedTargetingOption extends \Google\Model
   public function getViewabilityDetails()
   {
     return $this->viewabilityDetails;
+  }
+  /**
+   * @param YoutubeChannelAssignedTargetingOptionDetails
+   */
+  public function setYoutubeChannelDetails(YoutubeChannelAssignedTargetingOptionDetails $youtubeChannelDetails)
+  {
+    $this->youtubeChannelDetails = $youtubeChannelDetails;
+  }
+  /**
+   * @return YoutubeChannelAssignedTargetingOptionDetails
+   */
+  public function getYoutubeChannelDetails()
+  {
+    return $this->youtubeChannelDetails;
+  }
+  /**
+   * @param YoutubeVideoAssignedTargetingOptionDetails
+   */
+  public function setYoutubeVideoDetails(YoutubeVideoAssignedTargetingOptionDetails $youtubeVideoDetails)
+  {
+    $this->youtubeVideoDetails = $youtubeVideoDetails;
+  }
+  /**
+   * @return YoutubeVideoAssignedTargetingOptionDetails
+   */
+  public function getYoutubeVideoDetails()
+  {
+    return $this->youtubeVideoDetails;
   }
 }
 

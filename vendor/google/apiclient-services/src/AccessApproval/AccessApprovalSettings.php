@@ -21,11 +21,23 @@ class AccessApprovalSettings extends \Google\Collection
 {
   protected $collection_key = 'notificationEmails';
   /**
+   * @var string
+   */
+  public $activeKeyVersion;
+  /**
+   * @var bool
+   */
+  public $ancestorHasActiveKeyVersion;
+  /**
    * @var bool
    */
   public $enrolledAncestor;
   protected $enrolledServicesType = EnrolledService::class;
   protected $enrolledServicesDataType = 'array';
+  /**
+   * @var bool
+   */
+  public $invalidKeyVersion;
   /**
    * @var string
    */
@@ -34,7 +46,55 @@ class AccessApprovalSettings extends \Google\Collection
    * @var string[]
    */
   public $notificationEmails;
+  /**
+   * @var string
+   */
+  public $notificationPubsubTopic;
+  /**
+   * @var bool
+   */
+  public $preferNoBroadApprovalRequests;
+  /**
+   * @var int
+   */
+  public $preferredRequestExpirationDays;
+  /**
+   * @var string
+   */
+  public $requestScopeMaxWidthPreference;
+  /**
+   * @var bool
+   */
+  public $requireCustomerVisibleJustification;
 
+  /**
+   * @param string
+   */
+  public function setActiveKeyVersion($activeKeyVersion)
+  {
+    $this->activeKeyVersion = $activeKeyVersion;
+  }
+  /**
+   * @return string
+   */
+  public function getActiveKeyVersion()
+  {
+    return $this->activeKeyVersion;
+  }
+  /**
+   * @param bool
+   */
+  public function setAncestorHasActiveKeyVersion($ancestorHasActiveKeyVersion)
+  {
+    $this->ancestorHasActiveKeyVersion = $ancestorHasActiveKeyVersion;
+  }
+  /**
+   * @return bool
+   */
+  public function getAncestorHasActiveKeyVersion()
+  {
+    return $this->ancestorHasActiveKeyVersion;
+  }
   /**
    * @param bool
    */
@@ -64,6 +124,20 @@ class AccessApprovalSettings extends \Google\Collection
     return $this->enrolledServices;
   }
   /**
+   * @param bool
+   */
+  public function setInvalidKeyVersion($invalidKeyVersion)
+  {
+    $this->invalidKeyVersion = $invalidKeyVersion;
+  }
+  /**
+   * @return bool
+   */
+  public function getInvalidKeyVersion()
+  {
+    return $this->invalidKeyVersion;
+  }
+  /**
    * @param string
    */
   public function setName($name)
@@ -90,6 +164,76 @@ class AccessApprovalSettings extends \Google\Collection
   public function getNotificationEmails()
   {
     return $this->notificationEmails;
+  }
+  /**
+   * @param string
+   */
+  public function setNotificationPubsubTopic($notificationPubsubTopic)
+  {
+    $this->notificationPubsubTopic = $notificationPubsubTopic;
+  }
+  /**
+   * @return string
+   */
+  public function getNotificationPubsubTopic()
+  {
+    return $this->notificationPubsubTopic;
+  }
+  /**
+   * @param bool
+   */
+  public function setPreferNoBroadApprovalRequests($preferNoBroadApprovalRequests)
+  {
+    $this->preferNoBroadApprovalRequests = $preferNoBroadApprovalRequests;
+  }
+  /**
+   * @return bool
+   */
+  public function getPreferNoBroadApprovalRequests()
+  {
+    return $this->preferNoBroadApprovalRequests;
+  }
+  /**
+   * @param int
+   */
+  public function setPreferredRequestExpirationDays($preferredRequestExpirationDays)
+  {
+    $this->preferredRequestExpirationDays = $preferredRequestExpirationDays;
+  }
+  /**
+   * @return int
+   */
+  public function getPreferredRequestExpirationDays()
+  {
+    return $this->preferredRequestExpirationDays;
+  }
+  /**
+   * @param string
+   */
+  public function setRequestScopeMaxWidthPreference($requestScopeMaxWidthPreference)
+  {
+    $this->requestScopeMaxWidthPreference = $requestScopeMaxWidthPreference;
+  }
+  /**
+   * @return string
+   */
+  public function getRequestScopeMaxWidthPreference()
+  {
+    return $this->requestScopeMaxWidthPreference;
+  }
+  /**
+   * @param bool
+   */
+  public function setRequireCustomerVisibleJustification($requireCustomerVisibleJustification)
+  {
+    $this->requireCustomerVisibleJustification = $requireCustomerVisibleJustification;
+  }
+  /**
+   * @return bool
+   */
+  public function getRequireCustomerVisibleJustification()
+  {
+    return $this->requireCustomerVisibleJustification;
   }
 }
 

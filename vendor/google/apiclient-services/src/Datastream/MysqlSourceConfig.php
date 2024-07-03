@@ -23,6 +23,14 @@ class MysqlSourceConfig extends \Google\Model
   protected $excludeObjectsDataType = '';
   protected $includeObjectsType = MysqlRdbms::class;
   protected $includeObjectsDataType = '';
+  /**
+   * @var int
+   */
+  public $maxConcurrentBackfillTasks;
+  /**
+   * @var int
+   */
+  public $maxConcurrentCdcTasks;
 
   /**
    * @param MysqlRdbms
@@ -51,6 +59,34 @@ class MysqlSourceConfig extends \Google\Model
   public function getIncludeObjects()
   {
     return $this->includeObjects;
+  }
+  /**
+   * @param int
+   */
+  public function setMaxConcurrentBackfillTasks($maxConcurrentBackfillTasks)
+  {
+    $this->maxConcurrentBackfillTasks = $maxConcurrentBackfillTasks;
+  }
+  /**
+   * @return int
+   */
+  public function getMaxConcurrentBackfillTasks()
+  {
+    return $this->maxConcurrentBackfillTasks;
+  }
+  /**
+   * @param int
+   */
+  public function setMaxConcurrentCdcTasks($maxConcurrentCdcTasks)
+  {
+    $this->maxConcurrentCdcTasks = $maxConcurrentCdcTasks;
+  }
+  /**
+   * @return int
+   */
+  public function getMaxConcurrentCdcTasks()
+  {
+    return $this->maxConcurrentCdcTasks;
   }
 }
 

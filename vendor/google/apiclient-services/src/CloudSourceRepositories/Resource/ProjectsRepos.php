@@ -33,7 +33,7 @@ use Google\Service\CloudSourceRepositories\UpdateRepoRequest;
  * Typical usage is:
  *  <code>
  *   $sourcerepoService = new Google\Service\CloudSourceRepositories(...);
- *   $repos = $sourcerepoService->repos;
+ *   $repos = $sourcerepoService->projects_repos;
  *  </code>
  */
 class ProjectsRepos extends \Google\Service\Resource
@@ -48,6 +48,7 @@ class ProjectsRepos extends \Google\Service\Resource
    * @param Repo $postBody
    * @param array $optParams Optional parameters.
    * @return Repo
+   * @throws \Google\Service\Exception
    */
   public function create($parent, Repo $postBody, $optParams = [])
   {
@@ -62,6 +63,7 @@ class ProjectsRepos extends \Google\Service\Resource
    * `projects//repos/`.
    * @param array $optParams Optional parameters.
    * @return SourcerepoEmpty
+   * @throws \Google\Service\Exception
    */
   public function delete($name, $optParams = [])
   {
@@ -76,6 +78,7 @@ class ProjectsRepos extends \Google\Service\Resource
    * form `projects//repos/`.
    * @param array $optParams Optional parameters.
    * @return Repo
+   * @throws \Google\Service\Exception
    */
   public function get($name, $optParams = [])
   {
@@ -84,12 +87,13 @@ class ProjectsRepos extends \Google\Service\Resource
     return $this->call('get', [$params], Repo::class);
   }
   /**
-   * Gets the access control policy for a resource. Returns an empty policy if the
+   * Gets the IAM policy policy for a resource. Returns an empty policy if the
    * resource exists and does not have a policy set. (repos.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. See the operation documentation for the appropriate value for this
-   * field.
+   * requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int options.requestedPolicyVersion Optional. The maximum policy
@@ -105,6 +109,7 @@ class ProjectsRepos extends \Google\Service\Resource
    * documentation](https://cloud.google.com/iam/help/conditions/resource-
    * policies).
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function getIamPolicy($resource, $optParams = [])
   {
@@ -127,6 +132,7 @@ class ProjectsRepos extends \Google\Service\Resource
    * ListReposResponse left off. This is an opaque token that must be obtained
    * from a recent, prior ListReposResponse's next_page_token field.
    * @return ListReposResponse
+   * @throws \Google\Service\Exception
    */
   public function listProjectsRepos($name, $optParams = [])
   {
@@ -142,6 +148,7 @@ class ProjectsRepos extends \Google\Service\Resource
    * @param UpdateRepoRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Repo
+   * @throws \Google\Service\Exception
    */
   public function patch($name, UpdateRepoRequest $postBody, $optParams = [])
   {
@@ -150,15 +157,17 @@ class ProjectsRepos extends \Google\Service\Resource
     return $this->call('patch', [$params], Repo::class);
   }
   /**
-   * Sets the access control policy on the specified resource. Replaces any
-   * existing policy. (repos.setIamPolicy)
+   * Sets the IAM policy on the specified resource. Replaces any existing policy.
+   * (repos.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. See the operation documentation for the appropriate value for this
-   * field.
+   * specified. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function setIamPolicy($resource, SetIamPolicyRequest $postBody, $optParams = [])
   {
@@ -175,6 +184,7 @@ class ProjectsRepos extends \Google\Service\Resource
    * @param SyncRepoRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Operation
+   * @throws \Google\Service\Exception
    */
   public function sync($name, SyncRepoRequest $postBody, $optParams = [])
   {
@@ -188,11 +198,13 @@ class ProjectsRepos extends \Google\Service\Resource
    * NOT_FOUND error. (repos.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. See the operation documentation for the appropriate value
-   * for this field.
+   * being requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return TestIamPermissionsResponse
+   * @throws \Google\Service\Exception
    */
   public function testIamPermissions($resource, TestIamPermissionsRequest $postBody, $optParams = [])
   {

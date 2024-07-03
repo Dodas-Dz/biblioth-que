@@ -28,7 +28,7 @@ use Google\Service\Monitoring\QueryTimeSeriesResponse;
  * Typical usage is:
  *  <code>
  *   $monitoringService = new Google\Service\Monitoring(...);
- *   $timeSeries = $monitoringService->timeSeries;
+ *   $timeSeries = $monitoringService->projects_timeSeries;
  *  </code>
  */
 class ProjectsTimeSeries extends \Google\Service\Resource
@@ -37,6 +37,9 @@ class ProjectsTimeSeries extends \Google\Service\Resource
    * Creates or adds data to one or more time series. The response is empty if all
    * time series in the request were written. If any time series could not be
    * written, a corresponding failure message is included in the error response.
+   * This method does not support resource locations constraint of an organization
+   * policy (https://cloud.google.com/resource-manager/docs/organization-
+   * policy/defining-locations#setting_the_organization_policy).
    * (timeSeries.create)
    *
    * @param string $name Required. The project
@@ -45,6 +48,7 @@ class ProjectsTimeSeries extends \Google\Service\Resource
    * @param CreateTimeSeriesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return MonitoringEmpty
+   * @throws \Google\Service\Exception
    */
   public function create($name, CreateTimeSeriesRequest $postBody, $optParams = [])
   {
@@ -67,6 +71,7 @@ class ProjectsTimeSeries extends \Google\Service\Resource
    * @param CreateTimeSeriesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return MonitoringEmpty
+   * @throws \Google\Service\Exception
    */
   public function createService($name, CreateTimeSeriesRequest $postBody, $optParams = [])
   {
@@ -75,8 +80,7 @@ class ProjectsTimeSeries extends \Google\Service\Resource
     return $this->call('createService', [$params], MonitoringEmpty::class);
   }
   /**
-   * Lists time series that match a filter. This method does not require a
-   * Workspace. (timeSeries.listProjectsTimeSeries)
+   * Lists time series that match a filter. (timeSeries.listProjectsTimeSeries)
    *
    * @param string $name Required. The project
    * (https://cloud.google.com/monitoring/api/v3#project_name), organization or
@@ -199,6 +203,7 @@ class ProjectsTimeSeries extends \Google\Service\Resource
    * @opt_param string view Required. Specifies which information is returned
    * about the time series.
    * @return ListTimeSeriesResponse
+   * @throws \Google\Service\Exception
    */
   public function listProjectsTimeSeries($name, $optParams = [])
   {
@@ -207,8 +212,7 @@ class ProjectsTimeSeries extends \Google\Service\Resource
     return $this->call('list', [$params], ListTimeSeriesResponse::class);
   }
   /**
-   * Queries time series using Monitoring Query Language. This method does not
-   * require a Workspace. (timeSeries.query)
+   * Queries time series using Monitoring Query Language. (timeSeries.query)
    *
    * @param string $name Required. The project
    * (https://cloud.google.com/monitoring/api/v3#project_name) on which to execute
@@ -216,6 +220,7 @@ class ProjectsTimeSeries extends \Google\Service\Resource
    * @param QueryTimeSeriesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return QueryTimeSeriesResponse
+   * @throws \Google\Service\Exception
    */
   public function query($name, QueryTimeSeriesRequest $postBody, $optParams = [])
   {

@@ -29,6 +29,10 @@ class Routine extends \Google\Collection
   /**
    * @var string
    */
+  public $dataGovernanceType;
+  /**
+   * @var string
+   */
   public $definitionBody;
   /**
    * @var string
@@ -54,6 +58,8 @@ class Routine extends \Google\Collection
    * @var string
    */
   public $lastModifiedTime;
+  protected $remoteFunctionOptionsType = RemoteFunctionOptions::class;
+  protected $remoteFunctionOptionsDataType = '';
   protected $returnTableTypeType = StandardSqlTableType::class;
   protected $returnTableTypeDataType = '';
   protected $returnTypeType = StandardSqlDataType::class;
@@ -64,6 +70,12 @@ class Routine extends \Google\Collection
    * @var string
    */
   public $routineType;
+  /**
+   * @var string
+   */
+  public $securityMode;
+  protected $sparkOptionsType = SparkOptions::class;
+  protected $sparkOptionsDataType = '';
   /**
    * @var bool
    */
@@ -96,6 +108,20 @@ class Routine extends \Google\Collection
   public function getCreationTime()
   {
     return $this->creationTime;
+  }
+  /**
+   * @param string
+   */
+  public function setDataGovernanceType($dataGovernanceType)
+  {
+    $this->dataGovernanceType = $dataGovernanceType;
+  }
+  /**
+   * @return string
+   */
+  public function getDataGovernanceType()
+  {
+    return $this->dataGovernanceType;
   }
   /**
    * @param string
@@ -196,6 +222,20 @@ class Routine extends \Google\Collection
     return $this->lastModifiedTime;
   }
   /**
+   * @param RemoteFunctionOptions
+   */
+  public function setRemoteFunctionOptions(RemoteFunctionOptions $remoteFunctionOptions)
+  {
+    $this->remoteFunctionOptions = $remoteFunctionOptions;
+  }
+  /**
+   * @return RemoteFunctionOptions
+   */
+  public function getRemoteFunctionOptions()
+  {
+    return $this->remoteFunctionOptions;
+  }
+  /**
    * @param StandardSqlTableType
    */
   public function setReturnTableType(StandardSqlTableType $returnTableType)
@@ -250,6 +290,34 @@ class Routine extends \Google\Collection
   public function getRoutineType()
   {
     return $this->routineType;
+  }
+  /**
+   * @param string
+   */
+  public function setSecurityMode($securityMode)
+  {
+    $this->securityMode = $securityMode;
+  }
+  /**
+   * @return string
+   */
+  public function getSecurityMode()
+  {
+    return $this->securityMode;
+  }
+  /**
+   * @param SparkOptions
+   */
+  public function setSparkOptions(SparkOptions $sparkOptions)
+  {
+    $this->sparkOptions = $sparkOptions;
+  }
+  /**
+   * @return SparkOptions
+   */
+  public function getSparkOptions()
+  {
+    return $this->sparkOptions;
   }
   /**
    * @param bool

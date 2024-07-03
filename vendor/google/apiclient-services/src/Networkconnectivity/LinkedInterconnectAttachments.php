@@ -21,6 +21,10 @@ class LinkedInterconnectAttachments extends \Google\Collection
 {
   protected $collection_key = 'uris';
   /**
+   * @var string[]
+   */
+  public $includeImportRanges;
+  /**
    * @var bool
    */
   public $siteToSiteDataTransfer;
@@ -28,7 +32,25 @@ class LinkedInterconnectAttachments extends \Google\Collection
    * @var string[]
    */
   public $uris;
+  /**
+   * @var string
+   */
+  public $vpcNetwork;
 
+  /**
+   * @param string[]
+   */
+  public function setIncludeImportRanges($includeImportRanges)
+  {
+    $this->includeImportRanges = $includeImportRanges;
+  }
+  /**
+   * @return string[]
+   */
+  public function getIncludeImportRanges()
+  {
+    return $this->includeImportRanges;
+  }
   /**
    * @param bool
    */
@@ -56,6 +78,20 @@ class LinkedInterconnectAttachments extends \Google\Collection
   public function getUris()
   {
     return $this->uris;
+  }
+  /**
+   * @param string
+   */
+  public function setVpcNetwork($vpcNetwork)
+  {
+    $this->vpcNetwork = $vpcNetwork;
+  }
+  /**
+   * @return string
+   */
+  public function getVpcNetwork()
+  {
+    return $this->vpcNetwork;
   }
 }
 

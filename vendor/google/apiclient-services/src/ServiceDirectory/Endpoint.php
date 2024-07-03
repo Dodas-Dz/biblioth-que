@@ -32,9 +32,17 @@ class Endpoint extends \Google\Model
    */
   public $name;
   /**
+   * @var string
+   */
+  public $network;
+  /**
    * @var int
    */
   public $port;
+  /**
+   * @var string
+   */
+  public $uid;
 
   /**
    * @param string
@@ -79,6 +87,20 @@ class Endpoint extends \Google\Model
     return $this->name;
   }
   /**
+   * @param string
+   */
+  public function setNetwork($network)
+  {
+    $this->network = $network;
+  }
+  /**
+   * @return string
+   */
+  public function getNetwork()
+  {
+    return $this->network;
+  }
+  /**
    * @param int
    */
   public function setPort($port)
@@ -91,6 +113,20 @@ class Endpoint extends \Google\Model
   public function getPort()
   {
     return $this->port;
+  }
+  /**
+   * @param string
+   */
+  public function setUid($uid)
+  {
+    $this->uid = $uid;
+  }
+  /**
+   * @return string
+   */
+  public function getUid()
+  {
+    return $this->uid;
   }
 }
 

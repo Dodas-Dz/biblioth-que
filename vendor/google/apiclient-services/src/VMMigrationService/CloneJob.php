@@ -17,14 +17,21 @@
 
 namespace Google\Service\VMMigrationService;
 
-class CloneJob extends \Google\Model
+class CloneJob extends \Google\Collection
 {
+  protected $collection_key = 'steps';
+  protected $computeEngineDisksTargetDetailsType = ComputeEngineDisksTargetDetails::class;
+  protected $computeEngineDisksTargetDetailsDataType = '';
   protected $computeEngineTargetDetailsType = ComputeEngineTargetDetails::class;
   protected $computeEngineTargetDetailsDataType = '';
   /**
    * @var string
    */
   public $createTime;
+  /**
+   * @var string
+   */
+  public $endTime;
   protected $errorType = Status::class;
   protected $errorDataType = '';
   /**
@@ -39,7 +46,23 @@ class CloneJob extends \Google\Model
    * @var string
    */
   public $stateTime;
+  protected $stepsType = CloneStep::class;
+  protected $stepsDataType = 'array';
 
+  /**
+   * @param ComputeEngineDisksTargetDetails
+   */
+  public function setComputeEngineDisksTargetDetails(ComputeEngineDisksTargetDetails $computeEngineDisksTargetDetails)
+  {
+    $this->computeEngineDisksTargetDetails = $computeEngineDisksTargetDetails;
+  }
+  /**
+   * @return ComputeEngineDisksTargetDetails
+   */
+  public function getComputeEngineDisksTargetDetails()
+  {
+    return $this->computeEngineDisksTargetDetails;
+  }
   /**
    * @param ComputeEngineTargetDetails
    */
@@ -67,6 +90,20 @@ class CloneJob extends \Google\Model
   public function getCreateTime()
   {
     return $this->createTime;
+  }
+  /**
+   * @param string
+   */
+  public function setEndTime($endTime)
+  {
+    $this->endTime = $endTime;
+  }
+  /**
+   * @return string
+   */
+  public function getEndTime()
+  {
+    return $this->endTime;
   }
   /**
    * @param Status
@@ -123,6 +160,20 @@ class CloneJob extends \Google\Model
   public function getStateTime()
   {
     return $this->stateTime;
+  }
+  /**
+   * @param CloneStep[]
+   */
+  public function setSteps($steps)
+  {
+    $this->steps = $steps;
+  }
+  /**
+   * @return CloneStep[]
+   */
+  public function getSteps()
+  {
+    return $this->steps;
   }
 }
 

@@ -38,6 +38,8 @@ class GoogleCloudPaymentsResellerSubscriptionV1Subscription extends \Google\Coll
    * @var string
    */
   public $freeTrialEndTime;
+  protected $lineItemsType = GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem::class;
+  protected $lineItemsDataType = 'array';
   /**
    * @var string
    */
@@ -54,10 +56,16 @@ class GoogleCloudPaymentsResellerSubscriptionV1Subscription extends \Google\Coll
    * @var string[]
    */
   public $products;
+  protected $promotionSpecsType = GoogleCloudPaymentsResellerSubscriptionV1SubscriptionPromotionSpec::class;
+  protected $promotionSpecsDataType = 'array';
   /**
    * @var string[]
    */
   public $promotions;
+  /**
+   * @var string
+   */
+  public $purchaseTime;
   /**
    * @var string
    */
@@ -150,6 +158,20 @@ class GoogleCloudPaymentsResellerSubscriptionV1Subscription extends \Google\Coll
     return $this->freeTrialEndTime;
   }
   /**
+   * @param GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem[]
+   */
+  public function setLineItems($lineItems)
+  {
+    $this->lineItems = $lineItems;
+  }
+  /**
+   * @return GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem[]
+   */
+  public function getLineItems()
+  {
+    return $this->lineItems;
+  }
+  /**
    * @param string
    */
   public function setName($name)
@@ -206,6 +228,20 @@ class GoogleCloudPaymentsResellerSubscriptionV1Subscription extends \Google\Coll
     return $this->products;
   }
   /**
+   * @param GoogleCloudPaymentsResellerSubscriptionV1SubscriptionPromotionSpec[]
+   */
+  public function setPromotionSpecs($promotionSpecs)
+  {
+    $this->promotionSpecs = $promotionSpecs;
+  }
+  /**
+   * @return GoogleCloudPaymentsResellerSubscriptionV1SubscriptionPromotionSpec[]
+   */
+  public function getPromotionSpecs()
+  {
+    return $this->promotionSpecs;
+  }
+  /**
    * @param string[]
    */
   public function setPromotions($promotions)
@@ -218,6 +254,20 @@ class GoogleCloudPaymentsResellerSubscriptionV1Subscription extends \Google\Coll
   public function getPromotions()
   {
     return $this->promotions;
+  }
+  /**
+   * @param string
+   */
+  public function setPurchaseTime($purchaseTime)
+  {
+    $this->purchaseTime = $purchaseTime;
+  }
+  /**
+   * @return string
+   */
+  public function getPurchaseTime()
+  {
+    return $this->purchaseTime;
   }
   /**
    * @param string

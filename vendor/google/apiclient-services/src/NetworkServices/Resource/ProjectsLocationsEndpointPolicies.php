@@ -30,7 +30,7 @@ use Google\Service\NetworkServices\TestIamPermissionsResponse;
  * Typical usage is:
  *  <code>
  *   $networkservicesService = new Google\Service\NetworkServices(...);
- *   $endpointPolicies = $networkservicesService->endpointPolicies;
+ *   $endpointPolicies = $networkservicesService->projects_locations_endpointPolicies;
  *  </code>
  */
 class ProjectsLocationsEndpointPolicies extends \Google\Service\Resource
@@ -47,6 +47,7 @@ class ProjectsLocationsEndpointPolicies extends \Google\Service\Resource
    * @opt_param string endpointPolicyId Required. Short name of the EndpointPolicy
    * resource to be created. E.g. "CustomECS".
    * @return Operation
+   * @throws \Google\Service\Exception
    */
   public function create($parent, EndpointPolicy $postBody, $optParams = [])
   {
@@ -61,6 +62,7 @@ class ProjectsLocationsEndpointPolicies extends \Google\Service\Resource
    * in the format `projects/locations/global/endpointPolicies`.
    * @param array $optParams Optional parameters.
    * @return Operation
+   * @throws \Google\Service\Exception
    */
   public function delete($name, $optParams = [])
   {
@@ -75,6 +77,7 @@ class ProjectsLocationsEndpointPolicies extends \Google\Service\Resource
    * the format `projects/locations/global/endpointPolicies`.
    * @param array $optParams Optional parameters.
    * @return EndpointPolicy
+   * @throws \Google\Service\Exception
    */
   public function get($name, $optParams = [])
   {
@@ -88,8 +91,9 @@ class ProjectsLocationsEndpointPolicies extends \Google\Service\Resource
    * (endpointPolicies.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. See the operation documentation for the appropriate value for this
-   * field.
+   * requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int options.requestedPolicyVersion Optional. The maximum policy
@@ -105,6 +109,7 @@ class ProjectsLocationsEndpointPolicies extends \Google\Service\Resource
    * documentation](https://cloud.google.com/iam/help/conditions/resource-
    * policies).
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function getIamPolicy($resource, $optParams = [])
   {
@@ -128,6 +133,7 @@ class ProjectsLocationsEndpointPolicies extends \Google\Service\Resource
    * prior `ListEndpointPolicies` call, and that the system should return the next
    * page of data.
    * @return ListEndpointPoliciesResponse
+   * @throws \Google\Service\Exception
    */
   public function listProjectsLocationsEndpointPolicies($parent, $optParams = [])
   {
@@ -150,6 +156,7 @@ class ProjectsLocationsEndpointPolicies extends \Google\Service\Resource
    * full request. A field will be overwritten if it is in the mask. If the user
    * does not provide a mask then all fields will be overwritten.
    * @return Operation
+   * @throws \Google\Service\Exception
    */
   public function patch($name, EndpointPolicy $postBody, $optParams = [])
   {
@@ -163,11 +170,13 @@ class ProjectsLocationsEndpointPolicies extends \Google\Service\Resource
    * `PERMISSION_DENIED` errors. (endpointPolicies.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. See the operation documentation for the appropriate value for this
-   * field.
+   * specified. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function setIamPolicy($resource, SetIamPolicyRequest $postBody, $optParams = [])
   {
@@ -184,11 +193,13 @@ class ProjectsLocationsEndpointPolicies extends \Google\Service\Resource
    * (endpointPolicies.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. See the operation documentation for the appropriate value
-   * for this field.
+   * being requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return TestIamPermissionsResponse
+   * @throws \Google\Service\Exception
    */
   public function testIamPermissions($resource, TestIamPermissionsRequest $postBody, $optParams = [])
   {

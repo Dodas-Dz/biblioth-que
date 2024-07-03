@@ -17,8 +17,11 @@
 
 namespace Google\Service\Logging;
 
-class LogEntry extends \Google\Model
+class LogEntry extends \Google\Collection
 {
+  protected $collection_key = 'errorGroups';
+  protected $errorGroupsType = LogErrorGroup::class;
+  protected $errorGroupsDataType = 'array';
   protected $httpRequestType = HttpRequest::class;
   protected $httpRequestDataType = '';
   /**
@@ -61,6 +64,8 @@ class LogEntry extends \Google\Model
    * @var string
    */
   public $spanId;
+  protected $splitType = LogSplit::class;
+  protected $splitDataType = '';
   /**
    * @var string
    */
@@ -78,6 +83,20 @@ class LogEntry extends \Google\Model
    */
   public $traceSampled;
 
+  /**
+   * @param LogErrorGroup[]
+   */
+  public function setErrorGroups($errorGroups)
+  {
+    $this->errorGroups = $errorGroups;
+  }
+  /**
+   * @return LogErrorGroup[]
+   */
+  public function getErrorGroups()
+  {
+    return $this->errorGroups;
+  }
   /**
    * @param HttpRequest
    */
@@ -259,6 +278,20 @@ class LogEntry extends \Google\Model
   public function getSpanId()
   {
     return $this->spanId;
+  }
+  /**
+   * @param LogSplit
+   */
+  public function setSplit(LogSplit $split)
+  {
+    $this->split = $split;
+  }
+  /**
+   * @return LogSplit
+   */
+  public function getSplit()
+  {
+    return $this->split;
   }
   /**
    * @param string

@@ -71,6 +71,10 @@ class Policy extends \Google\Collection
    */
   public $bluetoothDisabled;
   /**
+   * @var string
+   */
+  public $cameraAccess;
+  /**
    * @var bool
    */
   public $cameraDisabled;
@@ -86,6 +90,10 @@ class Policy extends \Google\Collection
    * @var bool
    */
   public $createWindowsDisabled;
+  /**
+   * @var string
+   */
+  public $credentialProviderPolicyDefault;
   /**
    * @var bool
    */
@@ -104,8 +112,14 @@ class Policy extends \Google\Collection
    * @var string
    */
   public $defaultPermissionPolicy;
+  protected $deviceConnectivityManagementType = DeviceConnectivityManagement::class;
+  protected $deviceConnectivityManagementDataType = '';
   protected $deviceOwnerLockScreenInfoType = UserFacingMessage::class;
   protected $deviceOwnerLockScreenInfoDataType = '';
+  protected $deviceRadioStateType = DeviceRadioState::class;
+  protected $deviceRadioStateDataType = '';
+  protected $displaySettingsType = DisplaySettings::class;
+  protected $displaySettingsDataType = '';
   /**
    * @var string
    */
@@ -158,6 +172,10 @@ class Policy extends \Google\Collection
    * @var string
    */
   public $maximumTimeToLock;
+  /**
+   * @var string
+   */
+  public $microphoneAccess;
   /**
    * @var int
    */
@@ -225,6 +243,10 @@ class Policy extends \Google\Collection
    */
   public $preferentialNetworkService;
   /**
+   * @var string
+   */
+  public $printingPolicy;
+  /**
    * @var bool
    */
   public $privateKeySelectionEnabled;
@@ -290,6 +312,8 @@ class Policy extends \Google\Collection
    * @var bool
    */
   public $unmuteMicrophoneDisabled;
+  protected $usageLogType = UsageLog::class;
+  protected $usageLogDataType = '';
   /**
    * @var bool
    */
@@ -512,6 +536,20 @@ class Policy extends \Google\Collection
     return $this->bluetoothDisabled;
   }
   /**
+   * @param string
+   */
+  public function setCameraAccess($cameraAccess)
+  {
+    $this->cameraAccess = $cameraAccess;
+  }
+  /**
+   * @return string
+   */
+  public function getCameraAccess()
+  {
+    return $this->cameraAccess;
+  }
+  /**
    * @param bool
    */
   public function setCameraDisabled($cameraDisabled)
@@ -580,6 +618,20 @@ class Policy extends \Google\Collection
   public function getCreateWindowsDisabled()
   {
     return $this->createWindowsDisabled;
+  }
+  /**
+   * @param string
+   */
+  public function setCredentialProviderPolicyDefault($credentialProviderPolicyDefault)
+  {
+    $this->credentialProviderPolicyDefault = $credentialProviderPolicyDefault;
+  }
+  /**
+   * @return string
+   */
+  public function getCredentialProviderPolicyDefault()
+  {
+    return $this->credentialProviderPolicyDefault;
   }
   /**
    * @param bool
@@ -652,6 +704,20 @@ class Policy extends \Google\Collection
     return $this->defaultPermissionPolicy;
   }
   /**
+   * @param DeviceConnectivityManagement
+   */
+  public function setDeviceConnectivityManagement(DeviceConnectivityManagement $deviceConnectivityManagement)
+  {
+    $this->deviceConnectivityManagement = $deviceConnectivityManagement;
+  }
+  /**
+   * @return DeviceConnectivityManagement
+   */
+  public function getDeviceConnectivityManagement()
+  {
+    return $this->deviceConnectivityManagement;
+  }
+  /**
    * @param UserFacingMessage
    */
   public function setDeviceOwnerLockScreenInfo(UserFacingMessage $deviceOwnerLockScreenInfo)
@@ -664,6 +730,34 @@ class Policy extends \Google\Collection
   public function getDeviceOwnerLockScreenInfo()
   {
     return $this->deviceOwnerLockScreenInfo;
+  }
+  /**
+   * @param DeviceRadioState
+   */
+  public function setDeviceRadioState(DeviceRadioState $deviceRadioState)
+  {
+    $this->deviceRadioState = $deviceRadioState;
+  }
+  /**
+   * @return DeviceRadioState
+   */
+  public function getDeviceRadioState()
+  {
+    return $this->deviceRadioState;
+  }
+  /**
+   * @param DisplaySettings
+   */
+  public function setDisplaySettings(DisplaySettings $displaySettings)
+  {
+    $this->displaySettings = $displaySettings;
+  }
+  /**
+   * @return DisplaySettings
+   */
+  public function getDisplaySettings()
+  {
+    return $this->displaySettings;
   }
   /**
    * @param string
@@ -860,6 +954,20 @@ class Policy extends \Google\Collection
   public function getMaximumTimeToLock()
   {
     return $this->maximumTimeToLock;
+  }
+  /**
+   * @param string
+   */
+  public function setMicrophoneAccess($microphoneAccess)
+  {
+    $this->microphoneAccess = $microphoneAccess;
+  }
+  /**
+   * @return string
+   */
+  public function getMicrophoneAccess()
+  {
+    return $this->microphoneAccess;
   }
   /**
    * @param int
@@ -1156,6 +1264,20 @@ class Policy extends \Google\Collection
     return $this->preferentialNetworkService;
   }
   /**
+   * @param string
+   */
+  public function setPrintingPolicy($printingPolicy)
+  {
+    $this->printingPolicy = $printingPolicy;
+  }
+  /**
+   * @return string
+   */
+  public function getPrintingPolicy()
+  {
+    return $this->printingPolicy;
+  }
+  /**
    * @param bool
    */
   public function setPrivateKeySelectionEnabled($privateKeySelectionEnabled)
@@ -1420,6 +1542,20 @@ class Policy extends \Google\Collection
   public function getUnmuteMicrophoneDisabled()
   {
     return $this->unmuteMicrophoneDisabled;
+  }
+  /**
+   * @param UsageLog
+   */
+  public function setUsageLog(UsageLog $usageLog)
+  {
+    $this->usageLog = $usageLog;
+  }
+  /**
+   * @return UsageLog
+   */
+  public function getUsageLog()
+  {
+    return $this->usageLog;
   }
   /**
    * @param bool

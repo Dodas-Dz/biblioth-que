@@ -17,16 +17,26 @@ export default class Connection {
         return componentStore.onErrorCallback(status, response)
     }
 
-    showExpiredMessage() {
-        confirm(
-            'This page has expired due to inactivity.\nWould you like to refresh the page?'
-        ) && window.location.reload()
+    showExpiredMessage(response, message) {
+        if (store.sessionHasExpiredCallback) {
+            store.sessionHasExpiredCallback(response, message)
+        } else {
+            confirm(
+                'This page has expired.\nWould you like to refresh the page?'
+            ) && window.location.reload()
+        }
     }
 
     sendMessage(message) {
         let payload = message.payload()
         let csrfToken = getCsrfToken()
         let socketId = this.getSocketId()
+        let appUrl = window.livewire_app_url
+
+        if (this.shouldUseLocalePrefix(payload)) {
+            appUrl = `${appUrl}/${payload.fingerprint.locale}`
+        }
+
 
         if (window.__testing_request_interceptor) {
             return window.__testing_request_interceptor(payload, this)
@@ -34,7 +44,7 @@ export default class Connection {
 
         // Forward the query string for the ajax requests.
         fetch(
-            `${window.livewire_app_url}/livewire/message/${payload.fingerprint.name}`,
+            `${appUrl}/livewire/message/${payload.fingerprint.name}`,
             {
                 method: 'POST',
                 body: JSON.stringify(payload),
@@ -73,7 +83,7 @@ export default class Connection {
 
                         store.sessionHasExpired = true
 
-                        this.showExpiredMessage()
+                        this.showExpiredMessage(response, message)
                     } else {
                         response.text().then(response => {
                             this.showHtmlModal(response)
@@ -84,6 +94,17 @@ export default class Connection {
             .catch(() => {
                 this.onError(message)
             })
+    }
+
+    shouldUseLocalePrefix(payload) {
+        let path = payload.fingerprint.path
+        let locale = payload.fingerprint.locale
+
+        if (path.split('/')[0] == locale) {
+            return true
+        }
+
+        return false
     }
 
     isOutputFromDump(output) {

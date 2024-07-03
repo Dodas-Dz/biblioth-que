@@ -39,7 +39,13 @@ class MetricThreshold extends \Google\Collection
   /**
    * @var string
    */
+  public $evaluationMissingData;
+  /**
+   * @var string
+   */
   public $filter;
+  protected $forecastOptionsType = ForecastOptions::class;
+  protected $forecastOptionsDataType = '';
   public $thresholdValue;
   protected $triggerType = Trigger::class;
   protected $triggerDataType = '';
@@ -117,6 +123,20 @@ class MetricThreshold extends \Google\Collection
   /**
    * @param string
    */
+  public function setEvaluationMissingData($evaluationMissingData)
+  {
+    $this->evaluationMissingData = $evaluationMissingData;
+  }
+  /**
+   * @return string
+   */
+  public function getEvaluationMissingData()
+  {
+    return $this->evaluationMissingData;
+  }
+  /**
+   * @param string
+   */
   public function setFilter($filter)
   {
     $this->filter = $filter;
@@ -127,6 +147,20 @@ class MetricThreshold extends \Google\Collection
   public function getFilter()
   {
     return $this->filter;
+  }
+  /**
+   * @param ForecastOptions
+   */
+  public function setForecastOptions(ForecastOptions $forecastOptions)
+  {
+    $this->forecastOptions = $forecastOptions;
+  }
+  /**
+   * @return ForecastOptions
+   */
+  public function getForecastOptions()
+  {
+    return $this->forecastOptions;
   }
   public function setThresholdValue($thresholdValue)
   {

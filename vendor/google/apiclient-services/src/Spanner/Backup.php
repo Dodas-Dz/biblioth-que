@@ -28,8 +28,14 @@ class Backup extends \Google\Collection
    * @var string
    */
   public $database;
+  /**
+   * @var string
+   */
+  public $databaseDialect;
   protected $encryptionInfoType = EncryptionInfo::class;
   protected $encryptionInfoDataType = '';
+  protected $encryptionInformationType = EncryptionInfo::class;
+  protected $encryptionInformationDataType = 'array';
   /**
    * @var string
    */
@@ -37,7 +43,15 @@ class Backup extends \Google\Collection
   /**
    * @var string
    */
+  public $maxExpireTime;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string[]
+   */
+  public $referencingBackups;
   /**
    * @var string[]
    */
@@ -84,6 +98,20 @@ class Backup extends \Google\Collection
     return $this->database;
   }
   /**
+   * @param string
+   */
+  public function setDatabaseDialect($databaseDialect)
+  {
+    $this->databaseDialect = $databaseDialect;
+  }
+  /**
+   * @return string
+   */
+  public function getDatabaseDialect()
+  {
+    return $this->databaseDialect;
+  }
+  /**
    * @param EncryptionInfo
    */
   public function setEncryptionInfo(EncryptionInfo $encryptionInfo)
@@ -96,6 +124,20 @@ class Backup extends \Google\Collection
   public function getEncryptionInfo()
   {
     return $this->encryptionInfo;
+  }
+  /**
+   * @param EncryptionInfo[]
+   */
+  public function setEncryptionInformation($encryptionInformation)
+  {
+    $this->encryptionInformation = $encryptionInformation;
+  }
+  /**
+   * @return EncryptionInfo[]
+   */
+  public function getEncryptionInformation()
+  {
+    return $this->encryptionInformation;
   }
   /**
    * @param string
@@ -114,6 +156,20 @@ class Backup extends \Google\Collection
   /**
    * @param string
    */
+  public function setMaxExpireTime($maxExpireTime)
+  {
+    $this->maxExpireTime = $maxExpireTime;
+  }
+  /**
+   * @return string
+   */
+  public function getMaxExpireTime()
+  {
+    return $this->maxExpireTime;
+  }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
@@ -124,6 +180,20 @@ class Backup extends \Google\Collection
   public function getName()
   {
     return $this->name;
+  }
+  /**
+   * @param string[]
+   */
+  public function setReferencingBackups($referencingBackups)
+  {
+    $this->referencingBackups = $referencingBackups;
+  }
+  /**
+   * @return string[]
+   */
+  public function getReferencingBackups()
+  {
+    return $this->referencingBackups;
   }
   /**
    * @param string[]

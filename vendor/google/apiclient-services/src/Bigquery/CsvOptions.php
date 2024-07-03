@@ -19,9 +19,6 @@ namespace Google\Service\Bigquery;
 
 class CsvOptions extends \Google\Model
 {
-  protected $internal_gapi_mappings = [
-        "nullMarker" => "null_marker",
-  ];
   /**
    * @var bool
    */
@@ -42,6 +39,10 @@ class CsvOptions extends \Google\Model
    * @var string
    */
   public $nullMarker;
+  /**
+   * @var bool
+   */
+  public $preserveAsciiControlCharacters;
   /**
    * @var string
    */
@@ -120,6 +121,20 @@ class CsvOptions extends \Google\Model
   public function getNullMarker()
   {
     return $this->nullMarker;
+  }
+  /**
+   * @param bool
+   */
+  public function setPreserveAsciiControlCharacters($preserveAsciiControlCharacters)
+  {
+    $this->preserveAsciiControlCharacters = $preserveAsciiControlCharacters;
+  }
+  /**
+   * @return bool
+   */
+  public function getPreserveAsciiControlCharacters()
+  {
+    return $this->preserveAsciiControlCharacters;
   }
   /**
    * @param string

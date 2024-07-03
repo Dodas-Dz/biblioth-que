@@ -27,7 +27,7 @@ use Google\Service\BinaryAuthorization\TestIamPermissionsResponse;
  * Typical usage is:
  *  <code>
  *   $binaryauthorizationService = new Google\Service\BinaryAuthorization(...);
- *   $policy = $binaryauthorizationService->policy;
+ *   $policy = $binaryauthorizationService->projects_policy;
  *  </code>
  */
 class ProjectsPolicy extends \Google\Service\Resource
@@ -37,8 +37,9 @@ class ProjectsPolicy extends \Google\Service\Resource
    * resource exists and does not have a policy set. (policy.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. See the operation documentation for the appropriate value for this
-   * field.
+   * requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int options.requestedPolicyVersion Optional. The maximum policy
@@ -54,6 +55,7 @@ class ProjectsPolicy extends \Google\Service\Resource
    * documentation](https://cloud.google.com/iam/help/conditions/resource-
    * policies).
    * @return IamPolicy
+   * @throws \Google\Service\Exception
    */
   public function getIamPolicy($resource, $optParams = [])
   {
@@ -67,11 +69,13 @@ class ProjectsPolicy extends \Google\Service\Resource
    * `PERMISSION_DENIED` errors. (policy.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. See the operation documentation for the appropriate value for this
-   * field.
+   * specified. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return IamPolicy
+   * @throws \Google\Service\Exception
    */
   public function setIamPolicy($resource, SetIamPolicyRequest $postBody, $optParams = [])
   {
@@ -87,11 +91,13 @@ class ProjectsPolicy extends \Google\Service\Resource
    * This operation may "fail open" without warning. (policy.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. See the operation documentation for the appropriate value
-   * for this field.
+   * being requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return TestIamPermissionsResponse
+   * @throws \Google\Service\Exception
    */
   public function testIamPermissions($resource, TestIamPermissionsRequest $postBody, $optParams = [])
   {

@@ -20,10 +20,11 @@ namespace Google\Service;
 use Google\Client;
 
 /**
- * Service definition for Connectors (v1).
+ * Service definition for Connectors (v2).
  *
  * <p>
-</p>
+ * Enables users to create and manage connections to Google Cloud services and
+ * third-party business applications using the Connectors interface.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -38,15 +39,11 @@ class Connectors extends \Google\Service
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
 
-  public $projects_locations;
   public $projects_locations_connections;
-  public $projects_locations_connections_runtimeActionSchemas;
-  public $projects_locations_connections_runtimeEntitySchemas;
-  public $projects_locations_global_providers;
-  public $projects_locations_global_providers_connectors;
-  public $projects_locations_global_providers_connectors_versions;
-  public $projects_locations_operations;
-  public $projects_locations_providers;
+  public $projects_locations_connections_actions;
+  public $projects_locations_connections_entityTypes;
+  public $projects_locations_connections_entityTypes_entities;
+  public $rootUrlTemplate;
 
   /**
    * Constructs the internal representation of the Connectors service.
@@ -59,86 +56,81 @@ class Connectors extends \Google\Service
   {
     parent::__construct($clientOrConfig);
     $this->rootUrl = $rootUrl ?: 'https://connectors.googleapis.com/';
+    $this->rootUrlTemplate = $rootUrl ?: 'https://connectors.UNIVERSE_DOMAIN/';
     $this->servicePath = '';
     $this->batchPath = 'batch';
-    $this->version = 'v1';
+    $this->version = 'v2';
     $this->serviceName = 'connectors';
 
-    $this->projects_locations = new Connectors\Resource\ProjectsLocations(
-        $this,
-        $this->serviceName,
-        'locations',
-        [
-          'methods' => [
-            'get' => [
-              'path' => 'v1/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'name' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-              ],
-            ],'getRuntimeConfig' => [
-              'path' => 'v1/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'name' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-              ],
-            ],'list' => [
-              'path' => 'v1/{+name}/locations',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'name' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-                'filter' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-                'pageSize' => [
-                  'location' => 'query',
-                  'type' => 'integer',
-                ],
-                'pageToken' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-              ],
-            ],
-          ]
-        ]
-    );
     $this->projects_locations_connections = new Connectors\Resource\ProjectsLocationsConnections(
         $this,
         $this->serviceName,
         'connections',
         [
           'methods' => [
-            'create' => [
-              'path' => 'v1/{+parent}/connections',
-              'httpMethod' => 'POST',
+            'checkReadiness' => [
+              'path' => 'v2/{+name}:checkReadiness',
+              'httpMethod' => 'GET',
               'parameters' => [
-                'parent' => [
+                'name' => [
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ],
-                'connectionId' => [
-                  'location' => 'query',
+              ],
+            ],'checkStatus' => [
+              'path' => 'v2/{+name}:checkStatus',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
                   'type' => 'string',
+                  'required' => true,
                 ],
               ],
-            ],'delete' => [
-              'path' => 'v1/{+name}',
-              'httpMethod' => 'DELETE',
+            ],'exchangeAuthCode' => [
+              'path' => 'v2/{+name}:exchangeAuthCode',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'executeSqlQuery' => [
+              'path' => 'v2/{+connection}:executeSqlQuery',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'connection' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'refreshAccessToken' => [
+              'path' => 'v2/{+name}:refreshAccessToken',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->projects_locations_connections_actions = new Connectors\Resource\ProjectsLocationsConnectionsActions(
+        $this,
+        $this->serviceName,
+        'actions',
+        [
+          'methods' => [
+            'execute' => [
+              'path' => 'v2/{+name}:execute',
+              'httpMethod' => 'POST',
               'parameters' => [
                 'name' => [
                   'location' => 'path',
@@ -147,59 +139,23 @@ class Connectors extends \Google\Service
                 ],
               ],
             ],'get' => [
-              'path' => 'v1/{+name}',
+              'path' => 'v2/{+name}',
               'httpMethod' => 'GET',
               'parameters' => [
                 'name' => [
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ],
-                'view' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-              ],
-            ],'getConnectionSchemaMetadata' => [
-              'path' => 'v1/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'name' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-              ],
-            ],'getIamPolicy' => [
-              'path' => 'v1/{+resource}:getIamPolicy',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'resource' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-                'options.requestedPolicyVersion' => [
-                  'location' => 'query',
-                  'type' => 'integer',
                 ],
               ],
             ],'list' => [
-              'path' => 'v1/{+parent}/connections',
+              'path' => 'v2/{+parent}/actions',
               'httpMethod' => 'GET',
               'parameters' => [
                 'parent' => [
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ],
-                'filter' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-                'orderBy' => [
-                  'location' => 'query',
-                  'type' => 'string',
                 ],
                 'pageSize' => [
                   'location' => 'query',
@@ -214,8 +170,131 @@ class Connectors extends \Google\Service
                   'type' => 'string',
                 ],
               ],
+            ],
+          ]
+        ]
+    );
+    $this->projects_locations_connections_entityTypes = new Connectors\Resource\ProjectsLocationsConnectionsEntityTypes(
+        $this,
+        $this->serviceName,
+        'entityTypes',
+        [
+          'methods' => [
+            'get' => [
+              'path' => 'v2/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'list' => [
+              'path' => 'v2/{+parent}/entityTypes',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'parent' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'view' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->projects_locations_connections_entityTypes_entities = new Connectors\Resource\ProjectsLocationsConnectionsEntityTypesEntities(
+        $this,
+        $this->serviceName,
+        'entities',
+        [
+          'methods' => [
+            'create' => [
+              'path' => 'v2/{+parent}/entities',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'parent' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'delete' => [
+              'path' => 'v2/{+name}',
+              'httpMethod' => 'DELETE',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'deleteEntitiesWithConditions' => [
+              'path' => 'v2/{+entityType}/entities:deleteEntitiesWithConditions',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'entityType' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'conditions' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'get' => [
+              'path' => 'v2/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'list' => [
+              'path' => 'v2/{+parent}/entities',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'parent' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'conditions' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'sortBy' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ],
+              ],
             ],'patch' => [
-              'path' => 'v1/{+name}',
+              'path' => 'v2/{+name}',
               'httpMethod' => 'PATCH',
               'parameters' => [
                 'name' => [
@@ -223,321 +302,19 @@ class Connectors extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
-                'updateMask' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
               ],
-            ],'setIamPolicy' => [
-              'path' => 'v1/{+resource}:setIamPolicy',
+            ],'updateEntitiesWithConditions' => [
+              'path' => 'v2/{+entityType}/entities:updateEntitiesWithConditions',
               'httpMethod' => 'POST',
               'parameters' => [
-                'resource' => [
+                'entityType' => [
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ],
-              ],
-            ],'testIamPermissions' => [
-              'path' => 'v1/{+resource}:testIamPermissions',
-              'httpMethod' => 'POST',
-              'parameters' => [
-                'resource' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-              ],
-            ],
-          ]
-        ]
-    );
-    $this->projects_locations_connections_runtimeActionSchemas = new Connectors\Resource\ProjectsLocationsConnectionsRuntimeActionSchemas(
-        $this,
-        $this->serviceName,
-        'runtimeActionSchemas',
-        [
-          'methods' => [
-            'list' => [
-              'path' => 'v1/{+parent}/runtimeActionSchemas',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'parent' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-                'filter' => [
+                'conditions' => [
                   'location' => 'query',
                   'type' => 'string',
-                ],
-                'pageSize' => [
-                  'location' => 'query',
-                  'type' => 'integer',
-                ],
-                'pageToken' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-              ],
-            ],
-          ]
-        ]
-    );
-    $this->projects_locations_connections_runtimeEntitySchemas = new Connectors\Resource\ProjectsLocationsConnectionsRuntimeEntitySchemas(
-        $this,
-        $this->serviceName,
-        'runtimeEntitySchemas',
-        [
-          'methods' => [
-            'list' => [
-              'path' => 'v1/{+parent}/runtimeEntitySchemas',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'parent' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-                'filter' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-                'pageSize' => [
-                  'location' => 'query',
-                  'type' => 'integer',
-                ],
-                'pageToken' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-              ],
-            ],
-          ]
-        ]
-    );
-    $this->projects_locations_global_providers = new Connectors\Resource\ProjectsLocationsConnectorsGlobalProviders(
-        $this,
-        $this->serviceName,
-        'providers',
-        [
-          'methods' => [
-            'get' => [
-              'path' => 'v1/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'name' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-              ],
-            ],'list' => [
-              'path' => 'v1/{+parent}/providers',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'parent' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-                'pageSize' => [
-                  'location' => 'query',
-                  'type' => 'integer',
-                ],
-                'pageToken' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-              ],
-            ],
-          ]
-        ]
-    );
-    $this->projects_locations_global_providers_connectors = new Connectors\Resource\ProjectsLocationsConnectorsGlobalProvidersConnectors(
-        $this,
-        $this->serviceName,
-        'connectors',
-        [
-          'methods' => [
-            'get' => [
-              'path' => 'v1/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'name' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-              ],
-            ],'list' => [
-              'path' => 'v1/{+parent}/connectors',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'parent' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-                'pageSize' => [
-                  'location' => 'query',
-                  'type' => 'integer',
-                ],
-                'pageToken' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-              ],
-            ],
-          ]
-        ]
-    );
-    $this->projects_locations_global_providers_connectors_versions = new Connectors\Resource\ProjectsLocationsConnectorsGlobalProvidersConnectorsVersions(
-        $this,
-        $this->serviceName,
-        'versions',
-        [
-          'methods' => [
-            'get' => [
-              'path' => 'v1/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'name' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-                'view' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-              ],
-            ],'list' => [
-              'path' => 'v1/{+parent}/versions',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'parent' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-                'pageSize' => [
-                  'location' => 'query',
-                  'type' => 'integer',
-                ],
-                'pageToken' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-                'view' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-              ],
-            ],
-          ]
-        ]
-    );
-    $this->projects_locations_operations = new Connectors\Resource\ProjectsLocationsOperations(
-        $this,
-        $this->serviceName,
-        'operations',
-        [
-          'methods' => [
-            'cancel' => [
-              'path' => 'v1/{+name}:cancel',
-              'httpMethod' => 'POST',
-              'parameters' => [
-                'name' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-              ],
-            ],'delete' => [
-              'path' => 'v1/{+name}',
-              'httpMethod' => 'DELETE',
-              'parameters' => [
-                'name' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-              ],
-            ],'get' => [
-              'path' => 'v1/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'name' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-              ],
-            ],'list' => [
-              'path' => 'v1/{+name}/operations',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'name' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-                'filter' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-                'pageSize' => [
-                  'location' => 'query',
-                  'type' => 'integer',
-                ],
-                'pageToken' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-              ],
-            ],
-          ]
-        ]
-    );
-    $this->projects_locations_providers = new Connectors\Resource\ProjectsLocationsProviders(
-        $this,
-        $this->serviceName,
-        'providers',
-        [
-          'methods' => [
-            'getIamPolicy' => [
-              'path' => 'v1/{+resource}:getIamPolicy',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'resource' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-                'options.requestedPolicyVersion' => [
-                  'location' => 'query',
-                  'type' => 'integer',
-                ],
-              ],
-            ],'setIamPolicy' => [
-              'path' => 'v1/{+resource}:setIamPolicy',
-              'httpMethod' => 'POST',
-              'parameters' => [
-                'resource' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-              ],
-            ],'testIamPermissions' => [
-              'path' => 'v1/{+resource}:testIamPermissions',
-              'httpMethod' => 'POST',
-              'parameters' => [
-                'resource' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
                 ],
               ],
             ],

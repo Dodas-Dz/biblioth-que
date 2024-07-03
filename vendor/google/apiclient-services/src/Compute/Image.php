@@ -23,6 +23,10 @@ class Image extends \Google\Collection
   /**
    * @var string
    */
+  public $architecture;
+  /**
+   * @var string
+   */
   public $archiveSizeBytes;
   /**
    * @var string
@@ -38,6 +42,10 @@ class Image extends \Google\Collection
    * @var string
    */
   public $diskSizeGb;
+  /**
+   * @var bool
+   */
+  public $enableConfidentialCompute;
   /**
    * @var string
    */
@@ -76,6 +84,10 @@ class Image extends \Google\Collection
   public $name;
   protected $rawDiskType = ImageRawDisk::class;
   protected $rawDiskDataType = '';
+  /**
+   * @var bool
+   */
+  public $satisfiesPzi;
   /**
    * @var bool
    */
@@ -129,6 +141,20 @@ class Image extends \Google\Collection
    */
   public $storageLocations;
 
+  /**
+   * @param string
+   */
+  public function setArchitecture($architecture)
+  {
+    $this->architecture = $architecture;
+  }
+  /**
+   * @return string
+   */
+  public function getArchitecture()
+  {
+    return $this->architecture;
+  }
   /**
    * @param string
    */
@@ -198,6 +224,20 @@ class Image extends \Google\Collection
   public function getDiskSizeGb()
   {
     return $this->diskSizeGb;
+  }
+  /**
+   * @param bool
+   */
+  public function setEnableConfidentialCompute($enableConfidentialCompute)
+  {
+    $this->enableConfidentialCompute = $enableConfidentialCompute;
+  }
+  /**
+   * @return bool
+   */
+  public function getEnableConfidentialCompute()
+  {
+    return $this->enableConfidentialCompute;
   }
   /**
    * @param string
@@ -352,6 +392,20 @@ class Image extends \Google\Collection
   public function getRawDisk()
   {
     return $this->rawDisk;
+  }
+  /**
+   * @param bool
+   */
+  public function setSatisfiesPzi($satisfiesPzi)
+  {
+    $this->satisfiesPzi = $satisfiesPzi;
+  }
+  /**
+   * @return bool
+   */
+  public function getSatisfiesPzi()
+  {
+    return $this->satisfiesPzi;
   }
   /**
    * @param bool

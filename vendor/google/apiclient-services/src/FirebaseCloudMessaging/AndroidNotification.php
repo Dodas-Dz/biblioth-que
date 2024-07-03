@@ -33,6 +33,10 @@ class AndroidNotification extends \Google\Collection
    */
   public $bodyLocKey;
   /**
+   * @var bool
+   */
+  public $bypassProxyNotification;
+  /**
    * @var string
    */
   public $channelId;
@@ -82,6 +86,10 @@ class AndroidNotification extends \Google\Collection
    * @var string
    */
   public $notificationPriority;
+  /**
+   * @var string
+   */
+  public $proxy;
   /**
    * @var string
    */
@@ -160,6 +168,20 @@ class AndroidNotification extends \Google\Collection
   public function getBodyLocKey()
   {
     return $this->bodyLocKey;
+  }
+  /**
+   * @param bool
+   */
+  public function setBypassProxyNotification($bypassProxyNotification)
+  {
+    $this->bypassProxyNotification = $bypassProxyNotification;
+  }
+  /**
+   * @return bool
+   */
+  public function getBypassProxyNotification()
+  {
+    return $this->bypassProxyNotification;
   }
   /**
    * @param string
@@ -342,6 +364,20 @@ class AndroidNotification extends \Google\Collection
   public function getNotificationPriority()
   {
     return $this->notificationPriority;
+  }
+  /**
+   * @param string
+   */
+  public function setProxy($proxy)
+  {
+    $this->proxy = $proxy;
+  }
+  /**
+   * @return string
+   */
+  public function getProxy()
+  {
+    return $this->proxy;
   }
   /**
    * @param string

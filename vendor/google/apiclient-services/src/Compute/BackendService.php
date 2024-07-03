@@ -19,7 +19,7 @@ namespace Google\Service\Compute;
 
 class BackendService extends \Google\Collection
 {
-  protected $collection_key = 'healthChecks';
+  protected $collection_key = 'usedBy';
   /**
    * @var int
    */
@@ -30,6 +30,10 @@ class BackendService extends \Google\Collection
   protected $cdnPolicyDataType = '';
   protected $circuitBreakersType = CircuitBreakers::class;
   protected $circuitBreakersDataType = '';
+  /**
+   * @var string
+   */
+  public $compressionMode;
   protected $connectionDrainingType = ConnectionDraining::class;
   protected $connectionDrainingDataType = '';
   protected $connectionTrackingPolicyType = BackendServiceConnectionTrackingPolicy::class;
@@ -84,6 +88,8 @@ class BackendService extends \Google\Collection
    * @var string
    */
   public $loadBalancingScheme;
+  protected $localityLbPoliciesType = BackendServiceLocalityLoadBalancingPolicyConfig::class;
+  protected $localityLbPoliciesDataType = 'array';
   /**
    * @var string
    */
@@ -92,6 +98,10 @@ class BackendService extends \Google\Collection
   protected $logConfigDataType = '';
   protected $maxStreamDurationType = Duration::class;
   protected $maxStreamDurationDataType = '';
+  /**
+   * @var string[]
+   */
+  public $metadatas;
   /**
    * @var string
    */
@@ -129,6 +139,14 @@ class BackendService extends \Google\Collection
    */
   public $selfLink;
   /**
+   * @var string[]
+   */
+  public $serviceBindings;
+  /**
+   * @var string
+   */
+  public $serviceLbPolicy;
+  /**
    * @var string
    */
   public $sessionAffinity;
@@ -138,6 +156,8 @@ class BackendService extends \Google\Collection
    * @var int
    */
   public $timeoutSec;
+  protected $usedByType = BackendServiceUsedBy::class;
+  protected $usedByDataType = 'array';
 
   /**
    * @param int
@@ -194,6 +214,20 @@ class BackendService extends \Google\Collection
   public function getCircuitBreakers()
   {
     return $this->circuitBreakers;
+  }
+  /**
+   * @param string
+   */
+  public function setCompressionMode($compressionMode)
+  {
+    $this->compressionMode = $compressionMode;
+  }
+  /**
+   * @return string
+   */
+  public function getCompressionMode()
+  {
+    return $this->compressionMode;
   }
   /**
    * @param ConnectionDraining
@@ -420,6 +454,20 @@ class BackendService extends \Google\Collection
     return $this->loadBalancingScheme;
   }
   /**
+   * @param BackendServiceLocalityLoadBalancingPolicyConfig[]
+   */
+  public function setLocalityLbPolicies($localityLbPolicies)
+  {
+    $this->localityLbPolicies = $localityLbPolicies;
+  }
+  /**
+   * @return BackendServiceLocalityLoadBalancingPolicyConfig[]
+   */
+  public function getLocalityLbPolicies()
+  {
+    return $this->localityLbPolicies;
+  }
+  /**
    * @param string
    */
   public function setLocalityLbPolicy($localityLbPolicy)
@@ -460,6 +508,20 @@ class BackendService extends \Google\Collection
   public function getMaxStreamDuration()
   {
     return $this->maxStreamDuration;
+  }
+  /**
+   * @param string[]
+   */
+  public function setMetadatas($metadatas)
+  {
+    $this->metadatas = $metadatas;
+  }
+  /**
+   * @return string[]
+   */
+  public function getMetadatas()
+  {
+    return $this->metadatas;
   }
   /**
    * @param string
@@ -602,6 +664,34 @@ class BackendService extends \Google\Collection
     return $this->selfLink;
   }
   /**
+   * @param string[]
+   */
+  public function setServiceBindings($serviceBindings)
+  {
+    $this->serviceBindings = $serviceBindings;
+  }
+  /**
+   * @return string[]
+   */
+  public function getServiceBindings()
+  {
+    return $this->serviceBindings;
+  }
+  /**
+   * @param string
+   */
+  public function setServiceLbPolicy($serviceLbPolicy)
+  {
+    $this->serviceLbPolicy = $serviceLbPolicy;
+  }
+  /**
+   * @return string
+   */
+  public function getServiceLbPolicy()
+  {
+    return $this->serviceLbPolicy;
+  }
+  /**
    * @param string
    */
   public function setSessionAffinity($sessionAffinity)
@@ -642,6 +732,20 @@ class BackendService extends \Google\Collection
   public function getTimeoutSec()
   {
     return $this->timeoutSec;
+  }
+  /**
+   * @param BackendServiceUsedBy[]
+   */
+  public function setUsedBy($usedBy)
+  {
+    $this->usedBy = $usedBy;
+  }
+  /**
+   * @return BackendServiceUsedBy[]
+   */
+  public function getUsedBy()
+  {
+    return $this->usedBy;
   }
 }
 

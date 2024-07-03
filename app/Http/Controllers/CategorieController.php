@@ -24,7 +24,7 @@ class CategorieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
         $request->validate([
@@ -70,10 +70,12 @@ class CategorieController extends Controller
 
     public function getCategories()
     {
-        $categories = DB::select(DB::raw("SELECT COUNT(titre) AS livres_titre,categories.name,category_id
-        FROM livres
-        LEFT JOIN  categories ON categories.id = livres.category_id
-        GROUP BY livres.category_id"));
+        $categories = DB::table('categories')
+        ->select(DB::raw('COUNT(livres.titre) AS livres_titre, categories.name, categories.id as category_id'))
+        ->leftJoin('livres', 'categories.id', '=', 'livres.category_id')
+        ->groupBy('categories.id', 'categories.name')
+        ->orderBy('category_id')
+        ->get();
 
 
         return view('admin.categorie',compact('categories'));

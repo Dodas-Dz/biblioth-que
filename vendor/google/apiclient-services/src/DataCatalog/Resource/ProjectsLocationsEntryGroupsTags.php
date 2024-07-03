@@ -26,7 +26,7 @@ use Google\Service\DataCatalog\GoogleCloudDatacatalogV1Tag;
  * Typical usage is:
  *  <code>
  *   $datacatalogService = new Google\Service\DataCatalog(...);
- *   $tags = $datacatalogService->tags;
+ *   $tags = $datacatalogService->projects_locations_entryGroups_tags;
  *  </code>
  */
 class ProjectsLocationsEntryGroupsTags extends \Google\Service\Resource
@@ -50,6 +50,7 @@ class ProjectsLocationsEntryGroupsTags extends \Google\Service\Resource
    * @param GoogleCloudDatacatalogV1Tag $postBody
    * @param array $optParams Optional parameters.
    * @return GoogleCloudDatacatalogV1Tag
+   * @throws \Google\Service\Exception
    */
   public function create($parent, GoogleCloudDatacatalogV1Tag $postBody, $optParams = [])
   {
@@ -63,6 +64,7 @@ class ProjectsLocationsEntryGroupsTags extends \Google\Service\Resource
    * @param string $name Required. The name of the tag to delete.
    * @param array $optParams Optional parameters.
    * @return DatacatalogEmpty
+   * @throws \Google\Service\Exception
    */
   public function delete($name, $optParams = [])
   {
@@ -71,7 +73,8 @@ class ProjectsLocationsEntryGroupsTags extends \Google\Service\Resource
     return $this->call('delete', [$params], DatacatalogEmpty::class);
   }
   /**
-   * Lists tags assigned to an Entry. (tags.listProjectsLocationsEntryGroupsTags)
+   * Lists tags assigned to an Entry. The columns in the response are lowercased.
+   * (tags.listProjectsLocationsEntryGroupsTags)
    *
    * @param string $parent Required. The name of the Data Catalog resource to list
    * the tags of. The resource can be an Entry or an EntryGroup (without
@@ -83,6 +86,7 @@ class ProjectsLocationsEntryGroupsTags extends \Google\Service\Resource
    * @opt_param string pageToken Pagination token that specifies the next page to
    * return. If empty, the first page is returned.
    * @return GoogleCloudDatacatalogV1ListTagsResponse
+   * @throws \Google\Service\Exception
    */
   public function listProjectsLocationsEntryGroupsTags($parent, $optParams = [])
   {
@@ -93,9 +97,9 @@ class ProjectsLocationsEntryGroupsTags extends \Google\Service\Resource
   /**
    * Updates an existing tag. (tags.patch)
    *
-   * @param string $name The resource name of the tag in URL format where tag ID
-   * is a system-generated identifier. Note: The tag itself might not be stored in
-   * the location specified in its name.
+   * @param string $name Identifier. The resource name of the tag in URL format
+   * where tag ID is a system-generated identifier. Note: The tag itself might not
+   * be stored in the location specified in its name.
    * @param GoogleCloudDatacatalogV1Tag $postBody
    * @param array $optParams Optional parameters.
    *
@@ -105,6 +109,7 @@ class ProjectsLocationsEntryGroupsTags extends \Google\Service\Resource
    * overwritten. If such fields are non-required and omitted in the request body,
    * their values are emptied.
    * @return GoogleCloudDatacatalogV1Tag
+   * @throws \Google\Service\Exception
    */
   public function patch($name, GoogleCloudDatacatalogV1Tag $postBody, $optParams = [])
   {

@@ -22,14 +22,36 @@ class EntityResult extends \Google\Model
   /**
    * @var string
    */
+  public $createTime;
+  /**
+   * @var string
+   */
   public $cursor;
   protected $entityType = Entity::class;
   protected $entityDataType = '';
   /**
    * @var string
    */
+  public $updateTime;
+  /**
+   * @var string
+   */
   public $version;
 
+  /**
+   * @param string
+   */
+  public function setCreateTime($createTime)
+  {
+    $this->createTime = $createTime;
+  }
+  /**
+   * @return string
+   */
+  public function getCreateTime()
+  {
+    return $this->createTime;
+  }
   /**
    * @param string
    */
@@ -57,6 +79,20 @@ class EntityResult extends \Google\Model
   public function getEntity()
   {
     return $this->entity;
+  }
+  /**
+   * @param string
+   */
+  public function setUpdateTime($updateTime)
+  {
+    $this->updateTime = $updateTime;
+  }
+  /**
+   * @return string
+   */
+  public function getUpdateTime()
+  {
+    return $this->updateTime;
   }
   /**
    * @param string

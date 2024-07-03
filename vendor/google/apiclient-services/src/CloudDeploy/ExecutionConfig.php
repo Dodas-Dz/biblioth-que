@@ -20,15 +20,49 @@ namespace Google\Service\CloudDeploy;
 class ExecutionConfig extends \Google\Collection
 {
   protected $collection_key = 'usages';
+  /**
+   * @var string
+   */
+  public $artifactStorage;
   protected $defaultPoolType = DefaultPool::class;
   protected $defaultPoolDataType = '';
+  /**
+   * @var string
+   */
+  public $executionTimeout;
   protected $privatePoolType = PrivatePool::class;
   protected $privatePoolDataType = '';
+  /**
+   * @var string
+   */
+  public $serviceAccount;
   /**
    * @var string[]
    */
   public $usages;
+  /**
+   * @var bool
+   */
+  public $verbose;
+  /**
+   * @var string
+   */
+  public $workerPool;
 
+  /**
+   * @param string
+   */
+  public function setArtifactStorage($artifactStorage)
+  {
+    $this->artifactStorage = $artifactStorage;
+  }
+  /**
+   * @return string
+   */
+  public function getArtifactStorage()
+  {
+    return $this->artifactStorage;
+  }
   /**
    * @param DefaultPool
    */
@@ -42,6 +76,20 @@ class ExecutionConfig extends \Google\Collection
   public function getDefaultPool()
   {
     return $this->defaultPool;
+  }
+  /**
+   * @param string
+   */
+  public function setExecutionTimeout($executionTimeout)
+  {
+    $this->executionTimeout = $executionTimeout;
+  }
+  /**
+   * @return string
+   */
+  public function getExecutionTimeout()
+  {
+    return $this->executionTimeout;
   }
   /**
    * @param PrivatePool
@@ -58,6 +106,20 @@ class ExecutionConfig extends \Google\Collection
     return $this->privatePool;
   }
   /**
+   * @param string
+   */
+  public function setServiceAccount($serviceAccount)
+  {
+    $this->serviceAccount = $serviceAccount;
+  }
+  /**
+   * @return string
+   */
+  public function getServiceAccount()
+  {
+    return $this->serviceAccount;
+  }
+  /**
    * @param string[]
    */
   public function setUsages($usages)
@@ -70,6 +132,34 @@ class ExecutionConfig extends \Google\Collection
   public function getUsages()
   {
     return $this->usages;
+  }
+  /**
+   * @param bool
+   */
+  public function setVerbose($verbose)
+  {
+    $this->verbose = $verbose;
+  }
+  /**
+   * @return bool
+   */
+  public function getVerbose()
+  {
+    return $this->verbose;
+  }
+  /**
+   * @param string
+   */
+  public function setWorkerPool($workerPool)
+  {
+    $this->workerPool = $workerPool;
+  }
+  /**
+   * @return string
+   */
+  public function getWorkerPool()
+  {
+    return $this->workerPool;
   }
 }
 

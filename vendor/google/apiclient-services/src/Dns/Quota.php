@@ -25,6 +25,22 @@ class Quota extends \Google\Collection
    */
   public $dnsKeysPerManagedZone;
   /**
+   * @var int
+   */
+  public $gkeClustersPerManagedZone;
+  /**
+   * @var int
+   */
+  public $gkeClustersPerPolicy;
+  /**
+   * @var int
+   */
+  public $gkeClustersPerResponsePolicy;
+  /**
+   * @var int
+   */
+  public $itemsPerRoutingPolicy;
+  /**
    * @var string
    */
   public $kind;
@@ -35,7 +51,15 @@ class Quota extends \Google\Collection
   /**
    * @var int
    */
+  public $managedZonesPerGkeCluster;
+  /**
+   * @var int
+   */
   public $managedZonesPerNetwork;
+  /**
+   * @var int
+   */
+  public $nameserversPerDelegation;
   /**
    * @var int
    */
@@ -47,11 +71,27 @@ class Quota extends \Google\Collection
   /**
    * @var int
    */
+  public $networksPerResponsePolicy;
+  /**
+   * @var int
+   */
+  public $peeringZonesPerTargetNetwork;
+  /**
+   * @var int
+   */
   public $policies;
   /**
    * @var int
    */
   public $resourceRecordsPerRrset;
+  /**
+   * @var int
+   */
+  public $responsePolicies;
+  /**
+   * @var int
+   */
+  public $responsePolicyRulesPerResponsePolicy;
   /**
    * @var int
    */
@@ -94,6 +134,62 @@ class Quota extends \Google\Collection
     return $this->dnsKeysPerManagedZone;
   }
   /**
+   * @param int
+   */
+  public function setGkeClustersPerManagedZone($gkeClustersPerManagedZone)
+  {
+    $this->gkeClustersPerManagedZone = $gkeClustersPerManagedZone;
+  }
+  /**
+   * @return int
+   */
+  public function getGkeClustersPerManagedZone()
+  {
+    return $this->gkeClustersPerManagedZone;
+  }
+  /**
+   * @param int
+   */
+  public function setGkeClustersPerPolicy($gkeClustersPerPolicy)
+  {
+    $this->gkeClustersPerPolicy = $gkeClustersPerPolicy;
+  }
+  /**
+   * @return int
+   */
+  public function getGkeClustersPerPolicy()
+  {
+    return $this->gkeClustersPerPolicy;
+  }
+  /**
+   * @param int
+   */
+  public function setGkeClustersPerResponsePolicy($gkeClustersPerResponsePolicy)
+  {
+    $this->gkeClustersPerResponsePolicy = $gkeClustersPerResponsePolicy;
+  }
+  /**
+   * @return int
+   */
+  public function getGkeClustersPerResponsePolicy()
+  {
+    return $this->gkeClustersPerResponsePolicy;
+  }
+  /**
+   * @param int
+   */
+  public function setItemsPerRoutingPolicy($itemsPerRoutingPolicy)
+  {
+    $this->itemsPerRoutingPolicy = $itemsPerRoutingPolicy;
+  }
+  /**
+   * @return int
+   */
+  public function getItemsPerRoutingPolicy()
+  {
+    return $this->itemsPerRoutingPolicy;
+  }
+  /**
    * @param string
    */
   public function setKind($kind)
@@ -124,6 +220,20 @@ class Quota extends \Google\Collection
   /**
    * @param int
    */
+  public function setManagedZonesPerGkeCluster($managedZonesPerGkeCluster)
+  {
+    $this->managedZonesPerGkeCluster = $managedZonesPerGkeCluster;
+  }
+  /**
+   * @return int
+   */
+  public function getManagedZonesPerGkeCluster()
+  {
+    return $this->managedZonesPerGkeCluster;
+  }
+  /**
+   * @param int
+   */
   public function setManagedZonesPerNetwork($managedZonesPerNetwork)
   {
     $this->managedZonesPerNetwork = $managedZonesPerNetwork;
@@ -134,6 +244,20 @@ class Quota extends \Google\Collection
   public function getManagedZonesPerNetwork()
   {
     return $this->managedZonesPerNetwork;
+  }
+  /**
+   * @param int
+   */
+  public function setNameserversPerDelegation($nameserversPerDelegation)
+  {
+    $this->nameserversPerDelegation = $nameserversPerDelegation;
+  }
+  /**
+   * @return int
+   */
+  public function getNameserversPerDelegation()
+  {
+    return $this->nameserversPerDelegation;
   }
   /**
    * @param int
@@ -166,6 +290,34 @@ class Quota extends \Google\Collection
   /**
    * @param int
    */
+  public function setNetworksPerResponsePolicy($networksPerResponsePolicy)
+  {
+    $this->networksPerResponsePolicy = $networksPerResponsePolicy;
+  }
+  /**
+   * @return int
+   */
+  public function getNetworksPerResponsePolicy()
+  {
+    return $this->networksPerResponsePolicy;
+  }
+  /**
+   * @param int
+   */
+  public function setPeeringZonesPerTargetNetwork($peeringZonesPerTargetNetwork)
+  {
+    $this->peeringZonesPerTargetNetwork = $peeringZonesPerTargetNetwork;
+  }
+  /**
+   * @return int
+   */
+  public function getPeeringZonesPerTargetNetwork()
+  {
+    return $this->peeringZonesPerTargetNetwork;
+  }
+  /**
+   * @param int
+   */
   public function setPolicies($policies)
   {
     $this->policies = $policies;
@@ -190,6 +342,34 @@ class Quota extends \Google\Collection
   public function getResourceRecordsPerRrset()
   {
     return $this->resourceRecordsPerRrset;
+  }
+  /**
+   * @param int
+   */
+  public function setResponsePolicies($responsePolicies)
+  {
+    $this->responsePolicies = $responsePolicies;
+  }
+  /**
+   * @return int
+   */
+  public function getResponsePolicies()
+  {
+    return $this->responsePolicies;
+  }
+  /**
+   * @param int
+   */
+  public function setResponsePolicyRulesPerResponsePolicy($responsePolicyRulesPerResponsePolicy)
+  {
+    $this->responsePolicyRulesPerResponsePolicy = $responsePolicyRulesPerResponsePolicy;
+  }
+  /**
+   * @return int
+   */
+  public function getResponsePolicyRulesPerResponsePolicy()
+  {
+    return $this->responsePolicyRulesPerResponsePolicy;
   }
   /**
    * @param int

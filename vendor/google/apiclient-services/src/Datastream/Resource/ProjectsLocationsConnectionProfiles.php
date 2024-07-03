@@ -28,7 +28,7 @@ use Google\Service\Datastream\Operation;
  * Typical usage is:
  *  <code>
  *   $datastreamService = new Google\Service\Datastream(...);
- *   $connectionProfiles = $datastreamService->connectionProfiles;
+ *   $connectionProfiles = $datastreamService->projects_locations_connectionProfiles;
  *  </code>
  */
 class ProjectsLocationsConnectionProfiles extends \Google\Service\Resource
@@ -57,7 +57,10 @@ class ProjectsLocationsConnectionProfiles extends \Google\Service\Resource
    * from accidentally creating duplicate commitments. The request ID must be a
    * valid UUID with the exception that zero UUID is not supported
    * (00000000-0000-0000-0000-000000000000).
+   * @opt_param bool validateOnly Optional. Only validate the connection profile,
+   * but don't create any resources. The default is false.
    * @return Operation
+   * @throws \Google\Service\Exception
    */
   public function create($parent, ConnectionProfile $postBody, $optParams = [])
   {
@@ -66,7 +69,7 @@ class ProjectsLocationsConnectionProfiles extends \Google\Service\Resource
     return $this->call('create', [$params], Operation::class);
   }
   /**
-   * Use this method to delete a connection profile.. (connectionProfiles.delete)
+   * Use this method to delete a connection profile. (connectionProfiles.delete)
    *
    * @param string $name Required. The name of the connection profile resource to
    * delete.
@@ -84,6 +87,7 @@ class ProjectsLocationsConnectionProfiles extends \Google\Service\Resource
    * valid UUID with the exception that zero UUID is not supported
    * (00000000-0000-0000-0000-000000000000).
    * @return Operation
+   * @throws \Google\Service\Exception
    */
   public function delete($name, $optParams = [])
   {
@@ -94,7 +98,7 @@ class ProjectsLocationsConnectionProfiles extends \Google\Service\Resource
   /**
    * Use this method to discover a connection profile. The discover API call
    * exposes the data objects and metadata belonging to the profile. Typically, a
-   * request returns children data objects under a parent data object that's
+   * request returns children data objects of a parent data object that's
    * optionally supplied in the request. (connectionProfiles.discover)
    *
    * @param string $parent Required. The parent resource of the connection profile
@@ -102,6 +106,7 @@ class ProjectsLocationsConnectionProfiles extends \Google\Service\Resource
    * @param DiscoverConnectionProfileRequest $postBody
    * @param array $optParams Optional parameters.
    * @return DiscoverConnectionProfileResponse
+   * @throws \Google\Service\Exception
    */
   public function discover($parent, DiscoverConnectionProfileRequest $postBody, $optParams = [])
   {
@@ -117,6 +122,7 @@ class ProjectsLocationsConnectionProfiles extends \Google\Service\Resource
    * get.
    * @param array $optParams Optional parameters.
    * @return ConnectionProfile
+   * @throws \Google\Service\Exception
    */
   public function get($name, $optParams = [])
   {
@@ -142,6 +148,7 @@ class ProjectsLocationsConnectionProfiles extends \Google\Service\Resource
    * When paginating, all other parameters provided to `ListConnectionProfiles`
    * must match the call that provided the page token.
    * @return ListConnectionProfilesResponse
+   * @throws \Google\Service\Exception
    */
   public function listProjectsLocationsConnectionProfiles($parent, $optParams = [])
   {
@@ -157,7 +164,8 @@ class ProjectsLocationsConnectionProfiles extends \Google\Service\Resource
    * @param ConnectionProfile $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool force Optional. Execute the update without validating it.
+   * @opt_param bool force Optional. Update the connection profile without
+   * validating it.
    * @opt_param string requestId Optional. A request ID to identify requests.
    * Specify a unique request ID so that if you must retry your request, the
    * server will know to ignore the request if it has already been completed. The
@@ -174,7 +182,10 @@ class ProjectsLocationsConnectionProfiles extends \Google\Service\Resource
    * fields specified in the update_mask are relative to the resource, not the
    * full request. A field will be overwritten if it is in the mask. If the user
    * does not provide a mask then all fields will be overwritten.
+   * @opt_param bool validateOnly Optional. Only validate the connection profile,
+   * but don't update any resources. The default is false.
    * @return Operation
+   * @throws \Google\Service\Exception
    */
   public function patch($name, ConnectionProfile $postBody, $optParams = [])
   {

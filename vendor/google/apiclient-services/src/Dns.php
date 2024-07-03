@@ -56,6 +56,7 @@ class Dns extends \Google\Service
   public $resourceRecordSets;
   public $responsePolicies;
   public $responsePolicyRules;
+  public $rootUrlTemplate;
 
   /**
    * Constructs the internal representation of the Dns service.
@@ -68,6 +69,7 @@ class Dns extends \Google\Service
   {
     parent::__construct($clientOrConfig);
     $this->rootUrl = $rootUrl ?: 'https://dns.googleapis.com/';
+    $this->rootUrlTemplate = $rootUrl ?: 'https://dns.UNIVERSE_DOMAIN/';
     $this->servicePath = '';
     $this->batchPath = 'batch';
     $this->version = 'v1';
@@ -341,6 +343,16 @@ class Dns extends \Google\Service
                   'type' => 'string',
                 ],
               ],
+            ],'getIamPolicy' => [
+              'path' => 'dns/v1/{+resource}:getIamPolicy',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'resource' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
             ],'list' => [
               'path' => 'dns/v1/projects/{project}/managedZones',
               'httpMethod' => 'GET',
@@ -380,6 +392,26 @@ class Dns extends \Google\Service
                 'clientOperationId' => [
                   'location' => 'query',
                   'type' => 'string',
+                ],
+              ],
+            ],'setIamPolicy' => [
+              'path' => 'dns/v1/{+resource}:setIamPolicy',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'resource' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'testIamPermissions' => [
+              'path' => 'dns/v1/{+resource}:testIamPermissions',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'resource' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ],
               ],
             ],'update' => [

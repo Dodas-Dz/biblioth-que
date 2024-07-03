@@ -23,14 +23,44 @@ class GoogleCloudDocumentaiV1ProcessorVersion extends \Google\Model
    * @var string
    */
   public $createTime;
+  protected $deprecationInfoType = GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo::class;
+  protected $deprecationInfoDataType = '';
   /**
    * @var string
    */
   public $displayName;
+  protected $documentSchemaType = GoogleCloudDocumentaiV1DocumentSchema::class;
+  protected $documentSchemaDataType = '';
+  /**
+   * @var bool
+   */
+  public $googleManaged;
+  /**
+   * @var string
+   */
+  public $kmsKeyName;
+  /**
+   * @var string
+   */
+  public $kmsKeyVersionName;
+  protected $latestEvaluationType = GoogleCloudDocumentaiV1EvaluationReference::class;
+  protected $latestEvaluationDataType = '';
+  /**
+   * @var string
+   */
+  public $modelType;
   /**
    * @var string
    */
   public $name;
+  /**
+   * @var bool
+   */
+  public $satisfiesPzi;
+  /**
+   * @var bool
+   */
+  public $satisfiesPzs;
   /**
    * @var string
    */
@@ -51,6 +81,20 @@ class GoogleCloudDocumentaiV1ProcessorVersion extends \Google\Model
     return $this->createTime;
   }
   /**
+   * @param GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo
+   */
+  public function setDeprecationInfo(GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo $deprecationInfo)
+  {
+    $this->deprecationInfo = $deprecationInfo;
+  }
+  /**
+   * @return GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo
+   */
+  public function getDeprecationInfo()
+  {
+    return $this->deprecationInfo;
+  }
+  /**
    * @param string
    */
   public function setDisplayName($displayName)
@@ -65,6 +109,90 @@ class GoogleCloudDocumentaiV1ProcessorVersion extends \Google\Model
     return $this->displayName;
   }
   /**
+   * @param GoogleCloudDocumentaiV1DocumentSchema
+   */
+  public function setDocumentSchema(GoogleCloudDocumentaiV1DocumentSchema $documentSchema)
+  {
+    $this->documentSchema = $documentSchema;
+  }
+  /**
+   * @return GoogleCloudDocumentaiV1DocumentSchema
+   */
+  public function getDocumentSchema()
+  {
+    return $this->documentSchema;
+  }
+  /**
+   * @param bool
+   */
+  public function setGoogleManaged($googleManaged)
+  {
+    $this->googleManaged = $googleManaged;
+  }
+  /**
+   * @return bool
+   */
+  public function getGoogleManaged()
+  {
+    return $this->googleManaged;
+  }
+  /**
+   * @param string
+   */
+  public function setKmsKeyName($kmsKeyName)
+  {
+    $this->kmsKeyName = $kmsKeyName;
+  }
+  /**
+   * @return string
+   */
+  public function getKmsKeyName()
+  {
+    return $this->kmsKeyName;
+  }
+  /**
+   * @param string
+   */
+  public function setKmsKeyVersionName($kmsKeyVersionName)
+  {
+    $this->kmsKeyVersionName = $kmsKeyVersionName;
+  }
+  /**
+   * @return string
+   */
+  public function getKmsKeyVersionName()
+  {
+    return $this->kmsKeyVersionName;
+  }
+  /**
+   * @param GoogleCloudDocumentaiV1EvaluationReference
+   */
+  public function setLatestEvaluation(GoogleCloudDocumentaiV1EvaluationReference $latestEvaluation)
+  {
+    $this->latestEvaluation = $latestEvaluation;
+  }
+  /**
+   * @return GoogleCloudDocumentaiV1EvaluationReference
+   */
+  public function getLatestEvaluation()
+  {
+    return $this->latestEvaluation;
+  }
+  /**
+   * @param string
+   */
+  public function setModelType($modelType)
+  {
+    $this->modelType = $modelType;
+  }
+  /**
+   * @return string
+   */
+  public function getModelType()
+  {
+    return $this->modelType;
+  }
+  /**
    * @param string
    */
   public function setName($name)
@@ -77,6 +205,34 @@ class GoogleCloudDocumentaiV1ProcessorVersion extends \Google\Model
   public function getName()
   {
     return $this->name;
+  }
+  /**
+   * @param bool
+   */
+  public function setSatisfiesPzi($satisfiesPzi)
+  {
+    $this->satisfiesPzi = $satisfiesPzi;
+  }
+  /**
+   * @return bool
+   */
+  public function getSatisfiesPzi()
+  {
+    return $this->satisfiesPzi;
+  }
+  /**
+   * @param bool
+   */
+  public function setSatisfiesPzs($satisfiesPzs)
+  {
+    $this->satisfiesPzs = $satisfiesPzs;
+  }
+  /**
+   * @return bool
+   */
+  public function getSatisfiesPzs()
+  {
+    return $this->satisfiesPzs;
   }
   /**
    * @param string

@@ -30,7 +30,7 @@ use Google\Service\CloudMachineLearningEngine\GoogleLongrunningOperation;
  * Typical usage is:
  *  <code>
  *   $mlService = new Google\Service\CloudMachineLearningEngine(...);
- *   $models = $mlService->models;
+ *   $models = $mlService->projects_models;
  *  </code>
  */
 class ProjectsModels extends \Google\Service\Resource
@@ -44,6 +44,7 @@ class ProjectsModels extends \Google\Service\Resource
    * @param GoogleCloudMlV1Model $postBody
    * @param array $optParams Optional parameters.
    * @return GoogleCloudMlV1Model
+   * @throws \Google\Service\Exception
    */
   public function create($parent, GoogleCloudMlV1Model $postBody, $optParams = [])
   {
@@ -59,6 +60,7 @@ class ProjectsModels extends \Google\Service\Resource
    * @param string $name Required. The name of the model.
    * @param array $optParams Optional parameters.
    * @return GoogleLongrunningOperation
+   * @throws \Google\Service\Exception
    */
   public function delete($name, $optParams = [])
   {
@@ -74,6 +76,7 @@ class ProjectsModels extends \Google\Service\Resource
    * @param string $name Required. The name of the model.
    * @param array $optParams Optional parameters.
    * @return GoogleCloudMlV1Model
+   * @throws \Google\Service\Exception
    */
   public function get($name, $optParams = [])
   {
@@ -86,8 +89,9 @@ class ProjectsModels extends \Google\Service\Resource
    * resource exists and does not have a policy set. (models.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. See the operation documentation for the appropriate value for this
-   * field.
+   * requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int options.requestedPolicyVersion Optional. The maximum policy
@@ -103,6 +107,7 @@ class ProjectsModels extends \Google\Service\Resource
    * documentation](https://cloud.google.com/iam/help/conditions/resource-
    * policies).
    * @return GoogleIamV1Policy
+   * @throws \Google\Service\Exception
    */
   public function getIamPolicy($resource, $optParams = [])
   {
@@ -130,6 +135,7 @@ class ProjectsModels extends \Google\Service\Resource
    * of results. You get the token from the `next_page_token` field of the
    * response from the previous call.
    * @return GoogleCloudMlV1ListModelsResponse
+   * @throws \Google\Service\Exception
    */
   public function listProjectsModels($parent, $optParams = [])
   {
@@ -153,6 +159,7 @@ class ProjectsModels extends \Google\Service\Resource
    * "description": "foo", "defaultVersion": { "name":"version_1" } } Currently
    * the supported update masks are `description` and `default_version.name`.
    * @return GoogleLongrunningOperation
+   * @throws \Google\Service\Exception
    */
   public function patch($name, GoogleCloudMlV1Model $postBody, $optParams = [])
   {
@@ -166,11 +173,13 @@ class ProjectsModels extends \Google\Service\Resource
    * `PERMISSION_DENIED` errors. (models.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. See the operation documentation for the appropriate value for this
-   * field.
+   * specified. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param GoogleIamV1SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return GoogleIamV1Policy
+   * @throws \Google\Service\Exception
    */
   public function setIamPolicy($resource, GoogleIamV1SetIamPolicyRequest $postBody, $optParams = [])
   {
@@ -186,11 +195,13 @@ class ProjectsModels extends \Google\Service\Resource
    * This operation may "fail open" without warning. (models.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. See the operation documentation for the appropriate value
-   * for this field.
+   * being requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param GoogleIamV1TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return GoogleIamV1TestIamPermissionsResponse
+   * @throws \Google\Service\Exception
    */
   public function testIamPermissions($resource, GoogleIamV1TestIamPermissionsRequest $postBody, $optParams = [])
   {

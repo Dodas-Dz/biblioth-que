@@ -32,6 +32,8 @@ class Attributes extends \Google\Collection
   public $brand;
   protected $capacityType = Capacity::class;
   protected $capacityDataType = '';
+  protected $certificationType = GoogleShoppingManufacturersV1ProductCertification::class;
+  protected $certificationDataType = 'array';
   /**
    * @var string
    */
@@ -64,6 +66,8 @@ class Attributes extends \Google\Collection
    * @var string
    */
   public $gender;
+  protected $groceryType = Grocery::class;
+  protected $groceryDataType = '';
   /**
    * @var string[]
    */
@@ -86,6 +90,8 @@ class Attributes extends \Google\Collection
    * @var string
    */
   public $mpn;
+  protected $nutritionType = Nutrition::class;
+  protected $nutritionDataType = '';
   /**
    * @var string
    */
@@ -154,6 +160,10 @@ class Attributes extends \Google\Collection
    * @var string[]
    */
   public $videoLink;
+  /**
+   * @var string
+   */
+  public $virtualModelLink;
 
   /**
    * @param Image[]
@@ -210,6 +220,20 @@ class Attributes extends \Google\Collection
   public function getCapacity()
   {
     return $this->capacity;
+  }
+  /**
+   * @param GoogleShoppingManufacturersV1ProductCertification[]
+   */
+  public function setCertification($certification)
+  {
+    $this->certification = $certification;
+  }
+  /**
+   * @return GoogleShoppingManufacturersV1ProductCertification[]
+   */
+  public function getCertification()
+  {
+    return $this->certification;
   }
   /**
    * @param string
@@ -338,6 +362,20 @@ class Attributes extends \Google\Collection
     return $this->gender;
   }
   /**
+   * @param Grocery
+   */
+  public function setGrocery(Grocery $grocery)
+  {
+    $this->grocery = $grocery;
+  }
+  /**
+   * @return Grocery
+   */
+  public function getGrocery()
+  {
+    return $this->grocery;
+  }
+  /**
    * @param string[]
    */
   public function setGtin($gtin)
@@ -420,6 +458,20 @@ class Attributes extends \Google\Collection
   public function getMpn()
   {
     return $this->mpn;
+  }
+  /**
+   * @param Nutrition
+   */
+  public function setNutrition(Nutrition $nutrition)
+  {
+    $this->nutrition = $nutrition;
+  }
+  /**
+   * @return Nutrition
+   */
+  public function getNutrition()
+  {
+    return $this->nutrition;
   }
   /**
    * @param string
@@ -672,6 +724,20 @@ class Attributes extends \Google\Collection
   public function getVideoLink()
   {
     return $this->videoLink;
+  }
+  /**
+   * @param string
+   */
+  public function setVirtualModelLink($virtualModelLink)
+  {
+    $this->virtualModelLink = $virtualModelLink;
+  }
+  /**
+   * @return string
+   */
+  public function getVirtualModelLink()
+  {
+    return $this->virtualModelLink;
   }
 }
 

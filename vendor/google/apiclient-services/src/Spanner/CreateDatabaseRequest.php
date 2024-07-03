@@ -24,12 +24,20 @@ class CreateDatabaseRequest extends \Google\Collection
    * @var string
    */
   public $createStatement;
+  /**
+   * @var string
+   */
+  public $databaseDialect;
   protected $encryptionConfigType = EncryptionConfig::class;
   protected $encryptionConfigDataType = '';
   /**
    * @var string[]
    */
   public $extraStatements;
+  /**
+   * @var string
+   */
+  public $protoDescriptors;
 
   /**
    * @param string
@@ -44,6 +52,20 @@ class CreateDatabaseRequest extends \Google\Collection
   public function getCreateStatement()
   {
     return $this->createStatement;
+  }
+  /**
+   * @param string
+   */
+  public function setDatabaseDialect($databaseDialect)
+  {
+    $this->databaseDialect = $databaseDialect;
+  }
+  /**
+   * @return string
+   */
+  public function getDatabaseDialect()
+  {
+    return $this->databaseDialect;
   }
   /**
    * @param EncryptionConfig
@@ -72,6 +94,20 @@ class CreateDatabaseRequest extends \Google\Collection
   public function getExtraStatements()
   {
     return $this->extraStatements;
+  }
+  /**
+   * @param string
+   */
+  public function setProtoDescriptors($protoDescriptors)
+  {
+    $this->protoDescriptors = $protoDescriptors;
+  }
+  /**
+   * @return string
+   */
+  public function getProtoDescriptors()
+  {
+    return $this->protoDescriptors;
   }
 }
 

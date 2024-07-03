@@ -21,7 +21,7 @@ class LivreController extends Controller
         $livresfiltre= Livre::orderBy('anneé', 'DESC')->paginate(20);
         $categories =Categorie::all();
         $mot =DB::select(DB::raw(" SELECT mot_cle FROM mots"));
-       
+
         return view('admin.listelivre',compact('categories','mot','livresfiltre'));
     }
 
@@ -68,15 +68,15 @@ class LivreController extends Controller
             'categories'=> ['required'],
             'description' => ['required'],
             ]);
-        
-            
+
+
         if($request->hasFile('image'))
         {
             $imageName = time().'.'.$request->image->getClientOriginalExtension();
             $request->image->move(public_path('/livre'), $imageName);
 
         }
-           
+
            $livre= Livre::create([
                 'titre' => $request->input('name'),
                 'isbn' => $request->input('isbn'),
@@ -90,7 +90,7 @@ class LivreController extends Controller
 
               ]);
 
-          $abonnes=Abonne::all();
+         /* $abonnes=Abonne::all();
 
           foreach ($abonnes as $abonne) {
 
@@ -107,7 +107,7 @@ class LivreController extends Controller
               Mail::to($data['to'])
                                   ->send(new LivreMail($data));
 
-            }
+            }*/
             $request->session()->flash('succe','livre ajouter avec succés');
             return redirect()->route('listelivre');
 
@@ -146,7 +146,7 @@ public function update(Request $request, $id)
     public function deleteLivre($id)
     {
         $livres = Livre::find($id)->delete();
-        
+
         return back();
     }
 

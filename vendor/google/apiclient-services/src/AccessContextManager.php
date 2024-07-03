@@ -23,8 +23,16 @@ use Google\Client;
  * Service definition for AccessContextManager (v1).
  *
  * <p>
- * An API for setting attribute based access control to requests to GCP
- * services.</p>
+ * An API for setting attribute based access control to requests to Google Cloud
+ * services. *Warning:* Do not mix *v1alpha* and *v1* API usage in the same
+ * access policy. The v1alpha API supports new Access Context Manager features,
+ * which may have different attributes or behaviors that are not supported by
+ * v1. The practice of mixed API usage within a policy may result in the
+ * inability to update that policy, including any access levels or service
+ * perimeters belonging to it. It is not recommended to use both v1 and v1alpha
+ * for modifying policies with critical service perimeters. Modifications using
+ * v1alpha should be limited to policies with non-production/non-critical
+ * service perimeters.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -41,9 +49,12 @@ class AccessContextManager extends \Google\Service
 
   public $accessPolicies;
   public $accessPolicies_accessLevels;
+  public $accessPolicies_authorizedOrgsDescs;
   public $accessPolicies_servicePerimeters;
   public $operations;
   public $organizations_gcpUserAccessBindings;
+  public $services;
+  public $rootUrlTemplate;
 
   /**
    * Constructs the internal representation of the AccessContextManager service.
@@ -56,6 +67,7 @@ class AccessContextManager extends \Google\Service
   {
     parent::__construct($clientOrConfig);
     $this->rootUrl = $rootUrl ?: 'https://accesscontextmanager.googleapis.com/';
+    $this->rootUrlTemplate = $rootUrl ?: 'https://accesscontextmanager.UNIVERSE_DOMAIN/';
     $this->servicePath = '';
     $this->batchPath = 'batch';
     $this->version = 'v1';
@@ -250,6 +262,78 @@ class AccessContextManager extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->accessPolicies_authorizedOrgsDescs = new AccessContextManager\Resource\AccessPoliciesAuthorizedOrgsDescs(
+        $this,
+        $this->serviceName,
+        'authorizedOrgsDescs',
+        [
+          'methods' => [
+            'create' => [
+              'path' => 'v1/{+parent}/authorizedOrgsDescs',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'parent' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'delete' => [
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'DELETE',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'get' => [
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'list' => [
+              'path' => 'v1/{+parent}/authorizedOrgsDescs',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'parent' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'patch' => [
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'PATCH',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'updateMask' => [
+                  'location' => 'query',
+                  'type' => 'string',
                 ],
               ],
             ],
@@ -484,6 +568,39 @@ class AccessContextManager extends \Google\Service
                   'required' => true,
                 ],
                 'updateMask' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->services = new AccessContextManager\Resource\Services(
+        $this,
+        $this->serviceName,
+        'services',
+        [
+          'methods' => [
+            'get' => [
+              'path' => 'v1/services/{name}',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'list' => [
+              'path' => 'v1/services',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
                   'location' => 'query',
                   'type' => 'string',
                 ],

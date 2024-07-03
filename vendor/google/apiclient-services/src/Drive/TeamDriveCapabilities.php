@@ -34,6 +34,10 @@ class TeamDriveCapabilities extends \Google\Model
   /**
    * @var bool
    */
+  public $canChangeSharingFoldersRequiresOrganizerPermissionRestriction;
+  /**
+   * @var bool
+   */
   public $canChangeTeamDriveBackground;
   /**
    * @var bool
@@ -90,6 +94,10 @@ class TeamDriveCapabilities extends \Google\Model
   /**
    * @var bool
    */
+  public $canResetTeamDriveRestrictions;
+  /**
+   * @var bool
+   */
   public $canShare;
   /**
    * @var bool
@@ -137,6 +145,20 @@ class TeamDriveCapabilities extends \Google\Model
   public function getCanChangeDomainUsersOnlyRestriction()
   {
     return $this->canChangeDomainUsersOnlyRestriction;
+  }
+  /**
+   * @param bool
+   */
+  public function setCanChangeSharingFoldersRequiresOrganizerPermissionRestriction($canChangeSharingFoldersRequiresOrganizerPermissionRestriction)
+  {
+    $this->canChangeSharingFoldersRequiresOrganizerPermissionRestriction = $canChangeSharingFoldersRequiresOrganizerPermissionRestriction;
+  }
+  /**
+   * @return bool
+   */
+  public function getCanChangeSharingFoldersRequiresOrganizerPermissionRestriction()
+  {
+    return $this->canChangeSharingFoldersRequiresOrganizerPermissionRestriction;
   }
   /**
    * @param bool
@@ -333,6 +355,20 @@ class TeamDriveCapabilities extends \Google\Model
   public function getCanRenameTeamDrive()
   {
     return $this->canRenameTeamDrive;
+  }
+  /**
+   * @param bool
+   */
+  public function setCanResetTeamDriveRestrictions($canResetTeamDriveRestrictions)
+  {
+    $this->canResetTeamDriveRestrictions = $canResetTeamDriveRestrictions;
+  }
+  /**
+   * @return bool
+   */
+  public function getCanResetTeamDriveRestrictions()
+  {
+    return $this->canResetTeamDriveRestrictions;
   }
   /**
    * @param bool

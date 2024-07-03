@@ -34,7 +34,7 @@ use Google\Service\CloudKMS\UpdateCryptoKeyPrimaryVersionRequest;
  * Typical usage is:
  *  <code>
  *   $cloudkmsService = new Google\Service\CloudKMS(...);
- *   $cryptoKeys = $cloudkmsService->cryptoKeys;
+ *   $cryptoKeys = $cloudkmsService->projects_locations_keyRings_cryptoKeys;
  *  </code>
  */
 class ProjectsLocationsKeyRingsCryptoKeys extends \Google\Service\Resource
@@ -55,6 +55,7 @@ class ProjectsLocationsKeyRingsCryptoKeys extends \Google\Service\Resource
    * CreateCryptoKeyVersion or ImportCryptoKeyVersion before you can use this
    * CryptoKey.
    * @return CryptoKey
+   * @throws \Google\Service\Exception
    */
   public function create($parent, CryptoKey $postBody, $optParams = [])
   {
@@ -71,6 +72,7 @@ class ProjectsLocationsKeyRingsCryptoKeys extends \Google\Service\Resource
    * @param DecryptRequest $postBody
    * @param array $optParams Optional parameters.
    * @return DecryptResponse
+   * @throws \Google\Service\Exception
    */
   public function decrypt($name, DecryptRequest $postBody, $optParams = [])
   {
@@ -88,6 +90,7 @@ class ProjectsLocationsKeyRingsCryptoKeys extends \Google\Service\Resource
    * @param EncryptRequest $postBody
    * @param array $optParams Optional parameters.
    * @return EncryptResponse
+   * @throws \Google\Service\Exception
    */
   public function encrypt($name, EncryptRequest $postBody, $optParams = [])
   {
@@ -102,6 +105,7 @@ class ProjectsLocationsKeyRingsCryptoKeys extends \Google\Service\Resource
    * @param string $name Required. The name of the CryptoKey to get.
    * @param array $optParams Optional parameters.
    * @return CryptoKey
+   * @throws \Google\Service\Exception
    */
   public function get($name, $optParams = [])
   {
@@ -114,8 +118,9 @@ class ProjectsLocationsKeyRingsCryptoKeys extends \Google\Service\Resource
    * resource exists and does not have a policy set. (cryptoKeys.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. See the operation documentation for the appropriate value for this
-   * field.
+   * requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int options.requestedPolicyVersion Optional. The maximum policy
@@ -131,6 +136,7 @@ class ProjectsLocationsKeyRingsCryptoKeys extends \Google\Service\Resource
    * documentation](https://cloud.google.com/iam/help/conditions/resource-
    * policies).
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function getIamPolicy($resource, $optParams = [])
   {
@@ -161,6 +167,7 @@ class ProjectsLocationsKeyRingsCryptoKeys extends \Google\Service\Resource
    * @opt_param string versionView The fields of the primary version to include in
    * the response.
    * @return ListCryptoKeysResponse
+   * @throws \Google\Service\Exception
    */
   public function listProjectsLocationsKeyRingsCryptoKeys($parent, $optParams = [])
   {
@@ -179,6 +186,7 @@ class ProjectsLocationsKeyRingsCryptoKeys extends \Google\Service\Resource
    * @opt_param string updateMask Required. List of fields to be updated in this
    * request.
    * @return CryptoKey
+   * @throws \Google\Service\Exception
    */
   public function patch($name, CryptoKey $postBody, $optParams = [])
   {
@@ -192,11 +200,13 @@ class ProjectsLocationsKeyRingsCryptoKeys extends \Google\Service\Resource
    * `PERMISSION_DENIED` errors. (cryptoKeys.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. See the operation documentation for the appropriate value for this
-   * field.
+   * specified. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function setIamPolicy($resource, SetIamPolicyRequest $postBody, $optParams = [])
   {
@@ -213,11 +223,13 @@ class ProjectsLocationsKeyRingsCryptoKeys extends \Google\Service\Resource
    * (cryptoKeys.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. See the operation documentation for the appropriate value
-   * for this field.
+   * being requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return TestIamPermissionsResponse
+   * @throws \Google\Service\Exception
    */
   public function testIamPermissions($resource, TestIamPermissionsRequest $postBody, $optParams = [])
   {
@@ -234,6 +246,7 @@ class ProjectsLocationsKeyRingsCryptoKeys extends \Google\Service\Resource
    * @param UpdateCryptoKeyPrimaryVersionRequest $postBody
    * @param array $optParams Optional parameters.
    * @return CryptoKey
+   * @throws \Google\Service\Exception
    */
   public function updatePrimaryVersion($name, UpdateCryptoKeyPrimaryVersionRequest $postBody, $optParams = [])
   {

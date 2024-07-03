@@ -32,8 +32,12 @@ class GoogleCloudRetailV2SearchResponse extends \Google\Collection
    * @var string
    */
   public $correctedQuery;
+  protected $experimentInfoType = GoogleCloudRetailV2ExperimentInfo::class;
+  protected $experimentInfoDataType = 'array';
   protected $facetsType = GoogleCloudRetailV2SearchResponseFacet::class;
   protected $facetsDataType = 'array';
+  protected $invalidConditionBoostSpecsType = GoogleCloudRetailV2SearchRequestBoostSpecConditionBoostSpec::class;
+  protected $invalidConditionBoostSpecsDataType = 'array';
   /**
    * @var string
    */
@@ -94,6 +98,20 @@ class GoogleCloudRetailV2SearchResponse extends \Google\Collection
     return $this->correctedQuery;
   }
   /**
+   * @param GoogleCloudRetailV2ExperimentInfo[]
+   */
+  public function setExperimentInfo($experimentInfo)
+  {
+    $this->experimentInfo = $experimentInfo;
+  }
+  /**
+   * @return GoogleCloudRetailV2ExperimentInfo[]
+   */
+  public function getExperimentInfo()
+  {
+    return $this->experimentInfo;
+  }
+  /**
    * @param GoogleCloudRetailV2SearchResponseFacet[]
    */
   public function setFacets($facets)
@@ -106,6 +124,20 @@ class GoogleCloudRetailV2SearchResponse extends \Google\Collection
   public function getFacets()
   {
     return $this->facets;
+  }
+  /**
+   * @param GoogleCloudRetailV2SearchRequestBoostSpecConditionBoostSpec[]
+   */
+  public function setInvalidConditionBoostSpecs($invalidConditionBoostSpecs)
+  {
+    $this->invalidConditionBoostSpecs = $invalidConditionBoostSpecs;
+  }
+  /**
+   * @return GoogleCloudRetailV2SearchRequestBoostSpecConditionBoostSpec[]
+   */
+  public function getInvalidConditionBoostSpecs()
+  {
+    return $this->invalidConditionBoostSpecs;
   }
   /**
    * @param string

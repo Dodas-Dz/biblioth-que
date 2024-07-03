@@ -23,7 +23,8 @@ use Google\Client;
  * Service definition for RecaptchaEnterprise (v1).
  *
  * <p>
-</p>
+ * Help protect your website from fraudulent activity, spam, and abuse without
+ * creating friction.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -39,10 +40,12 @@ class RecaptchaEnterprise extends \Google\Service
       "https://www.googleapis.com/auth/cloud-platform";
 
   public $projects_assessments;
+  public $projects_firewallpolicies;
   public $projects_keys;
   public $projects_relatedaccountgroupmemberships;
   public $projects_relatedaccountgroups;
   public $projects_relatedaccountgroups_memberships;
+  public $rootUrlTemplate;
 
   /**
    * Constructs the internal representation of the RecaptchaEnterprise service.
@@ -55,6 +58,7 @@ class RecaptchaEnterprise extends \Google\Service
   {
     parent::__construct($clientOrConfig);
     $this->rootUrl = $rootUrl ?: 'https://recaptchaenterprise.googleapis.com/';
+    $this->rootUrlTemplate = $rootUrl ?: 'https://recaptchaenterprise.UNIVERSE_DOMAIN/';
     $this->servicePath = '';
     $this->batchPath = 'batch';
     $this->version = 'v1';
@@ -78,6 +82,88 @@ class RecaptchaEnterprise extends \Google\Service
               ],
             ],'create' => [
               'path' => 'v1/{+parent}/assessments',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'parent' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->projects_firewallpolicies = new RecaptchaEnterprise\Resource\ProjectsFirewallpolicies(
+        $this,
+        $this->serviceName,
+        'firewallpolicies',
+        [
+          'methods' => [
+            'create' => [
+              'path' => 'v1/{+parent}/firewallpolicies',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'parent' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'delete' => [
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'DELETE',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'get' => [
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'list' => [
+              'path' => 'v1/{+parent}/firewallpolicies',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'parent' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'patch' => [
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'PATCH',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'updateMask' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'reorder' => [
+              'path' => 'v1/{+parent}/firewallpolicies:reorder',
               'httpMethod' => 'POST',
               'parameters' => [
                 'parent' => [
@@ -176,6 +262,16 @@ class RecaptchaEnterprise extends \Google\Service
                 'updateMask' => [
                   'location' => 'query',
                   'type' => 'string',
+                ],
+              ],
+            ],'retrieveLegacySecretKey' => [
+              'path' => 'v1/{+key}:retrieveLegacySecretKey',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'key' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ],
               ],
             ],

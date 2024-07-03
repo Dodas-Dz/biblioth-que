@@ -17,7 +17,10 @@
 
 namespace Google\Service\Networkconnectivity\Resource;
 
+use Google\Service\Networkconnectivity\GoogleLongrunningOperation;
+use Google\Service\Networkconnectivity\ListPolicyBasedRoutesResponse;
 use Google\Service\Networkconnectivity\Policy;
+use Google\Service\Networkconnectivity\PolicyBasedRoute;
 use Google\Service\Networkconnectivity\SetIamPolicyRequest;
 use Google\Service\Networkconnectivity\TestIamPermissionsRequest;
 use Google\Service\Networkconnectivity\TestIamPermissionsResponse;
@@ -27,19 +30,92 @@ use Google\Service\Networkconnectivity\TestIamPermissionsResponse;
  * Typical usage is:
  *  <code>
  *   $networkconnectivityService = new Google\Service\Networkconnectivity(...);
- *   $policyBasedRoutes = $networkconnectivityService->policyBasedRoutes;
+ *   $policyBasedRoutes = $networkconnectivityService->projects_locations_global_policyBasedRoutes;
  *  </code>
  */
 class ProjectsLocationsNetworkconnectivityGlobalPolicyBasedRoutes extends \Google\Service\Resource
 {
+  /**
+   * Creates a new policy-based route in a given project and location.
+   * (policyBasedRoutes.create)
+   *
+   * @param string $parent Required. The parent resource's name of the
+   * PolicyBasedRoute.
+   * @param PolicyBasedRoute $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string policyBasedRouteId Required. Unique id for the policy-based
+   * route to create.
+   * @opt_param string requestId Optional. An optional request ID to identify
+   * requests. Specify a unique request ID so that if you must retry your request,
+   * the server knows to ignore the request if it has already been completed. The
+   * server guarantees that for at least 60 minutes since the first request. For
+   * example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, ignores the second request. This prevents clients from
+   * accidentally creating duplicate commitments. The request ID must be a valid
+   * UUID with the exception that zero UUID is not supported
+   * (00000000-0000-0000-0000-000000000000).
+   * @return GoogleLongrunningOperation
+   * @throws \Google\Service\Exception
+   */
+  public function create($parent, PolicyBasedRoute $postBody, $optParams = [])
+  {
+    $params = ['parent' => $parent, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('create', [$params], GoogleLongrunningOperation::class);
+  }
+  /**
+   * Deletes a single policy-based route. (policyBasedRoutes.delete)
+   *
+   * @param string $name Required. Name of the policy-based route resource to
+   * delete.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId Optional. An optional request ID to identify
+   * requests. Specify a unique request ID so that if you must retry your request,
+   * the server knows to ignore the request if it has already been completed. The
+   * server guarantees that for at least 60 minutes after the first request. For
+   * example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, ignores the second request. This prevents clients from
+   * accidentally creating duplicate commitments. The request ID must be a valid
+   * UUID with the exception that zero UUID is not supported
+   * (00000000-0000-0000-0000-000000000000).
+   * @return GoogleLongrunningOperation
+   * @throws \Google\Service\Exception
+   */
+  public function delete($name, $optParams = [])
+  {
+    $params = ['name' => $name];
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', [$params], GoogleLongrunningOperation::class);
+  }
+  /**
+   * Gets details of a single policy-based route. (policyBasedRoutes.get)
+   *
+   * @param string $name Required. Name of the PolicyBasedRoute resource to get.
+   * @param array $optParams Optional parameters.
+   * @return PolicyBasedRoute
+   * @throws \Google\Service\Exception
+   */
+  public function get($name, $optParams = [])
+  {
+    $params = ['name' => $name];
+    $params = array_merge($params, $optParams);
+    return $this->call('get', [$params], PolicyBasedRoute::class);
+  }
   /**
    * Gets the access control policy for a resource. Returns an empty policy if the
    * resource exists and does not have a policy set.
    * (policyBasedRoutes.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. See the operation documentation for the appropriate value for this
-   * field.
+   * requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int options.requestedPolicyVersion Optional. The maximum policy
@@ -55,6 +131,7 @@ class ProjectsLocationsNetworkconnectivityGlobalPolicyBasedRoutes extends \Googl
    * documentation](https://cloud.google.com/iam/help/conditions/resource-
    * policies).
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function getIamPolicy($resource, $optParams = [])
   {
@@ -63,16 +140,40 @@ class ProjectsLocationsNetworkconnectivityGlobalPolicyBasedRoutes extends \Googl
     return $this->call('getIamPolicy', [$params], Policy::class);
   }
   /**
+   * Lists policy-based routes in a given project and location. (policyBasedRoutes
+   * .listProjectsLocationsNetworkconnectivityGlobalPolicyBasedRoutes)
+   *
+   * @param string $parent Required. The parent resource's name.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter A filter expression that filters the results listed
+   * in the response.
+   * @opt_param string orderBy Sort the results by a certain order.
+   * @opt_param int pageSize The maximum number of results per page that should be
+   * returned.
+   * @opt_param string pageToken The page token.
+   * @return ListPolicyBasedRoutesResponse
+   * @throws \Google\Service\Exception
+   */
+  public function listProjectsLocationsNetworkconnectivityGlobalPolicyBasedRoutes($parent, $optParams = [])
+  {
+    $params = ['parent' => $parent];
+    $params = array_merge($params, $optParams);
+    return $this->call('list', [$params], ListPolicyBasedRoutesResponse::class);
+  }
+  /**
    * Sets the access control policy on the specified resource. Replaces any
    * existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
    * `PERMISSION_DENIED` errors. (policyBasedRoutes.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. See the operation documentation for the appropriate value for this
-   * field.
+   * specified. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function setIamPolicy($resource, SetIamPolicyRequest $postBody, $optParams = [])
   {
@@ -89,11 +190,13 @@ class ProjectsLocationsNetworkconnectivityGlobalPolicyBasedRoutes extends \Googl
    * (policyBasedRoutes.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. See the operation documentation for the appropriate value
-   * for this field.
+   * being requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return TestIamPermissionsResponse
+   * @throws \Google\Service\Exception
    */
   public function testIamPermissions($resource, TestIamPermissionsRequest $postBody, $optParams = [])
   {

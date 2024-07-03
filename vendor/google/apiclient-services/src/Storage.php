@@ -50,15 +50,20 @@ class Storage extends \Google\Service
   const DEVSTORAGE_READ_WRITE =
       "https://www.googleapis.com/auth/devstorage.read_write";
 
+  public $anywhereCaches;
   public $bucketAccessControls;
   public $buckets;
   public $channels;
   public $defaultObjectAccessControls;
+  public $folders;
+  public $managedFolders;
   public $notifications;
   public $objectAccessControls;
   public $objects;
+  public $operations;
   public $projects_hmacKeys;
   public $projects_serviceAccount;
+  public $rootUrlTemplate;
 
   /**
    * Constructs the internal representation of the Storage service.
@@ -71,11 +76,125 @@ class Storage extends \Google\Service
   {
     parent::__construct($clientOrConfig);
     $this->rootUrl = $rootUrl ?: 'https://storage.googleapis.com/';
+    $this->rootUrlTemplate = $rootUrl ?: 'https://storage.UNIVERSE_DOMAIN/';
     $this->servicePath = 'storage/v1/';
     $this->batchPath = 'batch/storage/v1';
     $this->version = 'v1';
     $this->serviceName = 'storage';
 
+    $this->anywhereCaches = new Storage\Resource\AnywhereCaches(
+        $this,
+        $this->serviceName,
+        'anywhereCaches',
+        [
+          'methods' => [
+            'disable' => [
+              'path' => 'b/{bucket}/anywhereCaches/{anywhereCacheId}/disable',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'anywhereCacheId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'get' => [
+              'path' => 'b/{bucket}/anywhereCaches/{anywhereCacheId}',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'anywhereCacheId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'insert' => [
+              'path' => 'b/{bucket}/anywhereCaches',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'list' => [
+              'path' => 'b/{bucket}/anywhereCaches',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'pause' => [
+              'path' => 'b/{bucket}/anywhereCaches/{anywhereCacheId}/pause',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'anywhereCacheId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'resume' => [
+              'path' => 'b/{bucket}/anywhereCaches/{anywhereCacheId}/resume',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'anywhereCacheId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'update' => [
+              'path' => 'b/{bucket}/anywhereCaches/{anywhereCacheId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'anywhereCacheId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
     $this->bucketAccessControls = new Storage\Resource\BucketAccessControls(
         $this,
         $this->serviceName,
@@ -96,10 +215,6 @@ class Storage extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -119,10 +234,6 @@ class Storage extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -137,10 +248,6 @@ class Storage extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -154,10 +261,6 @@ class Storage extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
                 ],
                 'userProject' => [
                   'location' => 'query',
@@ -178,10 +281,6 @@ class Storage extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -200,10 +299,6 @@ class Storage extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
                 ],
                 'userProject' => [
                   'location' => 'query',
@@ -237,10 +332,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -267,10 +358,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -289,11 +376,21 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'integer',
                 ],
-                'provisionalUserProject' => [
+                'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'userProject' => [
+              ],
+            ],'getStorageLayout' => [
+              'path' => 'b/{bucket}/storageLayout',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'prefix' => [
                   'location' => 'query',
                   'type' => 'string',
                 ],
@@ -307,6 +404,10 @@ class Storage extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
+                'enableObjectRetention' => [
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ],
                 'predefinedAcl' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -316,10 +417,6 @@ class Storage extends \Google\Service
                   'type' => 'string',
                 ],
                 'projection' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-                'provisionalUserProject' => [
                   'location' => 'query',
                   'type' => 'string',
                 ],
@@ -353,10 +450,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -375,10 +468,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                   'required' => true,
-                ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
                 ],
                 'userProject' => [
                   'location' => 'query',
@@ -414,10 +503,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -431,10 +516,6 @@ class Storage extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
                 ],
                 'userProject' => [
                   'location' => 'query',
@@ -455,10 +536,6 @@ class Storage extends \Google\Service
                   'type' => 'string',
                   'repeated' => true,
                   'required' => true,
-                ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
                 ],
                 'userProject' => [
                   'location' => 'query',
@@ -491,10 +568,6 @@ class Storage extends \Google\Service
                   'type' => 'string',
                 ],
                 'projection' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-                'provisionalUserProject' => [
                   'location' => 'query',
                   'type' => 'string',
                 ],
@@ -541,10 +614,6 @@ class Storage extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -564,10 +633,6 @@ class Storage extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -581,10 +646,6 @@ class Storage extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
                 ],
                 'userProject' => [
                   'location' => 'query',
@@ -608,10 +669,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -630,10 +687,6 @@ class Storage extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
                 ],
                 'userProject' => [
                   'location' => 'query',
@@ -654,9 +707,296 @@ class Storage extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
-                'provisionalUserProject' => [
+                'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->folders = new Storage\Resource\Folders(
+        $this,
+        $this->serviceName,
+        'folders',
+        [
+          'methods' => [
+            'delete' => [
+              'path' => 'b/{bucket}/folders/{folder}',
+              'httpMethod' => 'DELETE',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'folder' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'ifMetagenerationMatch' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'ifMetagenerationNotMatch' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'get' => [
+              'path' => 'b/{bucket}/folders/{folder}',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'folder' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'ifMetagenerationMatch' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'ifMetagenerationNotMatch' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'insert' => [
+              'path' => 'b/{bucket}/folders',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'recursive' => [
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ],
+              ],
+            ],'list' => [
+              'path' => 'b/{bucket}/folders',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'delimiter' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'endOffset' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'prefix' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'startOffset' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'rename' => [
+              'path' => 'b/{bucket}/folders/{sourceFolder}/renameTo/folders/{destinationFolder}',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'sourceFolder' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'destinationFolder' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'ifSourceMetagenerationMatch' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'ifSourceMetagenerationNotMatch' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->managedFolders = new Storage\Resource\ManagedFolders(
+        $this,
+        $this->serviceName,
+        'managedFolders',
+        [
+          'methods' => [
+            'delete' => [
+              'path' => 'b/{bucket}/managedFolders/{managedFolder}',
+              'httpMethod' => 'DELETE',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'managedFolder' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'allowNonEmpty' => [
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ],
+                'ifMetagenerationMatch' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'ifMetagenerationNotMatch' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'get' => [
+              'path' => 'b/{bucket}/managedFolders/{managedFolder}',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'managedFolder' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'ifMetagenerationMatch' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'ifMetagenerationNotMatch' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'getIamPolicy' => [
+              'path' => 'b/{bucket}/managedFolders/{managedFolder}/iam',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'managedFolder' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'optionsRequestedPolicyVersion' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'userProject' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'insert' => [
+              'path' => 'b/{bucket}/managedFolders',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'list' => [
+              'path' => 'b/{bucket}/managedFolders',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'prefix' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'setIamPolicy' => [
+              'path' => 'b/{bucket}/managedFolders/{managedFolder}/iam',
+              'httpMethod' => 'PUT',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'managedFolder' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'userProject' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'testIamPermissions' => [
+              'path' => 'b/{bucket}/managedFolders/{managedFolder}/iam/testPermissions',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'managedFolder' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'permissions' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                  'required' => true,
                 ],
                 'userProject' => [
                   'location' => 'query',
@@ -687,10 +1027,6 @@ class Storage extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -710,10 +1046,6 @@ class Storage extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -728,10 +1060,6 @@ class Storage extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -745,10 +1073,6 @@ class Storage extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
                 ],
                 'userProject' => [
                   'location' => 'query',
@@ -788,10 +1112,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -820,10 +1140,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -847,10 +1163,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -871,10 +1183,6 @@ class Storage extends \Google\Service
                   'required' => true,
                 ],
                 'generation' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-                'provisionalUserProject' => [
                   'location' => 'query',
                   'type' => 'string',
                 ],
@@ -906,10 +1214,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -938,10 +1242,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -957,7 +1257,17 @@ class Storage extends \Google\Service
         'objects',
         [
           'methods' => [
-            'compose' => [
+            'bulkRestore' => [
+              'path' => 'b/{bucket}/o/bulkRestore',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'compose' => [
               'path' => 'b/{destinationBucket}/o/{destinationObject}/compose',
               'httpMethod' => 'POST',
               'parameters' => [
@@ -984,10 +1294,6 @@ class Storage extends \Google\Service
                   'type' => 'string',
                 ],
                 'kmsKeyName' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-                'provisionalUserProject' => [
                   'location' => 'query',
                   'type' => 'string',
                 ],
@@ -1064,10 +1370,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'sourceGeneration' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -1108,10 +1410,6 @@ class Storage extends \Google\Service
                   'type' => 'string',
                 ],
                 'ifMetagenerationNotMatch' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-                'provisionalUserProject' => [
                   'location' => 'query',
                   'type' => 'string',
                 ],
@@ -1158,9 +1456,9 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
+                'softDeleted' => [
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ],
                 'userProject' => [
                   'location' => 'query',
@@ -1182,10 +1480,6 @@ class Storage extends \Google\Service
                   'required' => true,
                 ],
                 'generation' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-                'provisionalUserProject' => [
                   'location' => 'query',
                   'type' => 'string',
                 ],
@@ -1239,10 +1533,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -1265,9 +1555,17 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
+                'includeFoldersAsPrefixes' => [
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ],
                 'includeTrailingDelimiter' => [
                   'location' => 'query',
                   'type' => 'boolean',
+                ],
+                'matchGlob' => [
+                  'location' => 'query',
+                  'type' => 'string',
                 ],
                 'maxResults' => [
                   'location' => 'query',
@@ -1285,9 +1583,9 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
+                'softDeleted' => [
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ],
                 'startOffset' => [
                   'location' => 'query',
@@ -1336,6 +1634,10 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
+                'overrideUnlockedRetention' => [
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ],
                 'predefinedAcl' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -1344,7 +1646,51 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
+                'userProject' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'restore' => [
+              'path' => 'b/{bucket}/o/{object}/restore',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'object' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'generation' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'copySourceAcl' => [
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ],
+                'ifGenerationMatch' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'ifGenerationNotMatch' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'ifMetagenerationMatch' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'ifMetagenerationNotMatch' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'projection' => [
                   'location' => 'query',
                   'type' => 'string',
                 ],
@@ -1425,10 +1771,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'rewriteToken' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -1460,10 +1802,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'userProject' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -1490,10 +1828,6 @@ class Storage extends \Google\Service
                   'required' => true,
                 ],
                 'generation' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-                'provisionalUserProject' => [
                   'location' => 'query',
                   'type' => 'string',
                 ],
@@ -1536,15 +1870,15 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
+                'overrideUnlockedRetention' => [
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ],
                 'predefinedAcl' => [
                   'location' => 'query',
                   'type' => 'string',
                 ],
                 'projection' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
-                'provisionalUserProject' => [
                   'location' => 'query',
                   'type' => 'string',
                 ],
@@ -1590,10 +1924,6 @@ class Storage extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
-                ],
                 'startOffset' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -1605,6 +1935,68 @@ class Storage extends \Google\Service
                 'versions' => [
                   'location' => 'query',
                   'type' => 'boolean',
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->operations = new Storage\Resource\Operations(
+        $this,
+        $this->serviceName,
+        'operations',
+        [
+          'methods' => [
+            'cancel' => [
+              'path' => 'b/{bucket}/operations/{operationId}/cancel',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'operationId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'get' => [
+              'path' => 'b/{bucket}/operations/{operationId}',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'operationId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'list' => [
+              'path' => 'b/{bucket}/operations',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'bucket' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'filter' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
+                  'location' => 'query',
+                  'type' => 'string',
                 ],
               ],
             ],
@@ -1741,10 +2133,6 @@ class Storage extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ],
-                'provisionalUserProject' => [
-                  'location' => 'query',
-                  'type' => 'string',
                 ],
                 'userProject' => [
                   'location' => 'query',

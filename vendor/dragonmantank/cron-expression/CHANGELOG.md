@@ -1,5 +1,72 @@
 # Change Log
 
+## [3.3.3] - 2024-08-10
+
+### Added
+- N/A
+
+### Changed
+- N/A
+
+### Fixed
+- Added fixes for making sure `?` is not passed for both DOM and DOW (#148, thank you https://github.com/LeoVie)
+- Fixed bug in Next Execution Time by sorting minutes properly (#160, thank you https://github.com/imyip)
+
+## [3.3.2] - 2022-09-19
+
+### Added
+- N/A
+
+### Changed
+- Skip some daylight savings time tests for PHP 8.1 daylight savings time weirdness (#146)
+
+### Fixed
+- Changed string interpolations to work better with PHP 8.2 (#142)
+
+## [3.3.1] - 2022-01-18
+
+### Added
+- N/A
+
+### Changed
+- N/A
+
+### Fixed
+- Fixed issue when timezones had no transition, which can occur over very short timespans (#134)
+
+## [3.3.0] - 2022-01-13
+
+### Added
+- Added ability to register your own expression aliases (#132)
+
+### Changed
+- Changed how Day of Week and Day of Month resolve when one or the other is `*` or `?`
+
+### Fixed
+- PHPStan should no longer error out
+
+## [3.2.4] - 2022-01-12
+
+### Added
+- N/A
+
+### Changed
+- Changed how Day of Week increment/decrement to help with DST changes (#131)
+
+### Fixed
+- N/A
+
+## [3.2.3] - 2022-01-05
+
+### Added
+- N/A
+
+### Changed
+- Changed how minutes and hours increment/decrement to help with DST changes (#131)
+
+### Fixed
+- N/A
+
 ## [3.2.2] - 2022-01-05
 
 ### Added
@@ -11,6 +78,7 @@
 ### Fixed
 - Fixed issue with small ranges and large steps that caused an error with `range()` (#88)
 - Fixed issue where wraparound logic incorrectly considered high bound on range (#89)
+
 ## [3.2.1] - 2022-01-04
 
 ### Added

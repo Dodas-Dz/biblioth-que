@@ -22,9 +22,19 @@ class ConfigManagementConfigSync extends \Google\Model
   /**
    * @var bool
    */
+  public $allowVerticalScale;
+  /**
+   * @var bool
+   */
   public $enabled;
   protected $gitType = ConfigManagementGitConfig::class;
   protected $gitDataType = '';
+  /**
+   * @var string
+   */
+  public $metricsGcpServiceAccountEmail;
+  protected $ociType = ConfigManagementOciConfig::class;
+  protected $ociDataType = '';
   /**
    * @var bool
    */
@@ -34,6 +44,20 @@ class ConfigManagementConfigSync extends \Google\Model
    */
   public $sourceFormat;
 
+  /**
+   * @param bool
+   */
+  public function setAllowVerticalScale($allowVerticalScale)
+  {
+    $this->allowVerticalScale = $allowVerticalScale;
+  }
+  /**
+   * @return bool
+   */
+  public function getAllowVerticalScale()
+  {
+    return $this->allowVerticalScale;
+  }
   /**
    * @param bool
    */
@@ -61,6 +85,34 @@ class ConfigManagementConfigSync extends \Google\Model
   public function getGit()
   {
     return $this->git;
+  }
+  /**
+   * @param string
+   */
+  public function setMetricsGcpServiceAccountEmail($metricsGcpServiceAccountEmail)
+  {
+    $this->metricsGcpServiceAccountEmail = $metricsGcpServiceAccountEmail;
+  }
+  /**
+   * @return string
+   */
+  public function getMetricsGcpServiceAccountEmail()
+  {
+    return $this->metricsGcpServiceAccountEmail;
+  }
+  /**
+   * @param ConfigManagementOciConfig
+   */
+  public function setOci(ConfigManagementOciConfig $oci)
+  {
+    $this->oci = $oci;
+  }
+  /**
+   * @return ConfigManagementOciConfig
+   */
+  public function getOci()
+  {
+    return $this->oci;
   }
   /**
    * @param bool

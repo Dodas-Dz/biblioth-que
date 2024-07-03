@@ -38,7 +38,11 @@ class WorkflowExecutions extends \Google\Service
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
 
+  public $projects_locations_workflows;
   public $projects_locations_workflows_executions;
+  public $projects_locations_workflows_executions_callbacks;
+  public $projects_locations_workflows_executions_stepEntries;
+  public $rootUrlTemplate;
 
   /**
    * Constructs the internal representation of the WorkflowExecutions service.
@@ -51,11 +55,32 @@ class WorkflowExecutions extends \Google\Service
   {
     parent::__construct($clientOrConfig);
     $this->rootUrl = $rootUrl ?: 'https://workflowexecutions.googleapis.com/';
+    $this->rootUrlTemplate = $rootUrl ?: 'https://workflowexecutions.UNIVERSE_DOMAIN/';
     $this->servicePath = '';
     $this->batchPath = 'batch';
     $this->version = 'v1';
     $this->serviceName = 'workflowexecutions';
 
+    $this->projects_locations_workflows = new WorkflowExecutions\Resource\ProjectsLocationsWorkflows(
+        $this,
+        $this->serviceName,
+        'workflows',
+        [
+          'methods' => [
+            'triggerPubsubExecution' => [
+              'path' => 'v1/{+workflow}:triggerPubsubExecution',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'workflow' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
     $this->projects_locations_workflows_executions = new WorkflowExecutions\Resource\ProjectsLocationsWorkflowsExecutions(
         $this,
         $this->serviceName,
@@ -77,6 +102,16 @@ class WorkflowExecutions extends \Google\Service
               'httpMethod' => 'POST',
               'parameters' => [
                 'parent' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'exportData' => [
+              'path' => 'v1/{+name}:exportData',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'name' => [
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -105,6 +140,14 @@ class WorkflowExecutions extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
+                'filter' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'orderBy' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
                 'pageSize' => [
                   'location' => 'query',
                   'type' => 'integer',
@@ -116,6 +159,84 @@ class WorkflowExecutions extends \Google\Service
                 'view' => [
                   'location' => 'query',
                   'type' => 'string',
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->projects_locations_workflows_executions_callbacks = new WorkflowExecutions\Resource\ProjectsLocationsWorkflowsExecutionsCallbacks(
+        $this,
+        $this->serviceName,
+        'callbacks',
+        [
+          'methods' => [
+            'list' => [
+              'path' => 'v1/{+parent}/callbacks',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'parent' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->projects_locations_workflows_executions_stepEntries = new WorkflowExecutions\Resource\ProjectsLocationsWorkflowsExecutionsStepEntries(
+        $this,
+        $this->serviceName,
+        'stepEntries',
+        [
+          'methods' => [
+            'get' => [
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'list' => [
+              'path' => 'v1/{+parent}/stepEntries',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'parent' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'filter' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'orderBy' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'skip' => [
+                  'location' => 'query',
+                  'type' => 'integer',
                 ],
               ],
             ],

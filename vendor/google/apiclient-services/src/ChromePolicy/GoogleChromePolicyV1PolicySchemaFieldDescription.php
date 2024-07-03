@@ -19,7 +19,7 @@ namespace Google\Service\ChromePolicy;
 
 class GoogleChromePolicyV1PolicySchemaFieldDescription extends \Google\Collection
 {
-  protected $collection_key = 'nestedFieldDescriptions';
+  protected $collection_key = 'requiredItems';
   /**
    * @var string
    */
@@ -33,11 +33,21 @@ class GoogleChromePolicyV1PolicySchemaFieldDescription extends \Google\Collectio
   /**
    * @var string
    */
+  public $fieldDescription;
+  /**
+   * @var string
+   */
   public $inputConstraint;
   protected $knownValueDescriptionsType = GoogleChromePolicyV1PolicySchemaFieldKnownValueDescription::class;
   protected $knownValueDescriptionsDataType = 'array';
+  /**
+   * @var string
+   */
+  public $name;
   protected $nestedFieldDescriptionsType = GoogleChromePolicyV1PolicySchemaFieldDescription::class;
   protected $nestedFieldDescriptionsDataType = 'array';
+  protected $requiredItemsType = GoogleChromePolicyV1PolicySchemaRequiredItems::class;
+  protected $requiredItemsDataType = 'array';
 
   /**
    * @param string
@@ -84,6 +94,20 @@ class GoogleChromePolicyV1PolicySchemaFieldDescription extends \Google\Collectio
   /**
    * @param string
    */
+  public function setFieldDescription($fieldDescription)
+  {
+    $this->fieldDescription = $fieldDescription;
+  }
+  /**
+   * @return string
+   */
+  public function getFieldDescription()
+  {
+    return $this->fieldDescription;
+  }
+  /**
+   * @param string
+   */
   public function setInputConstraint($inputConstraint)
   {
     $this->inputConstraint = $inputConstraint;
@@ -110,6 +134,20 @@ class GoogleChromePolicyV1PolicySchemaFieldDescription extends \Google\Collectio
     return $this->knownValueDescriptions;
   }
   /**
+   * @param string
+   */
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  /**
+   * @return string
+   */
+  public function getName()
+  {
+    return $this->name;
+  }
+  /**
    * @param GoogleChromePolicyV1PolicySchemaFieldDescription[]
    */
   public function setNestedFieldDescriptions($nestedFieldDescriptions)
@@ -122,6 +160,20 @@ class GoogleChromePolicyV1PolicySchemaFieldDescription extends \Google\Collectio
   public function getNestedFieldDescriptions()
   {
     return $this->nestedFieldDescriptions;
+  }
+  /**
+   * @param GoogleChromePolicyV1PolicySchemaRequiredItems[]
+   */
+  public function setRequiredItems($requiredItems)
+  {
+    $this->requiredItems = $requiredItems;
+  }
+  /**
+   * @return GoogleChromePolicyV1PolicySchemaRequiredItems[]
+   */
+  public function getRequiredItems()
+  {
+    return $this->requiredItems;
   }
 }
 

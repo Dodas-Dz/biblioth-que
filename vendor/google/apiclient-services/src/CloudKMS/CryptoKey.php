@@ -26,11 +26,17 @@ class CryptoKey extends \Google\Model
   /**
    * @var string
    */
+  public $cryptoKeyBackend;
+  /**
+   * @var string
+   */
   public $destroyScheduledDuration;
   /**
    * @var bool
    */
   public $importOnly;
+  protected $keyAccessJustificationsPolicyType = KeyAccessJustificationsPolicy::class;
+  protected $keyAccessJustificationsPolicyDataType = '';
   /**
    * @var string[]
    */
@@ -73,6 +79,20 @@ class CryptoKey extends \Google\Model
   /**
    * @param string
    */
+  public function setCryptoKeyBackend($cryptoKeyBackend)
+  {
+    $this->cryptoKeyBackend = $cryptoKeyBackend;
+  }
+  /**
+   * @return string
+   */
+  public function getCryptoKeyBackend()
+  {
+    return $this->cryptoKeyBackend;
+  }
+  /**
+   * @param string
+   */
   public function setDestroyScheduledDuration($destroyScheduledDuration)
   {
     $this->destroyScheduledDuration = $destroyScheduledDuration;
@@ -97,6 +117,20 @@ class CryptoKey extends \Google\Model
   public function getImportOnly()
   {
     return $this->importOnly;
+  }
+  /**
+   * @param KeyAccessJustificationsPolicy
+   */
+  public function setKeyAccessJustificationsPolicy(KeyAccessJustificationsPolicy $keyAccessJustificationsPolicy)
+  {
+    $this->keyAccessJustificationsPolicy = $keyAccessJustificationsPolicy;
+  }
+  /**
+   * @return KeyAccessJustificationsPolicy
+   */
+  public function getKeyAccessJustificationsPolicy()
+  {
+    return $this->keyAccessJustificationsPolicy;
   }
   /**
    * @param string[]

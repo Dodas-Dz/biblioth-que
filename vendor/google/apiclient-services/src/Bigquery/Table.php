@@ -17,8 +17,13 @@
 
 namespace Google\Service\Bigquery;
 
-class Table extends \Google\Model
+class Table extends \Google\Collection
 {
+  protected $collection_key = 'replicas';
+  protected $biglakeConfigurationType = BigLakeConfiguration::class;
+  protected $biglakeConfigurationDataType = '';
+  protected $cloneDefinitionType = CloneDefinition::class;
+  protected $cloneDefinitionDataType = '';
   protected $clusteringType = Clustering::class;
   protected $clusteringDataType = '';
   /**
@@ -29,6 +34,10 @@ class Table extends \Google\Model
    * @var string
    */
   public $defaultCollation;
+  /**
+   * @var string
+   */
+  public $defaultRoundingMode;
   /**
    * @var string
    */
@@ -43,6 +52,8 @@ class Table extends \Google\Model
    * @var string
    */
   public $expirationTime;
+  protected $externalCatalogTableOptionsType = ExternalCatalogTableOptions::class;
+  protected $externalCatalogTableOptionsDataType = '';
   protected $externalDataConfigurationType = ExternalDataConfiguration::class;
   protected $externalDataConfigurationDataType = '';
   /**
@@ -71,8 +82,22 @@ class Table extends \Google\Model
   public $location;
   protected $materializedViewType = MaterializedViewDefinition::class;
   protected $materializedViewDataType = '';
+  protected $materializedViewStatusType = MaterializedViewStatus::class;
+  protected $materializedViewStatusDataType = '';
+  /**
+   * @var string
+   */
+  public $maxStaleness;
   protected $modelType = ModelDefinition::class;
   protected $modelDataType = '';
+  /**
+   * @var string
+   */
+  public $numActiveLogicalBytes;
+  /**
+   * @var string
+   */
+  public $numActivePhysicalBytes;
   /**
    * @var string
    */
@@ -80,7 +105,23 @@ class Table extends \Google\Model
   /**
    * @var string
    */
+  public $numCurrentPhysicalBytes;
+  /**
+   * @var string
+   */
   public $numLongTermBytes;
+  /**
+   * @var string
+   */
+  public $numLongTermLogicalBytes;
+  /**
+   * @var string
+   */
+  public $numLongTermPhysicalBytes;
+  /**
+   * @var string
+   */
+  public $numPartitions;
   /**
    * @var string
    */
@@ -89,12 +130,34 @@ class Table extends \Google\Model
    * @var string
    */
   public $numRows;
+  /**
+   * @var string
+   */
+  public $numTimeTravelPhysicalBytes;
+  /**
+   * @var string
+   */
+  public $numTotalLogicalBytes;
+  /**
+   * @var string
+   */
+  public $numTotalPhysicalBytes;
+  protected $partitionDefinitionType = PartitioningDefinition::class;
+  protected $partitionDefinitionDataType = '';
   protected $rangePartitioningType = RangePartitioning::class;
   protected $rangePartitioningDataType = '';
+  protected $replicasType = TableReference::class;
+  protected $replicasDataType = 'array';
   /**
    * @var bool
    */
   public $requirePartitionFilter;
+  /**
+   * @var string[]
+   */
+  public $resourceTags;
+  protected $restrictionsType = RestrictionConfig::class;
+  protected $restrictionsDataType = '';
   protected $schemaType = TableSchema::class;
   protected $schemaDataType = '';
   /**
@@ -105,8 +168,12 @@ class Table extends \Google\Model
   protected $snapshotDefinitionDataType = '';
   protected $streamingBufferType = Streamingbuffer::class;
   protected $streamingBufferDataType = '';
+  protected $tableConstraintsType = TableConstraints::class;
+  protected $tableConstraintsDataType = '';
   protected $tableReferenceType = TableReference::class;
   protected $tableReferenceDataType = '';
+  protected $tableReplicationInfoType = TableReplicationInfo::class;
+  protected $tableReplicationInfoDataType = '';
   protected $timePartitioningType = TimePartitioning::class;
   protected $timePartitioningDataType = '';
   /**
@@ -116,6 +183,34 @@ class Table extends \Google\Model
   protected $viewType = ViewDefinition::class;
   protected $viewDataType = '';
 
+  /**
+   * @param BigLakeConfiguration
+   */
+  public function setBiglakeConfiguration(BigLakeConfiguration $biglakeConfiguration)
+  {
+    $this->biglakeConfiguration = $biglakeConfiguration;
+  }
+  /**
+   * @return BigLakeConfiguration
+   */
+  public function getBiglakeConfiguration()
+  {
+    return $this->biglakeConfiguration;
+  }
+  /**
+   * @param CloneDefinition
+   */
+  public function setCloneDefinition(CloneDefinition $cloneDefinition)
+  {
+    $this->cloneDefinition = $cloneDefinition;
+  }
+  /**
+   * @return CloneDefinition
+   */
+  public function getCloneDefinition()
+  {
+    return $this->cloneDefinition;
+  }
   /**
    * @param Clustering
    */
@@ -157,6 +252,20 @@ class Table extends \Google\Model
   public function getDefaultCollation()
   {
     return $this->defaultCollation;
+  }
+  /**
+   * @param string
+   */
+  public function setDefaultRoundingMode($defaultRoundingMode)
+  {
+    $this->defaultRoundingMode = $defaultRoundingMode;
+  }
+  /**
+   * @return string
+   */
+  public function getDefaultRoundingMode()
+  {
+    return $this->defaultRoundingMode;
   }
   /**
    * @param string
@@ -213,6 +322,20 @@ class Table extends \Google\Model
   public function getExpirationTime()
   {
     return $this->expirationTime;
+  }
+  /**
+   * @param ExternalCatalogTableOptions
+   */
+  public function setExternalCatalogTableOptions(ExternalCatalogTableOptions $externalCatalogTableOptions)
+  {
+    $this->externalCatalogTableOptions = $externalCatalogTableOptions;
+  }
+  /**
+   * @return ExternalCatalogTableOptions
+   */
+  public function getExternalCatalogTableOptions()
+  {
+    return $this->externalCatalogTableOptions;
   }
   /**
    * @param ExternalDataConfiguration
@@ -327,6 +450,34 @@ class Table extends \Google\Model
     return $this->materializedView;
   }
   /**
+   * @param MaterializedViewStatus
+   */
+  public function setMaterializedViewStatus(MaterializedViewStatus $materializedViewStatus)
+  {
+    $this->materializedViewStatus = $materializedViewStatus;
+  }
+  /**
+   * @return MaterializedViewStatus
+   */
+  public function getMaterializedViewStatus()
+  {
+    return $this->materializedViewStatus;
+  }
+  /**
+   * @param string
+   */
+  public function setMaxStaleness($maxStaleness)
+  {
+    $this->maxStaleness = $maxStaleness;
+  }
+  /**
+   * @return string
+   */
+  public function getMaxStaleness()
+  {
+    return $this->maxStaleness;
+  }
+  /**
    * @param ModelDefinition
    */
   public function setModel(ModelDefinition $model)
@@ -339,6 +490,34 @@ class Table extends \Google\Model
   public function getModel()
   {
     return $this->model;
+  }
+  /**
+   * @param string
+   */
+  public function setNumActiveLogicalBytes($numActiveLogicalBytes)
+  {
+    $this->numActiveLogicalBytes = $numActiveLogicalBytes;
+  }
+  /**
+   * @return string
+   */
+  public function getNumActiveLogicalBytes()
+  {
+    return $this->numActiveLogicalBytes;
+  }
+  /**
+   * @param string
+   */
+  public function setNumActivePhysicalBytes($numActivePhysicalBytes)
+  {
+    $this->numActivePhysicalBytes = $numActivePhysicalBytes;
+  }
+  /**
+   * @return string
+   */
+  public function getNumActivePhysicalBytes()
+  {
+    return $this->numActivePhysicalBytes;
   }
   /**
    * @param string
@@ -357,6 +536,20 @@ class Table extends \Google\Model
   /**
    * @param string
    */
+  public function setNumCurrentPhysicalBytes($numCurrentPhysicalBytes)
+  {
+    $this->numCurrentPhysicalBytes = $numCurrentPhysicalBytes;
+  }
+  /**
+   * @return string
+   */
+  public function getNumCurrentPhysicalBytes()
+  {
+    return $this->numCurrentPhysicalBytes;
+  }
+  /**
+   * @param string
+   */
   public function setNumLongTermBytes($numLongTermBytes)
   {
     $this->numLongTermBytes = $numLongTermBytes;
@@ -367,6 +560,48 @@ class Table extends \Google\Model
   public function getNumLongTermBytes()
   {
     return $this->numLongTermBytes;
+  }
+  /**
+   * @param string
+   */
+  public function setNumLongTermLogicalBytes($numLongTermLogicalBytes)
+  {
+    $this->numLongTermLogicalBytes = $numLongTermLogicalBytes;
+  }
+  /**
+   * @return string
+   */
+  public function getNumLongTermLogicalBytes()
+  {
+    return $this->numLongTermLogicalBytes;
+  }
+  /**
+   * @param string
+   */
+  public function setNumLongTermPhysicalBytes($numLongTermPhysicalBytes)
+  {
+    $this->numLongTermPhysicalBytes = $numLongTermPhysicalBytes;
+  }
+  /**
+   * @return string
+   */
+  public function getNumLongTermPhysicalBytes()
+  {
+    return $this->numLongTermPhysicalBytes;
+  }
+  /**
+   * @param string
+   */
+  public function setNumPartitions($numPartitions)
+  {
+    $this->numPartitions = $numPartitions;
+  }
+  /**
+   * @return string
+   */
+  public function getNumPartitions()
+  {
+    return $this->numPartitions;
   }
   /**
    * @param string
@@ -397,6 +632,62 @@ class Table extends \Google\Model
     return $this->numRows;
   }
   /**
+   * @param string
+   */
+  public function setNumTimeTravelPhysicalBytes($numTimeTravelPhysicalBytes)
+  {
+    $this->numTimeTravelPhysicalBytes = $numTimeTravelPhysicalBytes;
+  }
+  /**
+   * @return string
+   */
+  public function getNumTimeTravelPhysicalBytes()
+  {
+    return $this->numTimeTravelPhysicalBytes;
+  }
+  /**
+   * @param string
+   */
+  public function setNumTotalLogicalBytes($numTotalLogicalBytes)
+  {
+    $this->numTotalLogicalBytes = $numTotalLogicalBytes;
+  }
+  /**
+   * @return string
+   */
+  public function getNumTotalLogicalBytes()
+  {
+    return $this->numTotalLogicalBytes;
+  }
+  /**
+   * @param string
+   */
+  public function setNumTotalPhysicalBytes($numTotalPhysicalBytes)
+  {
+    $this->numTotalPhysicalBytes = $numTotalPhysicalBytes;
+  }
+  /**
+   * @return string
+   */
+  public function getNumTotalPhysicalBytes()
+  {
+    return $this->numTotalPhysicalBytes;
+  }
+  /**
+   * @param PartitioningDefinition
+   */
+  public function setPartitionDefinition(PartitioningDefinition $partitionDefinition)
+  {
+    $this->partitionDefinition = $partitionDefinition;
+  }
+  /**
+   * @return PartitioningDefinition
+   */
+  public function getPartitionDefinition()
+  {
+    return $this->partitionDefinition;
+  }
+  /**
    * @param RangePartitioning
    */
   public function setRangePartitioning(RangePartitioning $rangePartitioning)
@@ -411,6 +702,20 @@ class Table extends \Google\Model
     return $this->rangePartitioning;
   }
   /**
+   * @param TableReference[]
+   */
+  public function setReplicas($replicas)
+  {
+    $this->replicas = $replicas;
+  }
+  /**
+   * @return TableReference[]
+   */
+  public function getReplicas()
+  {
+    return $this->replicas;
+  }
+  /**
    * @param bool
    */
   public function setRequirePartitionFilter($requirePartitionFilter)
@@ -423,6 +728,34 @@ class Table extends \Google\Model
   public function getRequirePartitionFilter()
   {
     return $this->requirePartitionFilter;
+  }
+  /**
+   * @param string[]
+   */
+  public function setResourceTags($resourceTags)
+  {
+    $this->resourceTags = $resourceTags;
+  }
+  /**
+   * @return string[]
+   */
+  public function getResourceTags()
+  {
+    return $this->resourceTags;
+  }
+  /**
+   * @param RestrictionConfig
+   */
+  public function setRestrictions(RestrictionConfig $restrictions)
+  {
+    $this->restrictions = $restrictions;
+  }
+  /**
+   * @return RestrictionConfig
+   */
+  public function getRestrictions()
+  {
+    return $this->restrictions;
   }
   /**
    * @param TableSchema
@@ -481,6 +814,20 @@ class Table extends \Google\Model
     return $this->streamingBuffer;
   }
   /**
+   * @param TableConstraints
+   */
+  public function setTableConstraints(TableConstraints $tableConstraints)
+  {
+    $this->tableConstraints = $tableConstraints;
+  }
+  /**
+   * @return TableConstraints
+   */
+  public function getTableConstraints()
+  {
+    return $this->tableConstraints;
+  }
+  /**
    * @param TableReference
    */
   public function setTableReference(TableReference $tableReference)
@@ -493,6 +840,20 @@ class Table extends \Google\Model
   public function getTableReference()
   {
     return $this->tableReference;
+  }
+  /**
+   * @param TableReplicationInfo
+   */
+  public function setTableReplicationInfo(TableReplicationInfo $tableReplicationInfo)
+  {
+    $this->tableReplicationInfo = $tableReplicationInfo;
+  }
+  /**
+   * @return TableReplicationInfo
+   */
+  public function getTableReplicationInfo()
+  {
+    return $this->tableReplicationInfo;
   }
   /**
    * @param TimePartitioning

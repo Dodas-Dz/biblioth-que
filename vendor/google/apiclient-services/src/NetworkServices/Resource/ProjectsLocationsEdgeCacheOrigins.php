@@ -27,7 +27,7 @@ use Google\Service\NetworkServices\TestIamPermissionsResponse;
  * Typical usage is:
  *  <code>
  *   $networkservicesService = new Google\Service\NetworkServices(...);
- *   $edgeCacheOrigins = $networkservicesService->edgeCacheOrigins;
+ *   $edgeCacheOrigins = $networkservicesService->projects_locations_edgeCacheOrigins;
  *  </code>
  */
 class ProjectsLocationsEdgeCacheOrigins extends \Google\Service\Resource
@@ -38,8 +38,9 @@ class ProjectsLocationsEdgeCacheOrigins extends \Google\Service\Resource
    * (edgeCacheOrigins.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. See the operation documentation for the appropriate value for this
-   * field.
+   * requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int options.requestedPolicyVersion Optional. The maximum policy
@@ -55,6 +56,7 @@ class ProjectsLocationsEdgeCacheOrigins extends \Google\Service\Resource
    * documentation](https://cloud.google.com/iam/help/conditions/resource-
    * policies).
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function getIamPolicy($resource, $optParams = [])
   {
@@ -68,11 +70,13 @@ class ProjectsLocationsEdgeCacheOrigins extends \Google\Service\Resource
    * `PERMISSION_DENIED` errors. (edgeCacheOrigins.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. See the operation documentation for the appropriate value for this
-   * field.
+   * specified. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function setIamPolicy($resource, SetIamPolicyRequest $postBody, $optParams = [])
   {
@@ -89,11 +93,13 @@ class ProjectsLocationsEdgeCacheOrigins extends \Google\Service\Resource
    * (edgeCacheOrigins.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. See the operation documentation for the appropriate value
-   * for this field.
+   * being requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return TestIamPermissionsResponse
+   * @throws \Google\Service\Exception
    */
   public function testIamPermissions($resource, TestIamPermissionsRequest $postBody, $optParams = [])
   {

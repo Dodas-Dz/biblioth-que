@@ -35,8 +35,8 @@ class Buyongoogleprograms extends \Google\Service\Resource
 {
   /**
    * Reactivates the BoG program in your Merchant Center account. Moves the
-   * program to the active state when allowed, e.g. when paused. Important: This
-   * method is only whitelisted for selected merchants.
+   * program to the active state when allowed, for example, when paused. This
+   * method is only available to selected merchants.
    * (buyongoogleprograms.activate)
    *
    * @param string $merchantId Required. The ID of the account.
@@ -45,6 +45,7 @@ class Buyongoogleprograms extends \Google\Service\Resource
    * is available.
    * @param ActivateBuyOnGoogleProgramRequest $postBody
    * @param array $optParams Optional parameters.
+   * @throws \Google\Service\Exception
    */
   public function activate($merchantId, $regionCode, ActivateBuyOnGoogleProgramRequest $postBody, $optParams = [])
   {
@@ -62,6 +63,7 @@ class Buyongoogleprograms extends \Google\Service\Resource
    * is available.
    * @param array $optParams Optional parameters.
    * @return BuyOnGoogleProgramStatus
+   * @throws \Google\Service\Exception
    */
   public function get($merchantId, $regionCode, $optParams = [])
   {
@@ -83,6 +85,7 @@ class Buyongoogleprograms extends \Google\Service\Resource
    * is available.
    * @param OnboardBuyOnGoogleProgramRequest $postBody
    * @param array $optParams Optional parameters.
+   * @throws \Google\Service\Exception
    */
   public function onboard($merchantId, $regionCode, OnboardBuyOnGoogleProgramRequest $postBody, $optParams = [])
   {
@@ -105,6 +108,7 @@ class Buyongoogleprograms extends \Google\Service\Resource
    * is not provided, then all the fields set in buyOnGoogleProgramStatus will be
    * updated. Clearing fields is only possible if update mask is provided.
    * @return BuyOnGoogleProgramStatus
+   * @throws \Google\Service\Exception
    */
   public function patch($merchantId, $regionCode, BuyOnGoogleProgramStatus $postBody, $optParams = [])
   {
@@ -113,9 +117,8 @@ class Buyongoogleprograms extends \Google\Service\Resource
     return $this->call('patch', [$params], BuyOnGoogleProgramStatus::class);
   }
   /**
-   * Pauses the BoG program in your Merchant Center account. Important: This
-   * method is only whitelisted for selected merchants.
-   * (buyongoogleprograms.pause)
+   * Pauses the BoG program in your Merchant Center account. This method is only
+   * available to selected merchants. (buyongoogleprograms.pause)
    *
    * @param string $merchantId Required. The ID of the account.
    * @param string $regionCode Required. The program region code [ISO 3166-1
@@ -123,6 +126,7 @@ class Buyongoogleprograms extends \Google\Service\Resource
    * is available.
    * @param PauseBuyOnGoogleProgramRequest $postBody
    * @param array $optParams Optional parameters.
+   * @throws \Google\Service\Exception
    */
   public function pause($merchantId, $regionCode, PauseBuyOnGoogleProgramRequest $postBody, $optParams = [])
   {
@@ -133,7 +137,7 @@ class Buyongoogleprograms extends \Google\Service\Resource
   /**
    * Requests review and then activates the BoG program in your Merchant Center
    * account for the first time. Moves the program to the REVIEW_PENDING state.
-   * Important: This method is only whitelisted for selected merchants.
+   * This method is only available to selected merchants.
    * (buyongoogleprograms.requestreview)
    *
    * @param string $merchantId Required. The ID of the account.
@@ -142,6 +146,7 @@ class Buyongoogleprograms extends \Google\Service\Resource
    * is available.
    * @param RequestReviewBuyOnGoogleProgramRequest $postBody
    * @param array $optParams Optional parameters.
+   * @throws \Google\Service\Exception
    */
   public function requestreview($merchantId, $regionCode, RequestReviewBuyOnGoogleProgramRequest $postBody, $optParams = [])
   {

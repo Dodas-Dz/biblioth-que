@@ -44,6 +44,7 @@ class Organizations extends \Google\Service\Resource
    * "organizations/[organizationId]". For example, "organizations/1234".
    * @param array $optParams Optional parameters.
    * @return Organization
+   * @throws \Google\Service\Exception
    */
   public function get($name, $optParams = [])
   {
@@ -60,11 +61,13 @@ class Organizations extends \Google\Service\Resource
    * (organizations.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. See the operation documentation for the appropriate value for this
-   * field.
+   * requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param GetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function getIamPolicy($resource, GetIamPolicyRequest $postBody, $optParams = [])
   {
@@ -78,7 +81,8 @@ class Organizations extends \Google\Service\Resource
    * New organizations do not necessarily appear at the end of the results, and
    * may take a small amount of time to appear. Search will only return
    * organizations on which the user has the permission
-   * `resourcemanager.organizations.get` (organizations.search)
+   * `resourcemanager.organizations.get` or has super admin privileges.
+   * (organizations.search)
    *
    * @param array $optParams Optional parameters.
    *
@@ -100,6 +104,7 @@ class Organizations extends \Google\Service\Resource
    * `123456789`. * Query `domain:google.com` returns Organization resources
    * corresponding to the domain `google.com`.
    * @return SearchOrganizationsResponse
+   * @throws \Google\Service\Exception
    */
   public function search($optParams = [])
   {
@@ -115,11 +120,13 @@ class Organizations extends \Google\Service\Resource
    * organization. (organizations.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. See the operation documentation for the appropriate value for this
-   * field.
+   * specified. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Policy
+   * @throws \Google\Service\Exception
    */
   public function setIamPolicy($resource, SetIamPolicyRequest $postBody, $optParams = [])
   {
@@ -134,11 +141,13 @@ class Organizations extends \Google\Service\Resource
    * call. (organizations.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. See the operation documentation for the appropriate value
-   * for this field.
+   * being requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return TestIamPermissionsResponse
+   * @throws \Google\Service\Exception
    */
   public function testIamPermissions($resource, TestIamPermissionsRequest $postBody, $optParams = [])
   {

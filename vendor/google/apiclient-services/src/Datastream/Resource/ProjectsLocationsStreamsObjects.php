@@ -30,7 +30,7 @@ use Google\Service\Datastream\StreamObject;
  * Typical usage is:
  *  <code>
  *   $datastreamService = new Google\Service\Datastream(...);
- *   $objects = $datastreamService->objects;
+ *   $objects = $datastreamService->projects_locations_streams_objects;
  *  </code>
  */
 class ProjectsLocationsStreamsObjects extends \Google\Service\Resource
@@ -41,6 +41,7 @@ class ProjectsLocationsStreamsObjects extends \Google\Service\Resource
    * @param string $name Required. The name of the stream object resource to get.
    * @param array $optParams Optional parameters.
    * @return StreamObject
+   * @throws \Google\Service\Exception
    */
   public function get($name, $optParams = [])
   {
@@ -63,6 +64,7 @@ class ProjectsLocationsStreamsObjects extends \Google\Service\Resource
    * page. When paginating, all other parameters provided to
    * `ListStreamObjectsRequest` must match the call that provided the page token.
    * @return ListStreamObjectsResponse
+   * @throws \Google\Service\Exception
    */
   public function listProjectsLocationsStreamsObjects($parent, $optParams = [])
   {
@@ -79,6 +81,7 @@ class ProjectsLocationsStreamsObjects extends \Google\Service\Resource
    * @param LookupStreamObjectRequest $postBody
    * @param array $optParams Optional parameters.
    * @return StreamObject
+   * @throws \Google\Service\Exception
    */
   public function lookup($parent, LookupStreamObjectRequest $postBody, $optParams = [])
   {
@@ -87,7 +90,7 @@ class ProjectsLocationsStreamsObjects extends \Google\Service\Resource
     return $this->call('lookup', [$params], StreamObject::class);
   }
   /**
-   * Starts backfill job for the specified stream object.
+   * Use this method to start a backfill job for the specified stream object.
    * (objects.startBackfillJob)
    *
    * @param string $object Required. The name of the stream object resource to
@@ -95,6 +98,7 @@ class ProjectsLocationsStreamsObjects extends \Google\Service\Resource
    * @param StartBackfillJobRequest $postBody
    * @param array $optParams Optional parameters.
    * @return StartBackfillJobResponse
+   * @throws \Google\Service\Exception
    */
   public function startBackfillJob($object, StartBackfillJobRequest $postBody, $optParams = [])
   {
@@ -103,7 +107,7 @@ class ProjectsLocationsStreamsObjects extends \Google\Service\Resource
     return $this->call('startBackfillJob', [$params], StartBackfillJobResponse::class);
   }
   /**
-   * Stops the backfill job for the specified stream object.
+   * Use this method to stop a backfill job for the specified stream object.
    * (objects.stopBackfillJob)
    *
    * @param string $object Required. The name of the stream object resource to
@@ -111,6 +115,7 @@ class ProjectsLocationsStreamsObjects extends \Google\Service\Resource
    * @param StopBackfillJobRequest $postBody
    * @param array $optParams Optional parameters.
    * @return StopBackfillJobResponse
+   * @throws \Google\Service\Exception
    */
   public function stopBackfillJob($object, StopBackfillJobRequest $postBody, $optParams = [])
   {

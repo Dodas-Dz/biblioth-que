@@ -27,7 +27,7 @@ use Google\Service\VMMigrationService\Source;
  * Typical usage is:
  *  <code>
  *   $vmmigrationService = new Google\Service\VMMigrationService(...);
- *   $sources = $vmmigrationService->sources;
+ *   $sources = $vmmigrationService->projects_locations_sources;
  *  </code>
  */
 class ProjectsLocationsSources extends \Google\Service\Resource
@@ -43,7 +43,7 @@ class ProjectsLocationsSources extends \Google\Service\Resource
    * unique request ID so that if you must retry your request, the server will
    * know to ignore the request if it has already been completed. The server will
    * guarantee that for at least 60 minutes since the first request. For example,
-   * consider a situation where you make an initial request and t he request times
+   * consider a situation where you make an initial request and the request times
    * out. If you make the request again with the same request ID, the server can
    * check if original operation with the same request ID was received, and if so,
    * will ignore the second request. This prevents clients from accidentally
@@ -52,6 +52,7 @@ class ProjectsLocationsSources extends \Google\Service\Resource
    * (00000000-0000-0000-0000-000000000000).
    * @opt_param string sourceId Required. The source identifier.
    * @return Operation
+   * @throws \Google\Service\Exception
    */
   public function create($parent, Source $postBody, $optParams = [])
   {
@@ -69,7 +70,7 @@ class ProjectsLocationsSources extends \Google\Service\Resource
    * Specify a unique request ID so that if you must retry your request, the
    * server will know to ignore the request if it has already been completed. The
    * server will guarantee that for at least 60 minutes after the first request.
-   * For example, consider a situation where you make an initial request and t he
+   * For example, consider a situation where you make an initial request and the
    * request times out. If you make the request again with the same request ID,
    * the server can check if original operation with the same request ID was
    * received, and if so, will ignore the second request. This prevents clients
@@ -77,6 +78,7 @@ class ProjectsLocationsSources extends \Google\Service\Resource
    * valid UUID with the exception that zero UUID is not supported
    * (00000000-0000-0000-0000-000000000000).
    * @return Operation
+   * @throws \Google\Service\Exception
    */
   public function delete($name, $optParams = [])
   {
@@ -97,7 +99,17 @@ class ProjectsLocationsSources extends \Google\Service\Resource
    * @opt_param bool forceRefresh If this flag is set to true, the source will be
    * queried instead of using cached results. Using this flag will make the call
    * slower.
+   * @opt_param int pageSize The maximum number of VMs to return. The service may
+   * return fewer than this value. For AWS source: If unspecified, at most 500 VMs
+   * will be returned. The maximum value is 1000; values above 1000 will be
+   * coerced to 1000. For VMWare source: If unspecified, all VMs will be returned.
+   * There is no limit for maximum value.
+   * @opt_param string pageToken A page token, received from a previous
+   * `FetchInventory` call. Provide this to retrieve the subsequent page. When
+   * paginating, all other parameters provided to `FetchInventory` must match the
+   * call that provided the page token.
    * @return FetchInventoryResponse
+   * @throws \Google\Service\Exception
    */
   public function fetchInventory($source, $optParams = [])
   {
@@ -111,6 +123,7 @@ class ProjectsLocationsSources extends \Google\Service\Resource
    * @param string $name Required. The Source name.
    * @param array $optParams Optional parameters.
    * @return Source
+   * @throws \Google\Service\Exception
    */
   public function get($name, $optParams = [])
   {
@@ -137,6 +150,7 @@ class ProjectsLocationsSources extends \Google\Service\Resource
    * paginating, all other parameters provided to `ListSources` must match the
    * call that provided the page token.
    * @return ListSourcesResponse
+   * @throws \Google\Service\Exception
    */
   public function listProjectsLocationsSources($parent, $optParams = [])
   {
@@ -155,7 +169,7 @@ class ProjectsLocationsSources extends \Google\Service\Resource
    * unique request ID so that if you must retry your request, the server will
    * know to ignore the request if it has already been completed. The server will
    * guarantee that for at least 60 minutes since the first request. For example,
-   * consider a situation where you make an initial request and t he request times
+   * consider a situation where you make an initial request and the request times
    * out. If you make the request again with the same request ID, the server can
    * check if original operation with the same request ID was received, and if so,
    * will ignore the second request. This prevents clients from accidentally
@@ -168,6 +182,7 @@ class ProjectsLocationsSources extends \Google\Service\Resource
    * be overwritten if it is in the mask. If the user does not provide a mask then
    * all fields will be overwritten.
    * @return Operation
+   * @throws \Google\Service\Exception
    */
   public function patch($name, Source $postBody, $optParams = [])
   {

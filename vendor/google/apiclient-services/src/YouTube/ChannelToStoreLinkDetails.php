@@ -19,6 +19,12 @@ namespace Google\Service\YouTube;
 
 class ChannelToStoreLinkDetails extends \Google\Model
 {
+  protected $billingDetailsType = ChannelToStoreLinkDetailsBillingDetails::class;
+  protected $billingDetailsDataType = '';
+  /**
+   * @var string
+   */
+  public $merchantId;
   /**
    * @var string
    */
@@ -28,6 +34,34 @@ class ChannelToStoreLinkDetails extends \Google\Model
    */
   public $storeUrl;
 
+  /**
+   * @param ChannelToStoreLinkDetailsBillingDetails
+   */
+  public function setBillingDetails(ChannelToStoreLinkDetailsBillingDetails $billingDetails)
+  {
+    $this->billingDetails = $billingDetails;
+  }
+  /**
+   * @return ChannelToStoreLinkDetailsBillingDetails
+   */
+  public function getBillingDetails()
+  {
+    return $this->billingDetails;
+  }
+  /**
+   * @param string
+   */
+  public function setMerchantId($merchantId)
+  {
+    $this->merchantId = $merchantId;
+  }
+  /**
+   * @return string
+   */
+  public function getMerchantId()
+  {
+    return $this->merchantId;
+  }
   /**
    * @param string
    */

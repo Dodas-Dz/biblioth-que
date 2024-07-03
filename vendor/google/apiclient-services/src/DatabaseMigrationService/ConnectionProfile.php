@@ -19,6 +19,8 @@ namespace Google\Service\DatabaseMigrationService;
 
 class ConnectionProfile extends \Google\Model
 {
+  protected $alloydbType = AlloyDbConnectionProfile::class;
+  protected $alloydbDataType = '';
   protected $cloudsqlType = CloudSqlConnectionProfile::class;
   protected $cloudsqlDataType = '';
   /**
@@ -41,12 +43,16 @@ class ConnectionProfile extends \Google\Model
    * @var string
    */
   public $name;
+  protected $oracleType = OracleConnectionProfile::class;
+  protected $oracleDataType = '';
   protected $postgresqlType = PostgreSqlConnectionProfile::class;
   protected $postgresqlDataType = '';
   /**
    * @var string
    */
   public $provider;
+  protected $sqlserverType = SqlServerConnectionProfile::class;
+  protected $sqlserverDataType = '';
   /**
    * @var string
    */
@@ -56,6 +62,20 @@ class ConnectionProfile extends \Google\Model
    */
   public $updateTime;
 
+  /**
+   * @param AlloyDbConnectionProfile
+   */
+  public function setAlloydb(AlloyDbConnectionProfile $alloydb)
+  {
+    $this->alloydb = $alloydb;
+  }
+  /**
+   * @return AlloyDbConnectionProfile
+   */
+  public function getAlloydb()
+  {
+    return $this->alloydb;
+  }
   /**
    * @param CloudSqlConnectionProfile
    */
@@ -155,6 +175,20 @@ class ConnectionProfile extends \Google\Model
     return $this->name;
   }
   /**
+   * @param OracleConnectionProfile
+   */
+  public function setOracle(OracleConnectionProfile $oracle)
+  {
+    $this->oracle = $oracle;
+  }
+  /**
+   * @return OracleConnectionProfile
+   */
+  public function getOracle()
+  {
+    return $this->oracle;
+  }
+  /**
    * @param PostgreSqlConnectionProfile
    */
   public function setPostgresql(PostgreSqlConnectionProfile $postgresql)
@@ -181,6 +215,20 @@ class ConnectionProfile extends \Google\Model
   public function getProvider()
   {
     return $this->provider;
+  }
+  /**
+   * @param SqlServerConnectionProfile
+   */
+  public function setSqlserver(SqlServerConnectionProfile $sqlserver)
+  {
+    $this->sqlserver = $sqlserver;
+  }
+  /**
+   * @return SqlServerConnectionProfile
+   */
+  public function getSqlserver()
+  {
+    return $this->sqlserver;
   }
   /**
    * @param string

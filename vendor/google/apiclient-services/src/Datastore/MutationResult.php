@@ -23,8 +23,16 @@ class MutationResult extends \Google\Model
    * @var bool
    */
   public $conflictDetected;
+  /**
+   * @var string
+   */
+  public $createTime;
   protected $keyType = Key::class;
   protected $keyDataType = '';
+  /**
+   * @var string
+   */
+  public $updateTime;
   /**
    * @var string
    */
@@ -45,6 +53,20 @@ class MutationResult extends \Google\Model
     return $this->conflictDetected;
   }
   /**
+   * @param string
+   */
+  public function setCreateTime($createTime)
+  {
+    $this->createTime = $createTime;
+  }
+  /**
+   * @return string
+   */
+  public function getCreateTime()
+  {
+    return $this->createTime;
+  }
+  /**
    * @param Key
    */
   public function setKey(Key $key)
@@ -57,6 +79,20 @@ class MutationResult extends \Google\Model
   public function getKey()
   {
     return $this->key;
+  }
+  /**
+   * @param string
+   */
+  public function setUpdateTime($updateTime)
+  {
+    $this->updateTime = $updateTime;
+  }
+  /**
+   * @return string
+   */
+  public function getUpdateTime()
+  {
+    return $this->updateTime;
   }
   /**
    * @param string

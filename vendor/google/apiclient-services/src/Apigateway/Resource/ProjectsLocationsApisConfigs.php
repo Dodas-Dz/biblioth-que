@@ -30,7 +30,7 @@ use Google\Service\Apigateway\ApigatewayTestIamPermissionsResponse;
  * Typical usage is:
  *  <code>
  *   $apigatewayService = new Google\Service\Apigateway(...);
- *   $configs = $apigatewayService->configs;
+ *   $configs = $apigatewayService->projects_locations_apis_configs;
  *  </code>
  */
 class ProjectsLocationsApisConfigs extends \Google\Service\Resource
@@ -46,6 +46,7 @@ class ProjectsLocationsApisConfigs extends \Google\Service\Resource
    * @opt_param string apiConfigId Required. Identifier to assign to the API
    * Config. Must be unique within scope of the parent resource.
    * @return ApigatewayOperation
+   * @throws \Google\Service\Exception
    */
   public function create($parent, ApigatewayApiConfig $postBody, $optParams = [])
   {
@@ -60,6 +61,7 @@ class ProjectsLocationsApisConfigs extends \Google\Service\Resource
    * `projects/locations/global/apis/configs`
    * @param array $optParams Optional parameters.
    * @return ApigatewayOperation
+   * @throws \Google\Service\Exception
    */
   public function delete($name, $optParams = [])
   {
@@ -77,6 +79,7 @@ class ProjectsLocationsApisConfigs extends \Google\Service\Resource
    * @opt_param string view Specifies which fields of the API Config are returned
    * in the response. Defaults to `BASIC` view.
    * @return ApigatewayApiConfig
+   * @throws \Google\Service\Exception
    */
   public function get($name, $optParams = [])
   {
@@ -89,8 +92,9 @@ class ProjectsLocationsApisConfigs extends \Google\Service\Resource
    * resource exists and does not have a policy set. (configs.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. See the operation documentation for the appropriate value for this
-   * field.
+   * requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int options.requestedPolicyVersion Optional. The maximum policy
@@ -106,6 +110,7 @@ class ProjectsLocationsApisConfigs extends \Google\Service\Resource
    * documentation](https://cloud.google.com/iam/help/conditions/resource-
    * policies).
    * @return ApigatewayPolicy
+   * @throws \Google\Service\Exception
    */
   public function getIamPolicy($resource, $optParams = [])
   {
@@ -126,6 +131,7 @@ class ProjectsLocationsApisConfigs extends \Google\Service\Resource
    * @opt_param int pageSize Page size.
    * @opt_param string pageToken Page token.
    * @return ApigatewayListApiConfigsResponse
+   * @throws \Google\Service\Exception
    */
   public function listProjectsLocationsApisConfigs($parent, $optParams = [])
   {
@@ -147,6 +153,7 @@ class ProjectsLocationsApisConfigs extends \Google\Service\Resource
    * will be overwritten if it is in the mask. If the user does not provide a mask
    * then all fields will be overwritten.
    * @return ApigatewayOperation
+   * @throws \Google\Service\Exception
    */
   public function patch($name, ApigatewayApiConfig $postBody, $optParams = [])
   {
@@ -160,11 +167,13 @@ class ProjectsLocationsApisConfigs extends \Google\Service\Resource
    * `PERMISSION_DENIED` errors. (configs.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. See the operation documentation for the appropriate value for this
-   * field.
+   * specified. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param ApigatewaySetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return ApigatewayPolicy
+   * @throws \Google\Service\Exception
    */
   public function setIamPolicy($resource, ApigatewaySetIamPolicyRequest $postBody, $optParams = [])
   {
@@ -180,11 +189,13 @@ class ProjectsLocationsApisConfigs extends \Google\Service\Resource
    * This operation may "fail open" without warning. (configs.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. See the operation documentation for the appropriate value
-   * for this field.
+   * being requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param ApigatewayTestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return ApigatewayTestIamPermissionsResponse
+   * @throws \Google\Service\Exception
    */
   public function testIamPermissions($resource, ApigatewayTestIamPermissionsRequest $postBody, $optParams = [])
   {

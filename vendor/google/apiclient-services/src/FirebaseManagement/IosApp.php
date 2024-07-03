@@ -22,6 +22,10 @@ class IosApp extends \Google\Model
   /**
    * @var string
    */
+  public $apiKeyId;
+  /**
+   * @var string
+   */
   public $appId;
   /**
    * @var string
@@ -38,6 +42,14 @@ class IosApp extends \Google\Model
   /**
    * @var string
    */
+  public $etag;
+  /**
+   * @var string
+   */
+  public $expireTime;
+  /**
+   * @var string
+   */
   public $name;
   /**
    * @var string
@@ -46,8 +58,26 @@ class IosApp extends \Google\Model
   /**
    * @var string
    */
+  public $state;
+  /**
+   * @var string
+   */
   public $teamId;
 
+  /**
+   * @param string
+   */
+  public function setApiKeyId($apiKeyId)
+  {
+    $this->apiKeyId = $apiKeyId;
+  }
+  /**
+   * @return string
+   */
+  public function getApiKeyId()
+  {
+    return $this->apiKeyId;
+  }
   /**
    * @param string
    */
@@ -107,6 +137,34 @@ class IosApp extends \Google\Model
   /**
    * @param string
    */
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  /**
+   * @return string
+   */
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  /**
+   * @param string
+   */
+  public function setExpireTime($expireTime)
+  {
+    $this->expireTime = $expireTime;
+  }
+  /**
+   * @return string
+   */
+  public function getExpireTime()
+  {
+    return $this->expireTime;
+  }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
@@ -131,6 +189,20 @@ class IosApp extends \Google\Model
   public function getProjectId()
   {
     return $this->projectId;
+  }
+  /**
+   * @param string
+   */
+  public function setState($state)
+  {
+    $this->state = $state;
+  }
+  /**
+   * @return string
+   */
+  public function getState()
+  {
+    return $this->state;
   }
   /**
    * @param string

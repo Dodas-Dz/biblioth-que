@@ -18,6 +18,7 @@
 namespace Google\Service\YouTube\Resource;
 
 use Google\Service\YouTube\ThirdPartyLink;
+use Google\Service\YouTube\ThirdPartyLinkListResponse;
 
 /**
  * The "thirdPartyLinks" collection of methods.
@@ -40,6 +41,7 @@ class ThirdPartyLinks extends \Google\Service\Resource
    * @opt_param string externalChannelId Channel ID to which changes should be
    * applied, for delegation.
    * @opt_param string part Do not use. Required for compatibility.
+   * @throws \Google\Service\Exception
    */
   public function delete($linkingToken, $type, $optParams = [])
   {
@@ -59,6 +61,7 @@ class ThirdPartyLinks extends \Google\Service\Resource
    * @opt_param string externalChannelId Channel ID to which changes should be
    * applied, for delegation.
    * @return ThirdPartyLink
+   * @throws \Google\Service\Exception
    */
   public function insert($part, ThirdPartyLink $postBody, $optParams = [])
   {
@@ -80,13 +83,14 @@ class ThirdPartyLinks extends \Google\Service\Resource
    * @opt_param string linkingToken Get a third party link with the given linking
    * token.
    * @opt_param string type Get a third party link of the given type.
-   * @return ThirdPartyLink
+   * @return ThirdPartyLinkListResponse
+   * @throws \Google\Service\Exception
    */
   public function listThirdPartyLinks($part, $optParams = [])
   {
     $params = ['part' => $part];
     $params = array_merge($params, $optParams);
-    return $this->call('list', [$params], ThirdPartyLink::class);
+    return $this->call('list', [$params], ThirdPartyLinkListResponse::class);
   }
   /**
    * Updates an existing resource. (thirdPartyLinks.update)
@@ -100,6 +104,7 @@ class ThirdPartyLinks extends \Google\Service\Resource
    * @opt_param string externalChannelId Channel ID to which changes should be
    * applied, for delegation.
    * @return ThirdPartyLink
+   * @throws \Google\Service\Exception
    */
   public function update($part, ThirdPartyLink $postBody, $optParams = [])
   {

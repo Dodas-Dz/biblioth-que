@@ -20,9 +20,15 @@ namespace Google\Service\SecretManager;
 class SecretVersion extends \Google\Model
 {
   /**
+   * @var bool
+   */
+  public $clientSpecifiedPayloadChecksum;
+  /**
    * @var string
    */
   public $createTime;
+  protected $customerManagedEncryptionType = CustomerManagedEncryptionStatus::class;
+  protected $customerManagedEncryptionDataType = '';
   /**
    * @var string
    */
@@ -40,8 +46,26 @@ class SecretVersion extends \Google\Model
   /**
    * @var string
    */
+  public $scheduledDestroyTime;
+  /**
+   * @var string
+   */
   public $state;
 
+  /**
+   * @param bool
+   */
+  public function setClientSpecifiedPayloadChecksum($clientSpecifiedPayloadChecksum)
+  {
+    $this->clientSpecifiedPayloadChecksum = $clientSpecifiedPayloadChecksum;
+  }
+  /**
+   * @return bool
+   */
+  public function getClientSpecifiedPayloadChecksum()
+  {
+    return $this->clientSpecifiedPayloadChecksum;
+  }
   /**
    * @param string
    */
@@ -55,6 +79,20 @@ class SecretVersion extends \Google\Model
   public function getCreateTime()
   {
     return $this->createTime;
+  }
+  /**
+   * @param CustomerManagedEncryptionStatus
+   */
+  public function setCustomerManagedEncryption(CustomerManagedEncryptionStatus $customerManagedEncryption)
+  {
+    $this->customerManagedEncryption = $customerManagedEncryption;
+  }
+  /**
+   * @return CustomerManagedEncryptionStatus
+   */
+  public function getCustomerManagedEncryption()
+  {
+    return $this->customerManagedEncryption;
   }
   /**
    * @param string
@@ -111,6 +149,20 @@ class SecretVersion extends \Google\Model
   public function getReplicationStatus()
   {
     return $this->replicationStatus;
+  }
+  /**
+   * @param string
+   */
+  public function setScheduledDestroyTime($scheduledDestroyTime)
+  {
+    $this->scheduledDestroyTime = $scheduledDestroyTime;
+  }
+  /**
+   * @return string
+   */
+  public function getScheduledDestroyTime()
+  {
+    return $this->scheduledDestroyTime;
   }
   /**
    * @param string

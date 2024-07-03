@@ -35,22 +35,22 @@ class Field extends \Google\Model
    * @var string
    */
   public $description;
-  /**
-   * @var string
-   */
-  public $field;
+  protected $jsonSchemaType = JsonSchema::class;
+  protected $jsonSchemaDataType = '';
   /**
    * @var bool
    */
   public $key;
   /**
-   * @var bool
+   * @var string
    */
-  public $nullable;
+  public $name;
   /**
    * @var bool
    */
-  public $readonly;
+  public $nullable;
+  protected $referenceType = Reference::class;
+  protected $referenceDataType = '';
 
   /**
    * @param array[]
@@ -109,18 +109,18 @@ class Field extends \Google\Model
     return $this->description;
   }
   /**
-   * @param string
+   * @param JsonSchema
    */
-  public function setField($field)
+  public function setJsonSchema(JsonSchema $jsonSchema)
   {
-    $this->field = $field;
+    $this->jsonSchema = $jsonSchema;
   }
   /**
-   * @return string
+   * @return JsonSchema
    */
-  public function getField()
+  public function getJsonSchema()
   {
-    return $this->field;
+    return $this->jsonSchema;
   }
   /**
    * @param bool
@@ -137,6 +137,20 @@ class Field extends \Google\Model
     return $this->key;
   }
   /**
+   * @param string
+   */
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  /**
+   * @return string
+   */
+  public function getName()
+  {
+    return $this->name;
+  }
+  /**
    * @param bool
    */
   public function setNullable($nullable)
@@ -151,18 +165,18 @@ class Field extends \Google\Model
     return $this->nullable;
   }
   /**
-   * @param bool
+   * @param Reference
    */
-  public function setReadonly($readonly)
+  public function setReference(Reference $reference)
   {
-    $this->readonly = $readonly;
+    $this->reference = $reference;
   }
   /**
-   * @return bool
+   * @return Reference
    */
-  public function getReadonly()
+  public function getReference()
   {
-    return $this->readonly;
+    return $this->reference;
   }
 }
 

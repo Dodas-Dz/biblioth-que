@@ -36,6 +36,12 @@ class ConfigManagementPolicyController extends \Google\Collection
    * @var bool
    */
   public $logDeniesEnabled;
+  protected $monitoringType = ConfigManagementPolicyControllerMonitoring::class;
+  protected $monitoringDataType = '';
+  /**
+   * @var bool
+   */
+  public $mutationEnabled;
   /**
    * @var bool
    */
@@ -44,6 +50,10 @@ class ConfigManagementPolicyController extends \Google\Collection
    * @var bool
    */
   public $templateLibraryInstalled;
+  /**
+   * @var string
+   */
+  public $updateTime;
 
   /**
    * @param string
@@ -102,6 +112,34 @@ class ConfigManagementPolicyController extends \Google\Collection
     return $this->logDeniesEnabled;
   }
   /**
+   * @param ConfigManagementPolicyControllerMonitoring
+   */
+  public function setMonitoring(ConfigManagementPolicyControllerMonitoring $monitoring)
+  {
+    $this->monitoring = $monitoring;
+  }
+  /**
+   * @return ConfigManagementPolicyControllerMonitoring
+   */
+  public function getMonitoring()
+  {
+    return $this->monitoring;
+  }
+  /**
+   * @param bool
+   */
+  public function setMutationEnabled($mutationEnabled)
+  {
+    $this->mutationEnabled = $mutationEnabled;
+  }
+  /**
+   * @return bool
+   */
+  public function getMutationEnabled()
+  {
+    return $this->mutationEnabled;
+  }
+  /**
    * @param bool
    */
   public function setReferentialRulesEnabled($referentialRulesEnabled)
@@ -128,6 +166,20 @@ class ConfigManagementPolicyController extends \Google\Collection
   public function getTemplateLibraryInstalled()
   {
     return $this->templateLibraryInstalled;
+  }
+  /**
+   * @param string
+   */
+  public function setUpdateTime($updateTime)
+  {
+    $this->updateTime = $updateTime;
+  }
+  /**
+   * @return string
+   */
+  public function getUpdateTime()
+  {
+    return $this->updateTime;
   }
 }
 

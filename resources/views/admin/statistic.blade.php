@@ -258,25 +258,31 @@
             </style>
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
-              google.charts.load('current', {'packages':['corechart']});
-              google.charts.setOnLoadCallback(drawChart);
+                google.charts.load('current', {'packages': ['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
 
-              function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                  ['Année', 'nombre livre'],
-                <?php echo $data2; ?>
-                ]);
+                function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                        ['Année', 'Nombre de livres'],
+                        {!! $data2 !!}
+                    ]);
 
-                var options = {
-                  title: 'Nombre de livre par année',
-                  curveType: 'function',
-                  legend: { position: 'bottom' }
-                };
+                    var options = {
+                        title: 'Nombre de livres par année',
+                        legend: { position: 'bottom' },
+                        hAxis: {
+                            title: 'Année'
+                        },
+                        vAxis: {
+                            title: 'Nombre de livres'
+                        },
+                        pointSize: 5 // Size of the points
+                    };
 
-                var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+                    var chart = new google.visualization.ScatterChart(document.getElementById('curve_chart'));
 
-                chart.draw(data, options);
-              }
+                    chart.draw(data, options);
+                }
             </script>
   //<!---------line chat----------->
 

@@ -19,7 +19,9 @@ namespace Google\Service\ServiceNetworking;
 
 class ConsumerConfig extends \Google\Collection
 {
-  protected $collection_key = 'reservedRanges';
+  protected $collection_key = 'usedIpRanges';
+  protected $cloudsqlConfigsType = CloudSQLConfig::class;
+  protected $cloudsqlConfigsDataType = 'array';
   /**
    * @var bool
    */
@@ -59,10 +61,28 @@ class ConsumerConfig extends \Google\Collection
   protected $reservedRangesType = GoogleCloudServicenetworkingV1ConsumerConfigReservedRange::class;
   protected $reservedRangesDataType = 'array';
   /**
+   * @var string[]
+   */
+  public $usedIpRanges;
+  /**
    * @var bool
    */
   public $vpcScReferenceArchitectureEnabled;
 
+  /**
+   * @param CloudSQLConfig[]
+   */
+  public function setCloudsqlConfigs($cloudsqlConfigs)
+  {
+    $this->cloudsqlConfigs = $cloudsqlConfigs;
+  }
+  /**
+   * @return CloudSQLConfig[]
+   */
+  public function getCloudsqlConfigs()
+  {
+    return $this->cloudsqlConfigs;
+  }
   /**
    * @param bool
    */
@@ -202,6 +222,20 @@ class ConsumerConfig extends \Google\Collection
   public function getReservedRanges()
   {
     return $this->reservedRanges;
+  }
+  /**
+   * @param string[]
+   */
+  public function setUsedIpRanges($usedIpRanges)
+  {
+    $this->usedIpRanges = $usedIpRanges;
+  }
+  /**
+   * @return string[]
+   */
+  public function getUsedIpRanges()
+  {
+    return $this->usedIpRanges;
   }
   /**
    * @param bool

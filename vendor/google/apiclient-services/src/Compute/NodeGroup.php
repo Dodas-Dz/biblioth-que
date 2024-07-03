@@ -48,6 +48,10 @@ class NodeGroup extends \Google\Model
   /**
    * @var string
    */
+  public $maintenanceInterval;
+  /**
+   * @var string
+   */
   public $maintenancePolicy;
   protected $maintenanceWindowType = NodeGroupMaintenanceWindow::class;
   protected $maintenanceWindowDataType = '';
@@ -63,6 +67,8 @@ class NodeGroup extends \Google\Model
    * @var string
    */
   public $selfLink;
+  protected $shareSettingsType = ShareSettings::class;
+  protected $shareSettingsDataType = '';
   /**
    * @var int
    */
@@ -177,6 +183,20 @@ class NodeGroup extends \Google\Model
   /**
    * @param string
    */
+  public function setMaintenanceInterval($maintenanceInterval)
+  {
+    $this->maintenanceInterval = $maintenanceInterval;
+  }
+  /**
+   * @return string
+   */
+  public function getMaintenanceInterval()
+  {
+    return $this->maintenanceInterval;
+  }
+  /**
+   * @param string
+   */
   public function setMaintenancePolicy($maintenancePolicy)
   {
     $this->maintenancePolicy = $maintenancePolicy;
@@ -243,6 +263,20 @@ class NodeGroup extends \Google\Model
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+  /**
+   * @param ShareSettings
+   */
+  public function setShareSettings(ShareSettings $shareSettings)
+  {
+    $this->shareSettings = $shareSettings;
+  }
+  /**
+   * @return ShareSettings
+   */
+  public function getShareSettings()
+  {
+    return $this->shareSettings;
   }
   /**
    * @param int

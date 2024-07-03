@@ -22,6 +22,14 @@ class GitRepoSource extends \Google\Model
   /**
    * @var string
    */
+  public $bitbucketServerConfig;
+  /**
+   * @var string
+   */
+  public $githubEnterpriseConfig;
+  /**
+   * @var string
+   */
   public $ref;
   /**
    * @var string
@@ -30,8 +38,40 @@ class GitRepoSource extends \Google\Model
   /**
    * @var string
    */
+  public $repository;
+  /**
+   * @var string
+   */
   public $uri;
 
+  /**
+   * @param string
+   */
+  public function setBitbucketServerConfig($bitbucketServerConfig)
+  {
+    $this->bitbucketServerConfig = $bitbucketServerConfig;
+  }
+  /**
+   * @return string
+   */
+  public function getBitbucketServerConfig()
+  {
+    return $this->bitbucketServerConfig;
+  }
+  /**
+   * @param string
+   */
+  public function setGithubEnterpriseConfig($githubEnterpriseConfig)
+  {
+    $this->githubEnterpriseConfig = $githubEnterpriseConfig;
+  }
+  /**
+   * @return string
+   */
+  public function getGithubEnterpriseConfig()
+  {
+    return $this->githubEnterpriseConfig;
+  }
   /**
    * @param string
    */
@@ -59,6 +99,20 @@ class GitRepoSource extends \Google\Model
   public function getRepoType()
   {
     return $this->repoType;
+  }
+  /**
+   * @param string
+   */
+  public function setRepository($repository)
+  {
+    $this->repository = $repository;
+  }
+  /**
+   * @return string
+   */
+  public function getRepository()
+  {
+    return $this->repository;
   }
   /**
    * @param string

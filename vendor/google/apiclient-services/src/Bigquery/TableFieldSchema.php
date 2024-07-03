@@ -25,13 +25,21 @@ class TableFieldSchema extends \Google\Collection
   /**
    * @var string
    */
-  public $collationSpec;
+  public $collation;
+  /**
+   * @var string
+   */
+  public $defaultValueExpression;
   /**
    * @var string
    */
   public $description;
   protected $fieldsType = TableFieldSchema::class;
   protected $fieldsDataType = 'array';
+  /**
+   * @var string
+   */
+  public $foreignTypeDefinition;
   /**
    * @var string
    */
@@ -50,6 +58,12 @@ class TableFieldSchema extends \Google\Collection
    * @var string
    */
   public $precision;
+  protected $rangeElementTypeType = TableFieldSchemaRangeElementType::class;
+  protected $rangeElementTypeDataType = '';
+  /**
+   * @var string
+   */
+  public $roundingMode;
   /**
    * @var string
    */
@@ -76,16 +90,30 @@ class TableFieldSchema extends \Google\Collection
   /**
    * @param string
    */
-  public function setCollationSpec($collationSpec)
+  public function setCollation($collation)
   {
-    $this->collationSpec = $collationSpec;
+    $this->collation = $collation;
   }
   /**
    * @return string
    */
-  public function getCollationSpec()
+  public function getCollation()
   {
-    return $this->collationSpec;
+    return $this->collation;
+  }
+  /**
+   * @param string
+   */
+  public function setDefaultValueExpression($defaultValueExpression)
+  {
+    $this->defaultValueExpression = $defaultValueExpression;
+  }
+  /**
+   * @return string
+   */
+  public function getDefaultValueExpression()
+  {
+    return $this->defaultValueExpression;
   }
   /**
    * @param string
@@ -114,6 +142,20 @@ class TableFieldSchema extends \Google\Collection
   public function getFields()
   {
     return $this->fields;
+  }
+  /**
+   * @param string
+   */
+  public function setForeignTypeDefinition($foreignTypeDefinition)
+  {
+    $this->foreignTypeDefinition = $foreignTypeDefinition;
+  }
+  /**
+   * @return string
+   */
+  public function getForeignTypeDefinition()
+  {
+    return $this->foreignTypeDefinition;
   }
   /**
    * @param string
@@ -184,6 +226,34 @@ class TableFieldSchema extends \Google\Collection
   public function getPrecision()
   {
     return $this->precision;
+  }
+  /**
+   * @param TableFieldSchemaRangeElementType
+   */
+  public function setRangeElementType(TableFieldSchemaRangeElementType $rangeElementType)
+  {
+    $this->rangeElementType = $rangeElementType;
+  }
+  /**
+   * @return TableFieldSchemaRangeElementType
+   */
+  public function getRangeElementType()
+  {
+    return $this->rangeElementType;
+  }
+  /**
+   * @param string
+   */
+  public function setRoundingMode($roundingMode)
+  {
+    $this->roundingMode = $roundingMode;
+  }
+  /**
+   * @return string
+   */
+  public function getRoundingMode()
+  {
+    return $this->roundingMode;
   }
   /**
    * @param string

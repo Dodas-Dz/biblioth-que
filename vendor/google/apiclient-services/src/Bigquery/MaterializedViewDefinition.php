@@ -22,11 +22,19 @@ class MaterializedViewDefinition extends \Google\Model
   /**
    * @var bool
    */
+  public $allowNonIncrementalDefinition;
+  /**
+   * @var bool
+   */
   public $enableRefresh;
   /**
    * @var string
    */
   public $lastRefreshTime;
+  /**
+   * @var string
+   */
+  public $maxStaleness;
   /**
    * @var string
    */
@@ -36,6 +44,20 @@ class MaterializedViewDefinition extends \Google\Model
    */
   public $refreshIntervalMs;
 
+  /**
+   * @param bool
+   */
+  public function setAllowNonIncrementalDefinition($allowNonIncrementalDefinition)
+  {
+    $this->allowNonIncrementalDefinition = $allowNonIncrementalDefinition;
+  }
+  /**
+   * @return bool
+   */
+  public function getAllowNonIncrementalDefinition()
+  {
+    return $this->allowNonIncrementalDefinition;
+  }
   /**
    * @param bool
    */
@@ -63,6 +85,20 @@ class MaterializedViewDefinition extends \Google\Model
   public function getLastRefreshTime()
   {
     return $this->lastRefreshTime;
+  }
+  /**
+   * @param string
+   */
+  public function setMaxStaleness($maxStaleness)
+  {
+    $this->maxStaleness = $maxStaleness;
+  }
+  /**
+   * @return string
+   */
+  public function getMaxStaleness()
+  {
+    return $this->maxStaleness;
   }
   /**
    * @param string

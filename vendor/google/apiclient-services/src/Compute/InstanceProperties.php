@@ -37,6 +37,10 @@ class InstanceProperties extends \Google\Collection
   protected $guestAcceleratorsType = AcceleratorConfig::class;
   protected $guestAcceleratorsDataType = 'array';
   /**
+   * @var string
+   */
+  public $keyRevocationActionType;
+  /**
    * @var string[]
    */
   public $labels;
@@ -60,6 +64,10 @@ class InstanceProperties extends \Google\Collection
   public $privateIpv6GoogleAccess;
   protected $reservationAffinityType = ReservationAffinity::class;
   protected $reservationAffinityDataType = '';
+  /**
+   * @var string[]
+   */
+  public $resourceManagerTags;
   /**
    * @var string[]
    */
@@ -156,6 +164,20 @@ class InstanceProperties extends \Google\Collection
   public function getGuestAccelerators()
   {
     return $this->guestAccelerators;
+  }
+  /**
+   * @param string
+   */
+  public function setKeyRevocationActionType($keyRevocationActionType)
+  {
+    $this->keyRevocationActionType = $keyRevocationActionType;
+  }
+  /**
+   * @return string
+   */
+  public function getKeyRevocationActionType()
+  {
+    return $this->keyRevocationActionType;
   }
   /**
    * @param string[]
@@ -268,6 +290,20 @@ class InstanceProperties extends \Google\Collection
   public function getReservationAffinity()
   {
     return $this->reservationAffinity;
+  }
+  /**
+   * @param string[]
+   */
+  public function setResourceManagerTags($resourceManagerTags)
+  {
+    $this->resourceManagerTags = $resourceManagerTags;
+  }
+  /**
+   * @return string[]
+   */
+  public function getResourceManagerTags()
+  {
+    return $this->resourceManagerTags;
   }
   /**
    * @param string[]

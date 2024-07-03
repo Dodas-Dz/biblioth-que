@@ -38,13 +38,13 @@ class Texttospeech extends \Google\Service
   /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.. */
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
-  /** View, manage and query your Dialogflow agents. */
-  const DIALOGFLOW =
-      "https://www.googleapis.com/auth/dialogflow";
 
-  public $projects_locations_datasets;
+  public $operations;
+  public $projects_locations;
+  public $projects_locations_operations;
   public $text;
   public $voices;
+  public $rootUrlTemplate;
 
   /**
    * Constructs the internal representation of the Texttospeech service.
@@ -57,25 +57,98 @@ class Texttospeech extends \Google\Service
   {
     parent::__construct($clientOrConfig);
     $this->rootUrl = $rootUrl ?: 'https://texttospeech.googleapis.com/';
+    $this->rootUrlTemplate = $rootUrl ?: 'https://texttospeech.UNIVERSE_DOMAIN/';
     $this->servicePath = '';
     $this->batchPath = 'batch';
     $this->version = 'v1';
     $this->serviceName = 'texttospeech';
 
-    $this->projects_locations_datasets = new Texttospeech\Resource\ProjectsLocationsDatasets(
+    $this->operations = new Texttospeech\Resource\Operations(
         $this,
         $this->serviceName,
-        'datasets',
+        'operations',
         [
           'methods' => [
-            'import' => [
-              'path' => 'v1/{+name}:import',
+            'cancel' => [
+              'path' => 'v1/{+name}:cancel',
               'httpMethod' => 'POST',
               'parameters' => [
                 'name' => [
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ],
+              ],
+            ],'delete' => [
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'DELETE',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->projects_locations = new Texttospeech\Resource\ProjectsLocations(
+        $this,
+        $this->serviceName,
+        'locations',
+        [
+          'methods' => [
+            'synthesizeLongAudio' => [
+              'path' => 'v1/{+parent}:synthesizeLongAudio',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'parent' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->projects_locations_operations = new Texttospeech\Resource\ProjectsLocationsOperations(
+        $this,
+        $this->serviceName,
+        'operations',
+        [
+          'methods' => [
+            'get' => [
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'list' => [
+              'path' => 'v1/{+name}/operations',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'filter' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
+                  'location' => 'query',
+                  'type' => 'string',
                 ],
               ],
             ],

@@ -42,17 +42,31 @@ class GoogleCloudApigeeV1Environment extends \Google\Model
   /**
    * @var string
    */
+  public $forwardProxyUri;
+  /**
+   * @var bool
+   */
+  public $hasAttachedFlowHooks;
+  /**
+   * @var string
+   */
   public $lastModifiedAt;
   /**
    * @var string
    */
   public $name;
+  protected $nodeConfigType = GoogleCloudApigeeV1NodeConfig::class;
+  protected $nodeConfigDataType = '';
   protected $propertiesType = GoogleCloudApigeeV1Properties::class;
   protected $propertiesDataType = '';
   /**
    * @var string
    */
   public $state;
+  /**
+   * @var string
+   */
+  public $type;
 
   /**
    * @param string
@@ -127,6 +141,34 @@ class GoogleCloudApigeeV1Environment extends \Google\Model
   /**
    * @param string
    */
+  public function setForwardProxyUri($forwardProxyUri)
+  {
+    $this->forwardProxyUri = $forwardProxyUri;
+  }
+  /**
+   * @return string
+   */
+  public function getForwardProxyUri()
+  {
+    return $this->forwardProxyUri;
+  }
+  /**
+   * @param bool
+   */
+  public function setHasAttachedFlowHooks($hasAttachedFlowHooks)
+  {
+    $this->hasAttachedFlowHooks = $hasAttachedFlowHooks;
+  }
+  /**
+   * @return bool
+   */
+  public function getHasAttachedFlowHooks()
+  {
+    return $this->hasAttachedFlowHooks;
+  }
+  /**
+   * @param string
+   */
   public function setLastModifiedAt($lastModifiedAt)
   {
     $this->lastModifiedAt = $lastModifiedAt;
@@ -151,6 +193,20 @@ class GoogleCloudApigeeV1Environment extends \Google\Model
   public function getName()
   {
     return $this->name;
+  }
+  /**
+   * @param GoogleCloudApigeeV1NodeConfig
+   */
+  public function setNodeConfig(GoogleCloudApigeeV1NodeConfig $nodeConfig)
+  {
+    $this->nodeConfig = $nodeConfig;
+  }
+  /**
+   * @return GoogleCloudApigeeV1NodeConfig
+   */
+  public function getNodeConfig()
+  {
+    return $this->nodeConfig;
   }
   /**
    * @param GoogleCloudApigeeV1Properties
@@ -179,6 +235,20 @@ class GoogleCloudApigeeV1Environment extends \Google\Model
   public function getState()
   {
     return $this->state;
+  }
+  /**
+   * @param string
+   */
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+  /**
+   * @return string
+   */
+  public function getType()
+  {
+    return $this->type;
   }
 }
 

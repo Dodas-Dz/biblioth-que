@@ -57,6 +57,10 @@ class Route extends \Google\Collection
   /**
    * @var string
    */
+  public $nextHopHub;
+  /**
+   * @var string
+   */
   public $nextHopIlb;
   /**
    * @var string
@@ -82,6 +86,10 @@ class Route extends \Google\Collection
    * @var string
    */
   public $priority;
+  /**
+   * @var string
+   */
+  public $routeStatus;
   /**
    * @var string
    */
@@ -226,6 +234,20 @@ class Route extends \Google\Collection
   /**
    * @param string
    */
+  public function setNextHopHub($nextHopHub)
+  {
+    $this->nextHopHub = $nextHopHub;
+  }
+  /**
+   * @return string
+   */
+  public function getNextHopHub()
+  {
+    return $this->nextHopHub;
+  }
+  /**
+   * @param string
+   */
   public function setNextHopIlb($nextHopIlb)
   {
     $this->nextHopIlb = $nextHopIlb;
@@ -320,6 +342,20 @@ class Route extends \Google\Collection
   public function getPriority()
   {
     return $this->priority;
+  }
+  /**
+   * @param string
+   */
+  public function setRouteStatus($routeStatus)
+  {
+    $this->routeStatus = $routeStatus;
+  }
+  /**
+   * @return string
+   */
+  public function getRouteStatus()
+  {
+    return $this->routeStatus;
   }
   /**
    * @param string

@@ -17,12 +17,17 @@
 
 namespace Google\Service\AIPlatformNotebooks;
 
-class RuntimeSoftwareConfig extends \Google\Model
+class RuntimeSoftwareConfig extends \Google\Collection
 {
+  protected $collection_key = 'kernels';
   /**
    * @var string
    */
   public $customGpuDriverPath;
+  /**
+   * @var bool
+   */
+  public $disableTerminal;
   /**
    * @var bool
    */
@@ -39,6 +44,9 @@ class RuntimeSoftwareConfig extends \Google\Model
    * @var bool
    */
   public $installGpuDriver;
+  protected $kernelsType = ContainerImage::class;
+  protected $kernelsDataType = 'array';
+  public $kernels = [];
   /**
    * @var string
    */
@@ -47,6 +55,18 @@ class RuntimeSoftwareConfig extends \Google\Model
    * @var string
    */
   public $postStartupScript;
+  /**
+   * @var string
+   */
+  public $postStartupScriptBehavior;
+  /**
+   * @var bool
+   */
+  public $upgradeable;
+  /**
+   * @var string
+   */
+  public $version;
 
   /**
    * @param string
@@ -61,6 +81,20 @@ class RuntimeSoftwareConfig extends \Google\Model
   public function getCustomGpuDriverPath()
   {
     return $this->customGpuDriverPath;
+  }
+  /**
+   * @param bool
+   */
+  public function setDisableTerminal($disableTerminal)
+  {
+    $this->disableTerminal = $disableTerminal;
+  }
+  /**
+   * @return bool
+   */
+  public function getDisableTerminal()
+  {
+    return $this->disableTerminal;
   }
   /**
    * @param bool
@@ -119,6 +153,20 @@ class RuntimeSoftwareConfig extends \Google\Model
     return $this->installGpuDriver;
   }
   /**
+   * @param ContainerImage[]
+   */
+  public function setKernels($kernels)
+  {
+    $this->kernels = $kernels;
+  }
+  /**
+   * @return ContainerImage[]
+   */
+  public function getKernels()
+  {
+    return $this->kernels;
+  }
+  /**
    * @param string
    */
   public function setNotebookUpgradeSchedule($notebookUpgradeSchedule)
@@ -145,6 +193,48 @@ class RuntimeSoftwareConfig extends \Google\Model
   public function getPostStartupScript()
   {
     return $this->postStartupScript;
+  }
+  /**
+   * @param string
+   */
+  public function setPostStartupScriptBehavior($postStartupScriptBehavior)
+  {
+    $this->postStartupScriptBehavior = $postStartupScriptBehavior;
+  }
+  /**
+   * @return string
+   */
+  public function getPostStartupScriptBehavior()
+  {
+    return $this->postStartupScriptBehavior;
+  }
+  /**
+   * @param bool
+   */
+  public function setUpgradeable($upgradeable)
+  {
+    $this->upgradeable = $upgradeable;
+  }
+  /**
+   * @return bool
+   */
+  public function getUpgradeable()
+  {
+    return $this->upgradeable;
+  }
+  /**
+   * @param string
+   */
+  public function setVersion($version)
+  {
+    $this->version = $version;
+  }
+  /**
+   * @return string
+   */
+  public function getVersion()
+  {
+    return $this->version;
   }
 }
 

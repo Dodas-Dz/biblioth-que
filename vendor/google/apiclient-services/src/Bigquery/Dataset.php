@@ -19,7 +19,7 @@ namespace Google\Service\Bigquery;
 
 class Dataset extends \Google\Collection
 {
-  protected $collection_key = 'access';
+  protected $collection_key = 'tags';
   protected $accessType = DatasetAccess::class;
   protected $accessDataType = 'array';
   /**
@@ -41,6 +41,10 @@ class Dataset extends \Google\Collection
   /**
    * @var string
    */
+  public $defaultRoundingMode;
+  /**
+   * @var string
+   */
   public $defaultTableExpirationMs;
   /**
    * @var string
@@ -50,6 +54,10 @@ class Dataset extends \Google\Collection
    * @var string
    */
   public $etag;
+  protected $externalCatalogDatasetOptionsType = ExternalCatalogDatasetOptions::class;
+  protected $externalCatalogDatasetOptionsDataType = '';
+  protected $externalDatasetReferenceType = ExternalDatasetReference::class;
+  protected $externalDatasetReferenceDataType = '';
   /**
    * @var string
    */
@@ -74,18 +82,46 @@ class Dataset extends \Google\Collection
    * @var string
    */
   public $lastModifiedTime;
+  protected $linkedDatasetMetadataType = LinkedDatasetMetadata::class;
+  protected $linkedDatasetMetadataDataType = '';
+  protected $linkedDatasetSourceType = LinkedDatasetSource::class;
+  protected $linkedDatasetSourceDataType = '';
   /**
    * @var string
    */
   public $location;
   /**
+   * @var string
+   */
+  public $maxTimeTravelHours;
+  /**
+   * @var string[]
+   */
+  public $resourceTags;
+  protected $restrictionsType = RestrictionConfig::class;
+  protected $restrictionsDataType = '';
+  /**
    * @var bool
    */
-  public $satisfiesPZS;
+  public $satisfiesPzi;
+  /**
+   * @var bool
+   */
+  public $satisfiesPzs;
   /**
    * @var string
    */
   public $selfLink;
+  /**
+   * @var string
+   */
+  public $storageBillingModel;
+  protected $tagsType = DatasetTags::class;
+  protected $tagsDataType = 'array';
+  /**
+   * @var string
+   */
+  public $type;
 
   /**
    * @param DatasetAccess[]
@@ -174,6 +210,20 @@ class Dataset extends \Google\Collection
   /**
    * @param string
    */
+  public function setDefaultRoundingMode($defaultRoundingMode)
+  {
+    $this->defaultRoundingMode = $defaultRoundingMode;
+  }
+  /**
+   * @return string
+   */
+  public function getDefaultRoundingMode()
+  {
+    return $this->defaultRoundingMode;
+  }
+  /**
+   * @param string
+   */
   public function setDefaultTableExpirationMs($defaultTableExpirationMs)
   {
     $this->defaultTableExpirationMs = $defaultTableExpirationMs;
@@ -212,6 +262,34 @@ class Dataset extends \Google\Collection
   public function getEtag()
   {
     return $this->etag;
+  }
+  /**
+   * @param ExternalCatalogDatasetOptions
+   */
+  public function setExternalCatalogDatasetOptions(ExternalCatalogDatasetOptions $externalCatalogDatasetOptions)
+  {
+    $this->externalCatalogDatasetOptions = $externalCatalogDatasetOptions;
+  }
+  /**
+   * @return ExternalCatalogDatasetOptions
+   */
+  public function getExternalCatalogDatasetOptions()
+  {
+    return $this->externalCatalogDatasetOptions;
+  }
+  /**
+   * @param ExternalDatasetReference
+   */
+  public function setExternalDatasetReference(ExternalDatasetReference $externalDatasetReference)
+  {
+    $this->externalDatasetReference = $externalDatasetReference;
+  }
+  /**
+   * @return ExternalDatasetReference
+   */
+  public function getExternalDatasetReference()
+  {
+    return $this->externalDatasetReference;
   }
   /**
    * @param string
@@ -298,6 +376,34 @@ class Dataset extends \Google\Collection
     return $this->lastModifiedTime;
   }
   /**
+   * @param LinkedDatasetMetadata
+   */
+  public function setLinkedDatasetMetadata(LinkedDatasetMetadata $linkedDatasetMetadata)
+  {
+    $this->linkedDatasetMetadata = $linkedDatasetMetadata;
+  }
+  /**
+   * @return LinkedDatasetMetadata
+   */
+  public function getLinkedDatasetMetadata()
+  {
+    return $this->linkedDatasetMetadata;
+  }
+  /**
+   * @param LinkedDatasetSource
+   */
+  public function setLinkedDatasetSource(LinkedDatasetSource $linkedDatasetSource)
+  {
+    $this->linkedDatasetSource = $linkedDatasetSource;
+  }
+  /**
+   * @return LinkedDatasetSource
+   */
+  public function getLinkedDatasetSource()
+  {
+    return $this->linkedDatasetSource;
+  }
+  /**
    * @param string
    */
   public function setLocation($location)
@@ -312,18 +418,74 @@ class Dataset extends \Google\Collection
     return $this->location;
   }
   /**
+   * @param string
+   */
+  public function setMaxTimeTravelHours($maxTimeTravelHours)
+  {
+    $this->maxTimeTravelHours = $maxTimeTravelHours;
+  }
+  /**
+   * @return string
+   */
+  public function getMaxTimeTravelHours()
+  {
+    return $this->maxTimeTravelHours;
+  }
+  /**
+   * @param string[]
+   */
+  public function setResourceTags($resourceTags)
+  {
+    $this->resourceTags = $resourceTags;
+  }
+  /**
+   * @return string[]
+   */
+  public function getResourceTags()
+  {
+    return $this->resourceTags;
+  }
+  /**
+   * @param RestrictionConfig
+   */
+  public function setRestrictions(RestrictionConfig $restrictions)
+  {
+    $this->restrictions = $restrictions;
+  }
+  /**
+   * @return RestrictionConfig
+   */
+  public function getRestrictions()
+  {
+    return $this->restrictions;
+  }
+  /**
    * @param bool
    */
-  public function setSatisfiesPZS($satisfiesPZS)
+  public function setSatisfiesPzi($satisfiesPzi)
   {
-    $this->satisfiesPZS = $satisfiesPZS;
+    $this->satisfiesPzi = $satisfiesPzi;
   }
   /**
    * @return bool
    */
-  public function getSatisfiesPZS()
+  public function getSatisfiesPzi()
   {
-    return $this->satisfiesPZS;
+    return $this->satisfiesPzi;
+  }
+  /**
+   * @param bool
+   */
+  public function setSatisfiesPzs($satisfiesPzs)
+  {
+    $this->satisfiesPzs = $satisfiesPzs;
+  }
+  /**
+   * @return bool
+   */
+  public function getSatisfiesPzs()
+  {
+    return $this->satisfiesPzs;
   }
   /**
    * @param string
@@ -338,6 +500,48 @@ class Dataset extends \Google\Collection
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+  /**
+   * @param string
+   */
+  public function setStorageBillingModel($storageBillingModel)
+  {
+    $this->storageBillingModel = $storageBillingModel;
+  }
+  /**
+   * @return string
+   */
+  public function getStorageBillingModel()
+  {
+    return $this->storageBillingModel;
+  }
+  /**
+   * @param DatasetTags[]
+   */
+  public function setTags($tags)
+  {
+    $this->tags = $tags;
+  }
+  /**
+   * @return DatasetTags[]
+   */
+  public function getTags()
+  {
+    return $this->tags;
+  }
+  /**
+   * @param string
+   */
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+  /**
+   * @return string
+   */
+  public function getType()
+  {
+    return $this->type;
   }
 }
 
